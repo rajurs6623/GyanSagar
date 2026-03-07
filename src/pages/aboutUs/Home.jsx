@@ -34,21 +34,21 @@ const Home = () => {
   ];
 
   const featuredBooks = [
-    { title: "The Hidden Magic", author: "Aisha R.", rating: "4.9", price: "₹250", cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" },
-    { title: "Space Explorers", author: "Rahul T.", rating: "4.8", price: "₹200", cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80" },
-    { title: "Mystery of the Old Clock", author: "Priya M.", rating: "5.0", price: "₹300", cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80" },
-    { title: "The Talking Tree", author: "Sam S.", rating: "4.7", price: "₹180", cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=400&q=80" },
+    { title: "The Hidden Magic", author: "Aisha R.", rating: "4.9", price: "₹250", cover: "https://i.pinimg.com/1200x/f0/8b/00/f08b00c29882fe33d87159222a33e31a.jpg" },
+    { title: "Space Explorers", author: "Rahul T.", rating: "4.8", price: "₹200", cover: "https://i.pinimg.com/736x/95/78/30/95783024da60c94bc92c877e8ebb017b.jpg" },
+    { title: "Mystery of the Old Clock", author: "Priya M.", rating: "5.0", price: "₹300", cover: "https://i.pinimg.com/736x/83/96/5f/83965f420ca4def1a897f0723557eab6.jpg" },
+    { title: "The Talking Tree", author: "Sam S.", rating: "4.7", price: "₹180", cover: "https://i.pinimg.com/1200x/9c/3b/e1/9c3be12517a3c44f927e4e52688b81db.jpg" },
   ];
 
   const studentAuthors = [
-    { name: "Aisha R.", bio: "12-year-old fantasy lover.", books: 3, rating: "4.9", photo: "https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=200&q=80" },
-    { name: "Rahul T.", bio: "Science Fiction enthusiast.", books: 2, rating: "4.8", photo: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=200&q=80" },
-    { name: "Priya M.", bio: "Loves writing mystery novels.", books: 5, rating: "5.0", photo: "https://images.unsplash.com/photo-1517400508447-f8dde51d48f8?auto=format&fit=crop&w=200&q=80" },
-    { name: "Sam S.", bio: "Comic book artist and writer.", books: 1, rating: "4.7", photo: "https://images.unsplash.com/photo-1506869640319-fea1a2ab8e9d?auto=format&fit=crop&w=200&q=80" },
+    { name: "Aisha R.", bio: "12-year-old fantasy lover.", books: 3, rating: "4.9", photo: "https://i.pinimg.com/736x/08/9c/ce/089cce5e2c9767be9c27d8e6511d8936.jpg" },
+    { name: "Rahul T.", bio: "Science Fiction enthusiast.", books: 2, rating: "4.8", photo: "https://i.pinimg.com/736x/f2/19/94/f2199421fba96a19a66384348b4a39d1.jpg" },
+    { name: "Priya M.", bio: "Loves writing mystery novels.", books: 5, rating: "5.0", photo: "https://i.pinimg.com/736x/9b/86/ad/9b86adeaec5de7440d146c3fcf694f6e.jpg" },
+    { name: "Sam S.", bio: "Comic book artist and writer.", books: 1, rating: "4.7", photo: "https://i.pinimg.com/736x/23/c5/35/23c5356c78b67b5cd2db8a7b43698a10.jpg" },
   ];
 
   return (
-    <div className="font-['Nunito'] pt-20">
+    <div className>
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-[#f1f3ff] py-20 lg:py-32">
         <div className="max-w-[1400px] mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -67,14 +67,14 @@ const Home = () => {
               <Link to="/marketplace" className="px-8 py-4 bg-white text-indigo-600 border-2 border-indigo-100 rounded-xl font-bold text-lg hover:border-indigo-600 hover:bg-indigo-50 transition">
                 Explore Books
               </Link>
-              <Link to="/publish" className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition">
+              {/* <Link to="/publish" className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition">
                 Become an Author
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative h-[400px] lg:h-[600px]">
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Students learning" className="absolute top-0 right-0 w-[70%] h-[70%] object-cover rounded-[2rem] shadow-2xl border-8 border-white z-10" />
-            <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=800&q=80" alt="Writing" className="absolute bottom-0 left-0 w-[60%] h-[60%] object-cover rounded-[2rem] shadow-2xl border-8 border-white z-20" />
+            <img src="https://i.pinimg.com/736x/0d/46/e4/0d46e46baa3d85a32b8954f3e3a2e7d2.jpg" alt="Students learning" className="absolute top-0 right-0 w-[70%] h-[70%] object-cover rounded-[2rem] shadow-2xl border-8 border-white z-10" />
+            <img src="https://i.pinimg.com/1200x/3c/b5/8d/3cb58d9cc4500645e1b6758f0f0b8c26.jpg" alt="Writing" className="absolute bottom-0 left-0 w-[60%] h-[60%] object-cover rounded-[2rem] shadow-2xl border-8 border-white z-20" />
             <div className="absolute top-1/2 left-1/2 w-full h-full bg-indigo-300 rounded-full blur-[100px] -z-10 opacity-50 -translate-x-1/2 -translate-y-1/2" />
           </motion.div>
         </div>
@@ -122,7 +122,7 @@ const Home = () => {
             </div>
             <div className="relative">
               <div className="aspect-[4/3] bg-white rounded-3xl shadow-2xl border border-slate-100 p-4">
-                <img src="https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=800&q=80" alt="Writing Pad" className="w-full h-full object-cover rounded-2xl" />
+                <img src="https://i.pinimg.com/1200x/62/64/cf/6264cf9fc4d0f1f4253eb48f6b703d2b.jpg" alt="Writing Pad" className="w-full h-full object-cover rounded-2xl" />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-indigo-500 rounded-full blur-[80px] -z-10" />
             </div>
