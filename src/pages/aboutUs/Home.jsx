@@ -70,6 +70,7 @@ const Home = () => {
               {/* <Link to="/publish" className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition">
                 Become an Author
               </Link> */}
+              
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative h-[400px] lg:h-[600px]">
