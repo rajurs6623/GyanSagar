@@ -5,7 +5,7 @@ const PublishYourBook = () => {
         <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto min-h-screen">
             <h1 className="text-4xl font-black text-[#1E293B] mb-6">Publish Your Book</h1>
             <p className="text-slate-600 text-lg leading-relaxed">
-                Take the final step and share your creation with the world through our publishing platform.
+                Welcome to the Publish Your Book page. This section will be updated soon with interactive features.
             </p>
         </div>
     );

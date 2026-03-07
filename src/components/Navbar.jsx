@@ -16,8 +16,9 @@ import {
 /*NAV DATA*/
 const navGroups = [
   {
-    label: "About Us",
+    label: "About",
     links: [
+      { name: "Our Mission", path: "/mission", icon: <FaUsers /> },
       { name: "Our Story", path: "/story", icon: <FaBookOpen /> },
       { name: "Our Publisher", path: "/publisher", icon: <FaUsers /> },
     ],
@@ -25,33 +26,62 @@ const navGroups = [
   {
     label: "Learning",
     links: [
-      { name: "Knowledge Store", path: "/store", icon: <FaStore /> },
-      { name: "Reading Library", path: "/library", icon: <FaBookOpen /> },
+      { name: "What is Writing", path: "/what-is-writing", icon: <FaPenNib /> },
+      { name: "What is Storytelling", path: "/what-is-storytelling", icon: <FaBookOpen /> },
+      { name: "Writing Basics", path: "/writing-basics", icon: <FaPenNib /> },
       { name: "Writing Stages", path: "/writing-stages", icon: <FaPenNib /> },
+      { name: "Story Structure", path: "/story-structure", icon: <FaBookOpen /> },
+      { name: "Book Structure", path: "/book-structure", icon: <FaBookOpen /> },
+      { name: "Grammar Guide", path: "/grammar-guide", icon: <FaPenNib /> },
+      { name: "Writing Tips", path: "/writing-tips", icon: <FaPenNib /> },
+      { name: "Famous Authors", path: "/famous-authors", icon: <FaUsers /> },
     ],
   },
   {
     label: "Writing Space",
     links: [
-      { name: "Young Writer's Pad", path: "/writer-pad", icon: <FaPenNib /> },
-      { name: "Learner As Writer", path: "/learner-as-writer", icon: <FaPenNib /> },
-      { name: "Story Book Structure", path: "/story-structure", icon: <FaBookOpen /> },
-      { name: "Story Categories", path: "/story-categories", icon: <FaBookOpen /> },
+      { name: "Young Writer Pad", path: "/writer-pad", icon: <FaPenNib /> },
+      { name: "Idea Notebook", path: "/idea-notebook", icon: <FaBookOpen /> },
       { name: "Story Creator", path: "/story-creator", icon: <FaPenNib /> },
-      { name: "Create a Book", path: "/create-book", icon: <FaBookOpen /> },
+      { name: "Chapter Creator", path: "/chapter-creator", icon: <FaPenNib /> },
+      { name: "Illustration Board", path: "/illustration-board", icon: <FaPenNib /> },
+      { name: "Book Builder", path: "/create-book", icon: <FaBookOpen /> },
     ],
   },
   {
     label: "Publishing",
     links: [
+      { name: "How to Publish", path: "/how-to-publish", icon: <FaUpload /> },
       { name: "Publish Your Book", path: "/publish", icon: <FaUpload /> },
+      { name: "Copyright Guide", path: "/copyright-guide", icon: <FaBookOpen /> },
+      { name: "Book Pricing Guide", path: "/book-pricing-guide", icon: <FaStore /> },
     ],
   },
   {
-    label: "Books & Authors",
+    label: "Books",
     links: [
       { name: "Book Marketplace", path: "/marketplace", icon: <FaStore /> },
+      { name: "New Books", path: "/new-books", icon: <FaBookOpen /> },
+      { name: "Top Rated Books", path: "/top-rated-books", icon: <FaBookOpen /> },
+      { name: "Book Categories", path: "/book-categories", icon: <FaBookOpen /> },
+    ],
+  },
+  {
+    label: "Authors",
+    links: [
       { name: "Our Authors", path: "/authors", icon: <FaUsers /> },
+      { name: "Student Authors", path: "/student-authors", icon: <FaUsers /> },
+      { name: "Top Authors", path: "/top-authors", icon: <FaUsers /> },
+      { name: "Author Profiles", path: "/author-profiles", icon: <FaUserCircle /> },
+    ],
+  },
+  {
+    label: "Community",
+    links: [
+      { name: "Writing Challenges", path: "/challenges", icon: <FaPenNib /> },
+      { name: "Story Competitions", path: "/competitions", icon: <FaBookOpen /> },
+      { name: "Events", path: "/events", icon: <FaUsers /> },
+      { name: "Discussion Forum", path: "/forum", icon: <FaUsers /> },
     ],
   },
 ];
