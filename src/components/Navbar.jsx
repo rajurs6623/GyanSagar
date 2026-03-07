@@ -13,7 +13,7 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 
-/*NAV DATA */
+/*NAV DATA*/
 const navGroups = [
   {
     label: "About Us",
