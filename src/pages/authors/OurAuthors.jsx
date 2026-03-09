@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Quote, Book, Award, ArrowUpRight, Instagram, Twitter, Linkedin, Star, Sparkles } from 'lucide-react';
+import { Quote, Book, Award, ArrowUpRight, Instagram, Twitter, Linkedin, Star, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import RealisticBookReader from '../../components/RealisticBookReader';
 
 const featuredAuthor = {
     name: "Vikram Sethi",
     image: "/images/authors/vikram.png",
     banner: "/images/authors/banner_heritage.png",
     bio: "With a career spanning three decades, Vikram has redefined Indian philosophical literature. His ability to blend ancient wisdom with contemporary struggle makes him a true living legend.",
-    quote: "Literature is the bridge between our inner chaos and the world's order."
+    quote: "Literature is the bridge between our inner chaos and the world's order.",
+    role: "Philosophical Non-Fiction"
 };
 
 const topAuthors = [
@@ -16,6 +18,7 @@ const topAuthors = [
         role: "Contemporary Fiction",
         image: "/images/authors/ananya.png",
         excerpt: "Writing about the unspoken emotions of the modern Indian woman.",
+        bio: "Ananya explores the intricacies of modern Indian relationships through her soul-stirring prose. Her latest bestseller 'Urban Echoes' has touched thousands of hearts.",
         color: "bg-amber-50"
     },
     {
@@ -23,20 +26,21 @@ const topAuthors = [
         role: "Crime & Thriller",
         image: "/images/authors/rahul.png",
         excerpt: "Exploring the dark underbelly of urban life through mystery.",
+        bio: "Known for his gripping plot twists and atmospheric world-building, Rahul brings the dark alleys of Mumbai to life in his suspenseful thrillers.",
         color: "bg-slate-50"
     }
 ];
 
 const genreSpecialists = [
-    { name: "Priya Iyer", genre: "Romance", img: "/images/authors/priya.png" },
-    { name: "Sanjay Khanna", genre: "Business", img: "/images/authors/sanjay.png" },
-    { name: "Kavita Nair", genre: "Poetry", img: "/images/authors/kavita.png" },
-    { name: "Dr. Aryan Dev", genre: "Spirituality", img: "/images/authors/vikram.png" },
-    { name: "Meera Oberoi", genre: "Kitchen Arts", img: "/images/authors/neha.png" },
-    { name: "Zafar Ali", genre: "Historical War", img: "/images/authors/rahul.png" }
+    { name: "Priya Iyer", genre: "Romance", img: "/images/authors/priya.png", role: "Historical Romance", bio: "Priya weaves magic into history, creating lush landscapes and timeless love stories." },
+    { name: "Sanjay Khanna", genre: "Business", img: "/images/authors/sanjay.png", role: "Business Insights", bio: "Sanjay explores the intersection of economic strategy and human behavior." },
+    { name: "Kavita Nair", genre: "Poetry", img: "/images/authors/kavita.png", role: "Modern Poetry", bio: "Kavita's verses capture the heartbeat of urban India." },
+    { name: "Dr. Aryan Dev", genre: "Spirituality", img: "/images/authors/vikram.png", role: "Spiritual Research", bio: "Dr. Aryan explores the depths of the human consciousness." },
+    { name: "Meera Oberoi", genre: "Kitchen Arts", img: "/images/authors/neha.png", role: "Culinary Arts", bio: "Meera explores the cultural significance of traditional Indian recipes." },
+    { name: "Zafar Ali", genre: "Historical War", img: "/images/authors/rahul.png", role: "Historical Military", bio: "Zafar brings the epic battles of history to life." }
 ];
 
-const AuthorCard = ({ author, index }) => {
+const AuthorCard = ({ author, index, onRead }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -45,7 +49,7 @@ const AuthorCard = ({ author, index }) => {
             viewport={{ once: true }}
             whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
             style={{ perspective: "1000px" }}
-            className="group relative flex flex-col bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl overflow-hidden cursor-pointer"
+            className="group relative flex flex-col bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl overflow-hidden"
         >
             <div className={`absolute inset-0 bg-gradient-to-br ${author.color} opacity-30 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -55,6 +59,12 @@ const AuthorCard = ({ author, index }) => {
                     alt={author.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <button
+                    onClick={() => onRead(author)}
+                    className="absolute inset-0 m-auto w-fit h-fit px-8 py-3 bg-white text-slate-900 font-black rounded-full shadow-2xl scale-0 group-hover:scale-100 transition-all hover:bg-amber-500 hover:text-white flex items-center gap-2"
+                >
+                    <Book className="w-5 h-5" /> READ BOOK
+                </button>
             </div>
 
             <div className="relative p-6 space-y-4">
@@ -168,8 +178,15 @@ const fullAuthors = [
 ];
 
 const OurAuthors = () => {
+    const [selectedBook, setSelectedBook] = useState(null);
+
     return (
         <div className="min-h-screen bg-white">
+            <RealisticBookReader
+                author={selectedBook}
+                isOpen={!!selectedBook}
+                onClose={() => setSelectedBook(null)}
+            />
             {/* HERO: Cinematic Entry */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
                 <img src={featuredAuthor.banner} className="absolute inset-0 w-full h-full object-cover scale-110" alt="banner" />
@@ -299,7 +316,7 @@ const OurAuthors = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {fullAuthors.slice(0, 4).map((author, index) => (
-                            <AuthorCard key={author.name} author={author} index={index} />
+                            <AuthorCard key={author.name} author={author} index={index} onRead={setSelectedBook} />
                         ))}
                     </div>
                 </div>
@@ -332,9 +349,11 @@ const OurAuthors = () => {
                                 <span className="text-amber-600 font-bold uppercase tracking-tighter text-4xl opacity-20 block">{`0${index + 1}`}</span>
                                 <h3 className="text-4xl font-black text-slate-900">{author.name}</h3>
                                 <p className="text-sm font-bold text-amber-500 uppercase tracking-widest">{author.role}</p>
-                                <p className="text-slate-600 text-xl leading-relaxed font-light italic">"{author.excerpt}"</p>
-                                <button className="group inline-flex items-center gap-2 text-slate-900 font-bold hover:text-amber-600 transition-colors">
-                                    VIEW PROFILE <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                                <button
+                                    onClick={() => setSelectedBook(author)}
+                                    className="group inline-flex items-center gap-2 text-slate-900 font-bold hover:text-amber-600 transition-colors"
+                                >
+                                    VIEW PROJECT BOOK <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </div>
                         </div>
@@ -357,7 +376,12 @@ const OurAuthors = () => {
                                 <h4 className="font-bold text-slate-900">{spec.name}</h4>
                                 <p className="text-sm text-slate-400 uppercase tracking-widest font-semibold">{spec.genre}</p>
                             </div>
-                            <ArrowUpRight className="ml-auto w-5 h-5 text-slate-300 group-hover:text-amber-500" />
+                            <button
+                                onClick={() => setSelectedBook(spec)}
+                                className="ml-auto p-2 bg-slate-50 rounded-full group-hover:bg-amber-500 group-hover:text-white transition-all shadow-sm"
+                            >
+                                <ArrowUpRight className="w-5 h-5" />
+                            </button>
                         </div>
                     ))}
                 </div>

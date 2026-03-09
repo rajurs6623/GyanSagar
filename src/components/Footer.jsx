@@ -16,21 +16,60 @@ const Footer = () => {
 
     const footerSections = [
         {
-            title: "Navigation",
+            title: "About Us",
             links: [
                 { name: "Home", path: "/" },
+                { name: "Our Mission", path: "/mission" },
                 { name: "Our Story", path: "/story" },
                 { name: "Our Publisher", path: "/publisher" },
-                { name: "Book Store", path: "/marketplace" },
             ],
         },
         {
-            title: "Learning",
+            title: "Learning Hub",
             links: [
-                { name: "Knowledge Store", path: "/store" },
-                { name: "Reading Library", path: "/library" },
+                { name: "Writing Basics", path: "/writing-basics" },
                 { name: "Writing Stages", path: "/writing-stages" },
+                { name: "Story Structure", path: "/story-structure" },
+                { name: "Grammar Guide", path: "/grammar-guide" },
+                { name: "Famous Authors", path: "/famous-authors" },
+            ],
+        },
+        {
+            title: "Creative Tools",
+            links: [
                 { name: "Young Writer's Pad", path: "/writer-pad" },
+                { name: "Idea Notebook", path: "/idea-notebook" },
+                { name: "Story Creator", path: "/story-creator" },
+                { name: "Illustration Board", path: "/illustration-board" },
+                { name: "Create Book", path: "/create-book" },
+            ],
+        },
+        {
+            title: "Publishing",
+            links: [
+                { name: "How to Publish", path: "/how-to-publish" },
+                { name: "Publish Your Book", path: "/publish" },
+                { name: "Copyright Guide", path: "/copyright-guide" },
+                { name: "Pricing Guide", path: "/book-pricing-guide" },
+            ],
+        },
+        {
+            title: "Marketplace",
+            links: [
+                { name: "Book Store", path: "/marketplace" },
+                { name: "New Arrivals", path: "/new-books" },
+                { name: "Top Rated", path: "/top-rated-books" },
+                { name: "Categories", path: "/book-categories" },
+            ],
+        },
+        {
+            title: "Community",
+            links: [
+                { name: "Student Authors", path: "/student-authors" },
+                { name: "Top Authors", path: "/top-authors" },
+                { name: "Challenges", path: "/challenges" },
+                { name: "Competitions", path: "/competitions" },
+                { name: "Forum", path: "/forum" },
             ],
         },
         {
@@ -76,6 +115,19 @@ const Footer = () => {
                             Join our global literary movement.
                         </p>
 
+                        {/* Newsletter Signup */}
+                        <div className="space-y-4 pt-4">
+                            <h5 className="text-indigo-600 font-black text-[11px] uppercase tracking-widest text-center lg:text-left">Subscribe to our newsletter</h5>
+                            <div className="flex p-2 bg-white rounded-2xl border border-indigo-100 shadow-sm focus-within:shadow-md transition-all">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="bg-transparent border-none outline-none px-4 flex-grow text-sm font-bold text-slate-700"
+                                />
+                                <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase hover:bg-slate-900 transition-all">Join</button>
+                            </div>
+                        </div>
+
                         {/* Social Icons with Navbar Theme */}
                         <div className="flex items-center justify-center lg:justify-start gap-4">
                             {[
@@ -98,7 +150,7 @@ const Footer = () => {
 
                     {/* ── LINKS COLUMNS ────────────────────────────────────────── */}
                     <div className="lg:col-span-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8">
                             {footerSections.map((section) => (
                                 <div key={section.title} className="space-y-6 text-center sm:text-left">
                                     <h4 className="text-indigo-600 font-[900] text-[12px] uppercase tracking-[0.25em] relative inline-block pb-2">
@@ -140,7 +192,7 @@ const Footer = () => {
                             <div className="w-10 h-10 rounded-full bg-white border border-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
                                 <FaMapMarkerAlt />
                             </div>
-                            <span className="text-sm group-hover:text-indigo-600 transition-colors">London, United Kingdom</span>
+                            <span className="text-sm group-hover:text-indigo-600 transition-colors">Irummanzil, Hyderabad</span>
                         </div>
                     </div>
 

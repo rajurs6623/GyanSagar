@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Rocket, Sparkles, PenTool, Hash, ArrowRight, Zap, Star, Book, Award, ArrowUpRight, Quote, Activity, Users, Globe, ChevronRight, School, MapPin, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Rocket, Sparkles, PenTool, Hash, ArrowRight, Zap, Star, Book, Award, ArrowUpRight, Quote, Activity, Users, Globe, ChevronRight, School, MapPin, Download, X, Heart, MessageCircle, Share2, Eye } from 'lucide-react';
+import RealisticBookReader from '../../components/RealisticBookReader';
 
 const studentAuthors = [
     { name: "Aarav Malhotra", age: 14, img: "/images/authors/aarav.png", tag: "Sci-Fi", role: "Lead Researcher", bio: "Aarav has been building worlds since he was 8. His debut novella 'The Last Orbit' has been praised for its technical accuracy.", stats: { stories: 12, readers: "4.5K" }, color: "from-cyan-500/10 to-blue-600/10" },
@@ -29,7 +30,7 @@ const studentAuthors = [
     { name: "Maya Iyer", age: 15, img: "/images/authors/priya.png", tag: "Gothic", role: "Dark Soul", bio: "Maya specializes in gothic tales set in ancient Indian mansions. Her atmosphere-heavy writing is both beautiful and unsettling.", stats: { stories: 9, readers: "5.1K" }, color: "from-purple-950/10 to-black/10" }
 ];
 
-const StudentCard = ({ author, index }) => {
+const StudentCard = ({ author, index, onClick }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -39,6 +40,7 @@ const StudentCard = ({ author, index }) => {
             whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
             style={{ perspective: "1000px" }}
             className="group relative flex flex-col bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl overflow-hidden cursor-pointer"
+            onClick={() => onClick(author)}
         >
             <div className={`absolute inset-0 bg-gradient-to-br ${author.color} opacity-30 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -82,9 +84,78 @@ const StudentCard = ({ author, index }) => {
     );
 };
 
+// Placeholder for AuthorDetailModal - assuming it exists elsewhere or is a simple modal
+const AuthorDetailModal = ({ author, isOpen, onClose }) => {
+    if (!isOpen || !author) return null;
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-4"
+                    onClick={onClose}
+                >
+                    <motion.div
+                        initial={{ scale: 0.9, y: 50 }}
+                        animate={{ scale: 1, y: 0 }}
+                        exit={{ scale: 0.9, y: 50 }}
+                        className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button onClick={onClose} className="absolute top-4 right-4 text-slate-500 hover:text-slate-900">
+                            <X className="w-6 h-6" />
+                        </button>
+                        <div className="flex items-center gap-6 mb-6">
+                            <img src={author.img} alt={author.name} className="w-24 h-24 rounded-full object-cover shadow-lg" />
+                            <div>
+                                <h3 className="text-3xl font-bold text-slate-900">{author.name}</h3>
+                                <p className="text-md font-semibold text-amber-600 uppercase tracking-wider">{author.tag} • {author.role}</p>
+                            </div>
+                        </div>
+                        <p className="text-slate-700 text-lg leading-relaxed mb-6">{author.bio}</p>
+                        <div className="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <Book className="w-6 h-6 mx-auto text-slate-400 mb-2" />
+                                <p className="text-sm font-bold text-slate-700">{author.stats.stories}</p>
+                                <p className="text-xs text-slate-400 uppercase">Stories</p>
+                            </div>
+                            <div>
+                                <Star className="w-6 h-6 mx-auto text-yellow-400 mb-2" />
+                                <p className="text-sm font-bold text-slate-700">{author.stats.readers}</p>
+                                <p className="text-xs text-slate-400 uppercase">Readers</p>
+                            </div>
+                            <div>
+                                <Users className="w-6 h-6 mx-auto text-blue-400 mb-2" />
+                                <p className="text-sm font-bold text-slate-700">{author.age}</p>
+                                <p className="text-xs text-slate-400 uppercase">Age</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+};
+
+
 const StudentAuthors = () => {
+    const [selectedAuthor, setSelectedAuthor] = React.useState(null);
+    const [selectedBook, setSelectedBook] = React.useState(null);
+
     return (
         <div className="min-h-screen bg-white">
+            <AuthorDetailModal
+                author={selectedAuthor}
+                isOpen={!!selectedAuthor}
+                onClose={() => setSelectedAuthor(null)}
+            />
+            <RealisticBookReader
+                author={selectedBook}
+                isOpen={!!selectedBook}
+                onClose={() => setSelectedBook(null)}
+            />
             {/* REFINED FULL SCREEN HERO WITH FIXED BG */}
             <section className="relative h-[92vh] flex items-center overflow-hidden">
                 <div
@@ -141,8 +212,8 @@ const StudentAuthors = () => {
                                         <p className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Big Awards</p>
                                     </div>
                                     <div className="flex gap-4 items-center pl-6 border-l border-slate-100">
-                                        <button className="px-8 py-4 bg-slate-900 text-white font-black uppercase text-[10px] rounded-2xl hover:bg-amber-500 transition-all shadow-xl shadow-slate-900/10">Read Now</button>
-                                        <button className="px-8 py-4 border border-slate-200 text-slate-900 font-black uppercase text-[10px] rounded-2xl hover:bg-slate-50 transition-all">Details</button>
+                                        <button onClick={() => setSelectedBook(studentAuthors[0])} className="px-8 py-4 bg-slate-900 text-white font-black uppercase text-[10px] rounded-2xl hover:bg-amber-500 transition-all shadow-xl shadow-slate-900/10">Read Now</button>
+                                        <button onClick={() => setSelectedAuthor(studentAuthors[0])} className="px-8 py-4 border border-slate-200 text-slate-900 font-black uppercase text-[10px] rounded-2xl hover:bg-slate-50 transition-all">Details</button>
                                     </div>
                                 </div>
                             </motion.div>
@@ -192,7 +263,7 @@ const StudentAuthors = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {studentAuthors.slice(0, 8).map((author, index) => (
-                            <StudentCard key={author.name} author={author} index={index} />
+                            <StudentCard key={author.name} author={author} index={index} onClick={setSelectedBook} />
                         ))}
                     </div>
                 </div>
@@ -251,7 +322,7 @@ const StudentAuthors = () => {
                 </div>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[250px]">
-                    <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl">
+                    <div onClick={() => setSelectedBook(studentAuthors[0])} className="col-span-2 row-span-2 relative group overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl cursor-pointer">
                         <img src={studentAuthors[0].img} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700" alt="aarav" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                         <div className="absolute bottom-10 left-10 text-white">
@@ -269,7 +340,7 @@ const StudentAuthors = () => {
                         </div>
                     </div>
 
-                    <div className="col-span-1 row-span-2 relative rounded-[3rem] bg-slate-100 overflow-hidden group border border-slate-200 shadow-lg">
+                    <div onClick={() => setSelectedBook(studentAuthors[1])} className="col-span-1 row-span-2 relative rounded-[3rem] bg-slate-100 overflow-hidden group border border-slate-200 shadow-lg cursor-pointer">
                         <img src={studentAuthors[1].img} className="w-full h-full object-cover transition-all duration-700" alt="diya" />
                         <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md p-4 rounded-full shadow-md text-amber-600">
                             <Sparkles className="w-6 h-6" />
@@ -295,6 +366,7 @@ const StudentAuthors = () => {
                             <motion.div
                                 key={i}
                                 whileHover={{ y: -10 }}
+                                onClick={() => setSelectedBook(author)}
                                 className="space-y-4 cursor-pointer group"
                             >
                                 <div className="aspect-[3/4] bg-slate-100 rounded-2xl overflow-hidden relative shadow-lg group-hover:shadow-2xl transition-all">
