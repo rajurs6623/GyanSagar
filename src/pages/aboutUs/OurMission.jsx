@@ -101,7 +101,7 @@ const OurMission = () => {
         <div className="pt-0 pb-20 bg-slate-50 min-h-screen font-sans">
 
             {/* Hero Banner Section */}
-            <div className="relative w-full bg-indigo-950 py-28 px-4 overflow-hidden shadow-2xl">
+            <div className="relative w-full min-h-[92vh] flex items-center bg-indigo-950 py-20 px-4 overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/images/about/mission_banner_3d_1772874943740.png"

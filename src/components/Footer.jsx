@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
-    FaInstagram,
-    FaTwitter,
-    FaFacebookF,
-    FaYoutube,
-    FaEnvelope,
-    FaMapMarkerAlt,
-    FaChevronRight,
+  FaInstagram,
+  FaTwitter,
+  FaFacebookF,
+  FaYoutube,
+  FaEnvelope,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -202,13 +200,81 @@ const Footer = () => {
 
                 </div>
             </div>
+          </Link>
+          <p className="text-[11px] text-slate-500 max-w-[200px] text-center md:text-left font-semibold leading-tight italic">
+            "Every child is an author, and every story deserves a shelf."
+          </p>
+          <div className="flex gap-2">
+            {[
+              { icon: <FaInstagram />, href: "#" },
+              { icon: <FaTwitter />, href: "#" },
+              { icon: <FaFacebookF />, href: "#" },
+              { icon: <FaYoutube />, href: "#" },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                className="w-7 h-7 rounded bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-all shadow-sm text-[10px]"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
 
-            {/* Decorative Blur for Extra Modern Look */}
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-200/20 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-200/20 rounded-full blur-[100px] pointer-events-none"></div>
+        {/* ── LINKS COLUMNS ── */}
+        <div className="flex justify-center md:justify-start gap-8 md:gap-16 w-full md:w-auto flex-1 md:pl-8">
+          {footerSections.map((section) => (
+            <div
+              key={section.title}
+              className="flex flex-col items-center md:items-start space-y-2"
+            >
+              <h4 className="text-indigo-600 font-bold text-[9px] uppercase tracking-widest">
+                {section.title}
+              </h4>
+              <ul className="space-y-1.5 text-center md:text-left">
+                {section.links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
+                      className="text-slate-500 hover:text-indigo-600 transition-colors text-[11px] font-bold block"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-        </footer>
-    );
+        {/* ── CONTACT STRIP ── */}
+        <div className="flex flex-col items-center md:items-end space-y-3 shrink-0 lg:w-[300px]">
+          <div className="flex flex-col items-center md:items-end gap-1.5">
+            <div className="flex items-center gap-2 text-slate-500 text-[11px] font-bold group">
+              <FaEnvelope className="text-indigo-400 group-hover:text-indigo-600 transition-colors text-[10px]" />
+              <a
+                href="mailto:hello@nationsyoungauthors.com"
+                className="hover:text-indigo-600 transition-colors"
+              >
+                hello@nationsyoungauthors.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-slate-500 text-[11px] font-bold">
+              <FaMapMarkerAlt className="text-indigo-400 text-[10px]" />
+              <span>London, United Kingdom</span>
+            </div>
+          </div>
+          <p className="text-slate-400 font-bold text-[8px] tracking-widest uppercase mt-2 text-center md:text-right">
+            © {currentYear} NYA. All rights reserved.
+          </p>
+        </div>
+      </div>
+      {/* Subtle Gradient Glows to stay looking premium but small */}
+      <div className="absolute bottom-0 -left-12 w-32 h-32 bg-indigo-200/20 rounded-full blur-[60px] pointer-events-none"></div>
+      <div className="absolute bottom-0 -right-12 w-32 h-32 bg-indigo-200/20 rounded-full blur-[60px] pointer-events-none"></div>
+    </footer>
+  );
 };
 
 export default Footer;
