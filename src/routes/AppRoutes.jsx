@@ -8,6 +8,11 @@ import YoungWritersPad from "../pages/writingSpace/YoungWritersPad";
 import BookMarketplace from "../pages/books/bookMarketplace";
 import AuthorProfile from "../pages/authors/AuthorProfile";
 import BookDetails from "../pages/books/BookDetails";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
+import Account from "../pages/Account";
+
+
 
 // Pre-existing Pages matching Navbar Structure
 import OurStory from "../pages/aboutUs/OurStory";
@@ -100,6 +105,13 @@ const AppRoutes = () => {
             <Route path="/competitions" element={<StoryCompetitions />} />
             <Route path="/events" element={<Events />} />
             <Route path="/forum" element={<DiscussionForum />} />
+
+            {/* Auth */}
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/account" element={<Account />} />
+
+
 
             <Route path="*" element={<Home />} />
         </Routes>

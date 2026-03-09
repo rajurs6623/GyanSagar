@@ -177,12 +177,19 @@ const Navbar = () => {
 
           {/* RIGHT ACCOUNT + MOBILE TOGGLE */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <Link to="/account" className="flex items-center gap-2 group transition-all">
-              <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
-                <FaUserCircle className="text-xl" />
-              </div>
-              <span className="hidden md:block text-sm font-bold text-slate-700 group-hover:text-indigo-600 transition-colors">Account</span>
-            </Link>
+            {localStorage.getItem("isLoggedIn") === "true" ? (
+              <Link to="/account" className="flex items-center gap-2 group transition-all">
+                <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
+                  <FaUserCircle className="text-xl" />
+                </div>
+                <span className="hidden md:block text-sm font-bold text-slate-700 group-hover:text-indigo-600 transition-colors">My Account</span>
+              </Link>
+            ) : (
+              <Link to="/signin" className="px-6 py-2.5 bg-indigo-600 text-white text-sm font-black rounded-xl hover:bg-slate-900 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2">
+                <FaUserCircle className="text-lg" />
+                Sign In
+              </Link>
+            )}
 
             <button
               onClick={() => setMobileOpen(true)}
@@ -264,14 +271,25 @@ const Navbar = () => {
 
               {/* Drawer Footer */}
               <div className="mt-auto pt-6 border-t border-slate-100">
-                <Link
-                  to="/account"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full bg-indigo-600 py-4 rounded-xl text-white font-black shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all"
-                >
-                  <FaUserCircle className="text-xl" />
-                  My Account
-                </Link>
+                {localStorage.getItem("isLoggedIn") === "true" ? (
+                  <Link
+                    to="/account"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full bg-indigo-600 py-4 rounded-xl text-white font-black shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all"
+                  >
+                    <FaUserCircle className="text-xl" />
+                    My Account
+                  </Link>
+                ) : (
+                  <Link
+                    to="/signin"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full bg-indigo-600 py-4 rounded-xl text-white font-black shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all"
+                  >
+                    <FaUserCircle className="text-xl" />
+                    Sign In
+                  </Link>
+                )}
               </div>
             </motion.div>
           </>
