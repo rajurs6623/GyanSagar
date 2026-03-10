@@ -139,24 +139,18 @@ export default function IdeaNotebook() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfcfd] pt-28 pb-20 px-4 md:px-8 font-['Outfit',sans-serif]">
-      {/* Premium Background Elements */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-200/20 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-200/20 blur-[120px] rounded-full"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-purple-200 via-indigo-200 to-blue-200 pt-28 pb-20 px-4 md:px-8 font-['Outfit',sans-serif]">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div className="space-y-2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 tracking-tight leading-none">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none">
               Writer's{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-yellow-800">
                 Idea Notebook
               </span>
             </h1>
-            <p className="text-slate-500 font-medium text-lg md:text-xl">
+            <p className="text-slate-800 font-bold text-lg md:text-xl drop-shadow-sm">
               Don't let a single creative spark fade away.
             </p>
           </div>
@@ -164,12 +158,11 @@ export default function IdeaNotebook() {
           <button
             onClick={generateAIIdea}
             disabled={isGenerating}
-            className="group relative flex items-center gap-3 bg-slate-900 text-white font-bold py-4 px-8 rounded-2xl hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 hover:-translate-y-1 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:transform-none"
+            className="group relative flex items-center gap-3 bg-indigo-950 text-purple-100 font-bold py-4 px-8 rounded-2xl hover:bg-indigo-900 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:transform-none border border-indigo-500/30"
           >
             <div
               className={`transition-all duration-700 ${isGenerating ? "animate-spin" : "group-hover:rotate-12"}`}
-            >
-            </div>
+            ></div>
             {isGenerating ? "Consulting AI Muse..." : "AI Idea Generator"}
           </button>
         </div>
@@ -177,7 +170,7 @@ export default function IdeaNotebook() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left Column - Input Form */}
           <div className="lg:col-span-4 lg:sticky top-28 h-fit">
-            <div className="bg-white/70 backdrop-blur-xl p-6 md:p-8 rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-white/40 ring-1 ring-slate-100">
+            <div className="bg-[#f8f5ff]/90 backdrop-blur-2xl p-8 rounded-[2rem] shadow-[0_0_40px_rgba(167,139,250,0.3)] border border-indigo-200/50">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-black text-slate-800 flex items-center gap-3">
                   <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
@@ -213,7 +206,7 @@ export default function IdeaNotebook() {
                     placeholder="Enter a captivating title..."
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-400 focus:bg-white outline-none transition-all font-bold text-slate-800 placeholder-slate-400"
+                    className="w-full p-4 bg-white/60 border border-indigo-100 rounded-2xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-400 focus:bg-white outline-none transition-all font-bold text-slate-800 placeholder-slate-400"
                   />
                 </div>
 
@@ -226,7 +219,7 @@ export default function IdeaNotebook() {
                       <button
                         key={cat}
                         onClick={() => setCategory(cat)}
-                        className={`flex items-center justify-center gap-2 p-3 rounded-xl border text-sm font-bold transition-all ${category === cat ? "bg-indigo-600 border-indigo-600 text-white shadow-lg shadow-indigo-100" : "bg-white border-slate-100 text-slate-500 hover:border-indigo-200 hover:text-indigo-600"}`}
+                        className={`flex items-center justify-center gap-2 p-3 rounded-xl border text-sm font-bold transition-all ${category === cat ? "bg-purple-600 border-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]" : "bg-white/50 border-indigo-100 text-slate-600 hover:border-purple-300 hover:text-purple-600"}`}
                       >
                         {cat}
                       </button>
@@ -242,14 +235,14 @@ export default function IdeaNotebook() {
                     placeholder="Describe your vision here..."
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="w-full h-48 p-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-400 focus:bg-white outline-none transition-all font-medium text-slate-700 placeholder-slate-400 resize-none custom-scrollbar leading-relaxed"
+                    className="w-full h-48 p-4 bg-white/60 border border-indigo-100 rounded-2xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-400 focus:bg-white outline-none transition-all font-medium text-slate-800 placeholder-slate-400 resize-none custom-scrollbar leading-relaxed"
                   />
                 </div>
 
                 <button
                   onClick={handleSaveIdea}
                   disabled={!title || !description}
-                  className="w-full group bg-indigo-600 text-white font-black px-6 py-5 rounded-2xl hover:bg-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-indigo-100 hover:shadow-indigo-200 flex items-center justify-center gap-3 overflow-hidden"
+                  className="w-full group bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black px-6 py-5 rounded-2xl hover:from-purple-700 hover:to-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] flex items-center justify-center gap-3 overflow-hidden"
                 >
                   <Bookmark
                     size={20}
@@ -270,10 +263,10 @@ export default function IdeaNotebook() {
           {/* Right Column - Idea Library */}
           <div className="lg:col-span-8 space-y-8">
             {/* Search and Filters Bar */}
-            <div className="bg-white/60 backdrop-blur-md p-3 rounded-[2rem] shadow-xl shadow-slate-100/50 border border-white flex flex-col md:flex-row gap-3">
+            <div className="bg-[#f8f5ff]/90 backdrop-blur-2xl p-3 rounded-[2rem] shadow-[0_0_40px_rgba(167,139,250,0.3)] border border-indigo-200/50 flex flex-col md:flex-row gap-3">
               <div className="relative flex-1 group">
                 <Search
-                  className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-indigo-500"
+                  className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-purple-500"
                   size={18}
                 />
                 <input
@@ -281,7 +274,7 @@ export default function IdeaNotebook() {
                   placeholder="Scour your archive..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-6 py-3.5 bg-slate-50/50 border border-transparent rounded-2xl focus:border-indigo-200 focus:bg-white outline-none font-bold text-slate-700 transition-all"
+                  className="w-full pl-12 pr-6 py-3.5 bg-white/60 border border-indigo-100/50 rounded-2xl focus:border-purple-300 focus:bg-white outline-none font-bold text-slate-800 transition-all placeholder-slate-400"
                 />
               </div>
               <div className="flex gap-2 px-2 overflow-x-auto custom-scrollbar pb-1 md:pb-0 h-auto items-center">
@@ -289,7 +282,7 @@ export default function IdeaNotebook() {
                   <button
                     key={cat}
                     onClick={() => setFilterCategory(cat)}
-                    className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all ${filterCategory === cat ? "bg-slate-900 shadow-lg text-white" : "bg-white text-slate-500 hover:text-indigo-600 hover:bg-indigo-50/50"}`}
+                    className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all ${filterCategory === cat ? "bg-indigo-950 shadow-[0_0_15px_rgba(99,102,241,0.3)] text-purple-100" : "bg-white/50 text-slate-600 hover:text-purple-600 hover:bg-purple-50/50"}`}
                   >
                     {cat === "Favorites" ? (
                       <span className="flex items-center gap-1.5">
@@ -313,10 +306,10 @@ export default function IdeaNotebook() {
                 {filteredIdeas.map((idea) => (
                   <div
                     key={idea.id}
-                    className="group bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all flex flex-col h-full relative overflow-hidden"
+                    className="group bg-[#f8f5ff]/90 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-[0_0_20px_rgba(167,139,250,0.1)] border border-indigo-200/50 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden"
                   >
                     {/* Hover Decoration */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700 opacity-50"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-[2] duration-1000 blur-xl"></div>
 
                     {/* Metadata Header */}
                     <div className="flex justify-between items-start mb-6 z-10">
@@ -352,7 +345,7 @@ export default function IdeaNotebook() {
                         {(idea.tags || []).map((tag) => (
                           <span
                             key={tag}
-                            className="bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-md"
+                            className="bg-white/50 border border-indigo-100/50 text-slate-500 text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-md"
                           >
                             #{tag}
                           </span>
@@ -362,14 +355,14 @@ export default function IdeaNotebook() {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleEdit(idea)}
-                          className="w-10 h-10 bg-slate-50 hover:bg-slate-900 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all shadow-sm"
+                          className="w-10 h-10 bg-white/60 hover:bg-indigo-900 text-slate-500 hover:text-white rounded-xl flex items-center justify-center transition-all shadow-sm hover:shadow-[0_0_15px_rgba(99,102,241,0.4)]"
                           title="Edit"
                         >
                           <Edit3 size={18} />
                         </button>
                         <button
                           onClick={() => handleDelete(idea.id)}
-                          className="w-10 h-10 bg-slate-50 hover:bg-rose-500 text-slate-400 hover:text-white rounded-xl flex items-center justify-center transition-all shadow-sm"
+                          className="w-10 h-10 bg-white/60 hover:bg-rose-500 text-slate-500 hover:text-white rounded-xl flex items-center justify-center transition-all shadow-sm hover:shadow-[0_0_15px_rgba(244,63,94,0.4)]"
                           title="Delete"
                         >
                           <Trash2 size={18} />
@@ -380,8 +373,8 @@ export default function IdeaNotebook() {
                 ))}
               </div>
             ) : (
-              <div className="bg-white/50 backdrop-blur-sm rounded-[3rem] p-20 text-center border-2 border-slate-200 border-dashed">
-                <div className="w-24 h-24 bg-white rounded-3xl shadow-xl shadow-slate-200/50 flex items-center justify-center mx-auto mb-6 text-slate-300 transform -rotate-12">
+              <div className="bg-[#f8f5ff]/50 backdrop-blur-md rounded-[3rem] p-20 text-center border-2 border-indigo-200/50 border-dashed shadow-[0_0_20px_rgba(167,139,250,0.1)]">
+                <div className="w-24 h-24 bg-white/80 rounded-3xl shadow-[0_0_20px_rgba(167,139,250,0.2)] flex items-center justify-center mx-auto mb-6 text-indigo-300 transform -rotate-12">
                   <Book size={40} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-black text-slate-800 mb-3">
