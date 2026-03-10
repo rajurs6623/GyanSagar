@@ -890,25 +890,15 @@ const StoryCreator = ({ onBack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafc] font-['Outfit',-apple-system,sans-serif] selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
-      {/* Premium Background Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] animate-pulse"></div>
-        <div
-          className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[120px] animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,rgba(250,250,252,1)_100%)] opacity-50"></div>
-      </div>
-
+    <div className="min-h-screen bg-sky-100 font-['Outfit',-apple-system,sans-serif] selection:bg-sky-200 selection:text-sky-900 overflow-x-hidden">
       <div className="relative z-10 max-w-[1500px] mx-auto min-h-screen flex flex-col">
         {/* Top Navigation Bar / Stepper */}
-        <header className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 backdrop-blur-xl bg-white/70 border-b border-slate-200/60 shadow-sm shadow-slate-200/20">
+        <header className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 backdrop-blur-xl bg-sky-50/80 border-b border-sky-200/50 shadow-sm shadow-sky-200/30">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div className="flex items-center gap-3 flex-shrink-0">
               <button
                 onClick={onBack}
-                className="group w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white rounded-lg md:rounded-xl shadow-sm border border-slate-100 hover:bg-slate-900 hover:text-white transition-all transform hover:-translate-x-1 hover:scale-105 active:scale-95 flex-shrink-0"
+                className="group w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white/80 backdrop-blur-md rounded-lg md:rounded-xl shadow-sm border border-sky-100 hover:bg-sky-900 hover:text-white transition-all transform hover:-translate-x-1 hover:scale-105 active:scale-95 flex-shrink-0"
               >
                 <ChevronLeft
                   size={18}
@@ -917,14 +907,14 @@ const StoryCreator = ({ onBack }) => {
               </button>
               <div>
                 <div className="flex items-center gap-1.5 mb-0.5">
-                  <div className="w-1 h-1 rounded-full bg-indigo-500 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-sky-500 animate-pulse"></div>
                   <span className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-400">
                     Studio
                   </span>
                 </div>
                 <h1 className="text-base md:text-lg font-black text-slate-900 tracking-tight flex items-center gap-2 truncate max-w-[100px] md:max-w-none">
                   {storyData.basics.title || "Untitled"}
-                  <span className="text-indigo-600">.</span>
+                  <span className="text-sky-600">.</span>
                 </h1>
               </div>
             </div>
@@ -944,7 +934,7 @@ const StoryCreator = ({ onBack }) => {
                         className={`group relative flex flex-col items-center min-w-[45px] md:min-w-[60px] transition-all duration-300 ${isActive ? "scale-105" : "hover:scale-105"}`}
                       >
                         <div
-                          className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center transition-all duration-500 ${isActive ? "bg-slate-900 text-white shadow-xl shadow-slate-200" : isPast ? "bg-emerald-500 text-white" : "bg-white border border-slate-200 text-slate-400 group-hover:border-indigo-300 group-hover:text-indigo-500"}`}
+                          className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center transition-all duration-500 ${isActive ? "bg-sky-600 text-white shadow-xl shadow-sky-200" : isPast ? "bg-sky-400 text-white" : "bg-white border border-sky-100 text-slate-400 group-hover:border-sky-300 group-hover:text-sky-600"}`}
                         >
                           {isPast ? (
                             <CheckCircle size={14} />
@@ -958,12 +948,12 @@ const StoryCreator = ({ onBack }) => {
                           {step.title}
                         </span>
                         {isActive && (
-                          <div className="absolute -top-1 w-1 h-1 bg-indigo-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
+                          <div className="absolute -top-1 w-1 h-1 bg-sky-500 rounded-full shadow-[0_0_10px_rgba(14,165,233,0.8)]"></div>
                         )}
                       </button>
                       {idx < Steps.length - 1 && (
                         <div
-                          className={`w-2 md:w-6 h-0.5 rounded-full transition-colors duration-700 ${isPast ? "bg-emerald-500" : "bg-slate-100"}`}
+                          className={`w-2 md:w-6 h-0.5 rounded-full transition-colors duration-700 ${isPast ? "bg-sky-400" : "bg-sky-100"}`}
                         ></div>
                       )}
                     </React.Fragment>
@@ -973,12 +963,12 @@ const StoryCreator = ({ onBack }) => {
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
-              <div className="px-4 py-2 bg-slate-100/50 rounded-xl border border-slate-200/50 text-slate-500 text-xs font-bold flex items-center gap-3">
+              <div className="px-4 py-2 bg-sky-100/50 rounded-xl border border-sky-200/50 text-slate-500 text-xs font-bold flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className={`w-5 h-5 rounded-full border border-white shadow-sm bg-indigo-${i}00`}
+                      className={`w-5 h-5 rounded-full border border-white shadow-sm bg-sky-${i}00`}
                     ></div>
                   ))}
                 </div>
@@ -992,9 +982,9 @@ const StoryCreator = ({ onBack }) => {
         <div className="flex-1 flex flex-col lg:flex-row p-6 md:p-12 gap-12">
           {/* Main Content Area */}
           <main className="flex-1 max-w-[1000px] mx-auto w-full flex flex-col items-center">
-            <div className="w-full bg-white/60 backdrop-blur-2xl border border-white rounded-[3rem] p-8 md:p-14 shadow-2xl shadow-indigo-100/30 transition-all duration-700 relative overflow-hidden flex flex-col h-full min-h-[600px]">
+            <div className="w-full bg-sky-50/80 backdrop-blur-2xl border border-sky-200 rounded-[3rem] p-8 md:p-14 shadow-2xl shadow-sky-200/50 transition-all duration-700 relative overflow-hidden flex flex-col h-full min-h-[600px]">
               {/* Internal Glow */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
 
               <div className="flex-1">{renderStepContent()}</div>
 
@@ -1042,22 +1032,22 @@ const StoryCreator = ({ onBack }) => {
           {/* Sidebar / Assistant */}
           <aside className="lg:w-[400px] flex flex-col gap-8 shrink-0">
             {/* The Muse Card */}
-            <div className="bg-slate-600 rounded-[3rem] p-10 text-black shadow-2xl shadow-slate-900/20 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-500/20 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+            <div className="bg-sky-900 rounded-[2.5rem] p-8 text-white shadow-[0_8px_30px_rgb(14,165,233,0.15)] relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sky-500/20 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
                   <div>
-                    <h3 className="font-black text-xs uppercase tracking-widest text-indigo-300">
+                    <h3 className="font-black text-xs uppercase tracking-widest text-sky-300">
                       Writing Wisdom
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-sky-100">
                       Step {currentStep} Guidance
                     </p>
                   </div>
                 </div>
                 <div className="min-h-[160px] flex items-center">
                   <p
-                    className="text-xl font-medium leading-relaxed italic text-indigo-50/90 transition-all duration-500 animate-in fade-in"
+                    className="text-xl font-medium leading-relaxed italic text-sky-50/90 transition-all duration-500 animate-in fade-in"
                     key={activeTip}
                   >
                     "{STORY_TIPS[activeTip]}"
@@ -1068,7 +1058,7 @@ const StoryCreator = ({ onBack }) => {
                     <button
                       key={i}
                       onClick={() => setActiveTip(i)}
-                      className={`h-1 rounded-full transition-all duration-500 ${i === activeTip ? "w-10 bg-indigo-400" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
+                      className={`h-1 rounded-full transition-all duration-500 ${i === activeTip ? "w-10 bg-sky-400" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
                     />
                   ))}
                 </div>
@@ -1076,9 +1066,9 @@ const StoryCreator = ({ onBack }) => {
             </div>
 
             {/* Architecture Progress Checklist */}
-            <div className="bg-white/60 backdrop-blur-xl border border-white p-10 rounded-[3rem] shadow-xl shadow-slate-200/40">
+            <div className="bg-sky-50/80 backdrop-blur-md p-8 rounded-[2.5rem] shadow-xl shadow-sky-200/40 border border-sky-200">
               <h3 className="text-lg font-black text-slate-900 mb-8 flex items-center gap-3">
-                <div className="w-1.5 h-6 bg-indigo-500 rounded-full"></div>
+                <div className="w-1.5 h-6 bg-sky-500 rounded-full"></div>
                 Architecture Checklist
               </h3>
               <div className="space-y-4">

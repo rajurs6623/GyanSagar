@@ -40,7 +40,68 @@ import {
   Mic,
   Languages,
   BookOpen,
+  Palette,
 } from "lucide-react";
+
+const WRITING_THEMES = [
+  {
+    id: "mesh",
+    name: "Premium Mesh",
+    bg: "bg-mesh",
+    paper: "bg-white shadow-sm border border-slate-200 rounded-sm",
+    text: "text-slate-800",
+    heading: "text-slate-900",
+    quote: "border-indigo-500 text-slate-700",
+    panelBg: "bg-white/80 backdrop-blur-2xl",
+    panelBorder: "border-indigo-100/50",
+  },
+  {
+    id: "gradient",
+    name: "Soft Gradient",
+    bg: "bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100",
+    paper:
+      "bg-fuchsia-50/90 backdrop-blur-2xl shadow-[0_10px_40px_rgba(236,72,153,0.1)] rounded-3xl border border-white/60",
+    text: "text-slate-800",
+    heading: "text-slate-900",
+    quote: "border-fuchsia-400 text-slate-700",
+    panelBg: "bg-white/50 backdrop-blur-2xl",
+    panelBorder: "border-white/40",
+  },
+  {
+    id: "magical",
+    name: "Magical Fantasy",
+    bg: "bg-gradient-to-br from-purple-300 via-indigo-300 to-blue-300",
+    paper:
+      "bg-[#f8f5ff]/90 backdrop-blur-2xl shadow-[0_0_40px_rgba(167,139,250,0.3)] rounded-3xl border border-indigo-200/50",
+    text: "text-slate-800",
+    heading: "text-slate-900",
+    quote: "border-purple-400 text-slate-700",
+    panelBg: "bg-purple-100/70 backdrop-blur-2xl",
+    panelBorder: "border-purple-200/50",
+  },
+  {
+    id: "cloud",
+    name: "Minimal Cloud",
+    bg: "bg-sky-100",
+    paper: "bg-sky-50 shadow-sm border border-sky-200 rounded-[2rem]",
+    text: "text-slate-800",
+    heading: "text-slate-900",
+    quote: "border-sky-400 text-slate-700",
+    panelBg: "bg-sky-50/80 backdrop-blur-xl",
+    panelBorder: "border-sky-200/50",
+  },
+  {
+    id: "nature",
+    name: "Nature Writer",
+    bg: "bg-[#d1e8d8]",
+    paper: "bg-[#e8f4ec] border-2 border-[#2f855a]/20 shadow-xl rounded-2xl",
+    text: "text-slate-800",
+    heading: "text-slate-900",
+    quote: "border-[#2f855a]/40 text-slate-700",
+    panelBg: "bg-[#d1ebd8]/90 backdrop-blur-xl",
+    panelBorder: "border-[#a5d6b4]",
+  },
+];
 
 const ILLUSTRATION_CATEGORIES = {
   "Sports & Games": [
@@ -140,13 +201,13 @@ const EditorButton = ({ icon: Icon, active, action, title }) => (
   </button>
 );
 
-const SidebarButton = ({ icon: Icon, label, color, onClick }) => (
+const SidebarButton = ({ icon: Icon, label, iconBg, iconColor, onClick }) => (
   <button
     onClick={onClick}
-    className="w-full flex items-center gap-4 py-2 hover:bg-slate-50 rounded-xl transition-colors group"
+    className="w-full flex items-center gap-4 py-2.5 px-3 hover:bg-slate-50/80 rounded-xl transition-all group"
   >
     <div
-      className={`p-2.5 rounded-xl border border-slate-200 ${color} bg-white shadow-sm flex items-center justify-center group-hover:border-slate-300 transition-colors`}
+      className={`p-2.5 rounded-xl border border-slate-100 ${iconBg} ${iconColor} shadow-sm flex items-center justify-center group-hover:scale-105 transition-transform`}
     >
       <Icon className="w-[18px] h-[18px]" strokeWidth={2.5} />
     </div>
@@ -258,6 +319,11 @@ const YoungWritersPad = () => {
     useState(false);
   const [illusURLInput, setIllusURLInput] = useState("");
   const [illusSearchQuery, setIllusSearchQuery] = useState("");
+
+  const [activeThemeId, setActiveThemeId] = useState("mesh");
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const activeThemeObj =
+    WRITING_THEMES.find((t) => t.id === activeThemeId) || WRITING_THEMES[0];
 
   const checkPagination = () => {
     if (editorRef.current) {
@@ -668,11 +734,13 @@ const YoungWritersPad = () => {
       if (
         !e.target.closest(".menu-container") &&
         !e.target.closest(".font-menu-container") &&
-        !e.target.closest(".size-menu-container")
+        !e.target.closest(".size-menu-container") &&
+        !e.target.closest(".theme-menu-container")
       ) {
         setActiveMenu(null);
         setShowFontMenu(false);
         setShowSizeMenu(false);
+        setShowThemeMenu(false);
       }
     };
     document.addEventListener("click", handleClickOutside);
@@ -691,10 +759,12 @@ const YoungWritersPad = () => {
   return (
     <div
       ref={containerRef}
-      className={`bg-[#f8fafc] font-['Nunito'] flex flex-col min-h-[600px] overflow-hidden w-full relative border-b border-indigo-100/50 ${isFullscreen ? "h-screen" : "h-[calc(100vh-150px)]"}`}
+      className={`${activeThemeObj.bg} font-['Nunito'] flex flex-col min-h-[600px] overflow-hidden w-full relative border-b transition-colors duration-500 ${activeThemeObj.panelBorder} ${isFullscreen ? "h-screen" : "h-[calc(100vh-150px)]"}`}
     >
       {/* MOBILE TOOLBAR TOGGLE */}
-      <div className="md:hidden flex items-center gap-2 bg-white border-b border-slate-200 px-3 py-2 shrink-0">
+      <div
+        className={`md:hidden flex items-center gap-2 border-b px-3 py-2 shrink-0 transition-colors duration-500 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
+      >
         <button
           onClick={() => setShowLeftSidebar(!showLeftSidebar)}
           className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-100 hover:text-indigo-600 transition-colors"
@@ -714,7 +784,9 @@ const YoungWritersPad = () => {
         </button>
       </div>
       {/* TOP BAR - MENU OPTIONS */}
-      <div className="bg-white border-b border-slate-200 px-4 py-2 flex items-center justify-between shrink-0">
+      <div
+        className={`border-b px-4 py-2 flex items-center justify-between shrink-0 transition-colors duration-500 relative z-50 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
+      >
         <div className="flex flex-col">
           <input
             type="text"
@@ -931,7 +1003,9 @@ const YoungWritersPad = () => {
       />
 
       {/* FORMATTING TOOLBAR */}
-      <div className="bg-white border-b border-slate-200 px-2 md:px-4 py-2 md:py-3 flex items-center gap-1 md:gap-2 shrink-0 flex-wrap shadow-sm z-40 w-full relative">
+      <div
+        className={`border-b px-2 md:px-4 py-2 md:py-3 flex items-center gap-1 md:gap-2 shrink-0 flex-wrap shadow-sm z-40 w-full relative transition-colors duration-500 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
+      >
         <div className="flex items-center gap-1 border-r border-slate-200 pr-2 relative font-menu-container">
           <button
             onClick={() => setShowFontMenu(!showFontMenu)}
@@ -971,6 +1045,38 @@ const YoungWritersPad = () => {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-1 border-r border-slate-200 pr-3 pl-1 relative theme-menu-container">
+          <button
+            onClick={() => setShowThemeMenu(!showThemeMenu)}
+            className="flex items-center gap-2 px-3 py-1.5 hover:bg-slate-100 rounded-lg text-sm font-bold text-slate-700"
+          >
+            <Palette className="w-4 h-4" /> Theme
+          </button>
+          {showThemeMenu && (
+            <div className="absolute top-full left-0 mt-1 bg-white border border-slate-200 shadow-xl rounded-lg py-2 w-56 z-[70] max-h-80 overflow-y-auto">
+              <div className="px-4 py-2 text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 border-b border-slate-100">
+                SCENE THEMES
+              </div>
+              {WRITING_THEMES.map((theme) => (
+                <button
+                  key={theme.id}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    setActiveThemeId(theme.id);
+                    setShowThemeMenu(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 text-sm hover:bg-slate-50 transition-colors flex items-center justify-between ${activeThemeId === theme.id ? "text-indigo-600 bg-indigo-50/50" : "text-slate-700"}`}
+                >
+                  <span className="font-bold">{theme.name}</span>
+                  {activeThemeId === theme.id && (
+                    <CheckCircle className="w-4 h-4" />
                   )}
                 </button>
               ))}
@@ -1144,7 +1250,7 @@ const YoungWritersPad = () => {
         <div
           className={`${
             showLeftSidebar ? "flex" : "hidden"
-          } md:flex w-[260px] bg-white border-r border-slate-200 flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 left-0 shadow-2xl md:shadow-none`}
+          } md:flex w-[260px] border-r flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 left-0 shadow-[4px_0_24px_rgba(0,0,0,0.02)] transition-all duration-500 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
         >
           <div className="p-4">
             <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
@@ -1154,7 +1260,8 @@ const YoungWritersPad = () => {
               <SidebarButton
                 icon={FilePlus}
                 label="Create Chapters"
-                color="text-indigo-500"
+                iconBg="bg-indigo-50"
+                iconColor="text-indigo-600"
                 onClick={() =>
                   insertHTML(
                     "<br/><h2><strong>Chapter Title</strong></h2><p>Start writing here...</p><br/>",
@@ -1164,7 +1271,8 @@ const YoungWritersPad = () => {
               <SidebarButton
                 icon={Users}
                 label="Add Characters"
-                color="text-rose-500"
+                iconBg="bg-rose-50"
+                iconColor="text-rose-600"
                 onClick={() =>
                   insertHTML(
                     "<br/><p><strong>[Character Name]:</strong> (Role/Description)</p><br/>",
@@ -1174,7 +1282,8 @@ const YoungWritersPad = () => {
               <SidebarButton
                 icon={Image}
                 label="Add Scenes"
-                color="text-emerald-500"
+                iconBg="bg-emerald-50"
+                iconColor="text-emerald-600"
                 onClick={() =>
                   insertHTML(
                     "<br/><p><em>[Scene Setting: Time and Place]</em></p><br/>",
@@ -1184,7 +1293,8 @@ const YoungWritersPad = () => {
               <SidebarButton
                 icon={MessageSquare}
                 label="Dialogue Writer"
-                color="text-blue-500"
+                iconBg="bg-blue-50"
+                iconColor="text-blue-600"
                 onClick={() =>
                   insertHTML(
                     '<br/><p><strong>[Name]:</strong> "Enter their dialogue here..."</p><br/>',
@@ -1320,12 +1430,11 @@ const YoungWritersPad = () => {
         </div>
 
         {/* CENTER EDITOR */}
-        <div className="flex-1 overflow-y-auto bg-slate-100/50 p-4 md:p-8 flex justify-center custom-scrollbar">
+        <div className="flex-1 overflow-y-auto bg-transparent p-4 md:p-8 flex justify-center custom-scrollbar">
           <div
-            className="relative w-full max-w-[816px] transition-transform duration-300 origin-top"
+            className="relative w-full max-w-[816px] transition-all duration-300 origin-top"
             style={{
-              transform: `scale(${zoom / 100})`,
-              marginBottom: `${(zoom - 100) * 10}px`,
+              zoom: `${zoom}%`,
             }}
           >
             {/* Page Backgrounds */}
@@ -1333,9 +1442,11 @@ const YoungWritersPad = () => {
               {Array.from({ length: pageCount }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-full min-w-0 h-[1056px] bg-white shadow-sm border border-slate-200 shrink-0 relative rounded-sm"
+                  className={`w-full min-w-0 h-[1056px] shrink-0 relative transition-all duration-500 ${activeThemeObj.paper}`}
                 >
-                  <div className="absolute bottom-6 right-8 text-slate-300 font-bold text-xs font-mono">
+                  <div
+                    className={`absolute bottom-6 right-8 font-bold text-xs font-mono opacity-50 ${activeThemeObj.text}`}
+                  >
                     PAGE {i + 1}
                   </div>
                   {showOutline && (
@@ -1348,7 +1459,7 @@ const YoungWritersPad = () => {
             {/* Editable Content */}
             <div
               ref={editorRef}
-              className="relative z-10 w-full focus:outline-none"
+              className={`relative z-10 w-full focus:outline-none transition-colors duration-500 ${activeThemeObj.text}`}
               style={{
                 fontFamily: activeFont.family,
                 minHeight: `${pageCount * 1088}px`,
@@ -1367,23 +1478,29 @@ const YoungWritersPad = () => {
                 checkPagination();
               }}
             >
-              <h1 className="text-4xl font-black text-slate-800 mb-4 outline-none">
+              <h1
+                className={`text-4xl font-black mb-4 outline-none transition-colors duration-500 ${activeThemeObj.heading}`}
+              >
                 {predefinedData?.basics?.title || "The Discovery"}
               </h1>
               {predefinedData?.basics?.subtitle && (
-                <h2 className="text-2xl font-bold text-slate-500 mb-4 outline-none">
+                <h2
+                  className={`text-2xl font-bold mb-4 outline-none opacity-80 ${activeThemeObj.text}`}
+                >
                   {predefinedData.basics.subtitle}
                 </h2>
               )}
               {predefinedData?.setting?.location && (
-                <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest mb-6">
+                <div
+                  className={`text-sm font-bold uppercase tracking-widest mb-6 opacity-80 ${activeThemeObj.text}`}
+                >
                   {predefinedData.setting.location}{" "}
                   {predefinedData.setting.timePeriod
                     ? `• ${predefinedData.setting.timePeriod}`
                     : ""}
                 </div>
               )}
-              <p className="text-lg text-slate-600 outline-none">
+              <p className={`text-lg outline-none ${activeThemeObj.text}`}>
                 {predefinedData?.plot?.beginning ||
                   "It was a dark and stormy night when Oliver first discovered the glowing orb in the attic. The dust danced in the pale moonlight as he reached out his trembling hand..."}
               </p>
@@ -1402,13 +1519,15 @@ const YoungWritersPad = () => {
                 </div>
               </div>
 
-              <p className="text-lg text-slate-600 outline-none mt-8">
+              <p className={`text-lg outline-none mt-8 ${activeThemeObj.text}`}>
                 The orb hummed with ancient energy, sending warm vibrations up
                 his arm. Suddenly, a voice echoed in his mind, not heard, but
                 felt.
               </p>
 
-              <blockquote className="pl-8 border-l-4 border-indigo-500 my-6 text-xl font-bold text-indigo-800 italic outline-none">
+              <blockquote
+                className={`pl-8 border-l-4 my-6 text-xl font-bold italic outline-none transition-colors duration-500 ${activeThemeObj.quote}`}
+              >
                 "You have awakened the long slumber, young one. The realms are
                 yours to save or shatter."
               </blockquote>
@@ -1419,9 +1538,11 @@ const YoungWritersPad = () => {
         {/* RIGHT SIDEBAR - CONDITIONAL: BOOK TOOLS OR ILLUSTRATIONS (hidden on mobile, shown via toggle) */}
         {showIllustrationsSidebar ? (
           <div
-            className={`${showRightSidebarMobile || true ? "flex" : "hidden"} md:flex w-full md:w-[320px] bg-white border-l border-slate-200 flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 right-0 shadow-[-10px_0_20px_-10px_rgba(0,0,0,0.1)] md:shadow-[-10px_0_20px_-10px_rgba(0,0,0,0.05)]`}
+            className={`${showRightSidebarMobile || true ? "flex" : "hidden"} md:flex w-full md:w-[320px] border-l flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 right-0 shadow-[-4px_0_24px_rgba(0,0,0,0.02)] transition-all duration-500 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
           >
-            <div className="p-4 border-b border-slate-200 flex justify-between items-center bg-indigo-50/50">
+            <div
+              className={`p-4 border-b flex justify-between items-center transition-colors duration-500 ${activeThemeObj.panelBg} brightness-95 ${activeThemeObj.panelBorder}`}
+            >
               <h3 className="font-bold text-slate-800 flex items-center gap-2">
                 <TypeOutline className="w-5 h-5 text-indigo-600" />
                 Add Illustrations
@@ -1434,7 +1555,7 @@ const YoungWritersPad = () => {
               </button>
             </div>
 
-            <div className="p-4 flex-1 overflow-y-auto bg-slate-50/50">
+            <div className="p-4 flex-1 overflow-y-auto bg-white">
               {/* Custom Category Dropdown */}
               <div className="relative mb-2">
                 <button
@@ -1683,7 +1804,7 @@ const YoungWritersPad = () => {
           </div>
         ) : (
           <div
-            className={`${showRightSidebarMobile ? "flex" : "hidden"} md:flex w-full md:w-[280px] bg-white border-l border-slate-200 flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 right-0`}
+            className={`${showRightSidebarMobile ? "flex" : "hidden"} md:flex w-full md:w-[280px] border-l flex-col overflow-y-auto shrink-0 z-20 absolute md:relative top-0 bottom-0 right-0 shadow-[-4px_0_24px_rgba(0,0,0,0.02)] transition-all duration-500 ${activeThemeObj.panelBg} ${activeThemeObj.panelBorder}`}
           >
             <div className="p-4">
               <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
@@ -1693,7 +1814,8 @@ const YoungWritersPad = () => {
                 <SidebarButton
                   icon={FilePlus}
                   label="Add New Page Break"
-                  color="text-sky-500"
+                  iconBg="bg-sky-50"
+                  iconColor="text-sky-600"
                   onClick={() => {
                     insertHTML(
                       '<div contentEditable="false" style="page-break-after: always; height: 32px; width: 100%; border-bottom: 2px dashed #cbd5e1; margin: 32px 0; text-align: center;"><span style="position: relative; top: 22px; color: #94a3b8; font-size: 10px; font-weight: bold;">PAGE BREAK</span></div><p><br/></p>',
@@ -1704,7 +1826,8 @@ const YoungWritersPad = () => {
                 <SidebarButton
                   icon={LayoutTemplate}
                   label="Cover Page Creator"
-                  color="text-amber-500"
+                  iconBg="bg-amber-50"
+                  iconColor="text-amber-600"
                   onClick={() =>
                     insertHTML(
                       "<div style='text-align: center; padding: 60px 20px; border: 2px dashed #cbd5e1; border-radius: 12px; margin-bottom: 40px;'><h1 style='font-size: 3em; margin-bottom: 20px;'>[Your Book Title]</h1><h2 style='color: #64748b; font-size: 1.5em; margin-bottom: 40px;'>By [Your Name]</h2><p style='color: #94a3b8;'>[Drop Cover Image Here]</p></div><br/>",
@@ -1714,7 +1837,8 @@ const YoungWritersPad = () => {
                 <SidebarButton
                   icon={List}
                   label="Table of Contents"
-                  color="text-slate-500"
+                  iconBg="bg-slate-50"
+                  iconColor="text-slate-600"
                   onClick={() =>
                     insertHTML(
                       "<br/><div style='background: #f8fafc; padding: 30px; border-radius: 12px; margin: 20px 0;'><h2><strong>Table of Contents</strong></h2><ul style='list-style-type: none; padding-left: 0; margin-top: 20px;'><li style='margin-bottom: 10px; display: flex; justify-content: space-between;'><span>Chapter 1: The Discovery</span><span style='color: #94a3b8;'>1</span></li><li style='margin-bottom: 10px; display: flex; justify-content: space-between;'><span>Chapter 2: Into the Unknown</span><span style='color: #94a3b8;'>12</span></li></ul></div><br/>",
@@ -1724,7 +1848,8 @@ const YoungWritersPad = () => {
                 <SidebarButton
                   icon={FileText}
                   label="Page Numbers"
-                  color="text-slate-500"
+                  iconBg="bg-indigo-50"
+                  iconColor="text-indigo-600"
                   onClick={() =>
                     insertHTML(
                       "<br/><div style='text-align: center; margin: 40px 0; border-top: 1px dashed #cbd5e1; padding-top: 10px;'><p style='color: #94a3b8; font-size: 12px; font-weight: bold;'>— PAGE 1 —</p></div><br/>",
@@ -1734,7 +1859,8 @@ const YoungWritersPad = () => {
                 <SidebarButton
                   icon={UserCircle}
                   label="Author Bio Section"
-                  color="text-violet-500"
+                  iconBg="bg-violet-50"
+                  iconColor="text-violet-600"
                   onClick={() =>
                     insertHTML(
                       "<br/><div style='background-color: #f4f0ff; padding: 30px; border-left: 6px solid #8b5cf6; border-radius: 0 12px 12px 0; margin: 40px 0;'><h3 style='color: #7c3aed; margin-bottom: 10px;'><strong>About the Author</strong></h3><p style='color: #4c1d95; line-height: 1.6;'>[Your Name] is a brilliant young author who loves writing stories about [favorite subjects]. When they aren't writing, they enjoy [favorite hobbies].</p></div><br/>",
