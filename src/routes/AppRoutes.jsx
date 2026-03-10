@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/aboutUs/Home";
 import OurMission from "../pages/aboutUs/OurMission";
 import YoungWritersPad from "../pages/writingSpace/YoungWritersPad";
-import BookMarketplace from "../pages/books/bookMarketplace";
+import BookMarketplace from "../pages/books/BookMarketplace";
 import AuthorProfile from "../pages/authors/AuthorProfile";
 import BookDetails from "../pages/books/BookDetails";
 import SignIn from "../components/SignIn";
@@ -45,7 +45,6 @@ import BookCategories from "../pages/books/BookCategories";
 
 import OurAuthors from "../pages/authors/OurAuthors";
 import StudentAuthors from "../pages/authors/StudentAuthors";
-import TopAuthors from "../pages/authors/TopAuthors";
 
 import WritingChallenges from "../pages/community/WritingChallenges";
 import StoryCompetitions from "../pages/community/StoryCompetitions";
@@ -96,7 +95,6 @@ const AppRoutes = () => {
             {/* Authors */}
             <Route path="/authors" element={<OurAuthors />} />
             <Route path="/student-authors" element={<StudentAuthors />} />
-            <Route path="/top-authors" element={<TopAuthors />} />
             <Route path="/author-profiles" element={<AuthorProfile />} />
             <Route path="/author/:id" element={<AuthorProfile />} />
 

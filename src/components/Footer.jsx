@@ -84,122 +84,61 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full font-['Nunito'] relative bg-[#f1f3ff] text-slate-900 pt-20 pb-12 overflow-hidden border-t-2 border-indigo-100">
+    <footer className="w-full font-['Nunito'] relative bg-slate-50 text-slate-900 pt-10 pb-6 overflow-hidden border-t border-slate-200">
+      <div className="max-w-[1450px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 border-b border-slate-100 pb-10">
 
-      {/* ── TOP BOOKSHELF DECORATION (Subtle) ─────────────────────────── */}
-      <div
-        className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-20 bg-repeat-x bg-contain bg-top"
-        style={{ backgroundImage: 'url("/bookshelf_bg.png")' }}
-      />
-
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
-          {/* ── BRAND COLUMN ─────────────────────────────────────────── */}
-          <div className="lg:col-span-4 space-y-8 text-center lg:text-left">
-            <Link to="/" className="inline-flex items-center group transition-all duration-300">
-              <div className="flex flex-col items-end">
-                <span className="text-[22px] sm:text-[28px] font-[900] text-indigo-600 tracking-tighter leading-none group-hover:-translate-x-1 transition-transform">Nation's</span>
-              </div>
-              <div className="mx-2 sm:mx-2.5 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
-                <img src="/icon.png" alt="Icon" className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] object-contain" />
-              </div>
-              <div className="flex flex-col text-left">
-                <span className="text-[22px] sm:text-[28px] font-[900] text-slate-900 tracking-tighter leading-none group-hover:translate-x-1 transition-transform">Young Authors</span>
-                <span className="text-[9px] font-[800] text-slate-400 tracking-[0.2em] uppercase mt-1">Empowering Small Voices</span>
+          {/* BRAND AREA - Minimalist */}
+          <div className="lg:w-1/3 space-y-4">
+            <Link to="/" className="inline-flex items-center group">
+              <img src="/icon.png" alt="Icon" className="w-10 h-10 object-contain mr-3" />
+              <div className="flex flex-col">
+                <span className="text-xl font-[950] text-indigo-600 tracking-tighter leading-none">Nation's</span>
+                <span className="text-sm font-[900] text-slate-900 tracking-tighter leading-none mt-1">Young Authors</span>
               </div>
             </Link>
-
-            <p className="text-slate-600 text-lg leading-relaxed max-w-sm mx-auto lg:mx-0 font-medium italic">
-              "Every child is an author, and every story deserves a shelf."
-              Join our global literary movement.
+            <p className="text-slate-400 text-[13px] font-bold italic leading-relaxed max-w-[240px]">
+              "Empowering small voices, one story at a time. The premiere home for young literary talent."
             </p>
-
-            {/* Newsletter Signup */}
-            <div className="space-y-4 pt-4">
-              <h5 className="text-indigo-600 font-black text-[11px] uppercase tracking-widest text-center lg:text-left">Subscribe to our newsletter</h5>
-              <div className="flex p-2 bg-white rounded-2xl border border-indigo-100 shadow-sm focus-within:shadow-md transition-all">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-transparent border-none outline-none px-4 flex-grow text-sm font-bold text-slate-700"
-                />
-                <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase hover:bg-slate-900 transition-all">Join</button>
-              </div>
-            </div>
-
-            {/* Social Icons with Navbar Theme */}
-            <div className="flex items-center justify-center lg:justify-start gap-4">
-              {[
-                { icon: <FaInstagram />, href: "#" },
-                { icon: <FaTwitter />, href: "#" },
-                { icon: <FaFacebookF />, href: "#" },
-                { icon: <FaYoutube />, href: "#" },
-              ].map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-11 h-11 rounded-xl bg-white border border-indigo-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white hover:shadow-xl hover:shadow-indigo-200 transition-all duration-300 shadow-sm"
-                >
-                  <span className="text-xl">{social.icon}</span>
-                </motion.a>
+            <div className="flex gap-4 pt-2">
+              {[<FaInstagram />, <FaTwitter />, <FaFacebookF />, <FaYoutube />].map((icon, i) => (
+                <a key={i} href="#" className="text-slate-400 hover:text-indigo-600 transition-colors text-xl">{icon}</a>
               ))}
             </div>
           </div>
 
-          {/* ── LINKS COLUMNS ────────────────────────────────────────── */}
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8">
-              {footerSections.map((section) => (
-                <div key={section.title} className="space-y-6 text-center sm:text-left">
-                  <h4 className="text-indigo-600 font-[900] text-[12px] uppercase tracking-[0.25em] relative inline-block pb-2">
-                    {section.title}
-                    <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-indigo-600 hidden sm:block"></span>
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-indigo-600 sm:hidden"></span>
-                  </h4>
-                  <ul className="space-y-4">
-                    {section.links.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          to={link.path}
-                          className="group flex items-center justify-center sm:justify-start gap-2 text-slate-600 hover:text-indigo-600 transition-all duration-300 font-bold text-[15px]"
-                        >
-                          <FaChevronRight className="text-[9px] opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+          {/* GRID OF LINKS - Expanded Row */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10">
+            {footerSections.slice(0, 6).map((section) => (
+              <div key={section.title} className="space-y-4">
+                <h4 className="text-indigo-600 font-black text-[11px] uppercase tracking-widest">{section.title}</h4>
+                <ul className="space-y-2.5">
+                  {section.links.slice(0, 4).map((link) => (
+                    <li key={link.name}>
+                      <Link to={link.path} className="text-slate-500 hover:text-indigo-600 transition-colors font-bold text-[13px]">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* ── CONTACT STRIP ──────────────────────────────────────────── */}
-        <div className="mt-20 pt-10 border-t border-indigo-200/50 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
-            <div className="flex items-center justify-center gap-3 text-slate-600 font-bold group">
-              <div className="w-10 h-10 rounded-full bg-white border border-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
-                <FaEnvelope />
-              </div>
-              <span className="text-sm group-hover:text-indigo-600 transition-colors">hello@nationsyoungauthors.com</span>
-            </div>
-
-            <div className="flex items-center justify-center gap-3 text-slate-600 font-bold group">
-              <div className="w-10 h-10 rounded-full bg-white border border-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
-                <FaMapMarkerAlt />
-              </div>
-              <span className="text-sm group-hover:text-indigo-600 transition-colors">Irummanzil, Hyderabad</span>
-            </div>
+        {/* BOTTOM STRIP - Clean & Single Line */}
+        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-6 text-slate-400 text-[11px] font-black uppercase tracking-widest">
+            <span className="flex items-center gap-2"><FaEnvelope className="text-indigo-600" /> hello@nya.com</span>
+            <span className="flex items-center gap-2"><FaMapMarkerAlt className="text-indigo-600" /> Hyderabad</span>
           </div>
-
-          <p className="text-slate-400 font-black text-[11px] tracking-widest uppercase py-2">
-            © {currentYear} Nation's Young Authors. All rights reserved.
+          <p className="text-slate-300 font-bold text-[11px] tracking-widest uppercase">
+            © {currentYear} Nation's Young Authors.
           </p>
-
+          <div className="flex gap-4">
+            <Link to="/privacy" className="text-slate-300 hover:text-slate-900 text-[10px] font-black uppercase transition-colors">Privacy</Link>
+            <Link to="/terms" className="text-slate-300 hover:text-slate-900 text-[10px] font-black uppercase transition-colors">Terms</Link>
+          </div>
         </div>
       </div>
     </footer>
