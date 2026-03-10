@@ -5,9 +5,8 @@ import {
   BookOpen,
   ArrowRight,
   Edit3,
-  Star,
-  ChevronLeft,
-  ChevronRight,
+  GraduationCap,
+  ArrowUpRight,
 } from "lucide-react";
 import YoungAuthorsHero from "./YoungAuthorsHero";
 
@@ -82,32 +81,48 @@ const Home = () => {
 
   const featuredBooks = [
     {
+      id: 1,
       title: "The Hidden Magic",
-      author: "Aisha R.",
-      rating: "4.9",
+      author: "Aisha Rahman",
+      category: "Fantasy",
       price: "₹250",
-      cover: "https://i.pinimg.com/1200x/f0/8b/00/f08b00c29882fe33d87159222a33e31a.jpg",
+      rating: "4.9",
+      sales: 1240,
+      stock: 45,
+      cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80",
     },
     {
+      id: 2,
       title: "Space Explorers",
-      author: "Rahul T.",
-      rating: "4.8",
+      author: "Rahul Tyagi",
+      category: "Science",
       price: "₹200",
-      cover: "https://i.pinimg.com/736x/95/78/30/95783024da60c94bc92c877e8ebb017b.jpg",
+      rating: "4.8",
+      sales: 850,
+      stock: 12,
+      cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title: "Mystery of the Old Clock",
-      author: "Priya M.",
-      rating: "5.0",
+      id: 3,
+      title: "Mystery of Old Clock",
+      author: "Priya Mishra",
+      category: "Mystery",
       price: "₹300",
-      cover: "https://i.pinimg.com/736x/83/96/5f/83965f420ca4def1a897f0723557eab6.jpg",
+      rating: "5.0",
+      sales: 2100,
+      stock: 0,
+      cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80",
     },
     {
+      id: 4,
       title: "The Talking Tree",
-      author: "Sam S.",
-      rating: "4.7",
+      author: "Sam Shive",
+      category: "Adventure",
       price: "₹180",
-      cover: "https://i.pinimg.com/1200x/9c/3b/e1/9c3be12517a3c44f927e4e52688b81db.jpg",
+      rating: "4.7",
+      sales: 540,
+      stock: 88,
+      cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
@@ -233,7 +248,7 @@ const Home = () => {
   const scrollingAuthors = [...studentAuthors, ...studentAuthors];
 
   return (
-    <div className="overflow-x-hidden">
+    <div>
       {/* HERO SECTION */}
       <YoungAuthorsHero />
 
@@ -393,41 +408,59 @@ const Home = () => {
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
 
             {featuredBooks.map((book, idx) => (
-              <div key={idx} className="group cursor-pointer relative aspect-[3/4] overflow-hidden rounded-xl md:rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-all">
-
-                <img
-                  src={book.cover}
-                  alt={book.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-
-                {/* Gradient Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
-
-                {/* Top Right Rating Badge */}
-                <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-lg flex items-center gap-1 z-10">
-                  <Star className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
-                  <span className="text-[10px] md:text-xs font-black text-slate-800">
-                    {book.rating}
-                  </span>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-white rounded-3xl p-4 border border-slate-100 hover:shadow-2xl transition-all cursor-pointer"
+              >
+                <div className="relative aspect-[3/4.5] mb-6 overflow-hidden rounded-2xl">
+                  <img
+                    src={book.cover}
+                    alt={book.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur px-2.5 py-1 rounded-lg">
+                    <span className="text-[10px] font-black text-white uppercase tracking-widest">
+                      {book.category}
+                    </span>
+                  </div>
+                  <div className={`absolute bottom-3 left-3 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest border ${book.stock === 0 ? "bg-rose-500/90 border-rose-400 text-white" : "bg-emerald-500/90 border-emerald-400 text-white"
+                    }`}>
+                    {book.stock === 0 ? "Sold Out" : `Stock: ${book.stock}`}
+                  </div>
                 </div>
-
-                {/* Bottom Left Book Details */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-10 text-white translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <h3 className="text-[13px] md:text-xl font-black truncate leading-tight mb-0.5">
+                <div className="px-1">
+                  <h3 className="text-xl font-black text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors italic">
                     {book.title}
                   </h3>
-
-                  <p className="text-[10px] md:text-sm font-bold text-white/80 truncate mb-1">
+                  <p className="text-sm text-slate-500 font-bold mb-4">
                     By {book.author}
                   </p>
 
-                  <div className="font-black text-indigo-300 text-[12px] md:text-lg">
-                    {book.price}
+                  <div className="flex items-center gap-4 mb-4 pb-4 border-b border-slate-50">
+                    <div className="flex flex-col">
+                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Units Sold</span>
+                      <span className="text-sm font-black text-slate-800">{book.sales}</span>
+                    </div>
+                    <div className="flex flex-col border-l border-slate-100 pl-4">
+                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Rating</span>
+                      <span className="text-sm font-black text-slate-800">{book.rating}/5.0</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="font-black text-indigo-600 text-2xl tracking-tighter italic">
+                      {book.price}
+                    </span>
+                    <Link to={`/book/${book.id}`} className="p-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                      <ArrowUpRight className="w-5 h-5" />
+                    </Link>
                   </div>
                 </div>
-
-              </div>
+              </motion.div>
             ))}
 
           </div>

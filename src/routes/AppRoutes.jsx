@@ -43,9 +43,8 @@ import NewBooks from "../pages/books/NewBooks";
 import TopRatedBooks from "../pages/books/TopRatedBooks";
 import BookCategories from "../pages/books/BookCategories";
 
-import OurAuthors from "../pages/authors/OurAuthors";
-import StudentAuthors from "../pages/authors/StudentAuthors";
 import TopAuthors from "../pages/authors/TopAuthors";
+import StudentAuthors from "../pages/authors/StudentAuthors";
 
 import WritingChallenges from "../pages/community/WritingChallenges";
 import StoryCompetitions from "../pages/community/StoryCompetitions";
@@ -94,9 +93,8 @@ const AppRoutes = () => {
             <Route path="/book/:id" element={<BookDetails />} />
 
             {/* Authors */}
-            <Route path="/authors" element={<OurAuthors />} />
+            <Route path="/authors" element={<TopAuthors />} />
             <Route path="/student-authors" element={<StudentAuthors />} />
-            <Route path="/top-authors" element={<TopAuthors />} />
             <Route path="/author-profiles" element={<AuthorProfile />} />
             <Route path="/author/:id" element={<AuthorProfile />} />
 

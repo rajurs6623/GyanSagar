@@ -67,11 +67,10 @@ const navGroups = [
     ],
   },
   {
-    label: "Authors",
+    label: "Our Authors",
     links: [
-      { name: "Our Authors", path: "/authors", icon: <FaUsers /> },
+      { name: "Top Authors", path: "/authors", icon: <FaUsers /> },
       { name: "Student Authors", path: "/student-authors", icon: <FaUsers /> },
-      { name: "Top Authors", path: "/top-authors", icon: <FaUsers /> },
       { name: "Author Profiles", path: "/author-profiles", icon: <FaUserCircle /> },
     ],
   },
@@ -174,8 +173,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* RIGHT ACCOUNT + MOBILE TOGGLE - Single line fix */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* RIGHT ACCOUNT + MOBILE TOGGLE */}
+          <div className="flex items-center gap-2 sm:gap-4">
+
             {localStorage.getItem("isLoggedIn") === "true" ? (
               <Link to="/account" className="flex items-center gap-2 group transition-all shrink-0">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">

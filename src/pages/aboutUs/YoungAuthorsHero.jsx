@@ -185,19 +185,7 @@ export default function YoungAuthorsHero() {
                 viewBox="0 0 24 24"
                 className="fill-indigo-600/50 drop-shadow-md"
               >
-                <motion.path
-                  animate={{
-                    d: [
-                      "M12 12c-4-2-8-5-10 0 2-1 6-1 10 0 4-1 8-1 10 0-2-5-6-2-10 0z",
-                      "M12 12c-4-2-8-5-10 0 2-1 6-1 10 0 4-1 8-1 10 0-2-5-6-2-10 0z",
-                      "M12 12c-4-2-8-5-10 0 2-1 6-1 10 0 4-1 8-1 10 0-2-5-6-2-10 0z",
-                    ],
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                <path
                   d="M12 12c-4-2-8-5-10 0 2-1 6-1 10 0 4-1 8-1 10 0-2-5-6-2-10 0z"
                 />
                 <circle cx="12" cy="12" r="1.5" />

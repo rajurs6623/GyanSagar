@@ -12,7 +12,7 @@ const MickeyMouse = () => {
                 className="absolute inset-x-0 top-10 bottom-10 bg-yellow-200/20 blur-[80px] rounded-full -z-10"
             />
 
-            {/* ── FULL MICKEY BODY ── */}
+            {/* ── FULL MICKEY BODY ──*/}
             <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
