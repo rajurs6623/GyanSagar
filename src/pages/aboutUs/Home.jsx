@@ -7,6 +7,7 @@ import {
   Edit3,
   GraduationCap,
   ArrowUpRight,
+  Star,
 } from "lucide-react";
 import YoungAuthorsHero from "./YoungAuthorsHero";
 
