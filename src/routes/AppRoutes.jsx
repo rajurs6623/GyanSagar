@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/aboutUs/Home";
 import OurMission from "../pages/aboutUs/OurMission";
 import YoungWritersPad from "../pages/writingSpace/YoungWritersPad";
-import BookMarketplace from "../pages/books/BookMarketplace";
+import BookMarketplace from "../pages/books/bookMarketplace";
 import AuthorProfile from "../pages/authors/AuthorProfile";
 import BookDetails from "../pages/books/BookDetails";
 import SignIn from "../components/SignIn";
