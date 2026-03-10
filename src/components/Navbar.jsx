@@ -110,28 +110,27 @@ const Navbar = () => {
     <header className={`w-full font-['Nunito'] sticky top-0 left-0 right-0 z-[1000] ${isHome ? "bg-[#f1f3ff]" : "bg-white"}`}>
 
       {/* ── TOP NAV STRIP ─────────────────────────────────────────── */}
-      <div className={`h-[85px] flex items-center transition-all duration-300 ${!isHome ? "bg-white border-b border-slate-200 shadow-sm" : "bg-transparent"}`}>
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4">
+      <div className={`h-[70px] sm:h-[80px] flex items-center transition-all duration-300 ${!isHome ? "bg-white border-b border-slate-200 shadow-sm" : "bg-transparent"}`}>
+        <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
 
-          {/* LOGO */}
+          {/* LOGO - Scaled for better fit */}
           <Link to="/" className="flex items-center shrink-0 group">
             <div className="flex flex-col items-end">
-              <span className="text-[20px] sm:text-[28px] font-[900] text-indigo-600 tracking-tighter leading-none transform group-hover:-translate-x-1 transition-transform">Nation's</span>
+              <span className="text-[16px] sm:text-[24px] font-[900] text-indigo-600 tracking-tighter leading-none transform group-hover:-translate-x-1 transition-transform">Nation's</span>
             </div>
-            <div className="mx-1 sm:mx-2.5 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-md">
-              <img src="/icon.png" alt="Icon" className="w-[40px] h-[40px] sm:w-[55px] sm:h-[55px] object-contain" />
+            <div className="mx-1 sm:mx-2 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+              <img src="/icon.png" alt="Icon" className="w-[30px] h-[30px] sm:w-[45px] sm:h-[45px] object-contain" />
             </div>
             <div className="flex flex-col">
-              <span className="text-[20px] sm:text-[28px] font-[900] text-slate-900 tracking-tighter leading-none transform group-hover:translate-x-1 transition-transform">Young Authors</span>
-              <span className="hidden sm:block text-[9px] font-[800] text-slate-400 tracking-[0.2em] uppercase mt-1">Empowering Small Voices</span>
+              <span className="text-[16px] sm:text-[24px] font-[900] text-slate-900 tracking-tighter leading-none transform group-hover:translate-x-1 transition-transform">Young Authors</span>
             </div>
           </Link>
 
-          {/* CENTER LINKS (Desktop) */}
-          <div className="hidden xl:flex items-center gap-6 flex-1 justify-center">
+          {/* CENTER LINKS (Desktop) - Adjusted gap and padding */}
+          <div className="hidden xl:flex items-center gap-4 flex-1 justify-center">
             <Link
               to="/"
-              className={`text-[14px] font-[700] py-2 transition-colors ${isHome ? "text-indigo-600" : "text-slate-600 hover:text-slate-900"
+              className={`text-[13px] font-[700] py-2 px-2 transition-colors ${isHome ? "text-indigo-600" : "text-slate-600 hover:text-slate-900"
                 }`}
             >
               Home
@@ -143,15 +142,15 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter(group.label)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`text-[14px] font-[700] py-2 cursor-pointer transition-colors whitespace-nowrap flex items-center gap-1 ${dropdown === group.label ? "text-indigo-600" : "text-slate-600 hover:text-slate-900"}`}>
+                <button className={`text-[13px] font-[700] py-2 px-2 cursor-pointer transition-colors whitespace-nowrap flex items-center gap-1 ${dropdown === group.label ? "text-indigo-600" : "text-slate-600 hover:text-slate-900"}`}>
                   {group.label}
-                  <FaChevronDown className={`text-[10px] transition-transform duration-200 ${dropdown === group.label ? "rotate-180" : ""}`} />
+                  <FaChevronDown className={`text-[8px] transition-transform duration-200 ${dropdown === group.label ? "rotate-180" : ""}`} />
                 </button>
 
                 <AnimatePresence>
                   {dropdown === group.label && (
                     <motion.div
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 min-w-[220px] bg-white rounded-xl shadow-2xl border border-slate-100 p-2 z-[1001]"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 min-w-[200px] bg-white rounded-xl shadow-2xl border border-slate-100 p-2 z-[1001]"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 5 }}
@@ -161,10 +160,10 @@ const Navbar = () => {
                         <Link
                           key={link.name}
                           to={link.path}
-                          className="flex items-center gap-3 px-4 py-2.5 text-[14px] font-[600] text-slate-600 rounded-lg hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2 text-[13px] font-[600] text-slate-600 rounded-lg hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
                         >
                           <span className="opacity-50">{link.icon}</span>
-                          {link.name}
+                          <span className="whitespace-nowrap">{link.name}</span>
                         </Link>
                       ))}
                     </motion.div>
@@ -178,22 +177,22 @@ const Navbar = () => {
           <div className="flex items-center gap-2 sm:gap-4">
 
             {localStorage.getItem("isLoggedIn") === "true" ? (
-              <Link to="/account" className="flex items-center gap-2 group transition-all">
-                <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
-                  <FaUserCircle className="text-xl" />
+              <Link to="/account" className="flex items-center gap-2 group transition-all shrink-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
+                  <FaUserCircle className="text-lg sm:text-xl" />
                 </div>
-                <span className="hidden md:block text-sm font-bold text-slate-700 group-hover:text-indigo-600 transition-colors">My Account</span>
+                <span className="hidden lg:block text-[13px] font-black text-slate-700 group-hover:text-indigo-600 transition-colors whitespace-nowrap">My Account</span>
               </Link>
             ) : (
-              <Link to="/signin" className="px-6 py-2.5 bg-indigo-600 text-white text-sm font-black rounded-xl hover:bg-slate-900 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2">
-                <FaUserCircle className="text-lg" />
+              <Link to="/signin" className="px-4 sm:px-6 py-2 bg-indigo-600 text-white text-[12px] sm:text-sm font-black rounded-xl hover:bg-slate-900 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2 whitespace-nowrap">
+                <FaUserCircle className="text-base sm:text-lg" />
                 Sign In
               </Link>
             )}
 
             <button
               onClick={() => setMobileOpen(true)}
-              className="xl:hidden p-2 text-2xl text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all"
+              className="xl:hidden p-2 text-xl sm:text-2xl text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all"
             >
               <FaBars />
             </button>
