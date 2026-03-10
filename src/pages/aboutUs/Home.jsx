@@ -170,7 +170,7 @@ const Home = () => {
   ];
 
   return (
-    <div className>
+    <div>
       {/* HERO SECTION */}
       <YoungAuthorsHero />
 
