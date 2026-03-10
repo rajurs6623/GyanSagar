@@ -11,6 +11,7 @@ import {
   LayoutTemplate,
   Edit3,
   GraduationCap,
+  ArrowUpRight,
 } from "lucide-react";
 import YoungAuthorsHero from "./YoungAuthorsHero";
 
