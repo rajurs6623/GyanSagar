@@ -91,10 +91,12 @@ const Footer = () => {
           {/* BRAND AREA - Minimalist */}
           <div className="lg:w-1/3 space-y-4">
             <Link to="/" className="inline-flex items-center group">
-              <img src="/icon.png" alt="Icon" className="w-10 h-10 object-contain mr-3" />
-              <div className="flex flex-col">
-                <span className="text-xl font-[950] text-indigo-600 tracking-tighter leading-none">Nation's</span>
-                <span className="text-sm font-[900] text-slate-900 tracking-tighter leading-none mt-1">Young Authors</span>
+              <div className="mr-3 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                <img src="/icon.png" alt="Icon" className="w-11 h-11 object-contain" />
+              </div>
+              <div className="flex flex-col justify-center gap-0.5">
+                <span className="text-[20px] font-[900] text-indigo-600 tracking-tighter leading-none">Nation's</span>
+                <span className="text-[20px] font-[900] text-slate-900 tracking-tighter leading-none">Young Authors</span>
               </div>
             </Link>
             <p className="text-slate-400 text-[13px] font-bold italic leading-relaxed max-w-[240px]">

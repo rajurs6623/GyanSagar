@@ -110,7 +110,7 @@ export default function YoungAuthorsHero() {
   );
 
   return (
-    <section className="relative h-[80vh] min-h-[600px] md:h-[85vh] w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f0f9ff] via-[#e8ecff] to-[#dee8ff]">
+    <section className="relative h-[80vh] min-h-[600px] md:h-[91vh] w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f0f9ff] via-[#e8ecff] to-[#dee8ff]">
       {/* --- BACKGROUND SCENERY (Vivid Sunrise, 3D Clouds, Real-Motion Birds) --- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* VIVID BRIGHT SUNRISE (Touching Top Left / Navbar) */}
