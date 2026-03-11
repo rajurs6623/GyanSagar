@@ -43,18 +43,19 @@ const navGroups = [
       { name: "Young Writer Pad", path: "/writer-pad", icon: <FaPenNib /> },
       { name: "Idea Notebook", path: "/idea-notebook", icon: <FaBookOpen /> },
       { name: "Story Creator", path: "/story-creator", icon: <FaPenNib /> },
-      { name: "Chapter Creator", path: "/chapter-creator", icon: <FaPenNib /> },
-      { name: "Illustration Board", path: "/illustration-board", icon: <FaPenNib /> },
+      // { name: "Chapter Creator", path: "/chapter-creator", icon: <FaPenNib /> },
       { name: "Book Builder", path: "/create-book", icon: <FaBookOpen /> },
+      { name: "Illustration Board", path: "/illustration-board", icon: <FaPenNib /> },
+    
     ],
   },
   {
     label: "Publishing",
     links: [
       { name: "How to Publish", path: "/how-to-publish", icon: <FaUpload /> },
-      { name: "Publish Your Book", path: "/publish", icon: <FaUpload /> },
       { name: "Copyright Guide", path: "/copyright-guide", icon: <FaBookOpen /> },
       { name: "Book Pricing Guide", path: "/book-pricing-guide", icon: <FaStore /> },
+      { name: "Publish Your Book", path: "/publish", icon: <FaUpload /> },
     ],
   },
   {

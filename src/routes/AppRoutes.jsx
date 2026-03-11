@@ -30,7 +30,7 @@ import FamousAuthors from "../pages/learning/FamousAuthors";
 
 import IdeaNotebook from "../pages/writingSpace/IdeaNotebook";
 import StoryCreator from "../pages/writingSpace/StoryCreator";
-import ChapterCreator from "../pages/writingSpace/ChapterCreator";
+// import ChapterCreator from "../pages/writingSpace/ChapterCreator";
 import IllustrationBoard from "../pages/writingSpace/IllustrationBoard";
 import CreateBook from "../pages/writingSpace/CreateBook";
 
@@ -75,7 +75,7 @@ const AppRoutes = () => {
             <Route path="/writer-pad" element={<YoungWritersPad />} />
             <Route path="/idea-notebook" element={<IdeaNotebook />} />
             <Route path="/story-creator" element={<StoryCreator />} />
-            <Route path="/chapter-creator" element={<ChapterCreator />} />
+            {/* <Route path="/chapter-creator" element={<ChapterCreator />} /> */}
             <Route path="/illustration-board" element={<IllustrationBoard />} />
             <Route path="/create-book" element={<CreateBook />} />
 
