@@ -46,7 +46,7 @@ const navGroups = [
       // { name: "Chapter Creator", path: "/chapter-creator", icon: <FaPenNib /> },
       { name: "Book Builder", path: "/create-book", icon: <FaBookOpen /> },
       { name: "Illustration Board", path: "/illustration-board", icon: <FaPenNib /> },
-    
+      
     ],
   },
   {
@@ -114,18 +114,52 @@ const Navbar = () => {
       <div className={`h-[70px] sm:h-[80px] flex items-center transition-all duration-300 ${!isHome ? "bg-white border-b border-slate-200 shadow-sm" : "bg-transparent"}`}>
         <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
 
-          {/* LOGO - Scaled for better fit */}
-          <Link to="/" className="flex items-center shrink-0 group">
-            <div className="flex flex-col items-end">
-              <span className="text-[16px] sm:text-[24px] font-[900] text-indigo-600 tracking-tighter leading-none transform group-hover:-translate-x-1 transition-transform">Nation's</span>
-            </div>
-            <div className="mx-1 sm:mx-2 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
-              <img src="/icon.png" alt="Icon" className="w-[30px] h-[30px] sm:w-[45px] sm:h-[45px] object-contain" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[16px] sm:text-[24px] font-[900] text-slate-900 tracking-tighter leading-none transform group-hover:translate-x-1 transition-transform">Young Authors</span>
-            </div>
-          </Link>
+         {/* LOGO */}
+<Link to="/" className="flex items-center shrink-0 group">
+
+  <div className="flex flex-col items-end">
+    <span className="text-[16px] sm:text-[24px] font-[900] text-indigo-600 tracking-tighter leading-none transform group-hover:-translate-x-1 transition-transform">
+      Nation's
+    </span>
+  </div>
+
+  <div className="mx-1 sm:mx-2 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+    <img
+      src="/icon.png"
+      alt="Icon"
+      className="w-[30px] h-[30px] sm:w-[45px] sm:h-[45px] object-contain"
+    />
+  </div>
+
+  {/* RIGHT TEXT COLUMN */}
+  <div className="flex flex-col">
+
+    <span className="text-[16px] sm:text-[24px] font-[900] text-slate-900 tracking-tighter leading-none transform group-hover:translate-x-1 transition-transform">
+      Young Authors
+    </span>
+
+   {/* POWERED BY VISDOM WAVES */}
+<div className="flex items-center gap-2 mt-[4px]">
+
+  <span className="text-[11px] font-bold text-slate-500">
+    Powered by
+  </span>
+
+  <img
+    src="/vlogo.jpeg"
+    alt="Visdom Waves"
+    className="w-[18px] h-[18px] object-contain"
+  />
+
+  <span className="text-[11px] font-extrabold text-slate-700 tracking-tight">
+    Visdom Waves
+  </span>
+
+</div>
+
+  </div>
+
+</Link>
 
           {/* CENTER LINKS (Desktop) - Adjusted gap and padding */}
           <div className="hidden xl:flex items-center gap-4 flex-1 justify-center">

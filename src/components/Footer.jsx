@@ -98,10 +98,30 @@ const Footer = () => {
                 <span className="text-[20px] font-[900] text-indigo-600 tracking-tighter leading-none">Nation's</span>
                 <span className="text-[20px] font-[900] text-slate-900 tracking-tighter leading-none">Young Authors</span>
               </div>
+              
             </Link>
             <p className="text-slate-400 text-[13px] font-bold italic leading-relaxed max-w-[240px]">
               "Empowering small voices, one story at a time. The premiere home for young literary talent."
             </p>
+            {/* POWERED BY VISDOM WAVES */}
+<div className="flex items-center gap-2 mt-[4px]">
+
+  <span className="text-[11px] font-bold text-slate-500">
+    Powered by
+  </span>
+
+  <img
+    src="/vlogo.jpeg"
+    alt="Visdom Waves"
+    className="w-[18px] h-[18px] object-contain"
+  />
+
+  <span className="text-[11px] font-extrabold text-slate-700 tracking-tight">
+    Visdom Waves
+  </span>
+
+</div>
+
             <div className="flex gap-4 pt-2">
               {[<FaInstagram />, <FaTwitter />, <FaFacebookF />, <FaYoutube />].map((icon, i) => (
                 <a key={i} href="#" className="text-slate-400 hover:text-indigo-600 transition-colors text-xl">{icon}</a>

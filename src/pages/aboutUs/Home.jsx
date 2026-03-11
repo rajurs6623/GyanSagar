@@ -90,7 +90,7 @@ const Home = () => {
       rating: "4.9",
       sales: 1240,
       stock: 45,
-      cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80",
+      cover: "https://i.pinimg.com/1200x/f0/8b/00/f08b00c29882fe33d87159222a33e31a.jpg",
     },
     {
       id: 2,
@@ -101,7 +101,7 @@ const Home = () => {
       rating: "4.8",
       sales: 850,
       stock: 12,
-      cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80",
+      cover: "https://i.pinimg.com/736x/9e/01/c7/9e01c78a4fbef612a36bc4a6c28bc530.jpg",
     },
     {
       id: 3,
@@ -112,7 +112,7 @@ const Home = () => {
       rating: "5.0",
       sales: 2100,
       stock: 0,
-      cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80",
+      cover: "https://i.pinimg.com/736x/83/96/5f/83965f420ca4def1a897f0723557eab6.jpg",
     },
     {
       id: 4,
@@ -123,7 +123,7 @@ const Home = () => {
       rating: "4.7",
       sales: 540,
       stock: 88,
-      cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=400&q=80",
+      cover: "https://i.pinimg.com/736x/4b/42/66/4b426632aa6253b7875ae60eb5e8afa9.jpg",
     },
   ];
 
@@ -133,7 +133,7 @@ const Home = () => {
       bio: "12-year-old fantasy lover.",
       books: 3,
       rating: "4.9",
-      photo: "https://i.pinimg.com/736x/08/9c/ce/089cce5e2c9767be9c27d8e6511d8936.jpg",
+      photo: "https://i.pinimg.com/1200x/4e/ea/5b/4eea5bbe8398919177710c4daee22909.jpg",
     },
     {
       name: "Rahul T.",
@@ -147,35 +147,35 @@ const Home = () => {
       bio: "Loves writing mystery novels.",
       books: 5,
       rating: "5.0",
-      photo: "https://i.pinimg.com/736x/9b/86/ad/9b86adeaec5de7440d146c3fcf694f6e.jpg",
+      photo: "https://i.pinimg.com/736x/fd/b1/ad/fdb1ad6b09f61bc7bfafa2c583c5f742.jpg",
     },
     {
       name: "Sam S.",
       bio: "Comic book artist and writer.",
       books: 1,
       rating: "4.7",
-      photo: "https://i.pinimg.com/736x/23/c5/35/23c5356c78b67b5cd2db8a7b43698a10.jpg",
+      photo: "https://i.pinimg.com/1200x/92/97/8d/92978dbc0f7be1b42f3106ec80af1522.jpg",
     },
     {
       name: "Zara K.",
       bio: "Historical fiction writer.",
       books: 4,
       rating: "4.9",
-      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
+      photo: "https://i.pinimg.com/736x/9d/a0/a4/9da0a44ba9238ee07c14db531e1242db.jpg",
     },
     {
       name: "Arjun P.",
       bio: "Adventure story specialist.",
       books: 6,
       rating: "4.8",
-      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+      photo: "https://i.pinimg.com/1200x/ac/f1/f8/acf1f82d16b79ebc28f685142c043214.jpg",
     },
     {
       name: "Mira L.",
       bio: "Nature and poetry lover.",
       books: 2,
       rating: "5.0",
-      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+      photo: "https://i.pinimg.com/736x/5f/3f/00/5f3f00f3602fbfd2bb1a33dde6461856.jpg",
     },
   ];
 
@@ -309,299 +309,400 @@ const Home = () => {
         </div>
       </section>
 
-      {/* PLATFORM DEMO VIDEO */}
-      <section className="py-6 md:py-8 bg-[#f1f3ff]">
-        <div className="max-w-[800px] mx-auto px-6">
-          <div className="text-center mb-6">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2 text-center">
-              See Our Platform in Action
-            </h2>
-            <p className="text-slate-500 font-medium text-xs md:text-sm max-w-xl mx-auto">
-              Learn how easy it is to start your journey as a young author.
-            </p>
-          </div>
+     {/* PLATFORM DEMO VIDEO */}
+<section className="py-8 md:py-10 bg-white">
+  <div className="max-w-[850px] mx-auto px-4 md:px-6">
 
-          <div className="relative aspect-video rounded-xl md:rounded-[2rem] overflow-hidden shadow-xl border-4 border-white group">
-            <img
-              src="youtube.png"
-              alt="Platform Demo Illustration"
-              className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
-            />
-          </div>
+    {/* Header */}
+    <div className="text-center mb-6 md:mb-8">
+      <h2 className="text-lg md:text-2xl font-semibold text-slate-800 mb-2">
+        See Our Platform in Action
+      </h2>
+      <p className="text-slate-500 text-xs md:text-sm max-w-xl mx-auto">
+        Learn how easy it is to start your journey as a young author.
+      </p>
+    </div>
+
+    {/* Video / Image Container */}
+    <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
+
+      <img
+        src="youtube.png"
+        alt="Platform Demo Illustration"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+
+      {/* Optional Play Button Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 md:w-6 md:h-6 text-indigo-600"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
         </div>
-      </section>
+      </div>
 
-      {/* POWERFUL WRITING TOOLS */}
-      <section className="py-8 md:py-10 bg-[#f1f3ff] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+    </div>
 
-          <div className="text-center mb-10">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3 md:mb-4 text-center">
-              Powerful Writing Tools
-            </h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl mx-auto">
-              Everything you need to write, illustrate, and publish your masterpiece all in one place. No extra software required.
-            </p>
-          </div>
+  </div>
+</section>
 
-          <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
+     {/* POWERFUL WRITING TOOLS */}
+<section className="py-8 md:py-10 bg-white overflow-hidden">
+  <div className="max-w-[1400px] mx-auto px-4 md:px-6">
 
-            {/* LEFT CONTENT */}
-            <div className="order-2 lg:order-1 text-center lg:text-left">
-              {/* TOOLS GRID */}
-              <div className="grid grid-cols-2 gap-3 md:gap-8">
-                {tools.map((tool, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.05 }}
-                    className={`${tool.bg} p-2 md:p-4 rounded-2xl md:rounded-[20px] shadow-sm hover:shadow-xl transition-all flex flex-col items-center gap-1 md:gap-3 border border-slate-100 group`}
-                  >
+    <div className="text-center mb-10">
+      <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3 md:mb-4">
+        Powerful Writing Tools
+      </h2>
+      <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl mx-auto">
+        Everything you need to write, illustrate, and publish your masterpiece all in one place. No extra software required.
+      </p>
+    </div>
 
-                    <div className={`w-12 h-12 md:w-20 md:h-20 rounded-full overflow-hidden border-2 md:border-4 border-indigo-50 shadow-inner ${tool.border} transition-colors`}>
-                      <img
-                        src={tool.img}
-                        alt={tool.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+    <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
 
-                    <span className="font-black text-slate-800 text-[10px] md:text-sm text-center truncate w-full">
-                      {tool.name}
-                    </span>
+      {/* LEFT CONTENT */}
+      <div className="order-2 lg:order-1 text-center lg:text-left">
 
-                  </motion.div>
-                ))}
+        {/* TOOLS GRID */}
+        <div className="grid grid-cols-2 gap-3 md:gap-8">
+          {tools.map((tool, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              className={`${tool.bg} p-2 md:p-4 rounded-2xl md:rounded-[20px] shadow-sm hover:shadow-xl transition-all flex flex-col items-center gap-1 md:gap-3 border border-slate-100 group`}
+            >
 
-              </div>
-            </div>
-
-            {/* RIGHT IMAGE */}
-            <div className="order-1 lg:order-2 relative mb-8 lg:mb-0">
-              <div className="aspect-[4/3] bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-slate-100 p-2 md:p-3">
+              <div className={`w-12 h-12 md:w-20 md:h-20 rounded-full overflow-hidden border-2 md:border-4 border-indigo-50 shadow-inner ${tool.border}`}>
                 <img
-                  src="https://i.pinimg.com/1200x/62/64/cf/6264cf9fc4d0f1f4253eb48f6b703d2b.jpg"
-                  alt="Writing Pad"
-                  className="w-full h-full object-cover rounded-xl md:rounded-2xl"
+                  src={tool.img}
+                  alt={tool.name}
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 md:w-32 md:h-32 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
+
+              <span className="font-black text-slate-800 text-[10px] md:text-sm text-center truncate w-full">
+                {tool.name}
+              </span>
+
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="order-1 lg:order-2 relative mb-6 lg:mb-0 flex justify-center">
+
+        <div className="aspect-[4/2.8] max-w-[420px] bg-white rounded-2xl shadow-lg border border-slate-100 p-2">
+          <img
+            src="https://i.pinimg.com/1200x/62/64/cf/6264cf9fc4d0f1f4253eb48f6b703d2b.jpg"
+            alt="Writing Pad"
+            className="w-full h-full object-cover rounded-xl"
+          />
+        </div>
+
+        <div className="absolute -bottom-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-indigo-500/20 rounded-full blur-2xl -z-10" />
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    {/* FEATURED BOOKS */}
+<section className="py-6 md:py-8 bg-white">
+  <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+
+    {/* Header */}
+    <div className="text-center mb-8">
+      <h2 className="text-lg md:text-2xl font-semibold text-slate-800 mb-1">
+        Featured Books
+      </h2>
+      <p className="text-slate-500 text-[11px] md:text-sm">
+        Bestsellers by our young authors
+      </p>
+    </div>
+
+    {/* Books Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+
+      {featuredBooks.map((book, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: idx * 0.08 }}
+          viewport={{ once: true }}
+          className="group bg-blue-50 rounded-2xl p-3 border border-blue-100 hover:shadow-lg hover:bg-blue-100 transition-all cursor-pointer"
+        >
+
+          {/* Book Image */}
+          <div className="relative aspect-[3/4] mb-3 overflow-hidden rounded-xl">
+            <img
+              src={book.cover}
+              alt={book.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+
+            {/* Category */}
+            <div className="absolute top-2 left-2 bg-slate-900/80 px-2 py-[2px] rounded-md">
+              <span className="text-[8px] text-white uppercase tracking-wider">
+                {book.category}
+              </span>
+            </div>
+
+            {/* Stock */}
+            <div
+              className={`absolute bottom-2 left-2 px-2 py-[2px] rounded-md text-[8px] uppercase tracking-wider border ${
+                book.stock === 0
+                  ? "bg-rose-500/90 border-rose-400 text-white"
+                  : "bg-emerald-500/90 border-emerald-400 text-white"
+              }`}
+            >
+              {book.stock === 0 ? "Sold Out" : `Stock ${book.stock}`}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div>
+
+            {/* Title */}
+            <h3 className="text-sm md:text-base font-semibold text-slate-800 mb-[2px] group-hover:text-indigo-600 transition-colors line-clamp-1">
+              {book.title}
+            </h3>
+
+            {/* Author */}
+            <p className="text-[10px] md:text-xs text-slate-600 mb-2">
+              By {book.author}
+            </p>
+
+            {/* Stats */}
+            <div className="flex items-center gap-3 mb-2 pb-2 border-b border-blue-100">
+
+              <div className="flex flex-col">
+                <span className="text-[8px] text-slate-500 uppercase">
+                  Sold
+                </span>
+                <span className="text-xs font-medium text-slate-700">
+                  {book.sales}
+                </span>
+              </div>
+
+              <div className="flex flex-col border-l border-blue-100 pl-3">
+                <span className="text-[8px] text-slate-500 uppercase">
+                  Rating
+                </span>
+                <span className="text-xs font-medium text-slate-700">
+                  {book.rating}/5
+                </span>
+              </div>
+
+            </div>
+
+            {/* Price + Button */}
+            <div className="flex justify-between items-center">
+              <span className="font-semibold text-indigo-600 text-base">
+                {book.price}
+              </span>
+
+              <Link
+                to={`/book/${book.id}`}
+                className="p-2 bg-white text-slate-600 rounded-lg hover:bg-indigo-600 hover:text-white transition-all"
+              >
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
             </div>
 
           </div>
+        </motion.div>
+      ))}
 
-        </div>
-      </section>
-      {/* FEATURED BOOKS (Restored) */}
-      <section className="py-8 md:py-10 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+    </div>
 
-          {/* Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2 text-center">
-              Featured Books
-            </h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base text-center">
-              Bestsellers by our young authors
-            </p>
+    {/* View All */}
+    <div className="mt-6 text-center">
+      <Link
+        to="/marketplace"
+        className="text-indigo-600 font-medium hover:text-indigo-800 flex items-center justify-center gap-1 text-xs md:text-sm"
+      >
+        View all <ArrowRight className="w-4 h-4" />
+      </Link>
+    </div>
+
+  </div>
+</section>
+     {/* STUDENT AUTHORS (Scrolling) */}
+<section className="py-10 bg-white overflow-hidden">
+  <div className="max-w-[1400px] mx-auto px-6 mb-10">
+    <div className="text-center">
+      <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">
+        Young Authors
+      </h2>
+      <p className="text-slate-500 font-medium text-xs md:text-base">
+        Meet the amazing creative minds on our platform.
+      </p>
+    </div>
+  </div>
+
+  {/* Infinite Scroll Container */}
+  <div className="relative">
+    <motion.div
+      className="flex gap-6 px-4"
+      animate={{ x: [0, -2000] }}
+      transition={{
+        duration: 35,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    >
+      {scrollingAuthors.map((author, idx) => (
+        <div
+          key={idx}
+          className="bg-[#f1f3ff] rounded-[28px] p-4 text-center border border-slate-100 shadow-sm min-w-[220px] md:min-w-[280px] group hover:bg-white hover:shadow-xl transition-all"
+        >
+
+          {/* Image */}
+          <div className="w-full h-36 md:h-44 rounded-xl overflow-hidden mb-3 shadow-md bg-white flex items-center justify-center">
+            <img
+              src={author.photo}
+              alt={author.name}
+              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+            />
           </div>
 
-          {/* Books Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+          <h3 className="text-base md:text-xl font-black text-slate-800 mb-0.5 truncate">
+            {author.name}
+          </h3>
 
-            {featuredBooks.map((book, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white rounded-3xl p-4 border border-slate-100 hover:shadow-2xl transition-all cursor-pointer"
-              >
-                <div className="relative aspect-[3/4.5] mb-6 overflow-hidden rounded-2xl">
-                  <img
-                    src={book.cover}
-                    alt={book.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur px-2.5 py-1 rounded-lg">
-                    <span className="text-[10px] font-black text-white uppercase tracking-widest">
-                      {book.category}
-                    </span>
-                  </div>
-                  <div className={`absolute bottom-3 left-3 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest border ${book.stock === 0 ? "bg-rose-500/90 border-rose-400 text-white" : "bg-emerald-500/90 border-emerald-400 text-white"
-                    }`}>
-                    {book.stock === 0 ? "Sold Out" : `Stock: ${book.stock}`}
-                  </div>
-                </div>
-                <div className="px-1">
-                  <h3 className="text-xl font-black text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors italic">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-slate-500 font-bold mb-4">
-                    By {book.author}
-                  </p>
+          <p className="text-[10px] text-slate-500 font-bold mb-2 h-3 truncate">
+            {author.bio}
+          </p>
 
-                  <div className="flex items-center gap-4 mb-4 pb-4 border-b border-slate-50">
-                    <div className="flex flex-col">
-                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Units Sold</span>
-                      <span className="text-sm font-black text-slate-800">{book.sales}</span>
-                    </div>
-                    <div className="flex flex-col border-l border-slate-100 pl-4">
-                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Rating</span>
-                      <span className="text-sm font-black text-slate-800">{book.rating}/5.0</span>
-                    </div>
-                  </div>
+          <div className="flex justify-center items-center gap-3 text-[9px] md:text-xs font-black pt-3 border-t border-slate-200">
+            <div className="text-slate-600 flex flex-col items-center">
+              <span className="text-indigo-600 text-sm md:text-lg leading-none mb-0.5">
+                {author.books}
+              </span>
+              <span className="uppercase tracking-wider opacity-60">Books</span>
+            </div>
 
-                  <div className="flex justify-between items-center">
-                    <span className="font-black text-indigo-600 text-2xl tracking-tighter italic">
-                      {book.price}
-                    </span>
-                    <Link to={`/book/${book.id}`} className="p-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
-                      <ArrowUpRight className="w-5 h-5" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <div className="w-px h-5 bg-slate-200" />
 
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              to="/marketplace"
-              className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center justify-center gap-1 text-xs md:text-base whitespace-nowrap"
-            >
-              View all <ArrowRight className="w-3 md:w-5 h-3 md:h-5" />
-            </Link>
+            <div className="text-amber-500 flex flex-col items-center">
+              <span className="flex items-center gap-1 text-sm md:text-lg leading-none mb-0.5">
+                <Star className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 fill-amber-500" /> {author.rating}
+              </span>
+              <span className="uppercase tracking-wider opacity-60">Rating</span>
+            </div>
           </div>
 
         </div>
-      </section>
-      {/* STUDENT AUTHORS (Scrolling) */}
-      <section className="py-10 bg-white overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 mb-10">
-          <div className="text-center">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3 text-center">
-              Student Authors
-            </h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base text-center">
-              Meet the amazing creative minds on our platform.
-            </p>
-          </div>
-        </div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
-        {/* Infinite Scroll Container */}
-        <div className="relative">
-          <motion.div
-            className="flex gap-6 px-4"
-            animate={{ x: [0, -2000] }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            {scrollingAuthors.map((author, idx) => (
-              <div
-                key={idx}
-                className="bg-[#f1f3ff] rounded-[28px] p-4 text-center border border-slate-100 shadow-sm min-w-[220px] md:min-w-[280px] group hover:bg-white hover:shadow-xl transition-all"
-              >
-                <div className="w-full h-36 md:h-44 rounded-xl overflow-hidden mb-3 shadow-md">
-                  <img
-                    src={author.photo}
-                    alt={author.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <h3 className="text-base md:text-xl font-black text-slate-800 mb-0.5 truncate">
-                  {author.name}
-                </h3>
-                <p className="text-[10px] text-slate-500 font-bold mb-2 h-3 truncate">{author.bio}</p>
-                <div className="flex justify-center items-center gap-3 text-[9px] md:text-xs font-black pt-3 border-t border-slate-200">
-                  <div className="text-slate-600 flex flex-col items-center">
-                    <span className="text-indigo-600 text-sm md:text-lg leading-none mb-0.5">{author.books}</span>
-                    <span className="uppercase tracking-wider opacity-60">Books</span>
-                  </div>
-                  <div className="w-px h-5 bg-slate-200" />
-                  <div className="text-amber-500 flex flex-col items-center">
-                    <span className="flex items-center gap-1 text-sm md:text-lg leading-none mb-0.5">
-                      <Star className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 fill-amber-500" /> {author.rating}
-                    </span>
-                    <span className="uppercase tracking-wider opacity-60">Rating</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+     {/* FAMOUS AUTHORS SECTION */}
+<section className="py-10 bg-white">
+  <div className="max-w-[1400px] mx-auto px-4 md:px-6">
 
-      {/* FAMOUS AUTHORS SECTION */}
-      <section className="py-10 bg-[#f1f3ff]">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2 text-center">
-              Our Inspirations
-            </h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base text-center">
-              Famous authors who inspire our young writers
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-            {famousAuthors.map((author, idx) => (
-              <div key={idx} className={`${author.bg} p-3 rounded-[1.5rem] shadow-sm hover:shadow-lg transition-all border border-slate-100 items-center flex flex-col group`}>
-                <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 md:border-4 border-indigo-50 mb-3 ${author.border} transition-all`}>
-                  <img src={author.photo} alt={author.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="text-xs md:text-base font-bold text-slate-800 mb-0.5 text-center">{author.name}</h3>
-                <p className="text-[9px] md:text-xs text-slate-500 font-medium text-center line-clamp-2 px-1">{author.books}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link
-              to="/famous-authors"
-              className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center justify-center gap-1 text-xs md:text-base whitespace-nowrap"
-            >
-              Explore Famous Authors <ArrowRight className="w-3 md:w-5 h-3 md:h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+    <div className="text-center mb-10">
+      <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2">
+        Our Inspirations
+      </h2>
+      <p className="text-slate-500 font-medium text-xs md:text-base">
+        Famous authors who inspire our young writers
+      </p>
+    </div>
 
-      {/* EXPLORE CATEGORIES with Images */}
-      <section className="py-10 bg-[#f1f3ff]">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-4 text-center">
-              Explore Categories
-            </h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+      {famousAuthors.map((author, idx) => (
+        <div
+          key={idx}
+          className={`${author.bg} p-3 rounded-[1.5rem] shadow-sm hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center group`}
+        >
+
+          <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 md:border-4 border-indigo-50 mb-3 ${author.border}`}>
+            <img
+              src={author.photo}
+              alt={author.name}
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-            {categories.map((cat, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="relative h-28 md:h-48 rounded-[24px] overflow-hidden group cursor-pointer shadow-md"
-              >
-                <Link to="/marketplace" className="w-full h-full block">
-                  <img
-                    src={cat.img}
-                    alt={cat.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-0 right-0 text-center">
-                    <span className="text-white font-black text-[12px] md:text-xl tracking-wide uppercase group-hover:scale-110 transition-transform inline-block">
-                      {cat.name}
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+
+          <h3 className="text-xs md:text-base font-bold text-slate-800 mb-0.5 text-center">
+            {author.name}
+          </h3>
+
+          <p className="text-[9px] md:text-xs text-slate-500 font-medium text-center line-clamp-2 px-1">
+            {author.books}
+          </p>
+
         </div>
-      </section>
+      ))}
+    </div>
+
+    <div className="mt-8 text-center">
+      <Link
+        to="/famous-authors"
+        className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center justify-center gap-1 text-xs md:text-base whitespace-nowrap"
+      >
+        Explore Famous Authors <ArrowRight className="w-3 md:w-5 h-3 md:h-5" />
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+     {/* EXPLORE CATEGORIES with Images */}
+<section className="py-10 bg-white">
+  <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+
+    <div className="text-center mb-12">
+      <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-4">
+        Explore Categories
+      </h2>
+    </div>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+      {categories.map((cat, idx) => (
+        <motion.div
+          key={idx}
+          whileHover={{ scale: 1.02, y: -5 }}
+          className="relative h-28 md:h-48 rounded-[24px] overflow-hidden group cursor-pointer shadow-md"
+        >
+
+          <Link to="/marketplace" className="w-full h-full block">
+
+            <img
+              src={cat.img}
+              alt={cat.name}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+
+            <div className="absolute bottom-3 left-0 right-0 text-center">
+              <span className="text-white font-black text-[12px] md:text-xl tracking-wide uppercase group-hover:scale-110 transition-transform inline-block">
+                {cat.name}
+              </span>
+            </div>
+
+          </Link>
+
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
       {/* CALL TO ACTION */}
       <section className="py-10 md:py-12 bg-[#f1f3ff] relative overflow-hidden text-center px-4 md:px-6">
 
@@ -636,19 +737,26 @@ const Home = () => {
       </section>
 
       {/* VISDOM WAVES IMAGE */}
-      <section className="pb-10 bg-white overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="relative group rounded-[2.5rem] overflow-hidden shadow-2xl">
-            <img
-              src="/image.png"
-              alt="VisdomWaves Illustration"
-              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-indigo-900/10 pointer-events-none" />
-          </div>
-        </div>
-      </section>
+     <section className="pb-10 bg-white overflow-hidden">
+  <div className="max-w-[1200px] mx-auto px-6">
+
+    <div className="bg-white p-3 md:p-4 rounded-[2.5rem] shadow-xl">
+      <div className="relative group rounded-[2rem] overflow-hidden">
+
+        <img
+          src="/image.png"
+          alt="VisdomWaves Illustration"
+          className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+        />
+
+        <div className="absolute inset-0 bg-indigo-900/10 pointer-events-none" />
+
+      </div>
     </div>
+
+  </div>
+</section>
+</div>
   );
 };
 
