@@ -77,13 +77,12 @@ export default function IllustrationBoard() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] bg-sky-100 font-['Outfit',-apple-system,sans-serif] selection:bg-sky-200 selection:text-sky-900">
-      <div className="max-w-[1400px] mx-auto h-full flex flex-col pt-8 pb-12 px-6">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h2 className="text-4xl font-black text-slate-900 tracking-tight">Illustration Board</h2>
-            <p className="text-slate-500 font-medium mt-1 text-lg">Design and manage artwork for your book.</p>
-          </div>
+    <div className="max-w-[1400px] mx-auto h-full flex flex-col pt-8 pb-12 px-6">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h2 className="text-3xl font-bold text-slate-800">Illustration Board</h2>
+          <p className="text-slate-500 mt-1">Design and manage artwork for your book.</p>
+        </div>
         <div className="flex gap-3">
           {selectedId && (
             <button 
@@ -248,6 +247,5 @@ export default function IllustrationBoard() {
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 }

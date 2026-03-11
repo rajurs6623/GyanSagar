@@ -45,15 +45,16 @@ import {
 
 const WRITING_THEMES = [
   {
-    id: "mesh",
-    name: "Premium Mesh",
-    bg: "bg-mesh",
-    paper: "bg-white shadow-sm border border-slate-200 rounded-sm",
+    id: "magical",
+    name: "Magical Fantasy",
+    bg: "bg-gradient-to-br from-purple-300 via-indigo-300 to-blue-300",
+    paper:
+      "bg-[#f8f5ff]/90 backdrop-blur-2xl shadow-[0_0_40px_rgba(167,139,250,0.3)] rounded-3xl border border-indigo-200/50",
     text: "text-slate-800",
     heading: "text-slate-900",
-    quote: "border-indigo-500 text-slate-700",
-    panelBg: "bg-white/80 backdrop-blur-2xl",
-    panelBorder: "border-indigo-100/50",
+    quote: "border-purple-400 text-slate-700",
+    panelBg: "bg-purple-100/70 backdrop-blur-2xl",
+    panelBorder: "border-purple-200/50",
   },
   {
     id: "gradient",
@@ -68,16 +69,15 @@ const WRITING_THEMES = [
     panelBorder: "border-white/40",
   },
   {
-    id: "magical",
-    name: "Magical Fantasy",
-    bg: "bg-gradient-to-br from-purple-300 via-indigo-300 to-blue-300",
-    paper:
-      "bg-[#f8f5ff]/90 backdrop-blur-2xl shadow-[0_0_40px_rgba(167,139,250,0.3)] rounded-3xl border border-indigo-200/50",
+    id: "mesh",
+    name: "Premium Mesh",
+    bg: "bg-mesh",
+    paper: "bg-white shadow-sm border border-slate-200 rounded-sm",
     text: "text-slate-800",
     heading: "text-slate-900",
-    quote: "border-purple-400 text-slate-700",
-    panelBg: "bg-purple-100/70 backdrop-blur-2xl",
-    panelBorder: "border-purple-200/50",
+    quote: "border-indigo-500 text-slate-700",
+    panelBg: "bg-white/80 backdrop-blur-2xl",
+    panelBorder: "border-indigo-100/50",
   },
   {
     id: "cloud",
@@ -320,7 +320,7 @@ const YoungWritersPad = () => {
   const [illusURLInput, setIllusURLInput] = useState("");
   const [illusSearchQuery, setIllusSearchQuery] = useState("");
 
-  const [activeThemeId, setActiveThemeId] = useState("mesh");
+  const [activeThemeId, setActiveThemeId] = useState("magical");
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   const activeThemeObj =
     WRITING_THEMES.find((t) => t.id === activeThemeId) || WRITING_THEMES[0];
@@ -1478,59 +1478,39 @@ const YoungWritersPad = () => {
                 checkPagination();
               }}
             >
-              <h1
-                className={`text-4xl font-black mb-4 outline-none transition-colors duration-500 ${activeThemeObj.heading}`}
-              >
-                {predefinedData?.basics?.title || "The Discovery"}
-              </h1>
-              {predefinedData?.basics?.subtitle && (
-                <h2
-                  className={`text-2xl font-bold mb-4 outline-none opacity-80 ${activeThemeObj.text}`}
-                >
-                  {predefinedData.basics.subtitle}
-                </h2>
+              {predefinedData?.basics?.title ? (
+                <>
+                  <h1
+                    className={`text-4xl font-black mb-4 outline-none transition-colors duration-500 ${activeThemeObj.heading}`}
+                  >
+                    {predefinedData.basics.title}
+                  </h1>
+                  {predefinedData.basics.subtitle && (
+                    <h2
+                      className={`text-2xl font-bold mb-4 outline-none opacity-80 ${activeThemeObj.text}`}
+                    >
+                      {predefinedData.basics.subtitle}
+                    </h2>
+                  )}
+                  {predefinedData.setting?.location && (
+                    <div
+                      className={`text-sm font-bold uppercase tracking-widest mb-6 opacity-80 ${activeThemeObj.text}`}
+                    >
+                      {predefinedData.setting.location}{" "}
+                      {predefinedData.setting.timePeriod
+                        ? `• ${predefinedData.setting.timePeriod}`
+                        : ""}
+                    </div>
+                  )}
+                  {predefinedData.plot?.beginning && (
+                    <p className={`text-lg outline-none ${activeThemeObj.text}`}>
+                      {predefinedData.plot.beginning}
+                    </p>
+                  )}
+                </>
+              ) : (
+                <p className={`text-lg outline-none ${activeThemeObj.text}`}><br/></p>
               )}
-              {predefinedData?.setting?.location && (
-                <div
-                  className={`text-sm font-bold uppercase tracking-widest mb-6 opacity-80 ${activeThemeObj.text}`}
-                >
-                  {predefinedData.setting.location}{" "}
-                  {predefinedData.setting.timePeriod
-                    ? `• ${predefinedData.setting.timePeriod}`
-                    : ""}
-                </div>
-              )}
-              <p className={`text-lg outline-none ${activeThemeObj.text}`}>
-                {predefinedData?.plot?.beginning ||
-                  "It was a dark and stormy night when Oliver first discovered the glowing orb in the attic. The dust danced in the pale moonlight as he reached out his trembling hand..."}
-              </p>
-
-              <div className="my-8 flex justify-center">
-                <div
-                  contentEditable={false}
-                  suppressContentEditableWarning={true}
-                  onClick={() => fileInputRef.current?.click()}
-                  className="w-[400px] h-[300px] bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex items-center justify-center flex-col gap-3 text-slate-400 hover:bg-slate-50 hover:border-indigo-300 transition-colors cursor-pointer group"
-                >
-                  <ImagePlus className="w-10 h-10 group-hover:text-indigo-500 transition-colors" />
-                  <span className="font-bold">
-                    Click to Insert Illustration
-                  </span>
-                </div>
-              </div>
-
-              <p className={`text-lg outline-none mt-8 ${activeThemeObj.text}`}>
-                The orb hummed with ancient energy, sending warm vibrations up
-                his arm. Suddenly, a voice echoed in his mind, not heard, but
-                felt.
-              </p>
-
-              <blockquote
-                className={`pl-8 border-l-4 my-6 text-xl font-bold italic outline-none transition-colors duration-500 ${activeThemeObj.quote}`}
-              >
-                "You have awakened the long slumber, young one. The realms are
-                yours to save or shatter."
-              </blockquote>
             </div>
           </div>
         </div>
