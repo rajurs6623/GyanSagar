@@ -320,6 +320,9 @@ const YoungWritersPad = () => {
   const [illusURLInput, setIllusURLInput] = useState("");
   const [illusSearchQuery, setIllusSearchQuery] = useState("");
 
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageToolbarPos, setImageToolbarPos] = useState({ top: 0, left: 0 });
+
   const [activeThemeId, setActiveThemeId] = useState("magical");
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   const activeThemeObj =
@@ -328,7 +331,8 @@ const YoungWritersPad = () => {
   const checkPagination = () => {
     if (editorRef.current) {
       const height = editorRef.current.scrollHeight;
-      const count = Math.max(1, Math.ceil(height / 1088));
+      // Each page is exactly 1056px now with no gaps in the background column
+      const count = Math.max(1, Math.ceil(height / 1056));
       if (count !== pageCount) {
         setPageCount(count);
       }
@@ -386,6 +390,101 @@ const YoungWritersPad = () => {
     }
   }, [isDictating, recognition, dictationLang]);
 
+  useEffect(() => {
+    const handleEditorClick = (e) => {
+      const clickedPageBreak = e.target.closest(".page-break-element");
+      const clickedTOC = e.target.closest(".toc-element");
+
+      if (clickedPageBreak) {
+        if (window.confirm("Do you want to delete this Page Break?")) {
+          clickedPageBreak.remove();
+          checkPagination();
+        }
+        return;
+      }
+
+      if (clickedTOC) {
+        // Toggle contentEditable for the TOC so user can edit the text manually
+        if (!clickedTOC.isContentEditable) {
+          clickedTOC.contentEditable = "true";
+          clickedTOC.focus();
+          clickedTOC.title =
+            "Click outside to save edits. Right-click to delete.";
+          clickedTOC.oncontextmenu = (ce) => {
+            ce.preventDefault();
+            if (window.confirm("Delete this Table of Contents?"))
+              clickedTOC.remove();
+          };
+        }
+        return;
+      }
+
+      // If clicking elsewhere, make sure all TOCs are non-editable again
+      document.querySelectorAll(".toc-element").forEach((toc) => {
+        if (toc !== clickedTOC) {
+          toc.contentEditable = "false";
+          toc.title = "Click to edit text. Right-click to delete.";
+        }
+      });
+
+      if (e.target.tagName === "IMG") {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNode(e.target);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        setSelectedImage(e.target);
+        const rect = e.target.getBoundingClientRect();
+        const editorRect =
+          editorRef.current.parentElement.getBoundingClientRect();
+        setImageToolbarPos({
+          top:
+            rect.top -
+            editorRect.top +
+            editorRef.current.parentElement.scrollTop -
+            50,
+          left: rect.left - editorRect.left + rect.width / 2 - 80, // center tool over image roughly
+        });
+      } else {
+        setSelectedImage(null);
+      }
+    };
+
+    // Add scroll handler to hide the toolbar while scrolling to avoid mispositioning
+    const handleScroll = () => {
+      if (selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+
+    const editorParentEl = editorRef.current?.parentElement;
+    const editorEl = editorRef.current;
+    if (editorEl && editorParentEl) {
+      editorEl.addEventListener("click", handleEditorClick);
+      editorParentEl.addEventListener("scroll", handleScroll);
+      return () => {
+        editorEl.removeEventListener("click", handleEditorClick);
+        editorParentEl.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [selectedImage]);
+
+  const handleResizeImage = (size) => {
+    if (!selectedImage) return;
+    if (size === "small") selectedImage.style.maxWidth = "30%";
+    if (size === "medium") selectedImage.style.maxWidth = "50%";
+    if (size === "large") selectedImage.style.maxWidth = "80%";
+    setSelectedImage(null);
+  };
+
+  const handleDeleteImage = () => {
+    if (!selectedImage) return;
+    selectedImage.remove();
+    setSelectedImage(null);
+    checkPagination();
+  };
+
   const handleTranslate = async (targetLang) => {
     if (!editorRef.current) return;
     setIsTranslating(true);
@@ -420,7 +519,7 @@ const YoungWritersPad = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        const imgHtml = `<br/><div contenteditable="false" style="display: flex; justify-content: center; margin: 20px 0;"><img src="${event.target.result}" style="max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" alt="Story Illustration" /></div><p><br/></p>`;
+        const imgHtml = `<br/><img src="${event.target.result}" style="display: block; margin: 20px auto; max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer;" alt="Story Illustration" /><p><br/></p>`;
         insertHTML(imgHtml);
       };
       reader.readAsDataURL(file);
@@ -647,36 +746,164 @@ const YoungWritersPad = () => {
   const handleDownload = (type) => {
     if (!editorRef.current) return;
     const title = predefinedData?.basics?.title || "My_Masterpiece";
-    const content = editorRef.current.innerHTML;
 
-    if (type === "PDF") {
-      window.print();
-    } else if (type === "DOCX") {
-      const header =
-        "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export</title></head><body>";
-      const footer = "</body></html>";
-      const source = header + content + footer;
-      const blob = new Blob(["\ufeff", source], {
-        type: "application/msword",
-      });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${title}.doc`;
-      link.click();
-      URL.revokeObjectURL(url);
-    } else {
-      // Default to TXT draft
-      const text = editorRef.current.innerText;
-      const blob = new Blob([text], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${title}_Draft.txt`;
-      link.click();
-      URL.revokeObjectURL(url);
+    // Immediate feedback for the user
+    alert(`Preparing your ${type} export... Please wait a moment.`);
+
+    // ─── Step 1: Deep-clone and Clean ──────────────────────────────────────────
+    const editorClone = editorRef.current.cloneNode(true);
+
+    // Remove all page-break artifacts and the empty paragraphs that often follow them
+    editorClone.querySelectorAll(".page-break-element").forEach(el => {
+      // Make the break invisible and space-free
+      el.style.cssText = "height:0; margin:0; padding:0; border:none; display:block; page-break-after:always; break-after:page; visibility:hidden; overflow:hidden;";
+      el.innerHTML = "";
+
+      // CRITICAL: Remove the empty parasitic paragraph that usually follows a jump
+      // This is often what causes the "gap" at the top of the new page in PDF
+      let next = el.nextElementSibling;
+      if (next && next.tagName === "P") {
+        const text = next.innerText.trim();
+        if (!text && !next.querySelector("img") && !next.querySelector("canvas")) {
+          next.remove();
+        }
+      }
+    });
+
+    // Remove empty list items that cause "phantom dots"
+    editorClone.querySelectorAll("li").forEach(li => {
+      const hasContent = li.innerText.trim().length > 0 || li.querySelector("img") || li.querySelector("canvas");
+      if (!hasContent) li.remove();
+    });
+
+    // Remove empty lists
+    editorClone.querySelectorAll("ul, ol").forEach(list => {
+      if (list.children.length === 0) list.remove();
+    });
+
+    // Strip editor-only padding/min-height
+    editorClone.style.paddingBottom = "0";
+    editorClone.style.minHeight = "auto";
+
+    // Ensure all content is non-editable
+    editorClone.querySelectorAll("[contenteditable]").forEach(el => el.removeAttribute("contenteditable"));
+
+    const cleanHTML = editorClone.innerHTML;
+
+    // ─── Step 2: Shared Styling ────────────────────────────────────────────────
+    const fontFamily = (activeFont && activeFont.family)
+      ? activeFont.family.replace(/"/g, "'").replace(/;/g, "")
+      : "sans-serif";
+
+    const PD = "96px"; // 1 inch approx
+    const LH = "32px"; // matching editor line height
+    const FS = "18px"; // matching editor font size
+
+    // ─── Step 3: Handle Export Logic ───────────────────────────────────────────
+    switch (type) {
+      case "PDF":
+      case "PRINT": {
+        const printCSS = `
+          @page { size: A4 portrait; margin: 0; }
+          *, *::before, *::after { box-sizing: border-box !important; }
+          body { margin: 0 !important; padding: 0 !important; background: white; -webkit-print-color-adjust: exact; }
+          .pw {
+            width: 210mm;
+            padding: ${PD};
+            margin: 0 !important;
+            box-sizing: border-box;
+            font-family: ${fontFamily}, sans-serif !important;
+            font-size: ${FS} !important;
+            line-height: ${LH} !important;
+            color: #1e293b;
+            background: white !important;
+          }
+          .pw p, .pw div:not(.toc-element):not(.page-break-element) {
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: ${LH};
+          }
+          .pw h1 { font-size: 2.25rem; font-weight: 900; line-height: 1.2; margin: 0 0 10px 0; color: #0f172a; }
+          .pw h2 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; margin: 15px 0 5px 0; color: #1e293b; }
+          .pw ul, .pw ol { margin: 0; padding-left: 1.5em; }
+          .pw li { line-height: ${LH}; margin: 0; }
+          .pw img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 10px 0; }
+          .pw .page-break-element { 
+            height: 0 !important; 
+            margin: 0 !important; 
+            padding: 0 !important;
+            page-break-after: always !important; 
+            break-after: page !important; 
+            visibility: hidden !important; 
+            overflow: hidden !important;
+            display: block !important;
+          }
+          .pw .toc-element { border: 1px solid #e2e8f0; padding: 24px; border-radius: 12px; background: #fafafa; margin: 20px 0; page-break-inside: avoid; }
+        `;
+
+        const oldFrame = document.getElementById("wysiwyg-export-frame");
+        if (oldFrame) oldFrame.remove();
+
+        const iframe = document.createElement("iframe");
+        iframe.id = "wysiwyg-export-frame";
+        iframe.style.cssText = "position:fixed; top:0; left:-9999px; width:794px; height:1123px; border:none; opacity:0;";
+        document.body.appendChild(iframe);
+
+        const iDoc = iframe.contentWindow.document;
+        iDoc.open();
+        iDoc.write(`<html><head><title>${title}</title><style>${printCSS}</style></head><body><div class="pw">${cleanHTML}</div></body></html>`);
+        iDoc.close();
+
+        setTimeout(() => {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+          if (type === "PDF") alert("Download complete! If the window didn't open, please check your pop-up blocker.");
+        }, 1000);
+        break;
+      }
+
+      case "DOCX": {
+        const docCSS = `body { font-family: ${fontFamily}, sans-serif; padding: ${PD}; line-height: ${LH}; } .page-break-element { page-break-after: always; }`;
+        const source = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><style>${docCSS}</style></head><body>${cleanHTML}</body></html>`;
+        const blob = new Blob(["\ufeff", source], { type: "application/msword" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${title}.doc`;
+        a.click();
+        URL.revokeObjectURL(url);
+        break;
+      }
+
+      case "EPUB": {
+        // E-book ready HTML format (often preferred for EPUB readers)
+        const epubStyles = `body { font-family: ${fontFamily}, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; line-height: 1.6; } h1 { text-align: center; } .page-break-element { border-top: 1px solid #eee; margin: 40px 0; } img { max-width: 100%; }`;
+        const source = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${title}</title><style>${epubStyles}</style></head><body>${cleanHTML}</body></html>`;
+        const blob = new Blob([source], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${title}.epub.html`;
+        a.click();
+        URL.revokeObjectURL(url);
+        break;
+      }
+
+      default: {
+        // Plain text
+        const text = editorRef.current.innerText;
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${title}_Draft.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+        break;
+      }
     }
   };
+
 
   const handleFontChange = (font) => {
     setActiveFont(font);
@@ -901,6 +1128,10 @@ const YoungWritersPad = () => {
                           (subItem) => (
                             <div
                               key={subItem}
+                              onClick={() => {
+                                if (subItem === "Print") handleDownload("PDF");
+                                setActiveMenu(null);
+                              }}
                               className="px-3 py-2 hover:bg-slate-50 text-[13px] font-bold text-slate-600 cursor-pointer rounded transition-colors"
                             >
                               {subItem}
@@ -1430,24 +1661,96 @@ const YoungWritersPad = () => {
         </div>
 
         {/* CENTER EDITOR */}
-        <div className="flex-1 overflow-y-auto bg-transparent p-4 md:p-8 flex justify-center custom-scrollbar">
+        <div className="flex-1 overflow-y-auto bg-transparent p-4 md:p-8 flex justify-center custom-scrollbar relative">
+          {selectedImage && (
+            <div
+              className="absolute z-50 bg-slate-800 text-white shadow-xl rounded-xl px-2 py-2 flex items-center gap-2 animate-in fade-in"
+              style={{
+                top: Math.max(0, imageToolbarPos.top),
+                left: Math.max(0, imageToolbarPos.left),
+              }}
+            >
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleResizeImage("small");
+                }}
+                className="px-3 py-1.5 hover:bg-slate-700 rounded-lg text-xs font-bold transition-colors"
+              >
+                Small
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleResizeImage("medium");
+                }}
+                className="px-3 py-1.5 hover:bg-slate-700 rounded-lg text-xs font-bold transition-colors"
+              >
+                Medium
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleResizeImage("large");
+                }}
+                className="px-3 py-1.5 hover:bg-slate-700 rounded-lg text-xs font-bold transition-colors"
+              >
+                Large
+              </button>
+              <div className="w-px h-5 bg-slate-600 mx-1"></div>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDeleteImage();
+                }}
+                className="p-1.5 hover:bg-red-500 hover:text-white text-red-400 rounded-lg transition-colors title='Delete image'"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 6h18"></path>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
+          )}
+
           <div
             className="relative w-full max-w-[816px] transition-all duration-300 origin-top"
             style={{
               zoom: `${zoom}%`,
             }}
           >
-            {/* Page Backgrounds */}
-            <div className="absolute inset-0 pointer-events-none flex flex-col gap-[32px] z-0">
+            {/* Page Background Column - Made continuous to prevent text "falling on blue" */}
+            <div className="absolute inset-0 pointer-events-none flex flex-col z-0">
               {Array.from({ length: pageCount }).map((_, i) => (
                 <div
                   key={i}
-                  className={`w-full min-w-0 h-[1056px] shrink-0 relative transition-all duration-500 ${activeThemeObj.paper}`}
+                  className={`w-full min-w-0 h-[1056px] shrink-0 relative transition-all duration-500 ${activeThemeObj.paper} rounded-none border-b border-dashed border-slate-200 shadow-none`}
+                  style={{
+                    // Only round the very top of the first page and very bottom of the last
+                    borderTopLeftRadius: i === 0 ? "1.5rem" : "0",
+                    borderTopRightRadius: i === 0 ? "1.5rem" : "0",
+                    borderBottomLeftRadius: i === pageCount - 1 ? "1.5rem" : "0",
+                    borderBottomRightRadius: i === pageCount - 1 ? "1.5rem" : "0",
+                    // Ensure the white background is solid across pages
+                    backgroundColor: "white",
+                    zIndex: 0
+                  }}
                 >
                   <div
-                    className={`absolute bottom-6 right-8 font-bold text-xs font-mono opacity-50 ${activeThemeObj.text}`}
+                    className={`absolute bottom-6 right-8 font-bold text-[10px] font-mono opacity-40 ${activeThemeObj.text} uppercase tracking-widest`}
                   >
-                    PAGE {i + 1}
+                    — PAGE {i + 1} —
                   </div>
                   {showOutline && (
                     <div className="absolute inset-x-12 inset-y-12 border border-slate-200 border-dashed opacity-50 pointer-events-none"></div>
@@ -1456,24 +1759,53 @@ const YoungWritersPad = () => {
               ))}
             </div>
 
-            {/* Editable Content */}
+            {/* Editable Content - Aligned perfectly to 32px line-height */}
             <div
               ref={editorRef}
               className={`relative z-10 w-full focus:outline-none transition-colors duration-500 ${activeThemeObj.text}`}
               style={{
                 fontFamily: activeFont.family,
-                minHeight: `${pageCount * 1088}px`,
-                padding: "96px",
+                minHeight: `${pageCount * 1056}px`,
+                padding: "96px 96px", // 3 lines of padding
                 lineHeight: "32px",
+                fontSize: "18px",
+                paddingBottom: "500px", 
+                backgroundColor: "transparent", // Reveal the paper background below
+                wordBreak: "break-word",
               }}
               contentEditable
               suppressContentEditableWarning={true}
-              onInput={checkPagination}
-              onKeyUp={(e) => {
+              onInput={() => {
+                checkPagination();
+                checkFormats();
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const selection = window.getSelection();
+                  if (selection.rangeCount > 0) {
+                    const range = selection.getRangeAt(0);
+                    const rect = range.getBoundingClientRect();
+                    const editorRect = editorRef.current.getBoundingClientRect();
+                    const y = rect.top - editorRect.top + editorRef.current.scrollTop;
+                    const posInPage = y % 1056;
+
+                    // If we are in the bottom padding area (near 960px), auto-jump
+                    if (posInPage > 920 && posInPage < 1056) {
+                      e.preventDefault();
+                      const jump = 1056 - posInPage + 10; // Jump to start of next page
+                      insertHTML(
+                        `<div contentEditable="false" class="page-break-element" style="height: ${jump}px; width: 100%; border-bottom: 1px dashed #cbd5e1; margin: 5px 0; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; pointer-events: none;"><span style="color: #cbd5e1; font-size: 9px; font-weight: bold; margin-bottom: 2px;">PAGE BREAK</span></div><p><br/></p>`,
+                      );
+                      setTimeout(checkPagination, 50);
+                    }
+                  }
+                }
+              }}
+              onKeyUp={() => {
                 checkFormats();
                 checkPagination();
               }}
-              onMouseUp={(e) => {
+              onMouseUp={() => {
                 checkFormats();
                 checkPagination();
               }}
@@ -1503,13 +1835,17 @@ const YoungWritersPad = () => {
                     </div>
                   )}
                   {predefinedData.plot?.beginning && (
-                    <p className={`text-lg outline-none ${activeThemeObj.text}`}>
+                    <p
+                      className={`text-lg outline-none ${activeThemeObj.text}`}
+                    >
                       {predefinedData.plot.beginning}
                     </p>
                   )}
                 </>
               ) : (
-                <p className={`text-lg outline-none ${activeThemeObj.text}`}><br/></p>
+                <p className={`text-lg outline-none ${activeThemeObj.text}`}>
+                  <br />
+                </p>
               )}
             </div>
           </div>
@@ -1689,7 +2025,7 @@ const YoungWritersPad = () => {
                       onClick={() => {
                         if (!illusURLInput.trim()) return;
                         insertHTML(
-                          `<br/><div contenteditable="false" style="display: flex; justify-content: center; margin: 20px 0;"><img src="${illusURLInput.trim()}" style="max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" alt="Image" /></div><p><br/></p>`,
+                          `<br/><img src="${illusURLInput.trim()}" style="display: block; margin: 20px auto; max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer;" alt="Image" /><p><br/></p>`,
                         );
                         setIllusURLInput("");
                         setShowIllustrationsSidebar(false);
@@ -1721,7 +2057,7 @@ const YoungWritersPad = () => {
                         key={i}
                         onClick={() => {
                           insertHTML(
-                            `<br/><div contenteditable="false" style="display: flex; justify-content: center; margin: 20px 0;"><img src="https://picsum.photos/seed/${illusSubcategory.replace(/\s+/g, "")}${i}/400/300" style="max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" alt="Illustration" /></div><p><br/></p>`,
+                            `<br/><img src="https://picsum.photos/seed/${illusSubcategory.replace(/\s+/g, "")}${i}/400/300" style="display: block; margin: 20px auto; max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer;" alt="Illustration" /><p><br/></p>`,
                           );
                           setShowIllustrationsSidebar(false);
                         }}
@@ -1758,7 +2094,7 @@ const YoungWritersPad = () => {
                         onClick={() => {
                           if (!illusURLInput.trim()) return;
                           insertHTML(
-                            `<br/><div contenteditable="false" style="display: flex; justify-content: center; margin: 20px 0;"><img src="${illusURLInput.trim()}" style="max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" alt="Image" /></div><p><br/></p>`,
+                            `<br/><img src="${illusURLInput.trim()}" style="display: block; margin: 20px auto; max-width: 80%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer;" alt="Image" /><p><br/></p>`,
                           );
                           setIllusURLInput("");
                           setShowIllustrationsSidebar(false);
@@ -1797,10 +2133,38 @@ const YoungWritersPad = () => {
                   iconBg="bg-sky-50"
                   iconColor="text-sky-600"
                   onClick={() => {
-                    insertHTML(
-                      '<div contentEditable="false" style="page-break-after: always; height: 32px; width: 100%; border-bottom: 2px dashed #cbd5e1; margin: 32px 0; text-align: center;"><span style="position: relative; top: 22px; color: #94a3b8; font-size: 10px; font-weight: bold;">PAGE BREAK</span></div><p><br/></p>',
-                    );
-                    setTimeout(checkPagination, 50);
+                    if (editorRef.current) {
+                      // Get the current cursor position if possible, otherwise use scroll height
+                      let currentPos = editorRef.current.scrollHeight;
+                      const selection = window.getSelection();
+                      if (selection.rangeCount > 0) {
+                        const range = selection.getRangeAt(0);
+                        const rect = range.getBoundingClientRect();
+                        const editorRect =
+                          editorRef.current.getBoundingClientRect();
+                        if (editorRect.top < window.innerHeight) {
+                          currentPos =
+                            rect.top -
+                            editorRect.top +
+                            editorRef.current.scrollTop;
+                        }
+                      }
+
+                      // Each page unit is 1088px (1056 content + 32 gap)
+                      // We want to jump to the start of the next page
+                      const currentPageIndex = Math.floor(currentPos / 1088);
+                      const nextPageStart = (currentPageIndex + 1) * 1088;
+                      const gapToFill = nextPageStart - currentPos;
+
+                      // Ensure the jump is at least meaningful (min 64px)
+                      const jumpHeight =
+                        gapToFill < 64 ? gapToFill + 1088 : gapToFill;
+
+                      insertHTML(
+                        `<div contentEditable="false" class="page-break-element" style="height: ${jumpHeight}px; width: 100%; border-bottom: 2px dashed #cbd5e1; margin: 10px 0; display: flex; align-items: flex-end; justify-content: center; cursor: pointer; overflow: hidden;" title="Click to delete this Page Break"><span style="color: #94a3b8; font-size: 10px; font-weight: bold; margin-bottom: 5px; background: white; padding: 0 10px;">JUMP TO PAGE ${currentPageIndex + 2} (Click to Delete)</span></div><p><br/></p>`,
+                      );
+                      setTimeout(checkPagination, 50);
+                    }
                   }}
                 />
                 <SidebarButton
@@ -1819,11 +2183,39 @@ const YoungWritersPad = () => {
                   label="Table of Contents"
                   iconBg="bg-slate-50"
                   iconColor="text-slate-600"
-                  onClick={() =>
-                    insertHTML(
-                      "<br/><div style='background: #f8fafc; padding: 30px; border-radius: 12px; margin: 20px 0;'><h2><strong>Table of Contents</strong></h2><ul style='list-style-type: none; padding-left: 0; margin-top: 20px;'><li style='margin-bottom: 10px; display: flex; justify-content: space-between;'><span>Chapter 1: The Discovery</span><span style='color: #94a3b8;'>1</span></li><li style='margin-bottom: 10px; display: flex; justify-content: space-between;'><span>Chapter 2: Into the Unknown</span><span style='color: #94a3b8;'>12</span></li></ul></div><br/>",
-                    )
-                  }
+                  onClick={() => {
+                    if (editorRef.current) {
+                      const chapters = Array.from(
+                        editorRef.current.querySelectorAll("h1, h2"),
+                      ).filter((el) => {
+                        const text = el.innerText.trim();
+                        // Skip the TOC itself and empty headers
+                        return (
+                          text &&
+                          text !== "Table of Contents" &&
+                          !el.closest(".toc-element")
+                        );
+                      });
+
+                      let tocItems = "";
+                      if (chapters.length === 0) {
+                        tocItems =
+                          "<li style='margin-bottom: 10px; display: flex; justify-content: space-between; border-bottom: 1px dotted #e2e8f0;'><span>Chapter 1: The Discovery</span><span style='color: #6366f1; font-weight: bold;'>1</span></li>";
+                      } else {
+                        chapters.forEach((chap) => {
+                          // Automatically calculate page number based on element position
+                          // 1088 is the full page block height
+                          const elementTop = chap.offsetTop;
+                          const pageNum = Math.floor(elementTop / 1088) + 1;
+                          tocItems += `<li style='margin-bottom: 10px; display: flex; justify-content: space-between; border-bottom: 1px dotted #e2e8f0;'><span style='font-weight: 500;'>${chap.innerText.trim()}</span><span style='color: #6366f1; font-weight: bold;'>${pageNum}</span></li>`;
+                        });
+                      }
+
+                      insertHTML(
+                        `<br/><div contenteditable="false" class="toc-element" style='background: #fcfcfd; padding: 40px; border: 1px solid #e2e8f0; border-radius: 4px; margin: 30px 0; cursor: pointer; shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);' title='Click to delete Table of Contents'><h2 style="text-align: center; border-bottom: 2px solid #6366f1; padding-bottom: 10px; margin-bottom: 25px;">Table of Contents</h2><ul style='list-style-type: none; padding-left: 0; margin-top: 20px;'>${tocItems}</ul></div><p><br/></p>`,
+                      );
+                    }
+                  }}
                 />
                 <SidebarButton
                   icon={FileText}
@@ -1876,6 +2268,15 @@ const YoungWritersPad = () => {
                   PDF
                 </div>
                 <div
+                  onClick={() => handleDownload("PRINT")}
+                  className="p-4 border-2 border-slate-100 rounded-2xl flex flex-col justify-center items-center gap-2 hover:border-indigo-400 hover:bg-indigo-50 text-slate-500 hover:text-indigo-600 transition-all cursor-pointer font-black text-[11px]"
+                >
+                  <div className="p-2 bg-purple-50 text-purple-500 rounded-lg group-hover:bg-purple-100">
+                    <Download className="w-5 h-5" />
+                  </div>
+                  PRINT
+                </div>
+                <div
                   onClick={() => handleDownload("DOCX")}
                   className="p-4 border-2 border-slate-100 rounded-2xl flex flex-col justify-center items-center gap-2 hover:border-indigo-400 hover:bg-indigo-50 text-slate-500 hover:text-indigo-600 transition-all cursor-pointer font-black text-[11px]"
                 >
@@ -1895,7 +2296,7 @@ const YoungWritersPad = () => {
                 </div>
                 <div
                   onClick={() => setShowPublishPopup(true)}
-                  className="p-4 bg-indigo-50 border-2 border-indigo-100 rounded-2xl flex flex-col justify-center items-center gap-2 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 text-indigo-600 transition-all cursor-pointer font-black text-[11px]"
+                  className="col-span-2 p-4 bg-indigo-50 border-2 border-indigo-100 rounded-2xl flex flex-col justify-center items-center gap-2 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 text-indigo-600 transition-all cursor-pointer font-black text-[11px]"
                 >
                   <div className="p-2 bg-white text-indigo-600 rounded-lg">
                     <History className="w-5 h-5" />
