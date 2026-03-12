@@ -39,7 +39,7 @@ import PublishYourBook from "../pages/publishing/PublishYourBook";
 import CopyrightGuide from "../pages/publishing/CopyrightGuide";
 import BookPricingGuide from "../pages/publishing/BookPricingGuide";
 
-import NewBooks from "../pages/books/NewBooks";
+import ChildrensBooks from "../pages/books/ChildrensBooks";
 import TopRatedBooks from "../pages/books/TopRatedBooks";
 import BookCategories from "../pages/books/BookCategories";
 
@@ -87,7 +87,7 @@ const AppRoutes = () => {
 
             {/* Books */}
             <Route path="/marketplace" element={<BookMarketplace />} />
-            <Route path="/new-books" element={<NewBooks />} />
+            <Route path="/new-books" element={<ChildrensBooks />} />
             <Route path="/top-rated-books" element={<TopRatedBooks />} />
             <Route path="/book-categories" element={<BookCategories />} />
             <Route path="/book/:id" element={<BookDetails />} />

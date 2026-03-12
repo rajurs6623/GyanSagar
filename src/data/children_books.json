@@ -1,0 +1,626 @@
+[
+  {
+    "category": "Classic Indian Folktales",
+    "description": "Timeless stories filled with wisdom and humor.",
+    "books": [
+      {
+        "id": "b1",
+        "title": "Andher Nagari Chaupat Raja",
+        "author": "Bharatendu Harishchandra",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.9,
+        "price": 120,
+        "badge": "Classic"
+      },
+      {
+        "id": "b2",
+        "title": "Panchatantra ki Kahaniyan",
+        "author": "Vishnu Sharma",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 5,
+        "price": 150,
+        "badge": "Must Read"
+      },
+      {
+        "id": "b3",
+        "title": "Akbar and Birbal",
+        "author": "Traditional",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.8,
+        "price": 110,
+        "badge": "Funny"
+      },
+      {
+        "id": "b4",
+        "title": "Tenali Raman's Wit",
+        "author": "Traditional",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.7,
+        "price": 130,
+        "badge": "Bestseller"
+      },
+      {
+        "id": "b5",
+        "title": "Vikram and Betal",
+        "author": "Somadeva",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.9,
+        "price": 190,
+        "badge": "Mystery"
+      },
+      {
+        "id": "b6",
+        "title": "The Foolish Monkey",
+        "author": "Panchatantra",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.5,
+        "price": 99,
+        "badge": "Moral"
+      },
+      {
+        "id": "b7",
+        "title": "Hitopadesha Tales",
+        "author": "Narayana Pandit",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.6,
+        "price": 160,
+        "badge": "Wisdom"
+      },
+      {
+        "id": "b8",
+        "title": "Jataka Tales",
+        "author": "Buddhist Lore",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.8,
+        "price": 140,
+        "badge": "Trending"
+      }
+    ]
+  },
+  {
+    "category": "Magical Bedtime Stories",
+    "description": "Sweet and enchanting stories for a peaceful sleep.",
+    "books": [
+      {
+        "id": "b11",
+        "title": "The Moon's Lullaby",
+        "author": "Diya Singh",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.9,
+        "price": 150,
+        "badge": "New"
+      },
+      {
+        "id": "b12",
+        "title": "Star Catcher",
+        "author": "Aarav Malhotra",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.7,
+        "price": 145,
+        "badge": "Dreamy"
+      },
+      {
+        "id": "b13",
+        "title": "The Sleepy Dragon",
+        "author": "Meera Reddy",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.8,
+        "price": 160,
+        "badge": "Cute"
+      },
+      {
+        "id": "b14",
+        "title": "Whispers of the Wind",
+        "author": "Ishaan Gupta",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.6,
+        "price": 130,
+        "badge": "Soothing"
+      },
+      {
+        "id": "b15",
+        "title": "The Magic Blanket",
+        "author": "Zoya Khan",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.5,
+        "price": 120,
+        "badge": "Comfort"
+      },
+      {
+        "id": "b16",
+        "title": "Night in the Forest",
+        "author": "Rohan Varma",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.7,
+        "price": 155,
+        "badge": "Nature"
+      },
+      {
+        "id": "b17",
+        "title": "The Owl Who Couldn't Sleep",
+        "author": "Ananya Kapoor",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.8,
+        "price": 140,
+        "badge": "Funny"
+      },
+      {
+        "id": "b18",
+        "title": "Counting Cloud Sheep",
+        "author": "Aryan Dev",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.4,
+        "price": 110,
+        "badge": "Classic"
+      }
+    ]
+  },
+  {
+    "category": "Animal Adventures",
+    "description": "Exciting journeys of our furry friends.",
+    "books": [
+      {
+        "id": "b21",
+        "title": "The Brave Little Elephant",
+        "author": "Sanya Roy",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.9,
+        "price": 180,
+        "badge": "Popular"
+      },
+      {
+        "id": "b22",
+        "title": "Leo the Lion Learns to Roar",
+        "author": "Neel Jha",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.7,
+        "price": 150,
+        "badge": "Inspiring"
+      },
+      {
+        "id": "b23",
+        "title": "The Fox and the Grape Vine",
+        "author": "Priya Das",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.5,
+        "price": 120,
+        "badge": "Folklore"
+      },
+      {
+        "id": "b24",
+        "title": "Monkey Business in the Jungle",
+        "author": "Arjun Mehta",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.8,
+        "price": 140,
+        "badge": "Funny"
+      },
+      {
+        "id": "b25",
+        "title": "The Turtle's Big Race",
+        "author": "Kaira Wilson",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.6,
+        "price": 130,
+        "badge": "Classic"
+      },
+      {
+        "id": "b26",
+        "title": "A Day at the Animal Farm",
+        "author": "Advait Joshi",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.4,
+        "price": 115,
+        "badge": "Learning"
+      },
+      {
+        "id": "b27",
+        "title": "The Singing Bird",
+        "author": "Tanya Sen",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.7,
+        "price": 160,
+        "badge": "Musical"
+      },
+      {
+        "id": "b28",
+        "title": "Finding the Lost Bear cub",
+        "author": "Samir Gupta",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.8,
+        "price": 170,
+        "badge": "Adventure"
+      }
+    ]
+  },
+  {
+    "category": "Space & Science Explorers",
+    "description": "Inquisitive minds zooming through the stars.",
+    "books": [
+      {
+        "id": "b31",
+        "title": "Timmy's Rocket to Mars",
+        "author": "Aarav Malhotra",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.9,
+        "price": 200,
+        "badge": "Bestseller"
+      },
+      {
+        "id": "b32",
+        "title": "The Secret of the Black Hole",
+        "author": "Ishaan Gupta",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.8,
+        "price": 220,
+        "badge": "Mystery"
+      },
+      {
+        "id": "b33",
+        "title": "Robot Rex Needs a Charge",
+        "author": "Advait Joshi",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.6,
+        "price": 180,
+        "badge": "Tech"
+      },
+      {
+        "id": "b34",
+        "title": "Discovering Dinosaurs",
+        "author": "Neel Jha",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.7,
+        "price": 190,
+        "badge": "Science"
+      },
+      {
+        "id": "b35",
+        "title": "The Moon is Made of Cheese!",
+        "author": "Tanya Sen",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.5,
+        "price": 150,
+        "badge": "Funny"
+      },
+      {
+        "id": "b36",
+        "title": "My Friend the Alien",
+        "author": "Kaira Wilson",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.8,
+        "price": 175,
+        "badge": "Friendship"
+      },
+      {
+        "id": "b37",
+        "title": "Journey to the Center of the Earth",
+        "author": "Aryan Dev",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.6,
+        "price": 195,
+        "badge": "Adventure"
+      },
+      {
+        "id": "b38",
+        "title": "How Do Stars Shine?",
+        "author": "Riya Kapoor",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.9,
+        "price": 165,
+        "badge": "Learning"
+      }
+    ]
+  },
+  {
+    "category": "Mystery Solvers",
+    "description": "Tricky puzzles and clever kids.",
+    "books": [
+      {
+        "id": "b41",
+        "title": "The Case of the Missing Cookies",
+        "author": "Kabir Sharma",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.8,
+        "price": 140,
+        "badge": "Fun"
+      },
+      {
+        "id": "b42",
+        "title": "The Secret in the Attic",
+        "author": "Samir Gupta",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.7,
+        "price": 160,
+        "badge": "Spooky"
+      },
+      {
+        "id": "b43",
+        "title": "Where Did the Sun Go?",
+        "author": "Priya Das",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.5,
+        "price": 130,
+        "badge": "Curious"
+      },
+      {
+        "id": "b44",
+        "title": "Detective Dog Saves the Day",
+        "author": "Meera Reddy",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.9,
+        "price": 155,
+        "badge": "Bestseller"
+      },
+      {
+        "id": "b45",
+        "title": "The Mystery of the Blue Train",
+        "author": "Rohan Varma",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.6,
+        "price": 170,
+        "badge": "Adventure"
+      },
+      {
+        "id": "b46",
+        "title": "Who Stole the Crown?",
+        "author": "Ananya Kapoor",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.8,
+        "price": 180,
+        "badge": "Classic"
+      },
+      {
+        "id": "b47",
+        "title": "Clues in the Garden",
+        "author": "Zoya Khan",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.4,
+        "price": 120,
+        "badge": "Nature"
+      },
+      {
+        "id": "b48",
+        "title": "The Whispering Walls",
+        "author": "Maya Iyer",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.7,
+        "price": 165,
+        "badge": "Mystery"
+      }
+    ]
+  },
+  {
+    "category": "Fairy Tales & Legends",
+    "description": "Princesses, dragons, and magic spells.",
+    "books": [
+      {
+        "id": "b51",
+        "title": "The Crystal Princess",
+        "author": "Diya Singh",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.9,
+        "price": 190,
+        "badge": "Magical"
+      },
+      {
+        "id": "b52",
+        "title": "The Brave Little Knight",
+        "author": "Arjun Mehta",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.8,
+        "price": 175,
+        "badge": "Action"
+      },
+      {
+        "id": "b53",
+        "title": "The Dragon Who Was Afraid of Fire",
+        "author": "Sanya Roy",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.7,
+        "price": 160,
+        "badge": "Funny"
+      },
+      {
+        "id": "b54",
+        "title": "The Enchanted Forest",
+        "author": "Ananya Kapoor",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.9,
+        "price": 210,
+        "badge": "Bestseller"
+      },
+      {
+        "id": "b55",
+        "title": "The Magic Wand",
+        "author": "Kaira Wilson",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.6,
+        "price": 145,
+        "badge": "Classic"
+      },
+      {
+        "id": "b56",
+        "title": "The Giant's Shoes",
+        "author": "Tanya Sen",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.5,
+        "price": 135,
+        "badge": "Silly"
+      },
+      {
+        "id": "b57",
+        "title": "The Mermaid's Song",
+        "author": "Ishani Roy",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.8,
+        "price": 185,
+        "badge": "Ocean"
+      },
+      {
+        "id": "b58",
+        "title": "The Golden Apple",
+        "author": "Zoya Khan",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.7,
+        "price": 155,
+        "badge": "Moral"
+      }
+    ]
+  },
+  {
+    "category": "School Days",
+    "description": "Fun, friends, and learning new things.",
+    "books": [
+      {
+        "id": "b61",
+        "title": "My First Day of School",
+        "author": "Aisha Bakshi",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.9,
+        "price": 160,
+        "badge": "Helpful"
+      },
+      {
+        "id": "b62",
+        "title": "The Spelling Bee Champion",
+        "author": "Devansh Nair",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.7,
+        "price": 150,
+        "badge": "Inspiring"
+      },
+      {
+        "id": "b63",
+        "title": "Lunchbox Swap",
+        "author": "Tanya Sen",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.6,
+        "price": 130,
+        "badge": "Funny"
+      },
+      {
+        "id": "b64",
+        "title": "The Best Teacher Ever",
+        "author": "Riya Kapoor",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.8,
+        "price": 145,
+        "badge": "Sweet"
+      },
+      {
+        "id": "b65",
+        "title": "Recess Adventures",
+        "author": "Neel Jha",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.7,
+        "price": 155,
+        "badge": "Action"
+      },
+      {
+        "id": "b66",
+        "title": "The Science Fair Project",
+        "author": "Advait Joshi",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.9,
+        "price": 180,
+        "badge": "Smart"
+      },
+      {
+        "id": "b67",
+        "title": "Making New Friends",
+        "author": "Sanya Roy",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.8,
+        "price": 165,
+        "badge": "Classic"
+      },
+      {
+        "id": "b68",
+        "title": "The Magic School Bus Ride",
+        "author": "Aryan Dev",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.5,
+        "price": 140,
+        "badge": "Adventure"
+      }
+    ]
+  },
+  {
+    "category": "Nature & Environment",
+    "description": "Learning to love and protect our planet.",
+    "books": [
+      {
+        "id": "b71",
+        "title": "The Little Tree Hugger",
+        "author": "Ishaan Gupta",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.9,
+        "price": 175,
+        "badge": "Inspiring"
+      },
+      {
+        "id": "b72",
+        "title": "Cleaning the River",
+        "author": "Meera Reddy",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.8,
+        "price": 160,
+        "badge": "Action"
+      },
+      {
+        "id": "b73",
+        "title": "The Garden of Flowers",
+        "author": "Zoya Khan",
+        "cover": "/images/books/story_boy_forest_1773311645566.png",
+        "rating": 4.6,
+        "price": 140,
+        "badge": "Beautiful"
+      },
+      {
+        "id": "b74",
+        "title": "Why the Earth is angry",
+        "author": "Rohan Varma",
+        "cover": "/images/books/story_fox_friend_1773311872940.png",
+        "rating": 4.7,
+        "price": 185,
+        "badge": "Important"
+      },
+      {
+        "id": "b75",
+        "title": "The Plastic Monster",
+        "author": "Aryan Dev",
+        "cover": "/images/books/3d_detective_dog_1773312818671.png",
+        "rating": 4.5,
+        "price": 150,
+        "badge": "Heroic"
+      },
+      {
+        "id": "b76",
+        "title": "Save the Tigers",
+        "author": "Priya Das",
+        "cover": "/images/books/3d_dragon_sleep_1773312801544.png",
+        "rating": 4.8,
+        "price": 190,
+        "badge": "Wildlife"
+      },
+      {
+        "id": "b77",
+        "title": "The Recycle Bin's Dream",
+        "author": "Kabir Sharma",
+        "cover": "/images/books/3d_monkey_king_1773312778832.png",
+        "rating": 4.6,
+        "price": 135,
+        "badge": "Funny"
+      },
+      {
+        "id": "b78",
+        "title": "Hello, Mr. Sun",
+        "author": "Ananya Kapoor",
+        "cover": "/images/books/space_boy_1773311898148.png",
+        "rating": 4.9,
+        "price": 145,
+        "badge": "Sweet"
+      }
+    ]
+  }
+]

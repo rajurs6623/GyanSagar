@@ -7,7 +7,12 @@
   }
 
   body {
-    @apply bg-white text-slate-900 m-0 p-0 overflow-x-hidden;
+    background-color: white;
+    color: #0f172a;
+    /* text-slate-900 */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,10 +34,10 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600;
-    background-clip: text;
+    background: linear-gradient(to right, #4f46e5, #7c3aed, #c026d3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .bg-mesh {
@@ -40,11 +45,9 @@
     background-image:
       radial-gradient(at 0% 0%, rgba(92, 60, 254, 0.05) 0px, transparent 50%),
       radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.05) 0px, transparent 50%),
-      radial-gradient(
-        at 50% 100%,
+      radial-gradient(at 50% 100%,
         rgba(139, 92, 246, 0.05) 0px,
-        transparent 50%
-      );
+        transparent 50%);
   }
 }
 
@@ -56,6 +59,32 @@
   .nav-link {
     @apply text-[11px] font-[900] tracking-tight transition-colors duration-200 uppercase;
   }
+
+  .premium-card {
+    background: white;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.03);
+    border-radius: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-card:hover {
+    box-shadow: 0 30px 60px -12px rgba(92, 60, 254, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .glass-button {
+    @apply relative overflow-hidden bg-slate-900 text-white rounded-2xl font-bold text-[11px] uppercase tracking-wider transition-all duration-300;
+  }
+
+  .glass-button::after {
+    content: '';
+    @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .glass-button:hover::after {
+    @apply opacity-100;
+  }
 }
 
 /* Custom Scrollbar */
@@ -64,9 +93,54 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-slate-50;
+  background: #f8fafc;
+  /* bg-slate-50 */
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+  background: #e2e8f0;
+  /* bg-slate-200 */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  /* bg-slate-400 */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
