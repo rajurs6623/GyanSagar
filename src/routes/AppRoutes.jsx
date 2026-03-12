@@ -18,15 +18,15 @@ import Account from "../pages/Account";
 import OurStory from "../pages/aboutUs/OurStory";
 import OurPublisher from "../pages/aboutUs/OurPublisher";
 
-import WhatIsWriting from "../pages/learning/WhatIsWriting";
-import WhatIsStorytelling from "../pages/learning/WhatIsStorytelling";
-import WritingBasics from "../pages/learning/WritingBasics";
-import WritingStages from "../pages/learning/WritingStages";
-import StoryStructure from "../pages/learning/StoryStructure";
-import BookStructure from "../pages/learning/BookStructure";
-import GrammarGuide from "../pages/learning/GrammarGuide";
-import WritingTips from "../pages/learning/WritingTips";
-import FamousAuthors from "../pages/learning/FamousAuthors";
+import IntroductionToWriting from "../pages/learning/IntroductionToWriting";
+import IntroductionToStorytelling from "../pages/learning/IntroductionToStorytelling";
+import WritingFundamentals from "../pages/learning/WritingFundamentals";
+import TheWritingProcess from "../pages/learning/TheWritingProcess";
+import StoryStructureAndElements from "../pages/learning/StoryStructureAndElements";
+import BookCompositionGuide from "../pages/learning/BookCompositionGuide";
+import EnglishGrammarEssentials from "../pages/learning/EnglishGrammarEssentials";
+import ProfessionalWritingTips from "../pages/learning/ProfessionalWritingTips";
+import LegendaryAuthorsAndWriters from "../pages/learning/LegendaryAuthorsAndWriters";
 
 import IdeaNotebook from "../pages/writingSpace/IdeaNotebook";
 import StoryCreator from "../pages/writingSpace/StoryCreator";
@@ -61,15 +61,15 @@ const AppRoutes = () => {
             <Route path="/publisher" element={<OurPublisher />} />
 
             {/* Learning */}
-            <Route path="/what-is-writing" element={<WhatIsWriting />} />
-            <Route path="/what-is-storytelling" element={<WhatIsStorytelling />} />
-            <Route path="/writing-basics" element={<WritingBasics />} />
-            <Route path="/writing-stages" element={<WritingStages />} />
-            <Route path="/story-structure" element={<StoryStructure />} />
-            <Route path="/book-structure" element={<BookStructure />} />
-            <Route path="/grammar-guide" element={<GrammarGuide />} />
-            <Route path="/writing-tips" element={<WritingTips />} />
-            <Route path="/famous-authors" element={<FamousAuthors />} />
+            <Route path="/introduction-to-writing" element={<IntroductionToWriting />} />
+            <Route path="/introduction-to-storytelling" element={<IntroductionToStorytelling />} />
+            <Route path="/writing-fundamentals" element={<WritingFundamentals />} />
+            <Route path="/the-writing-process" element={<TheWritingProcess />} />
+            <Route path="/story-structure-and-elements" element={<StoryStructureAndElements />} />
+            <Route path="/book-composition-guide" element={<BookCompositionGuide />} />
+            <Route path="/english-grammar-essentials" element={<EnglishGrammarEssentials />} />
+            <Route path="/professional-writing-tips" element={<ProfessionalWritingTips />} />
+            <Route path="/legendary-authors-and-writers" element={<LegendaryAuthorsAndWriters />} />
 
             {/* Writing Space */}
             <Route path="/writer-pad" element={<YoungWritersPad />} />
