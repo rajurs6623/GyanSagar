@@ -128,119 +128,96 @@ const ChildrensBooks = () => {
                 book={audioBook}
                 isOpen={!!audioBook}
                 onClose={() => setAudioBook(null)}
-            />            {/* PREMIUM STUDENT AUTHOR STYLE HERO SECTION */}
-            <section className="relative pt-32 pb-16 overflow-hidden">
-                {/* Background Decor */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-200/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+            />            {/* PREMIUM 3D BOOK-THEMED HERO SECTION */}
+            <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden">
+                {/* 3D Background Image with Cinematic Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img 
+                        src="/images/books/3d_books_hero.png" 
+                        alt="Magical Stories" 
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Multi-layered overlay for depth and readability */}
+                    <div className="absolute inset-0 bg-indigo-950/40 backdrop-blur-[1px]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-indigo-900/30" />
+                </div>
                 
-                <div className="max-w-7xl mx-auto px-4 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-br from-[#6366f1] via-[#a855f7] to-[#ec4899] rounded-[3.5rem] p-4 md:p-8 lg:p-16 text-white shadow-[0_30px_100px_-20px_rgba(99,102,241,0.4)] relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-16"
+                        className="flex flex-col items-center"
                     >
-                        {/* Stardust Texture Overlay */}
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+                        {/* Spotlight Label */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="mb-6"
+                        >
+                            <span className="text-amber-400 font-black uppercase tracking-[0.4em] text-xs md:text-sm drop-shadow-lg">
+                                FEATURED STORIES
+                            </span>
+                        </motion.div>
                         
-                        {/* Text Content */}
-                        <div className="lg:w-1/2 relative z-10 text-center lg:text-left pt-8 lg:pt-0">
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 mb-8 shadow-lg shadow-black/5"
-                            >
-                                <Sparkles className="w-5 h-5 text-amber-300 fill-amber-300" />
-                                <span className="text-xs font-black uppercase tracking-[0.2em] text-white">Kids Story Corner</span>
-                            </motion.div>
-                            
-                            <motion.h1 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="text-6xl md:text-8xl lg:text-[100px] font-black mb-8 leading-[0.9] tracking-tighter font-['Comic_Sans_MS',_cursive,sans-serif]"
-                                style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))' }}
-                            >
-                                Magical <br/>
-                                <span className="text-[#FFEB3B] drop-shadow-[0_4px_10px_rgba(255,235,59,0.3)]">Adventures</span>
-                            </motion.h1>
-                            
-                            <motion.p 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="text-lg md:text-2xl text-white/90 font-medium mb-12 max-w-lg mx-auto lg:mx-0 leading-relaxed drop-shadow-md"
-                            >
-                                Discover 80+ amazing stories! From classic tales like <span className="text-white font-black underline decoration-amber-400 decoration-2 underline-offset-4">Andher Nagari Chaupat Raja</span> to space explorers.
-                            </motion.p>
+                        {/* Main Title */}
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-6xl md:text-8xl lg:text-[130px] font-black text-white mb-8 leading-[0.9] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                            style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                        >
+                            Wonder <span className="text-amber-400 italic">World</span>
+                        </motion.h1>
+                        
+                        {/* Quote Text */}
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            className="text-lg md:text-3xl text-white/95 font-bold mb-12 max-w-4xl leading-relaxed drop-shadow-md"
+                        >
+                            "Dive into a universe of imagination where every page turns into a new adventure."
+                        </motion.p>
 
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.6 }}
-                            >
-                                <button className="px-10 py-5 bg-white text-indigo-600 rounded-3xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-2xl hover:shadow-white/20 active:scale-95 flex items-center gap-3 group">
-                                    Start Exploring <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </motion.div>
-                        </div>
+                        {/* Button/Action */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.6 }}
+                            className="flex flex-col items-center gap-12"
+                        >
+                            <button className="px-14 py-5 bg-amber-400 text-amber-950 rounded-full font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-2xl hover:bg-white hover:text-indigo-600 active:scale-95 flex items-center gap-3 group">
+                                Start Your Journey <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </button>
 
-                        {/* Visuals Content */}
-                        <div className="lg:w-1/2 relative z-10 w-full max-w-lg mx-auto lg:mx-0 pb-12 lg:pb-0">
-                            {/* Main Card with Scale/Hover Effect */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                whileHover={{ scale: 1.02, rotate: -2 }}
-                                className="relative rounded-[3rem] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] border-8 border-white animate-bounce-subtle cursor-pointer group"
-                            >
-                                <img 
-                                    src="/images/books/story_boy_forest_1773311645566.png" 
-                                    alt="3D Boy Forest" 
-                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" 
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 via-transparent to-transparent opacity-60" />
-                            </motion.div>
-
-                            {/* Floating Circular Avatars */}
-                            {/* Top Right */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.8, type: 'spring' }}
-                                whileHover={{ scale: 1.2, zIndex: 50 }}
-                                className="absolute -top-10 -right-4 md:-right-10 w-32 h-32 md:w-44 md:h-44 rounded-full overflow-hidden border-[6px] md:border-[10px] border-white shadow-2xl z-20 group"
-                            >
-                                <img src="/images/books/story_fox_friend_1773311872940.png" className="w-full h-full object-cover transition-transform group-hover:rotate-6" alt="Fox friend" />
-                            </motion.div>
-
-                            {/* Bottom Left */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 1, type: 'spring' }}
-                                whileHover={{ scale: 1.2, zIndex: 50 }}
-                                className="absolute -bottom-8 -left-4 md:-left-12 w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-[6px] md:border-[8px] border-white shadow-2xl z-20 group"
-                            >
-                                <img src="/images/books/space_boy_1773311898148.png" className="w-full h-full object-cover transition-transform group-hover:-rotate-6" alt="Space boy" />
-                            </motion.div>
-                            
-                            {/* Accent Sparkle Elements */}
-                            <motion.div 
-                                animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
-                                transition={{ duration: 3, repeat: Infinity }}
-                                className="absolute top-1/4 -left-10 text-amber-300"
-                            >
-                                <Sparkles className="w-12 h-12" />
-                            </motion.div>
-                        </div>
+                            {/* Scroll Indicator */}
+                            <div className="flex flex-col items-center gap-4">
+                                <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">Explore Library</span>
+                                <div className="w-[2px] h-10 bg-gradient-to-b from-amber-400 to-transparent" />
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
+                
+                {/* Floating Decorative Elements */}
+                <motion.div 
+                    animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/4 left-20 text-white/20 hidden xl:block"
+                >
+                    <Rocket className="w-24 h-24" />
+                </motion.div>
+                <motion.div 
+                    animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute bottom-1/3 right-20 text-white/20 hidden xl:block"
+                >
+                    <Compass className="w-20 h-20" />
+                </motion.div>
             </section>
-n>
 
             {/* CATEGORY EXPLORER */}
             <section className="py-10 max-w-7xl mx-auto px-4 relative z-20">

@@ -52,110 +52,161 @@ const AuthorProfile = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white font-['Nunito'] pb-20">
-            {/* CINEMATIC HERO HEADER */}
-            <section className="relative h-[55vh] flex items-center justify-center overflow-hidden">
-                <img
-                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1500&q=80"
-                    className="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]"
-                    alt="banner"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-white" />
+        <div className="min-h-screen bg-[#FDFDFF] font-['Outfit',_sans-serif] pb-20 selection:bg-indigo-100 selection:text-indigo-900">
+            {/* 3D IMMERSIVE HERO HEADER */}
+            <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
+                <motion.div 
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="absolute inset-0 z-0"
+                >
+                    <img
+                        src="/images/authors/author_3d_studio.png"
+                        className="w-full h-full object-cover"
+                        alt="3D Studio"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/60 via-indigo-950/30 to-[#FDFDFF]" />
+                    <div className="absolute inset-0 backdrop-blur-[2px]" />
+                </motion.div>
 
-                <div className="absolute top-8 right-8 flex items-center gap-3 z-20">
-                    <Link to="/marketplace" className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-2xl text-white hover:bg-amber-600 transition-all flex items-center gap-2 border border-white/20 shadow-xl group/market">
-                        <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform text-amber-400" />
-                        <span className="text-[11px] font-black uppercase tracking-widest hidden sm:block">Author Store</span>
+                <div className="absolute top-12 right-8 flex items-center gap-4 z-20">
+                    <Link to="/marketplace" className="px-8 py-3.5 bg-white/10 backdrop-blur-2xl rounded-2xl text-white hover:bg-amber-500 transition-all flex items-center gap-3 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
+                        <ShoppingCart className="w-5 h-5 text-amber-400 group-hover:rotate-12 transition-transform" />
+                        <span className="text-[12px] font-black uppercase tracking-widest hidden sm:block">Author Store</span>
                     </Link>
-                    <button className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white hover:bg-white/20 transition-all border border-white/10">
+                    <button className="p-3.5 bg-white/10 backdrop-blur-2xl rounded-2xl text-white hover:bg-white/20 transition-all border border-white/20 shadow-xl">
                         <Share2 className="w-5 h-5" />
                     </button>
                 </div>
 
-                <div className="relative z-10 text-center px-4 max-w-4xl -mt-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                        <span className="text-amber-400 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Master Storyteller</span>
-                        <h1 className="text-6xl md:text-8xl font-serif text-white mb-6 italic leading-tight tracking-tight drop-shadow-2xl">
-                            {authorData.name}
+                <div className="relative z-10 text-center px-4 max-w-5xl">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 40 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ duration: 1, ease: "easeOut" }}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="inline-flex items-center gap-2 px-6 py-2 bg-amber-500 text-white rounded-full mb-8 shadow-xl shadow-amber-500/20"
+                        >
+                            <Sparkles className="w-4 h-4 fill-white" />
+                            <span className="text-[10px] font-black uppercase tracking-[0.2em]">Verified Master Storyteller</span>
+                        </motion.div>
+                        
+                        <h1 className="text-7xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                            {authorData.name.split(' ')[0]} <span className="text-amber-400 italic font-serif" style={{ fontFamily: 'Georgia, serif' }}>{authorData.name.split(' ')[1]}</span>
                         </h1>
-                        <p className="text-white/90 text-xl md:text-2xl font-light italic max-w-2xl mx-auto leading-relaxed">
+                        
+                        <p className="text-white/90 text-xl md:text-3xl font-medium italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                             "{authorData.bio.split('.')[0]}."
                         </p>
                     </motion.div>
                 </div>
+                
+                {/* Floating 3D Elements Placeholder for styling */}
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFDFF] to-transparent z-10" />
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-20">
-                {/* PROFILE HUB */}
-                <div className="bg-white rounded-[3rem] shadow-2xl border border-slate-100 p-8 md:p-12 mb-12">
-                    <div className="flex flex-col lg:flex-row gap-12 items-center lg:items-start text-center lg:text-left">
-                        {/* PHOTO & BADGES */}
-                        <div className="shrink-0 group">
-                            <div className="w-56 h-56 rounded-[3.5rem] p-2 bg-gradient-to-tr from-amber-500 to-indigo-600 shadow-2xl transform transition-transform group-hover:rotate-3 group-hover:scale-105">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 -mt-32 relative z-20">
+                {/* 3D PROFILE HUB */}
+                <div className="bg-white/80 backdrop-blur-3xl rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] border border-white p-10 md:p-16 mb-20 overflow-hidden relative">
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-50/20 via-transparent to-amber-50/20 pointer-events-none" />
+                    
+                    <div className="flex flex-col lg:flex-row gap-16 items-center lg:items-start relative z-10">
+                        {/* 3D AVATAR & LEVEL */}
+                        <div className="shrink-0 relative">
+                            <motion.div 
+                                whileHover={{ scale: 1.05, rotate: -2 }}
+                                className="w-64 h-64 rounded-[4rem] p-3 bg-gradient-to-tr from-indigo-600 via-purple-500 to-amber-500 shadow-[0_30px_60px_-15px_rgba(99,102,241,0.3)] relative z-20"
+                            >
                                 <img
-                                    src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=400&q=80"
-                                    className="w-full h-full object-cover rounded-[3rem] border-4 border-white"
-                                    alt="Author"
+                                    src="/images/authors/author_3d_avatar.png"
+                                    className="w-full h-full object-cover rounded-[3.5rem] border-4 border-white shadow-inner"
+                                    alt="3D Author Avatar"
                                 />
+                            </motion.div>
+                            
+                            {/* Level Badge */}
+                            <div className="absolute -bottom-4 -right-4 bg-slate-900 text-white w-20 h-20 rounded-full flex flex-col items-center justify-center border-8 border-white shadow-2xl z-30 transform hover:scale-110 transition-transform cursor-help">
+                                <span className="text-[10px] font-black uppercase text-amber-500">Level</span>
+                                <span className="text-2xl font-black">42</span>
                             </div>
-                            <div className="mt-6 flex justify-center lg:justify-start gap-2">
+
+                            {/* Achievements Row */}
+                            <div className="mt-10 flex justify-center gap-3">
                                 {authorData.badges.map(badge => (
-                                    <div key={badge.id} className={`${badge.color} p-2.5 rounded-2xl text-white shadow-lg shadow-indigo-100 hover:scale-110 transition-all`}>
-                                        {React.cloneElement(badge.icon, { className: "w-5 h-5" })}
-                                    </div>
+                                    <motion.div 
+                                        key={badge.id} 
+                                        whileHover={{ y: -5, scale: 1.1 }}
+                                        className={`${badge.color} p-3 rounded-2xl text-white shadow-xl shadow-indigo-100 cursor-pointer group relative`}
+                                    >
+                                        {React.cloneElement(badge.icon, { className: "w-6 h-6" })}
+                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none">
+                                            {badge.name}
+                                        </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* INFO & ACTIONS */}
-                        <div className="flex-1 space-y-8">
-                            <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 border-b border-slate-50 pb-8">
-                                <div className="space-y-3">
+                        {/* PREMIUM INFO & GLOBAL ACTIONS */}
+                        <div className="flex-1 space-y-12">
+                            <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 border-b border-slate-100 pb-12">
+                                <div className="space-y-6 flex-1">
                                     <div className="flex items-center gap-4 justify-center md:justify-start">
-                                        <h2 className="text-2xl font-black text-slate-900 tracking-tighter uppercase">Biography</h2>
-                                        <div className="h-0.5 w-12 bg-amber-500" />
+                                        <h2 className="text-[13px] font-black text-indigo-600 uppercase tracking-[0.4em]">Creative DNA</h2>
+                                        <div className="h-0.5 w-16 bg-amber-500 rounded-full" />
                                     </div>
-                                    <p className="text-slate-500 text-lg leading-relaxed max-w-2xl font-medium">
-                                        {authorData.bio}
+                                    <h3 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                                        Exploration of <span className="text-indigo-600">Mythology</span> & <span className="text-amber-500">Future</span>
+                                    </h3>
+                                    <p className="text-slate-500 text-xl leading-relaxed max-w-2xl font-medium italic">
+                                        "{authorData.bio}"
                                     </p>
-                                    <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
-                                        <span className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest bg-slate-50 px-5 py-2.5 rounded-full">
-                                            <MapPin className="w-3 h-3 text-rose-500" /> {authorData.location}
-                                        </span>
-                                        <span className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest bg-slate-50 px-5 py-2.5 rounded-full">
-                                            <Users className="w-3 h-3 text-indigo-500" /> {authorData.school}
-                                        </span>
+                                    <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+                                        <div className="flex items-center gap-3 bg-slate-50 px-6 py-3 rounded-2xl border border-slate-100">
+                                            <MapPin className="w-4 h-4 text-rose-500" />
+                                            <span className="text-xs font-black text-slate-600 uppercase tracking-widest">{authorData.location}</span>
+                                        </div>
+                                        <div className="flex items-center gap-3 bg-slate-50 px-6 py-3 rounded-2xl border border-slate-100">
+                                            <Users className="w-4 h-4 text-indigo-500" />
+                                            <span className="text-xs font-black text-slate-600 uppercase tracking-widest">{authorData.school}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-3 shrink-0">
-                                    <button className="px-10 py-5 bg-indigo-600 text-white font-black text-xs rounded-[1.5rem] hover:bg-slate-900 transition-all shadow-2xl shadow-indigo-100 flex items-center justify-center gap-3 group uppercase tracking-[0.2em]">
+                                
+                                <div className="flex flex-col gap-4 shrink-0 w-full md:w-auto">
+                                    <button className="px-12 py-5 bg-indigo-600 text-white font-black text-sm rounded-[2rem] hover:bg-slate-900 transition-all shadow-[0_25px_50px_-12px_rgba(79,70,229,0.5)] flex items-center justify-center gap-3 group uppercase tracking-widest">
                                         <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform" /> Follow Author
                                     </button>
-                                    <button className="px-10 py-5 bg-white text-slate-900 font-black text-xs rounded-[1.5rem] hover:bg-slate-50 transition-all border border-slate-100 shadow-xl shadow-slate-50 flex items-center justify-center gap-3 uppercase tracking-[0.2em]">
+                                    <button className="px-12 py-5 bg-white text-slate-900 font-black text-sm rounded-[2rem] hover:bg-slate-50 transition-all border-2 border-slate-100 flex items-center justify-center gap-3 uppercase tracking-widest">
                                         <MessageSquare className="w-5 h-5" /> Send Message
                                     </button>
                                 </div>
                             </div>
 
-                            {/* IMPACT ANALYTICS */}
-                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+                            {/* 3D STATS BAR */}
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                                 {[
-                                    { label: "Total Reads", value: authorData.stats.totalReads, icon: <Eye className="text-amber-500" /> },
-                                    { label: "Book Revenue", value: authorData.stats.totalSales, icon: <DollarSign className="text-emerald-500" />, link: "/marketplace" },
-                                    { label: "Followers", value: authorData.stats.followers, icon: <Users className="text-indigo-500" /> },
-                                    { label: "Masterpieces", value: authorData.stats.books, icon: <BookOpen className="text-purple-500" /> },
+                                    { label: "Total Reads", value: authorData.stats.totalReads, icon: <Eye className="w-5 h-5" />, color: "text-amber-500", bg: "bg-amber-50" },
+                                    { label: "Book Revenue", value: authorData.stats.totalSales, icon: <DollarSign className="w-5 h-5" />, color: "text-emerald-500", bg: "bg-emerald-50" },
+                                    { label: "Followers", value: authorData.stats.followers, icon: <Users className="w-5 h-5" />, color: "text-indigo-500", bg: "bg-indigo-50" },
+                                    { label: "Masterpieces", value: authorData.stats.books, icon: <BookOpen className="w-5 h-5" />, color: "text-purple-500", bg: "bg-purple-50" },
                                 ].map((stat, i) => (
-                                    <div key={i} className="group cursor-pointer">
-                                        <div className="flex items-center gap-4 mb-2">
-                                            <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
-                                                {React.cloneElement(stat.icon, { className: "w-5 h-5" })}
-                                            </div>
-                                            <div>
-                                                <h4 className="text-2xl font-black text-slate-900 leading-none">{stat.value}</h4>
-                                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">{stat.label}</p>
-                                            </div>
+                                    <motion.div 
+                                        key={i} 
+                                        whileHover={{ y: -5 }}
+                                        className="p-6 rounded-3xl bg-slate-50/50 hover:bg-white border border-slate-100 hover:shadow-2xl transition-all group cursor-pointer"
+                                    >
+                                        <div className={`${stat.bg} ${stat.color} w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform`}>
+                                            {stat.icon}
                                         </div>
-                                    </div>
+                                        <h4 className="text-3xl font-black text-slate-900 tracking-tighter leading-none mb-1">{stat.value}</h4>
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{stat.label}</p>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
@@ -163,130 +214,104 @@ const AuthorProfile = () => {
                 </div>
 
                 {/* MAIN CONTENT GRID */}
-                <div className="grid lg:grid-cols-12 gap-10">
+                <div className="grid lg:grid-cols-12 gap-12">
 
                     {/* SIDEBAR: WORKSPACE & ACHIEVEMENTS */}
-                    <div className="lg:col-span-4 space-y-8">
-                        {/* OWNER'S SIGNATURE COMMAND (No Background/Card Shape) */}
-                        <div className="py-12 relative group cursor-pointer overflow-visible">
-                            <Link to="/writer-pad" className="block relative">
-                                <div className="flex items-center gap-10">
-                                    {/* The Writing Tool Anchor */}
-                                    <div className="relative">
-                                        <motion.div
-                                            animate={{
-                                                rotate: [25, 32, 25],
-                                                y: [0, -12, 0]
-                                            }}
-                                            transition={{
-                                                duration: 6,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                            className="w-24 h-24 rounded-full flex items-center justify-center border-2 border-slate-100 group-hover:border-indigo-600 transition-colors duration-700 relative z-20"
-                                        >
-                                            <PenTool className="w-10 h-10 text-indigo-600 group-hover:scale-125 transition-all duration-500" />
-
-                                            {/* Rotating Orbital Ring */}
-                                            <motion.div
-                                                animate={{ rotate: 360 }}
-                                                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                                                className="absolute -inset-2 border-r-2 border-indigo-200/30 rounded-full"
-                                            />
-                                        </motion.div>
-
-                                        {/* Floating Label */}
-                                        <motion.div
-                                            className="absolute -top-3 -left-3 px-3 py-1 bg-slate-900 text-white rounded-md text-[11px] font-black uppercase tracking-widest z-30 opacity-0 group-hover:opacity-100 transition-opacity"
-                                        >
-                                            Malik
-                                        </motion.div>
+                    <div className="lg:col-span-4 space-y-10">
+                        {/* PREMIUM WRITER'S HUB CARD */}
+                        <div className="bg-[#0f111a] rounded-[3.5rem] p-10 text-white shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] border border-white/5 group relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 blur-[80px] rounded-full pointer-events-none" />
+                            
+                            <Link to="/writer-pad" className="block relative z-10">
+                                <div className="flex flex-col gap-8">
+                                    <div className="flex items-center justify-between">
+                                        <div className="w-16 h-16 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center group-hover:bg-indigo-600 transition-all duration-500">
+                                            <PenTool className="w-8 h-8 text-indigo-400 group-hover:text-white" />
+                                        </div>
+                                        <div className="px-4 py-1.5 bg-white/5 rounded-xl border border-white/10 group-hover:border-indigo-500/50 transition-colors">
+                                            <span className="text-[10px] font-black uppercase text-amber-500 tracking-[0.2em]">Open Workspace</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <h3 className="text-4xl font-black tracking-tighter italic leading-none uppercase">
+                                            Writer's <span className="text-indigo-400">Hub</span>
+                                        </h3>
+                                        <p className="text-slate-400 font-bold text-xs uppercase tracking-[0.2em] leading-relaxed">
+                                            Assemble Your literary empire in a 3D immersive world.
+                                        </p>
                                     </div>
 
-                                    <div className="flex-1 space-y-3">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="text-[33px] font-[950] text-slate-900 tracking-tighter uppercase italic leading-none">
-                                                Writer's Hub
-                                            </h3>
-                                            <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
-                                        </div>
-                                        <p className="text-slate-400 font-bold text-[14px] uppercase tracking-[0.2em]">
-                                            Assemble Your Literary Empire
-                                        </p>
-
-                                        {/* Interactive Pen Stroke Underline */}
-                                        <div className="relative h-2 w-full pt-4">
-                                            <motion.div
-                                                className="h-px bg-slate-100 group-hover:bg-indigo-600 transition-colors w-full"
-                                            />
-                                            <motion.div
-                                                initial={{ width: 0 }}
-                                                whileHover={{ width: "100%" }}
-                                                className="absolute top-4 left-0 h-1 bg-indigo-600 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.4)]"
-                                            />
-                                        </div>
+                                    {/* Interactive Progress Line */}
+                                    <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                                        <motion.div 
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "100%" }}
+                                            transition={{ duration: 1.5 }}
+                                            className="h-full bg-gradient-to-r from-indigo-600 to-purple-500"
+                                        />
                                     </div>
                                 </div>
                             </Link>
-
-                            {/* Background 'Owner' Floating Text */}
-                            <div className="absolute top-0 right-0 text-[6.5rem] font-black text-slate-100/50 select-none pointer-events-none -z-10 leading-none">
-                                OWNER
-                            </div>
                         </div>
 
-                        {/* MINIMALIST ACHIEVEMENTS (No Card Shape) */}
-                        <div className="py-8 space-y-10">
-                            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                                <h3 className="text-[23px] font-[950] text-slate-900 tracking-tighter uppercase italic">Achievements</h3>
-                                <button className="text-[12px] font-black text-indigo-600 tracking-[0.2em] uppercase">View All</button>
+                        {/* 3D ACHIEVEMENTS TILE */}
+                        <div className="bg-white rounded-[3.5rem] p-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 group">
+                            <div className="flex items-center justify-between mb-10 border-b border-slate-50 pb-6">
+                                <h3 className="text-2xl font-black text-slate-900 tracking-tighter uppercase italic">Hall of Fame</h3>
+                                <button className="text-[10px] font-black text-indigo-600 tracking-widest uppercase hover:text-amber-500 transition-colors">View All</button>
                             </div>
-                            <div className="space-y-8">
+                            
+                            <div className="space-y-6">
                                 {authorData.badges.map(badge => (
-                                    <div key={badge.id} className="group relative flex items-center gap-6">
-                                        <div className={`w-14 h-14 rounded-full ${badge.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 relative z-10`}>
-                                            {badge.icon}
+                                    <motion.div 
+                                        key={badge.id}
+                                        whileHover={{ x: 10 }}
+                                        className="flex items-center gap-6 p-4 rounded-3xl bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all group/item"
+                                    >
+                                        <div className={`w-14 h-14 rounded-2xl ${badge.color} text-white flex items-center justify-center shadow-lg group-hover/item:rotate-6 transition-transform`}>
+                                            {React.cloneElement(badge.icon, { className: "w-6 h-6" })}
                                         </div>
-                                        <div className="flex-1">
-                                            <h4 className="font-black text-slate-800 text-[17px] italic uppercase tracking-tight">{badge.name}</h4>
-                                            <p className="text-[12px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">Earned April 2024</p>
-                                            {/* Signature Underline */}
-                                            <div className="h-px bg-slate-50 w-full mt-3 group-hover:bg-indigo-600 transition-colors" />
+                                        <div>
+                                            <h4 className="font-black text-slate-800 text-sm uppercase tracking-tight italic">{badge.name}</h4>
+                                            <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Global Ranking #24</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* SKILLS CARD */}
-                        <div className="bg-[#0f111a] rounded-[3.5rem] p-12 text-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] border border-white/5 group">
-                            <div className="flex items-center gap-4 mb-10">
-                                <h3 className="text-3xl font-[900] tracking-tighter italic">Writing DNA</h3>
-                                <div className="px-3 py-1 bg-[#1e2235] rounded-xl border border-white/10">
-                                    <span className="text-[9px] font-black uppercase text-amber-500 tracking-widest">Analytics</span>
+                        {/* NEON WRITING DNA */}
+                        <div className="bg-slate-900 rounded-[3.5rem] p-10 text-white shadow-2xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-indigo-600/20 via-transparent to-amber-500/10" />
+                            <div className="relative z-10 space-y-8">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-2xl font-black tracking-tight italic">Writing <span className="text-amber-500">DNA</span></h3>
+                                    <Activity className="w-5 h-5 text-indigo-400 animate-pulse" />
                                 </div>
-                            </div>
-                            <div className="space-y-10">
-                                {[
-                                    { label: "Vocabulary", percentage: 92 },
-                                    { label: "Narrative Flow", percentage: 85 },
-                                    { label: "Character Depth", percentage: 95 }
-                                ].map((skill, i) => (
-                                    <div key={i} className="space-y-4">
-                                        <div className="flex justify-between items-end">
-                                            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">{skill.label}</span>
-                                            <span className="text-sm font-black text-slate-100">{skill.percentage}%</span>
+                                
+                                <div className="space-y-8">
+                                    {[
+                                        { label: "Vocabulary", val: 92, color: "bg-indigo-500" },
+                                        { label: "Narrative Flow", val: 85, color: "bg-amber-500" },
+                                        { label: "Depth", val: 95, color: "bg-emerald-500" }
+                                    ].map((skill, i) => (
+                                        <div key={i} className="space-y-3">
+                                            <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                                <span>{skill.label}</span>
+                                                <span className="text-white">{skill.val}%</span>
+                                            </div>
+                                            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                                <motion.div 
+                                                    initial={{ width: 0 }}
+                                                    whileInView={{ width: `${skill.val}%` }}
+                                                    transition={{ duration: 1, delay: i * 0.1 }}
+                                                    className={`h-full ${skill.color} shadow-[0_0_15px_rgba(255,255,255,0.2)]`}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                                            <motion.div
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.percentage}%` }}
-                                                transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
-                                                className="h-full bg-[#6366f1] rounded-full shadow-[0_0_20px_rgba(99,102,241,0.4)]"
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,8 +319,8 @@ const AuthorProfile = () => {
                     {/* MAIN AREA: CONTENT PANELS */}
                     <div className="lg:col-span-8 space-y-12">
 
-                        {/* NAVIGATION TABS */}
-                        <div className="flex items-center gap-4 p-2 bg-white rounded-[2rem] border border-slate-100 w-fit shadow-sm">
+                        {/* 3D NAVIGATION TABS */}
+                        <div className="bg-white/50 backdrop-blur-3xl p-2 rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(0,0,0,0.04)] flex items-center justify-center sm:justify-start gap-2 w-fit">
                             {[
                                 { id: "published", label: "Library", icon: <BookOpen className="w-4 h-4" /> },
                                 { id: "drafts", label: "Drafts", icon: <Clock className="w-4 h-4" /> },
@@ -305,12 +330,13 @@ const AuthorProfile = () => {
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center gap-3 px-6 py-4 rounded-[1.5rem] text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === tab.id
-                                        ? "bg-slate-900 text-white shadow-xl shadow-slate-200"
-                                        : "text-slate-400 hover:text-slate-900 hover:bg-slate-50"
+                                    className={`flex items-center gap-3 px-8 py-4 rounded-[2rem] text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-500 ${activeTab === tab.id
+                                        ? "bg-slate-900 text-amber-400 shadow-2xl shadow-slate-900/20 scale-105"
+                                        : "text-slate-400 hover:text-slate-900 hover:bg-slate-100"
                                         }`}
                                 >
-                                    {tab.icon} {tab.label}
+                                    {React.cloneElement(tab.icon, { className: activeTab === tab.id ? "text-amber-400" : "text-slate-300" })} 
+                                    {tab.label}
                                 </button>
                             ))}
                         </div>
@@ -327,49 +353,66 @@ const AuthorProfile = () => {
                                 {activeTab === "published" && (
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         {publishedBooks.map((book, i) => (
-                                            <div key={i} className="group bg-white rounded-[3rem] p-6 border border-slate-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer relative overflow-hidden">
-                                                <div className="flex gap-8">
-                                                    <div className="w-32 h-44 rounded-2xl overflow-hidden shrink-0 shadow-lg group-hover:scale-105 transition-transform duration-500">
-                                                        <img src={book.cover} className="w-full h-full object-cover" alt="cover" />
+                                            <motion.div 
+                                                key={i} 
+                                                whileHover={{ y: -15 }}
+                                                className="group bg-white rounded-[4rem] p-8 border border-white hover:border-indigo-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(79,70,229,0.1)] transition-all duration-700 relative overflow-hidden"
+                                            >
+                                                <div className="flex flex-col sm:flex-row gap-8">
+                                                    <div className="w-full sm:w-44 h-64 rounded-[3rem] overflow-hidden shadow-2xl relative group/img">
+                                                        <img src={book.cover} className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-1000" alt="cover" />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity" />
                                                     </div>
-                                                    <div className="flex-1 py-2">
-                                                        <div className="flex justify-between items-start mb-2">
-                                                            <span className="text-[10px] font-black text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full uppercase tracking-widest">{book.genre}</span>
-                                                            <div className="flex items-center gap-1 text-amber-500 font-black text-xs">
-                                                                <Star className="w-3 h-3 fill-current" /> {book.rating}
+                                                    
+                                                    <div className="flex-1 py-4 space-y-6">
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="text-[10px] font-black text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full uppercase tracking-widest">{book.genre}</span>
+                                                            <div className="flex items-center gap-1.5 text-amber-500 font-black text-sm">
+                                                                <Star className="w-4 h-4 fill-current" /> {book.rating}
                                                             </div>
                                                         </div>
-                                                        <h4 className="text-xl font-black text-slate-800 mb-4 group-hover:text-indigo-600 transition-colors leading-tight">{book.title}</h4>
-                                                        <div className="grid grid-cols-2 gap-4">
+                                                        
+                                                        <div>
+                                                            <h4 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter leading-tight group-hover:text-indigo-600 transition-colors uppercase italic">{book.title}</h4>
+                                                            <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">Global Masterpiece</p>
+                                                        </div>
+
+                                                        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-50">
                                                             <div>
-                                                                <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Readers</p>
-                                                                <p className="font-black text-slate-700">{book.readers}</p>
+                                                                <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest mb-1">Impact</p>
+                                                                <p className="font-black text-slate-900 text-lg tracking-tight">{book.readers} <span className="text-[10px] text-slate-400">Reads</span></p>
                                                             </div>
                                                             <div>
-                                                                <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Sales</p>
-                                                                <p className="font-black text-emerald-600">{book.sales}</p>
+                                                                <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest mb-1">Commerce</p>
+                                                                <p className="font-black text-emerald-500 text-lg tracking-tight">{book.sales} <span className="text-[10px] text-slate-400">Units</span></p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between">
-                                                    <span className="text-2xl font-black text-slate-900 tracking-tighter">{book.price}</span>
-                                                    <Link to={`/book/${book.id}`} className="px-6 py-3 bg-slate-900 text-white font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-amber-500 transition-all shadow-lg overflow-hidden relative group/btn">
-                                                        <span className="relative z-10 flex items-center gap-2">VIEW DETAILS <ArrowRight className="w-3 h-3" /></span>
+                                                
+                                                <div className="mt-10 pt-8 border-t border-slate-50 flex items-center justify-between">
+                                                    <span className="text-3xl font-black text-slate-900 tracking-tighter italic">₹{book.price.replace('₹', '')}</span>
+                                                    <Link to={`/book/${book.id}`} className="px-10 py-4 bg-slate-900 text-white font-black text-[10px] uppercase tracking-widest rounded-3xl hover:bg-amber-500 hover:text-white transition-all shadow-xl flex items-center gap-3 group/btn">
+                                                        View Asset <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                                     </Link>
                                                 </div>
-                                            </div>
+                                            </motion.div>
                                         ))}
-                                        {/* ADD NEW BOOK SLAP */}
-                                        <div className="rounded-[3rem] border-4 border-dashed border-slate-100 p-8 flex flex-col items-center justify-center text-center gap-6 hover:border-indigo-200 transition-all cursor-pointer group">
-                                            <div className="w-20 h-20 rounded-[2rem] bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-inner">
-                                                <ImageIcon className="w-8 h-8" />
+                                        
+                                        {/* 3D ADD NEW BOOK SLAP */}
+                                        <motion.div 
+                                            whileHover={{ scale: 0.98 }}
+                                            className="rounded-[4rem] border-4 border-dashed border-slate-100 p-12 flex flex-col items-center justify-center text-center gap-8 hover:border-indigo-200 hover:bg-indigo-50/20 transition-all cursor-pointer group"
+                                        >
+                                            <div className="w-24 h-24 rounded-[3rem] bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-inner relative">
+                                                <ImageIcon className="w-10 h-10" />
+                                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-black shadow-lg">+</div>
                                             </div>
                                             <div>
-                                                <h4 className="font-black text-slate-800 text-xl tracking-tighter">New Masterpiece</h4>
-                                                <p className="text-slate-400 font-medium italic">Publish your latest work to the world.</p>
+                                                <h4 className="font-black text-slate-900 text-2xl tracking-tighter uppercase italic">Draft New Vision</h4>
+                                                <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mt-2">Publish your latest masterpiece to the world.</p>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 )}
 
