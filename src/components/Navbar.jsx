@@ -16,72 +16,58 @@ import {
 /*NAV DATA*/
 const navGroups = [
   {
-    label: "About",
+    label: "About School",
     links: [
-      { name: "Our Mission", path: "/mission", icon: <FaUsers /> },
       { name: "Our Story", path: "/story", icon: <FaBookOpen /> },
-      { name: "Our Publisher", path: "/publisher", icon: <FaUsers /> },
+      { name: "Mission & Vision", path: "/mission", icon: <FaUsers /> },
+      { name: "Infrastructure", path: "/infrastructure", icon: <FaUserCircle /> },
+      { name: "Campus Facilities", path: "/campus-facilities", icon: <FaUsers /> },
     ],
   },
   {
-    label: "Learning",
+    label: "Academics",
     links: [
-      { name: "Introduction to Writing", path: "/introduction-to-writing", icon: <FaPenNib /> },
-      { name: "Introduction to Storytelling", path: "/introduction-to-storytelling", icon: <FaBookOpen /> },
-      { name: "Writing Fundamentals", path: "/writing-fundamentals", icon: <FaPenNib /> },
-      { name: "The Writing Process", path: "/the-writing-process", icon: <FaPenNib /> },
-      { name: "Story Structure & Elements", path: "/story-structure-and-elements", icon: <FaBookOpen /> },
-      { name: "Book Composition Guide", path: "/book-composition-guide", icon: <FaBookOpen /> },
-      { name: "English Grammar Essentials", path: "/english-grammar-essentials", icon: <FaPenNib /> },
-      { name: "Professional Writing Tips", path: "/professional-writing-tips", icon: <FaPenNib /> },
-      { name: "Legendary Authors & Writers", path: "/legendary-authors-and-writers", icon: <FaUsers /> },
+      { name: "Primary (NC–5th)", path: "/primary-classes", icon: <FaBookOpen /> },
+      { name: "High School (6th–10th)", path: "/high-school", icon: <FaBookOpen /> },
+      { name: "Classes 11 & 12 (+2)", path: "/senior-secondary", icon: <FaBookOpen /> },
+      { name: "Digital Classrooms", path: "/digital-classrooms", icon: <FaPenNib /> },
     ],
   },
   {
-    label: "Writing Space",
+    label: "Admissions",
     links: [
-      { name: "Young Writer Pad", path: "/writer-pad", icon: <FaPenNib /> },
-      { name: "Idea Notebook", path: "/idea-notebook", icon: <FaBookOpen /> },
-      { name: "Story Creator", path: "/story-creator", icon: <FaPenNib /> },
-      // { name: "Chapter Creator", path: "/chapter-creator", icon: <FaPenNib /> },
-      { name: "Book Builder", path: "/create-book", icon: <FaBookOpen /> },
-      { name: "Illustration Board", path: "/illustration-board", icon: <FaPenNib /> },
-      
+      { name: "Admission Guide", path: "/admission-guide", icon: <FaUpload /> },
+      { name: "Fee Structure", path: "/fee-structure", icon: <FaStore /> },
+      { name: "School Uniform", path: "/school-uniform", icon: <FaStore /> },
+      { name: "Apply Online", path: "/admission-inquiry", icon: <FaUpload /> },
     ],
   },
   {
-    label: "Publishing",
+    label: "Resources",
     links: [
-      { name: "How to Publish", path: "/how-to-publish", icon: <FaUpload /> },
-      { name: "Copyright Guide", path: "/copyright-guide", icon: <FaBookOpen /> },
-      { name: "Book Pricing Guide", path: "/book-pricing-guide", icon: <FaStore /> },
-      { name: "Publish Your Book", path: "/publish", icon: <FaUpload /> },
+      { name: "E-Learning", path: "/e-learning", icon: <FaBookOpen /> },
+      { name: "Scholarships", path: "/scholarships", icon: <FaBookOpen /> },
+      { name: "Alumni Network", path: "/alumni", icon: <FaUsers /> },
+      { name: "Study Material", path: "/study-material", icon: <FaBookOpen /> },
     ],
   },
   {
-    label: "Books",
+    label: "School Life",
     links: [
-      { name: "Book Marketplace", path: "/marketplace", icon: <FaStore /> },
-      { name: "New Books", path: "/new-books", icon: <FaBookOpen /> },
-      { name: "Top Rated Books", path: "/top-rated-books", icon: <FaBookOpen /> },
-      { name: "Book Categories", path: "/book-categories", icon: <FaBookOpen /> },
-    ],
-  },
-  {
-    label: "Our Authors",
-    links: [
-      { name: "Top Authors", path: "/authors", icon: <FaUsers /> },
-      { name: "Student Authors", path: "/student-authors", icon: <FaUsers /> },
-      { name: "Author Profiles", path: "/author-profiles", icon: <FaUserCircle /> },
+      { name: "Student Achievers", path: "/student-achievers", icon: <FaUsers /> },
+      { name: "Photo Gallery", path: "/photo-gallery", icon: <FaUsers /> },
+      { name: "Toppers Gallery", path: "/toppers-gallery", icon: <FaUsers /> },
+      { name: "Our Faculty", path: "/faculty", icon: <FaUserCircle /> },
+      { name: "School Library", path: "/school-library", icon: <FaBookOpen /> },
     ],
   },
   {
     label: "Community",
     links: [
-      { name: "Writing Challenges", path: "/challenges", icon: <FaPenNib /> },
-      { name: "Story Competitions", path: "/competitions", icon: <FaBookOpen /> },
-      { name: "Events", path: "/events", icon: <FaUsers /> },
-      { name: "Discussion Forum", path: "/forum", icon: <FaUsers /> },
+      { name: "Notice Board", path: "/notice-board", icon: <FaPenNib /> },
+      { name: "School Events", path: "/events", icon: <FaUsers /> },
+      { name: "Parents Portal", path: "/parents-portal", icon: <FaUsers /> },
+      { name: "School Transport", path: "/school-transport", icon: <FaStore /> },
     ],
   },
 ];
@@ -114,52 +100,29 @@ const Navbar = () => {
       <div className={`h-[70px] sm:h-[80px] flex items-center transition-all duration-300 ${!isHome ? "bg-white border-b border-slate-200 shadow-sm" : "bg-transparent"}`}>
         <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
 
-         {/* LOGO */}
-<Link to="/" className="flex items-center shrink-0 group">
+          {/* LOGO */}
+          <Link to="/" className="flex items-center shrink-0 group gap-2 sm:gap-3">
 
-  <div className="flex flex-col items-end">
-    <span className="text-[16px] sm:text-[24px] font-[900] text-indigo-600 tracking-tighter leading-none transform group-hover:-translate-x-1 transition-transform">
-      Nation's
-    </span>
-  </div>
+            <div className="flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+              <img
+                src="/GyanSagar/LogoGyansagar.jfif"
+                alt="Gyan Sagar Logo"
+                className="w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] object-contain rounded-full border-2 border-indigo-600 p-0.5"
+                onError={(e) => { e.target.src = "/icon.png" }}
+              />
+            </div>
 
-  <div className="mx-1 sm:mx-2 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
-    <img
-      src="/icon.png"
-      alt="Icon"
-      className="w-[30px] h-[30px] sm:w-[45px] sm:h-[45px] object-contain"
-    />
-  </div>
+            <div className="flex flex-col items-center">
+              <span className="text-[16px] sm:text-[24px] font-[900] tracking-tighter leading-none">
+                <span className="text-indigo-600">Gyan</span>{" "}
+                <span className="text-slate-900">Sagar</span>
+              </span>
+              <span className="text-[8px] sm:text-[10px] font-extrabold text-slate-500 tracking-[0.15em] uppercase mt-[2px]">
+                Public School
+              </span>
+            </div>
 
-  {/* RIGHT TEXT COLUMN */}
-  <div className="flex flex-col">
-
-    <span className="text-[16px] sm:text-[24px] font-[900] text-slate-900 tracking-tighter leading-none transform group-hover:translate-x-1 transition-transform">
-      Young Authors
-    </span>
-
-   {/* POWERED BY VISDOM WAVES */}
-<div className="flex items-center gap-2 mt-[4px]">
-
-  <span className="text-[11px] font-bold text-slate-500">
-    Powered by
-  </span>
-
-  <img
-    src="/vlogo.jpeg"
-    alt="Visdom Waves"
-    className="w-[18px] h-[18px] object-contain"
-  />
-
-  <span className="text-[11px] font-extrabold text-slate-700 tracking-tight">
-    Visdom Waves
-  </span>
-
-</div>
-
-  </div>
-
-</Link>
+          </Link>
 
           {/* CENTER LINKS (Desktop) - Adjusted gap and padding */}
           <div className="hidden xl:flex items-center gap-4 flex-1 justify-center">
@@ -256,10 +219,10 @@ const Navbar = () => {
               {/* Drawer Header */}
               <div className="flex justify-between items-center mb-10">
                 <div className="flex items-center">
-                  <img src="/icon.png" alt="Icon" className="w-[35px] h-[35px] mr-2" />
+                  <img src="/GyanSagar/LogoGyansagar.jfif" alt="Icon" className="w-[40px] h-[40px] rounded-full mr-2" />
                   <div className="flex flex-col">
-                    <span className="font-[900] text-indigo-600 text-[16px] tracking-tighter leading-none">Nation's</span>
-                    <span className="font-[900] text-slate-900 text-[16px] tracking-tighter leading-none">Young Authors</span>
+                    <span className="font-[900] text-indigo-600 text-[16px] tracking-tighter leading-none">Gyan Sagar</span>
+                    <span className="font-[900] text-slate-900 text-[12px] tracking-tighter leading-none uppercase">Public School</span>
                   </div>
                 </div>
                 <button

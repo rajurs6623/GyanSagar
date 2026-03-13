@@ -132,7 +132,7 @@ export default function BookPreview({ bookInfo, chapters = [] }) {
                 <p className="text-white/90 font-bold relative z-10 uppercase tracking-[0.3em] text-[10px] text-center">{currentInfo.author || "Unknown"}</p>
                 
                 <div className="absolute bottom-6 left-0 right-0 text-center">
-                   <p className="text-[8px] font-black tracking-[0.4em] text-white/50 uppercase">Published by Nation's Young Authors</p>
+                   <p className="text-[8px] font-black tracking-[0.4em] text-white/50 uppercase">Published by Gyan Sagar Public School</p>
                 </div>
               </div>
               <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/20 to-transparent pointer-events-none" />
@@ -145,7 +145,7 @@ export default function BookPreview({ bookInfo, chapters = [] }) {
                   <p className="text-xs uppercase font-black tracking-[0.2em] text-slate-500 mb-2">{currentInfo.title || "Untitled Book"}</p>
                   <p className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Written by {currentInfo.author || "Unknown"}</p>
                   <div className="w-8 h-px bg-slate-200 my-6" />
-                  <p className="text-[8px] uppercase font-black tracking-[0.3em] text-slate-300">Published by Nation's Young Authors</p>
+                  <p className="text-[8px] uppercase font-black tracking-[0.3em] text-slate-300">Published by Gyan Sagar Public School</p>
                </div>
             </Page>
 
@@ -295,7 +295,7 @@ export default function BookPreview({ bookInfo, chapters = [] }) {
                 </button>
 
                 <div className="absolute bottom-6 left-0 right-0 text-center">
-                    <p className="text-[8px] font-black tracking-[0.4em] opacity-30 uppercase">Nation's Young Authors</p>
+                    <p className="text-[8px] font-black tracking-[0.4em] opacity-30 uppercase">Gyan Sagar Public School</p>
                 </div>
               </div>
             </div>

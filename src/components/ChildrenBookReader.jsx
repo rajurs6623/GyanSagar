@@ -154,7 +154,7 @@ const ChildrenBookReader = ({ book, isOpen, onClose }) => {
                                                        </div>
                                                     )}
 
-                                                    <div className="mt-10 pt-10 border-t border-white/30 w-full text-[10px] font-black tracking-[0.4em] drop-shadow-sm text-white/80">NATION'S YOUNG AUTHORS © 2026</div>
+                                                    <div className="mt-10 pt-10 border-t border-white/30 w-full text-[10px] font-black tracking-[0.4em] drop-shadow-sm text-white/80">Gyan Sagar Public School © 2026</div>
                                                 </div>
                                                 <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/40 to-transparent" />
                                             </div>,
@@ -172,7 +172,7 @@ const ChildrenBookReader = ({ book, isOpen, onClose }) => {
                                                     <div className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-10">By {book.author}</div>
                                                     
                                                     <div className="w-12 h-[2px] bg-slate-300 mb-6" />
-                                                    <p className="text-[10px] uppercase font-black tracking-widest text-slate-400">Published by Nation's Young Authors</p>
+                                                    <p className="text-[10px] uppercase font-black tracking-widest text-slate-400">Published by Gyan Sagar Public School</p>
                                                     <p className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2">Genre: {book.category}</p>
                                                 </div>
                                             </Page>,
@@ -280,7 +280,7 @@ const ChildrenBookReader = ({ book, isOpen, onClose }) => {
                                                         <div className="absolute inset-0 bg-indigo-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                                                     </button>
 
-                                                    <div className="mt-16 text-[10px] font-black tracking-widest opacity-60 text-white">NATION'S YOUNG AUTHORS © 2026</div>
+                                                    <div className="mt-16 text-[10px] font-black tracking-widest opacity-60 text-white">Gyan Sagar Public School © 2026</div>
                                                 </div>
                                                 <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/40 to-transparent" />
                                             </div>

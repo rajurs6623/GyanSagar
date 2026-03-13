@@ -139,7 +139,7 @@ const ILLUSTRATION_CATEGORIES = {
     "Sunrise & Sunset",
     "My Own Images",
   ],
-  "Young Author's": [
+  "Gyan Sagar": [
     "Fantasy Realm",
     "School Friends",
     "Magic Spells",
@@ -653,7 +653,7 @@ const YoungWritersPad = () => {
       case "Related Images":
         setShowIllustrationsSidebar(true);
         setShowRightSidebarMobile(true);
-        setIllusCategory("Young Author's");
+        setIllusCategory("Gyan Sagar");
         setIllusSubcategory("Fantasy Realm");
         break;
       case "Special Characters":
@@ -986,7 +986,7 @@ const YoungWritersPad = () => {
   return (
     <div
       ref={containerRef}
-      className={`${activeThemeObj.bg} font-['Nunito'] flex flex-col min-h-[600px] overflow-hidden w-full relative border-b transition-colors duration-500 ${activeThemeObj.panelBorder} ${isFullscreen ? "h-screen" : "h-[calc(100vh-150px)]"}`}
+      className={`${activeThemeObj.bg} font-['Nunito'] flex flex-col flex-1 overflow-hidden w-full relative transition-colors duration-500 ${activeThemeObj.panelBorder}`}
     >
       {/* MOBILE TOOLBAR TOGGLE */}
       <div
@@ -1000,7 +1000,7 @@ const YoungWritersPad = () => {
           <MessageSquare className="w-4 h-4" />
         </button>
         <span className="text-sm font-black text-slate-700 flex-1 text-center truncate">
-          Young Writer's Pad
+          Gyan Sagar Scholar Pad
         </span>
         <button
           onClick={() => setShowRightSidebarMobile(!showRightSidebarMobile)}
@@ -1018,7 +1018,7 @@ const YoungWritersPad = () => {
           <input
             type="text"
             className="text-xl font-black text-slate-800 outline-none bg-transparent hover:bg-slate-50 px-2 py-1 rounded-lg"
-            defaultValue="Young Writer's Pad"
+            defaultValue="Gyan Sagar Scholar Pad"
           />
           <div className="flex gap-1 ml-1 mt-1 menu-container relative">
             {[
@@ -2326,7 +2326,7 @@ const YoungWritersPad = () => {
             </div>
             <div className="p-6 bg-slate-50/50">
               <p className="text-slate-500 font-medium mb-6">
-                Connect with other young authors writing similar stories in the
+                Connect with other Gyan Sagar writing similar stories in the
                 "Fantasy" genre!
               </p>
 
@@ -2760,7 +2760,7 @@ const YoungWritersPad = () => {
                 Congratulations!
               </h3>
               <p className="text-slate-600 mb-6">
-                Your story will be submitted to the Nation's Young Authors
+                Your story will be submitted to the Gyan Sagar Public School
                 public library for the world to see! Choose when you want it to
                 go live:
               </p>

@@ -15,6 +15,15 @@ const SignIn = () => {
     const faceStreamRef = useRef(null); // holds the MediaStream across renders
     const navigate = useNavigate();
 
+    // Background Image URL (Optimized)
+    const bgImage = "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=60&w=1600";
+
+    useEffect(() => {
+        // Preload background image
+        const img = new Image();
+        img.src = bgImage;
+    }, []);
+
     useEffect(() => {
         // Explicitly play Mickey video on refresh/Step 1
         const playVideo = () => {
@@ -30,7 +39,7 @@ const SignIn = () => {
         };
 
         // Try playing after a short delay for stability
-        const timer = setTimeout(playVideo, 500);
+        const timer = setTimeout(playVideo, 300);
 
         // Also try on window focus or click to bypass autoplay restrictions
         const handleInteraction = () => playVideo();
@@ -46,7 +55,7 @@ const SignIn = () => {
         e.preventDefault();
         if (pin === "1947") {
             localStorage.setItem("isLoggedIn", "true");
-            setTimeout(() => navigate("/"), 1500);
+            setTimeout(() => navigate("/"), 1000); // Faster redirect
         }
     };
 
@@ -75,8 +84,8 @@ const SignIn = () => {
                     stream.getTracks().forEach(track => track.stop());
                     faceStreamRef.current = null;
                     navigate("/");
-                }, 2000);
-            }, 3000);
+                }, 1500); // Faster transition
+            }, 2000); // Faster scan simulation
         } catch (err) {
             console.error("Camera error:", err);
             setIsScanning(false);
@@ -85,10 +94,13 @@ const SignIn = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[url('https://i.pinimg.com/736x/40/5e/c1/405ec13d579af33ed54239055e909764.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-8 font-['Nunito'] overflow-hidden relative">
+        <div 
+          className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 sm:p-8 font-['Nunito'] overflow-hidden relative"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
 
             {/* ── WARM AMBER-BROWN OVERLAY ──────────────────────────────── */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1c1005]/70 via-[#2a1a08]/65 to-[#1a0f05]/70 z-0" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1c1005]/75 via-[#2a1a08]/70 to-[#1a0f05]/75 z-0" />
 
             {/* ── BACKGROUND MAGIC ──────────────────────────────────────── */}
             <div className="absolute inset-0 z-0">
@@ -198,22 +210,25 @@ const SignIn = () => {
                         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
                         className="mb-8 text-center lg:text-left relative z-10"
                     >
-                        <motion.h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-none mb-2 whitespace-nowrap">
-                            Nation's{" "}
-                            <motion.span
-                                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-[length:200%_auto]"
-                            >
-                                Young Authors
-                            </motion.span>
-                        </motion.h1>
+                        <div className="flex items-center gap-3 mb-2">
+                            <img src="/GyanSagar/LogoGyansagar.jfif" alt="Logo" className="w-10 h-10 rounded-full border-2 border-blue-400/50 shadow-lg" onError={(e) => { e.target.style.display = 'none' }} />
+                            <motion.h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-none whitespace-nowrap">
+                                Gyan{" "}
+                                <motion.span
+                                    animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-[length:200%_auto]"
+                                >
+                                    Sagar
+                                </motion.span>
+                            </motion.h1>
+                        </div>
                         <motion.div
                             animate={{ x: [0, 5, 0] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             className="flex items-center justify-center lg:justify-start gap-2 mt-2 text-blue-400/80 font-semibold tracking-widest uppercase text-[10px]"
                         >
-                            Secure Login Portal
+                            Public School • Secure Login
                         </motion.div>
                     </motion.div>
 

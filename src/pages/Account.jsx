@@ -29,10 +29,10 @@ const Account = () => {
 
   const tabs = [
     { id: "overview", label: "Overview", icon: <FaChartLine /> },
-    { id: "drafts", label: "My Drafts", icon: <FaPenNib /> },
-    { id: "published", label: "Published Books", icon: <FaBook /> },
-    { id: "achievements", label: "Achievements", icon: <FaTrophy /> },
-    { id: "streak", label: "Writer's Streak", icon: <FaFire /> },
+    { id: "drafts", label: "Class Projects", icon: <FaPenNib /> },
+    { id: "published", label: "Library Showcase", icon: <FaBook /> },
+    { id: "achievements", label: "Awards", icon: <FaTrophy /> },
+    { id: "streak", label: "Learning Streak", icon: <FaFire /> },
     { id: "settings", label: "Settings", icon: <FaCog /> },
   ];
 
@@ -76,12 +76,12 @@ const Account = () => {
                 className="flex flex-wrap items-center gap-3 mt-3"
               >
                 <span className="text-slate-600 font-[800] text-[13px] flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full border border-slate-200 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span>
-                  Professional Plan
+                  <span className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span>
+                  Class 8th Student
                 </span>
                 <span className="text-slate-600 font-[800] text-[13px] flex items-center gap-1.5 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-200 shadow-sm">
                   <FaStar className="text-yellow-500" />
-                  Level 14 Author
+                  Gyan Sagar Scholar
                 </span>
               </motion.div>
             </div>
@@ -139,7 +139,7 @@ const Account = () => {
                 onClick={() => navigate('/writer-pad')}
                 className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-[900] rounded-xl hover:bg-indigo-700 transition-all shadow-md shadow-indigo-200 flex items-center gap-2 hover:-translate-y-0.5"
               >
-                <FaPlus /> Start Writing
+                <FaPlus /> Start Project
               </button>
             )}
           </div>
@@ -180,7 +180,7 @@ const OverviewTab = () => (
     {/* STATS GRID */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <StatCard 
-        title="Total Books" 
+        title="Books Read" 
         value="12" 
         trend="+2 this month" 
         icon={<FaBook />} 
@@ -188,15 +188,15 @@ const OverviewTab = () => (
         bgClass="bg-indigo-50" 
       />
       <StatCard 
-        title="Words Written" 
-        value="45.2k" 
-        trend="+12k this month" 
+        title="Projects Done" 
+        value="45" 
+        trend="+12 this month" 
         icon={<FaPenNib />} 
         colorClass="text-pink-600" 
         bgClass="bg-pink-50" 
       />
       <StatCard 
-        title="Total Readers" 
+        title="Knowledge Points" 
         value="1.4k" 
         trend="+340 this week" 
         icon={<FaUsers />} 
@@ -211,8 +211,8 @@ const OverviewTab = () => (
       {/* RECENT PROJECTS */}
       <div className="xl:col-span-2 space-y-5">
         <div className="flex items-center justify-between">
-          <h3 className="text-[17px] font-[900] text-slate-900 tracking-tight">Recent Projects</h3>
-          <button className="text-[13px] font-[800] text-indigo-600 hover:text-indigo-700 transition-colors">View All</button>
+          <h3 className="text-[17px] font-[900] text-slate-900 tracking-tight">Recent Work</h3>
+          <button className="text-[13px] font-[800] text-indigo-600 hover:text-indigo-700 transition-colors">View All Work</button>
         </div>
         <div className="space-y-4">
           <ProjectCard 
@@ -248,7 +248,7 @@ const OverviewTab = () => (
                  <FaPenNib className="text-lg" />
                </div>
                <div className="text-left">
-                 <p className="text-[14px] font-[900] text-slate-900 leading-tight">Write New Chapter</p>
+                 <p className="text-[14px] font-[900] text-slate-900 leading-tight">New Project</p>
                  <p className="text-[12px] font-[800] text-slate-500 mt-0.5">The Lost Kingdom</p>
                </div>
              </div>
@@ -260,8 +260,8 @@ const OverviewTab = () => (
                  <FaCheckCircle className="text-lg" />
                </div>
                <div className="text-left">
-                 <p className="text-[14px] font-[900] text-slate-900 leading-tight">Publish Draft</p>
-                 <p className="text-[12px] font-[800] text-slate-500 mt-0.5">Ready to go live</p>
+                 <p className="text-[14px] font-[900] text-slate-900 leading-tight">Submit Homework</p>
+                 <p className="text-[12px] font-[800] text-slate-500 mt-0.5">Ready for review</p>
                </div>
              </div>
            </button>
@@ -277,8 +277,8 @@ const OverviewTab = () => (
                🏆
             </div>
             <div className="flex-1">
-              <p className="text-[12px] font-[900] text-indigo-200 uppercase tracking-wider mb-0.5">Next Milestone</p>
-              <p className="text-[18px] font-[900] text-white tracking-tight leading-none">Reach 2k Readers</p>
+              <p className="text-[12px] font-[900] text-indigo-200 uppercase tracking-wider mb-0.5">Academic Goal</p>
+              <p className="text-[18px] font-[900] text-white tracking-tight leading-none">Collect 2k Points</p>
             </div>
           </div>
         </div>
@@ -440,7 +440,7 @@ const StreakTab = () => {
       
       <h3 className="relative z-10 text-[32px] font-[900] text-slate-900 tracking-tight leading-none mb-2">5 Day Streak!</h3>
       <p className="relative z-10 text-[15px] font-[700] text-slate-500 max-w-sm mb-8">
-        You're on fire! Keep writing every day to build your streak and unlock special rewards.
+        You're on fire! Keep studying every day to build your streak and unlock school awards.
       </p>
 
       {/* Days Activity Row */}

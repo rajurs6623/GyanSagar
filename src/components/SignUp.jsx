@@ -47,6 +47,9 @@ const SignUp = () => {
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
     const navigate = useNavigate();
 
+    // Background Image URL (Optimized)
+    const bgImage = "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=60&w=1600";
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -167,15 +170,18 @@ const SignUp = () => {
         if (validateStep2()) {
             setTimeout(() => {
                 navigate("/signin");
-            }, 1000);
+            }, 600); // Faster redirect
         }
     };
 
     return (
-        <div className="min-h-screen bg-[url('https://i.pinimg.com/736x/40/5e/c1/405ec13d579af33ed54239055e909764.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-8 font-['Nunito'] overflow-hidden relative">
+        <div 
+          className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 sm:p-8 font-['Nunito'] overflow-hidden relative"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
 
             {/* ── WARM AMBER-BROWN OVERLAY ──────────────────────────────── */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1c1005]/70 via-[#2a1a08]/65 to-[#1a0f05]/70 z-0" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1c1005]/75 via-[#2a1a08]/70 to-[#1a0f05]/75 z-0" />
 
             {/* ── BACKGROUND MAGIC ──────────────────────────────────────── */}
             <div className="absolute inset-0 z-0">
@@ -219,7 +225,7 @@ const SignUp = () => {
                         <motion.div
                             className="flex items-center justify-center lg:justify-start gap-2 mt-2 text-blue-400/80 font-semibold tracking-widest uppercase text-[10px]"
                         >
-                            Nation's Young Authors Portal • Step {step} of 2
+                            Gyan Sagar Public School Portal • Step {step} of 2
                         </motion.div>
                     </motion.div>
 

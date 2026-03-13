@@ -102,7 +102,7 @@ const MickeyMouse = () => {
                         {/* LEFT ARM (Viewer Right) - Pointing towards the Form Side */}
                         <motion.div
                             animate={{
-                                rotate: [60, 75, 60], // Angled up and out towards the "Nation's Young Authors" text
+                                rotate: [60, 75, 60], // Angled up and out towards the "Gyan Sagar Public School" text
                                 y: [0, -5, 0]
                             }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}

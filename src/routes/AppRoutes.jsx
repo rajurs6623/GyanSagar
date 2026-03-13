@@ -1,119 +1,116 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Pre-existing Custom Pages
-import Home from "../pages/aboutUs/Home";
-import OurMission from "../pages/aboutUs/OurMission";
-import YoungWritersPad from "../pages/writingSpace/YoungWritersPad";
-import BookMarketplace from "../pages/books/bookMarketplace";
-import AuthorProfile from "../pages/authors/AuthorProfile";
-import BookDetails from "../pages/books/BookDetails";
-import SignIn from "../components/SignIn";
-import SignUp from "../components/SignUp";
-import Account from "../pages/Account";
+// Loading component for Suspense
+const PageLoader = () => (
+  <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-[9999]">
+    <div className="w-16 h-16 border-4 border-indigo-100 border-t-indigo-600 rounded-full animate-spin mb-4 shadow-sm" />
+    <p className="text-slate-500 font-black text-xs uppercase tracking-widest animate-pulse">
+      Gyan Sagar • Loading Experience
+    </p>
+  </div>
+);
 
-
-
-// Pre-existing Pages matching Navbar Structure
-import OurStory from "../pages/aboutUs/OurStory";
-import OurPublisher from "../pages/aboutUs/OurPublisher";
-
-import IntroductionToWriting from "../pages/learning/IntroductionToWriting";
-import IntroductionToStorytelling from "../pages/learning/IntroductionToStorytelling";
-import WritingFundamentals from "../pages/learning/WritingFundamentals";
-import TheWritingProcess from "../pages/learning/TheWritingProcess";
-import StoryStructureAndElements from "../pages/learning/StoryStructureAndElements";
-import BookCompositionGuide from "../pages/learning/BookCompositionGuide";
-import EnglishGrammarEssentials from "../pages/learning/EnglishGrammarEssentials";
-import ProfessionalWritingTips from "../pages/learning/ProfessionalWritingTips";
-import LegendaryAuthorsAndWriters from "../pages/learning/LegendaryAuthorsAndWriters";
-
-import IdeaNotebook from "../pages/writingSpace/IdeaNotebook";
-import StoryCreator from "../pages/writingSpace/StoryCreator";
-// import ChapterCreator from "../pages/writingSpace/ChapterCreator";
-import IllustrationBoard from "../pages/writingSpace/IllustrationBoard";
-import CreateBook from "../pages/writingSpace/CreateBook";
-
-import HowToPublish from "../pages/publishing/HowToPublish";
-import PublishYourBook from "../pages/publishing/PublishYourBook";
-import CopyrightGuide from "../pages/publishing/CopyrightGuide";
-import BookPricingGuide from "../pages/publishing/BookPricingGuide";
-
-import ChildrensBooks from "../pages/books/ChildrensBooks";
-import TopRatedBooks from "../pages/books/TopRatedBooks";
-import BookCategories from "../pages/books/BookCategories";
-
-import TopAuthors from "../pages/authors/TopAuthors";
-import StudentAuthors from "../pages/authors/StudentAuthors";
-
-import WritingChallenges from "../pages/community/WritingChallenges";
-import StoryCompetitions from "../pages/community/StoryCompetitions";
-import Events from "../pages/community/Events";
-import DiscussionForum from "../pages/community/DiscussionForum";
+// Lazy loaded components
+const Home = lazy(() => import("../pages/aboutUs/Home"));
+const OurMission = lazy(() => import("../pages/aboutUs/OurMission"));
+const YoungWritersPad = lazy(() => import("../pages/writingSpace/YoungWritersPad"));
+const SchoolLibrary = lazy(() => import("../pages/books/SchoolLibrary"));
+const ProfileDetail = lazy(() => import("../pages/authors/ProfileDetail"));
+const BookDetails = lazy(() => import("../pages/books/BookDetails"));
+const SignIn = lazy(() => import("../components/SignIn"));
+const SignUp = lazy(() => import("../components/SignUp"));
+const Account = lazy(() => import("../pages/Account"));
+const OurStory = lazy(() => import("../pages/aboutUs/OurStory"));
+const OurInfrastructure = lazy(() => import("../pages/aboutUs/OurInfrastructure"));
+const PrimaryClasses = lazy(() => import("../pages/learning/PrimaryClasses"));
+const HighSchool = lazy(() => import("../pages/learning/HighSchool"));
+const SeniorSecondary = lazy(() => import("../pages/learning/SeniorSecondary"));
+const CampusFacilities = lazy(() => import("../pages/learning/CampusFacilities"));
+const DigitalClassrooms = lazy(() => import("../pages/learning/DigitalClassrooms"));
+const ELearningPortal = lazy(() => import("../pages/learning/ELearningPortal"));
+const Scholarships = lazy(() => import("../pages/learning/Scholarships"));
+const AlumniNetwork = lazy(() => import("../pages/learning/AlumniNetwork"));
+const IdeaNotebook = lazy(() => import("../pages/writingSpace/IdeaNotebook"));
+const StoryCreator = lazy(() => import("../pages/writingSpace/StoryCreator"));
+const IllustrationBoard = lazy(() => import("../pages/writingSpace/IllustrationBoard"));
+const CreateBook = lazy(() => import("../pages/writingSpace/CreateBook"));
+const AdmissionGuide = lazy(() => import("../pages/publishing/AdmissionGuide"));
+const AdmissionInquiry = lazy(() => import("../pages/publishing/AdmissionInquiry"));
+const SchoolUniform = lazy(() => import("../pages/publishing/SchoolUniform"));
+const FeeStructure = lazy(() => import("../pages/publishing/FeeStructure"));
+const PhotoGallery = lazy(() => import("../pages/books/PhotoGallery"));
+const ToppersGallery = lazy(() => import("../pages/books/ToppersGallery"));
+const StudyMaterial = lazy(() => import("../pages/books/StudyMaterial"));
+const OurFaculty = lazy(() => import("../pages/authors/OurFaculty"));
+const StudentAchievers = lazy(() => import("../pages/authors/StudentAchievers"));
+const NoticeBoard = lazy(() => import("../pages/community/NoticeBoard"));
+const SchoolTransport = lazy(() => import("../pages/community/SchoolTransport"));
+const Events = lazy(() => import("../pages/community/Events"));
+const ParentsPortal = lazy(() => import("../pages/community/ParentsPortal"));
 
 const AppRoutes = () => {
-    return (
-        <Routes>
-            {/* About */}
-            <Route path="/" element={<Home />} />
-            <Route path="/mission" element={<OurMission />} />
-            <Route path="/story" element={<OurStory />} />
-            <Route path="/publisher" element={<OurPublisher />} />
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        {/* About the School */}
+        <Route path="/" element={<Home />} />
+        <Route path="/mission" element={<OurMission />} />
+        <Route path="/story" element={<OurStory />} />
+        <Route path="/infrastructure" element={<OurInfrastructure />} />
 
-            {/* Learning */}
-            <Route path="/introduction-to-writing" element={<IntroductionToWriting />} />
-            <Route path="/introduction-to-storytelling" element={<IntroductionToStorytelling />} />
-            <Route path="/writing-fundamentals" element={<WritingFundamentals />} />
-            <Route path="/the-writing-process" element={<TheWritingProcess />} />
-            <Route path="/story-structure-and-elements" element={<StoryStructureAndElements />} />
-            <Route path="/book-composition-guide" element={<BookCompositionGuide />} />
-            <Route path="/english-grammar-essentials" element={<EnglishGrammarEssentials />} />
-            <Route path="/professional-writing-tips" element={<ProfessionalWritingTips />} />
-            <Route path="/legendary-authors-and-writers" element={<LegendaryAuthorsAndWriters />} />
+        {/* Academics Wing */}
+        <Route path="/primary-classes" element={<PrimaryClasses />} />
+        <Route path="/senior-secondary" element={<SeniorSecondary />} />
+        <Route path="/high-school" element={<HighSchool />} />
+        <Route path="/campus-facilities" element={<CampusFacilities />} />
+        <Route path="/digital-classrooms" element={<DigitalClassrooms />} />
+        <Route path="/e-learning" element={<ELearningPortal />} />
+        <Route path="/scholarships" element={<Scholarships />} />
+        <Route path="/alumni" element={<AlumniNetwork />} />
 
-            {/* Writing Space */}
-            <Route path="/writer-pad" element={<YoungWritersPad />} />
-            <Route path="/idea-notebook" element={<IdeaNotebook />} />
-            <Route path="/story-creator" element={<StoryCreator />} />
-            {/* <Route path="/chapter-creator" element={<ChapterCreator />} /> */}
-            <Route path="/illustration-board" element={<IllustrationBoard />} />
-            <Route path="/create-book" element={<CreateBook />} />
+        {/* School Portals */}
+        <Route path="/writer-pad" element={<YoungWritersPad />} />
+        <Route path="/idea-notebook" element={<IdeaNotebook />} />
+        <Route path="/story-creator" element={<StoryCreator />} />
+        <Route path="/illustration-board" element={<IllustrationBoard />} />
+        <Route path="/create-book" element={<CreateBook />} />
 
-            {/* Publishing */}
-            <Route path="/how-to-publish" element={<HowToPublish />} />
-            <Route path="/publish" element={<PublishYourBook />} />
-            <Route path="/copyright-guide" element={<CopyrightGuide />} />
-            <Route path="/book-pricing-guide" element={<BookPricingGuide />} />
+        {/* Admission & Guidelines */}
+        <Route path="/admission-guide" element={<AdmissionGuide />} />
+        <Route path="/admission-inquiry" element={<AdmissionInquiry />} />
+        <Route path="/school-uniform" element={<SchoolUniform />} />
+        <Route path="/fee-structure" element={<FeeStructure />} />
 
-            {/* Books */}
-            <Route path="/marketplace" element={<BookMarketplace />} />
-            <Route path="/new-books" element={<ChildrensBooks />} />
-            <Route path="/top-rated-books" element={<TopRatedBooks />} />
-            <Route path="/book-categories" element={<BookCategories />} />
-            <Route path="/book/:id" element={<BookDetails />} />
+        {/* School Life & Resources */}
+        <Route path="/school-library" element={<SchoolLibrary />} />
+        <Route path="/photo-gallery" element={<PhotoGallery />} />
+        <Route path="/toppers-gallery" element={<ToppersGallery />} />
+        <Route path="/study-material" element={<StudyMaterial />} />
+        <Route path="/book/:id" element={<BookDetails />} />
 
-            {/* Authors */}
-            <Route path="/authors" element={<TopAuthors />} />
-            <Route path="/student-authors" element={<StudentAuthors />} />
-            <Route path="/author-profiles" element={<AuthorProfile />} />
-            <Route path="/author/:id" element={<AuthorProfile />} />
+        {/* Our People */}
+        <Route path="/faculty" element={<OurFaculty />} />
+        <Route path="/student-achievers" element={<StudentAchievers />} />
+        <Route path="/profile-detail" element={<ProfileDetail />} />
+        <Route path="/author/:id" element={<ProfileDetail />} />
 
-            {/* Community */}
-            <Route path="/challenges" element={<WritingChallenges />} />
-            <Route path="/competitions" element={<StoryCompetitions />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/forum" element={<DiscussionForum />} />
+        {/* Community & Alerts */}
+        <Route path="/notice-board" element={<NoticeBoard />} />
+        <Route path="/school-transport" element={<SchoolTransport />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/parents-portal" element={<ParentsPortal />} />
 
-            {/* Auth */}
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/account" element={<Account />} />
+        {/* Authentication */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/account" element={<Account />} />
 
-
-
-            <Route path="*" element={<Home />} />
-        </Routes>
-    );
+        {/* Catch All */}
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Suspense>
+  );
 };
 
 export default AppRoutes;

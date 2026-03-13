@@ -1,0 +1,311 @@
+
+> nations-young-authors@0.0.0 lint
+> eslint .
+
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\ChildrenBookReader.jsx
+    3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                no-unused-vars
+   38:12  error  'currentPage' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  142:27  error  'chIdx' is defined but never used                                                            no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\Footer.jsx
+  12:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\MickeyMouse.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\Navbar.jsx
+   3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  97:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   95 |
+   96 |   useEffect(() => {
+>  97 |     setDropdown(null);
+      |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+   98 |     setMobileOpen(false);
+   99 |   }, [location.pathname]);
+  100 |  react-hooks/set-state-in-effect
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\RealisticBookReader.jsx
+    3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                no-unused-vars
+   38:12  error  'currentPage' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  158:27  error  'chIdx' is defined but never used                                                            no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\SignIn.jsx
+    3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       no-unused-vars
+  130:44  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  128 |                                 animate={{
+  129 |                                     y: [0, -100, 0],
+> 130 |                                     x: [0, Math.random() * 50 - 25, 0],
+      |                                            ^^^^^^^^^^^^^ Cannot call impure function
+  131 |                                     opacity: [0, 0.6, 0]
+  132 |                                 }}
+  133 |                                 transition={{                    react-hooks/purity
+  134:51  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  132 |                                 }}
+  133 |                                 transition={{
+> 134 |                                     duration: 4 + Math.random() * 4,
+      |                                                   ^^^^^^^^^^^^^ Cannot call impure function
+  135 |                                     repeat: Infinity,
+  136 |                                     delay: i * 0.5
+  137 |                                 }}                             react-hooks/purity
+  140:46  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  138 |                                 className="absolute text-indigo-200/60"
+  139 |                                 style={{
+> 140 |                                     left: `${Math.random() * 80 + 10}%`,
+      |                                              ^^^^^^^^^^^^^ Cannot call impure function
+  141 |                                     top: `${Math.random() * 80 + 10}%`
+  142 |                                 }}
+  143 |                             >  react-hooks/purity
+  141:45  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  139 |                                 style={{
+  140 |                                     left: `${Math.random() * 80 + 10}%`,
+> 141 |                                     top: `${Math.random() * 80 + 10}%`
+      |                                             ^^^^^^^^^^^^^ Cannot call impure function
+  142 |                                 }}
+  143 |                             >
+  144 |                                                                           react-hooks/purity
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\components\SignUp.jsx
+   3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  10:29  error  'Icon' is defined but never used                                               no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\Account.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\aboutUs\Home.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\aboutUs\YoungAuthorsHero.jsx
+    2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  203:29  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  201 |             animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 0.5] }}
+  202 |             transition={{
+> 203 |               duration: 2 + Math.random() * 2,
+      |                             ^^^^^^^^^^^^^ Cannot call impure function
+  204 |               repeat: Infinity,
+  205 |               delay: Math.random() * 5,
+  206 |             }}             react-hooks/purity
+  205:22  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  203 |               duration: 2 + Math.random() * 2,
+  204 |               repeat: Infinity,
+> 205 |               delay: Math.random() * 5,
+      |                      ^^^^^^^^^^^^^ Cannot call impure function
+  206 |             }}
+  207 |             className="absolute bg-white/40 rounded-full w-1 h-1 shadow-[0_0_10px_white]"
+  208 |             style={{  react-hooks/purity
+  209:23  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  207 |             className="absolute bg-white/40 rounded-full w-1 h-1 shadow-[0_0_10px_white]"
+  208 |             style={{
+> 209 |               top: `${Math.random() * 100}%`,
+      |                       ^^^^^^^^^^^^^ Cannot call impure function
+  210 |               left: `${Math.random() * 100}%`,
+  211 |             }}
+  212 |           />              react-hooks/purity
+  210:24  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  208 |             style={{
+  209 |               top: `${Math.random() * 100}%`,
+> 210 |               left: `${Math.random() * 100}%`,
+      |                        ^^^^^^^^^^^^^ Cannot call impure function
+  211 |             }}
+  212 |           />
+  213 |         ))}                                                                                           react-hooks/purity
+  239:29  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  237 |             transition={{
+  238 |               delay: asset.delay,
+> 239 |               duration: 6 + Math.random() * 3,
+      |                             ^^^^^^^^^^^^^ Cannot call impure function
+  240 |               repeat: Infinity,
+  241 |               ease: "easeInOut",
+  242 |             }}                                                     react-hooks/purity
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\authors\AuthorProfile.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\authors\StudentAuthors.jsx
+    2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       no-unused-vars
+  648:57  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  646 |                                         </td>
+  647 |                                         <td className="py-8 px-4 text-slate-500 font-mono text-xs">
+> 648 |                                             {Math.floor(Math.random() * 50000 + 5000).toLocaleString()} words
+      |                                                         ^^^^^^^^^^^^^ Cannot call impure function
+  649 |                                         </td>
+  650 |                                         <td className="py-8 px-4">
+  651 |                                             <div className="flex items-center gap-2">  react-hooks/purity
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\authors\TopAuthors.jsx
+    2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  509:79  error  'i' is defined but never used                                                  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\books\ChildrensBooks.jsx
+   2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+  97:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   95 |
+   96 |     useEffect(() => {
+>  97 |         setCategories(childrenBooksData);
+      |         ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+   98 |         if(childrenBooksData.length > 0) {
+   99 |             setActiveTab(childrenBooksData[0].category);
+  100 |         }  react-hooks/set-state-in-effect
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\books\NewBooks.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\books\bookMarketplace.jsx
+    2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       no-unused-vars
+  556:77  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  554 |                                         >
+  555 |                                             <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 text-white text-[8px] font-black uppercase tracking-widest rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
+> 556 |                                                 Node {i + 100}: {Math.floor(Math.random() * 100)}%
+      |                                                                             ^^^^^^^^^^^^^ Cannot call impure function
+  557 |                                             </div>
+  558 |                                         </div>
+  559 |                                     ))}  react-hooks/purity
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\BookPreview.jsx
+  66:9  error  'handlePrevPage' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\ChapterManager.jsx
+  4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\IllustrationBoard.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\PublishPanel.jsx
+    1:27  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+    3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+  316:57  error  'iconColor' is assigned a value but never used                                    no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\SidebarNavigation.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\StoryElementsPanel.jsx
+   3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+  45:11  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  43 |     
+  44 |     const newItem = {
+> 45 |       id: Date.now().toString(),
+     |           ^^^^^^^^^^ Cannot call impure function
+  46 |       name: `New ${singularName}`,
+  47 |       subtitle: "",
+  48 |       details: "",  react-hooks/purity
+  64:26  error  'id' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\BookBuilder\WritingEditor.jsx
+   15:10  error    'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        no-unused-vars
+   35:6   warning  React Hook useEffect has a missing dependency: 'activeChapter'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/exhaustive-deps
+  105:14  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+  103 |         <div className="flex gap-4 items-center overflow-x-auto no-scrollbar">
+  104 |           <div className="flex bg-slate-100 p-1.5 rounded-xl shrink-0 gap-1">
+> 105 |             {toolbarTools.map((tool) => (
+      |              ^^^^^^^^^^^^ Cannot access ref value during render
+  106 |               <button 
+  107 |                 key={tool.id} 
+  108 |                 onClick={tool.action}      react-hooks/refs
+  105:14  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+  103 |         <div className="flex gap-4 items-center overflow-x-auto no-scrollbar">
+  104 |           <div className="flex bg-slate-100 p-1.5 rounded-xl shrink-0 gap-1">
+> 105 |             {toolbarTools.map((tool) => (
+      |              ^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  106 |               <button 
+  107 |                 key={tool.id} 
+  108 |                 onClick={tool.action}  react-hooks/refs
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\IdeaNotebook.jsx
+  35:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  33 |   useEffect(() => {
+  34 |     const savedIdeas = JSON.parse(localStorage.getItem("ideas")) || [];
+> 35 |     setIdeas(savedIdeas);
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  36 |   }, []);
+  37 |
+  38 |   // Save ideas to local storage  react-hooks/set-state-in-effect
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\IllustrationBoard.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\src\pages\writingSpace\YoungWritersPad.jsx
+   191:31  error    'Icon' is defined but never used                                                                                    no-unused-vars
+   204:32  error    'Icon' is defined but never used                                                                                    no-unused-vars
+   304:24  error    'setDownloadType' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                     no-unused-vars
+   341:6   warning  React Hook useEffect has a missing dependency: 'checkPagination'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   380:18  error    'e' is defined but never used                                                                                       no-unused-vars
+   380:21  error    Empty block statement                                                                                               no-empty
+   384:18  error    'e' is defined but never used                                                                                       no-unused-vars
+   384:21  error    Empty block statement                                                                                               no-empty
+   490:9   error    Unexpected lexical declaration in case block                                                                        no-case-declarations
+   549:9   error    Unexpected lexical declaration in case block                                                                        no-case-declarations
+  1472:25  error    'e' is defined but never used                                                                                       no-unused-vars
+  1476:27  error    'e' is defined but never used                                                                                       no-unused-vars
+  1521:27  error    Unexpected constant condition                                                                                       no-constant-condition
+
+C:\Users\DELL\OneDrive\Desktop\pppro\nation-syoungauthors\tmp_data.js
+   1:12  error  'require' is not defined    no-undef
+   2:14  error  'require' is not defined    no-undef
+   5:26  error  '__dirname' is not defined  no-undef
+  10:28  error  '__dirname' is not defined  no-undef
+
+??? 68 problems (66 errors, 2 warnings)
+
