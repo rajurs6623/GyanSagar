@@ -34,16 +34,16 @@ const AlumniNetwork = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            <PageHero 
-                title="School"
-                italicTitle="Alumni"
-                tag="Global Network"
-                subtitle="Our legacy lives on through our students. With over 5,000 alumni placed globally, the Gyan Sagar spirit spans across continents."
+            <PageHero
+                title="Global"
+                italicTitle="Alumni Network"
+                tag="Our Legacy"
+                subtitle="Over 5,000 graduates across continents, carrying the spirit of Gyan Sagar into the world's leading spaces."
                 bgImage="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=1600"
                 accentColor="text-indigo-400"
             />
 
-            <div className="max-w-7xl mx-auto px-4 mb-32 -mt-16">
+            <div className="max-w-7xl mx-auto px-4 mb-32 mt-12 md:mt-16">
                 <div className="bg-white rounded-[4rem] p-12 border border-slate-100 shadow-3xl flex flex-wrap justify-center gap-12 relative z-20">
                     <div className="text-center px-8 border-r border-slate-100 last:border-0">
                         <p className="text-5xl font-black text-slate-900 mb-1 leading-none">5000+</p>

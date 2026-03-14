@@ -34,7 +34,7 @@ export default function SchoolHero() {
     () => [
       // LEFT SIDE (5 Assets)
       {
-        src: "https://static.vecteezy.com/system/resources/thumbnails/013/050/241/small/graduation-cap-with-golden-tassel-png.png",
+        src: "https://png.pngtree.com/png-clipart/20250419/original/pngtree-a-cheerful-child-holding-book-symbolizing-education-or-learning-png-image_20737890.png",
         size: "w-16 md:w-28",
         top: "15%",
         left: "5%",
@@ -71,14 +71,14 @@ export default function SchoolHero() {
 
       // RIGHT SIDE (5 Assets)
       {
-        src: "https://static.vecteezy.com/system/resources/thumbnails/010/856/665/small/3d-trophy-gold-winner-champion-award-png.png",
+        src: "https://static.vecteezy.com/system/resources/thumbnails/054/589/905/small/cute-cartoon-characters-reading-a-book-on-transparent-background-free-png.png",
         size: "w-20 md:w-36",
         top: "15%",
         left: "85%",
         delay: 0.2,
       },
       {
-        src: "https://png.pngtree.com/png-vector/20250530/ourmid/pngtree-happy-kids-reading-book-cartoon-illustration-children-s-literature-png-image_16417127.png",
+        src: "https://static.vecteezy.com/system/resources/previews/054/110/959/non_2x/cartoon-boy-is-sitting-at-a-desk-with-a-book-open-in-front-of-him-free-png.png",
         size: "w-16 md:w-28",
         top: "32%",
         left: "78%",
@@ -193,7 +193,7 @@ export default function SchoolHero() {
       </div>
 
       {/* --- STABLE SIDE ASSETS (Animated) --- */}
-      <div className="absolute inset-0 z-20 pointer-events-none">
+      <div className="absolute inset-0 z-20 pointer-events-none hidden md:block">
         {sideAssets.map((asset, i) => (
           <motion.div
             key={i}
@@ -266,19 +266,19 @@ export default function SchoolHero() {
         >
           <div className="absolute inset-0 bg-indigo-500/10 blur-[80px] rounded-full scale-150" />
           <div className="flex flex-col items-center justify-center relative z-20">
-            {/* Branding Block: Horizontal Layout */}
-            <div className="flex items-center gap-3 md:gap-8 mb-2 md:mb-4 mt-6 md:mt-12">
-              <span className="text-5xl md:text-[140px] font-black text-indigo-600 tracking-tighter leading-none">
+            {/* Branding Block: Stacked on mobile, Horizontal on desktop */}
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 mb-4 md:mb-4 mt-4 md:mt-12">
+              <span className="text-6xl md:text-[140px] font-black text-indigo-600 tracking-tighter leading-none">
                 Gyan
               </span>
 
-              <div className="relative group flex items-center justify-center">
+              <div className="relative group flex items-center justify-center py-2 md:py-0">
                 {/* Background Rotating Rays - Perfectly Centered on Logo */}
                 <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-visible">
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                    className="absolute w-[700px] h-[700px] md:w-[1500px] md:h-[1500px] opacity-[0.15]"
+                    className="absolute w-[300px] h-[300px] md:w-[1500px] md:h-[1500px] opacity-[0.15]"
                     style={{
                       background:
                         "repeating-conic-gradient(from 0deg, transparent 0deg 20deg, #4f46e5 22deg 26deg)",
@@ -289,15 +289,15 @@ export default function SchoolHero() {
                   />
                 </div>
 
-                <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full group-hover:scale-125 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-indigo-500/20 blur-2xl md:blur-3xl rounded-full group-hover:scale-125 transition-transform duration-700" />
                 <img
                   src="/icon.png"
                   alt="Gyan Sagar Logo"
-                  className="w-20 md:w-56 h-20 md:h-56 object-contain rounded-full border-4 border-white shadow-2xl relative z-10 p-1 bg-white"
+                  className="w-16 md:w-56 h-16 md:h-56 object-contain rounded-full border-2 md:border-4 border-white shadow-2xl relative z-10 p-1 bg-white"
                 />
               </div>
 
-              <span className="text-5xl md:text-[140px] font-black text-slate-900 tracking-tighter leading-none">
+              <span className="text-6xl md:text-[140px] font-black text-slate-900 tracking-tighter leading-none">
                 Sagar
               </span>
             </div>
@@ -329,7 +329,7 @@ export default function SchoolHero() {
           className="flex flex-row items-center justify-center gap-3 md:gap-6"
         >
           <Link
-            to="/admission-guide"
+            to="/admission-inquiry"
             className="px-6 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-[1.25rem] font-black text-[10px] md:text-[14px] shadow-2xl shadow-indigo-200/60 hover:bg-indigo-700 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
           >
             Apply for Admission <ArrowRight className="w-3 md:w-4 h-3 md:h-4" />

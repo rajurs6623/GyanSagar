@@ -56,11 +56,11 @@ const PrimaryClasses = () => {
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito'] overflow-hidden">
             {/* Premium Hero Section */}
-            <PageHero 
-                title="Primary"
-                italicTitle="Classes"
-                tag="Foundation Years"
-                subtitle="Nurturing curiosity, building character, and developing a lifelong love for learning from Nursery to 5th grade."
+            <PageHero
+                title="Building"
+                italicTitle="Foundations"
+                tag="NC to Class 5"
+                subtitle="Nurturing curiosity and character to ignite a lifelong love for learning in every child."
                 bgImage="/3d_junior_wing_1773388498083.png"
                 accentColor="text-amber-500"
             />

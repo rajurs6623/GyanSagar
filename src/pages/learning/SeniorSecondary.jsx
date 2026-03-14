@@ -56,13 +56,13 @@ const SeniorSecondary = () => {
     const currentWing = academicWings.find(w => w.id === selectedWing);
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
+        <div className="min-h-screen bg-slate-50 pb-20 font-['Plus Jakarta Sans']">
             {/* Premium Hero Section */}
-            <PageHero 
-                title="Senior"
-                italicTitle="Secondary (+2)"
-                tag="Classes XI & XII"
-                subtitle="Preparing students for professional courses with expert guidance in their chosen field of study. Architecture for tomorrow's leaders."
+            <PageHero
+                title="Future"
+                italicTitle="Ready"
+                tag="Class XI & XII"
+                subtitle="Advanced streams and expert mentorship bridging the gap between school and professional success."
                 bgImage="/3d_senior_sec_1773388549487.png"
                 accentColor="text-amber-500"
             />
@@ -72,19 +72,19 @@ const SeniorSecondary = () => {
                 <div className="flex flex-col lg:flex-row gap-12">
                     {/* Left side: Navigation */}
                     <div className="lg:w-1/3 space-y-4">
-                        <h2 className="text-3xl font-black text-slate-900 mb-8">Choose Your <span className="text-indigo-600">Stream</span></h2>
+                        <h2 className="text-3xl font-extrabold text-slate-900 mb-8">Choose Your <span className="text-indigo-600">Stream</span></h2>
                         {academicWings.map(wing => (
                             <button
                                 key={wing.id}
                                 onClick={() => setSelectedWing(wing.id)}
-                                className={`w-full flex items-center gap-6 p-6 rounded-3xl border-2 transition-all text-left ${selectedWing === wing.id ? `bg-white ${wing.textColor} border-indigo-500 shadow-2xl shadow-indigo-100 scale-105` : 'bg-white/50 border-slate-100 text-slate-400 hover:border-indigo-200'}`}
+                                className={`w-full flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-3xl border-2 transition-all text-left ${selectedWing === wing.id ? `bg-white ${wing.textColor} border-indigo-500 shadow-2xl shadow-indigo-100 scale-102 md:scale-105` : 'bg-white/50 border-slate-100 text-slate-400 hover:border-indigo-200'}`}
                             >
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${selectedWing === wing.id ? wing.color + ' text-white' : 'bg-slate-100 text-slate-300'}`}>
+                                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center ${selectedWing === wing.id ? wing.color + ' text-white' : 'bg-slate-100 text-slate-300'}`}>
                                     {wing.icon}
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-black">{wing.title}</h4>
-                                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold">Class XI & XII</p>
+                                    <h4 className="text-lg md:text-xl font-black">{wing.title}</h4>
+                                    <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">Class XI & XII</p>
                                 </div>
                             </button>
                         ))}
@@ -159,11 +159,11 @@ const SeniorSecondary = () => {
                     <div className="bg-indigo-950 rounded-[3rem] p-12 relative overflow-hidden group">
                         <div className="relative z-10">
                             <Target className="w-12 h-12 text-indigo-400 mb-6" />
-                            <h3 className="text-4xl font-black mb-4">Integrated Coaching</h3>
+                            <h3 className="text-4xl font-extrabold mb-4">Integrated Coaching</h3>
                             <p className="text-indigo-300 text-lg mb-8 max-w-md">
-                                Special batches for IIT-JEE, NEET, and CLAT within school hours to reduce travel time and pressure.
+                                Specialized batches for IIT-JEE, NEET, and CLAT within school hours to reduce travel time and pressure.
                             </p>
-                            <button className="flex items-center gap-3 font-black text-indigo-400 hover:gap-5 transition-all text-sm uppercase tracking-widest">
+                            <button className="flex items-center gap-3 font-extrabold text-indigo-400 hover:gap-5 transition-all text-sm uppercase tracking-widest">
                                 EXPLORE COACHING MODULES <ArrowRight className="w-5 h-5" />
                             </button>
                         </div>
@@ -216,6 +216,15 @@ const SeniorSecondary = () => {
                 </div>
             </section>
         </div>
+    );
+};
+
+export default SeniorSecondary;
+                        />
+                    </div >
+                </div >
+            </section >
+        </div >
     );
 };
 

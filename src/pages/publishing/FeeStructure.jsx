@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    CreditCard, ShieldCheck, Wallet, 
-    ArrowRight, Info, CheckCircle2, 
+import {
+    CreditCard, ShieldCheck, Wallet,
+    ArrowRight, Info, CheckCircle2,
     Clock, HelpCircle, Download,
     Briefcase, PieChart, TrendingUp,
-    Star, Heart, Lock, Brain
+    Star, Heart, Lock, Brain, Globe,
+    ChevronRight, ReceiptText, Banknote
 } from 'lucide-react';
 import PageHero from '../../components/common/PageHero';
 
@@ -56,146 +57,192 @@ const FeeStructure = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            <PageHero 
-                title="Investment in"
-                italicTitle="Education"
-                tag="Transparent & Simple"
-                subtitle="We maintain a transparent fee structure with no hidden costs. Our goal is to provide world-class education that remains accessible."
+        <div className="min-h-screen bg-slate-50 font-['Plus Jakarta Sans'] selection:bg-indigo-100 selection:text-indigo-900">
+            <PageHero
+                title="Fee"
+                italicTitle="Structure"
+                tag="Transparent Pricing"
+                subtitle="Investing in your child's education is the best decision you'll ever make. We keep our fees clear, honest, and accessible."
                 bgImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
                 accentColor="text-indigo-400"
             />
 
-            <div className="max-w-7xl mx-auto px-4 mb-20 -mt-32 relative z-20">
-                <div className="bg-white/10 backdrop-blur-xl p-8 rounded-[3rem] border border-white/20 shadow-3xl flex flex-wrap justify-center gap-6">
-                    <button className="px-8 py-4 bg-indigo-600 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/20 hover:scale-105 transition-all flex items-center gap-3">
-                        Download Fee Chart <Download className="w-5 h-5" />
+            <div className="max-w-7xl mx-auto px-4 mt-12 md:mt-16 pb-24 relative z-50">
+                {/* --- QUICK ACTION BAR --- */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white/70 backdrop-blur-2xl p-6 md:p-8 rounded-[2.5rem] border border-white shadow-2xl flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-20"
+                >
+                    <button className="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-black shadow-xl shadow-indigo-100 hover:bg-slate-900 hover:-translate-y-1 transition-all flex items-center gap-3 active:scale-95 group">
+                        Download Fee Chart <Download size={20} className="group-hover:translate-y-1 transition-transform" />
                     </button>
-                    <button className="px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 text-white font-black rounded-2xl hover:bg-white/30 transition-all flex items-center gap-3">
-                        Pay Online <Wallet className="w-5 h-5" />
-                    </button>
-                </div>
-            </div>
+                    <div className="flex items-center gap-3">
+                         <div className="flex -space-x-3 overflow-hidden">
+                            {[1,2,3].map(i => (
+                                <img key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src={`https://i.pravatar.cc/100?img=${i+10}`} alt="" />
+                            ))}
+                        </div>
+                        <p className="text-slate-500 font-bold text-xs uppercase tracking-widest pl-2 border-l border-slate-200">1.2k+ Parents Paid Online</p>
+                    </div>
+                </motion.div>
 
-            {/* Fee Table Section */}
-            <div className="max-w-7xl mx-auto px-4 mb-20">
-                <div className="bg-white rounded-[3rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
-                    <div className="flex flex-col md:flex-row border-b border-slate-50">
+                {/* --- FEE CALCULATOR / DISPLAY --- */}
+                <div className="bg-white rounded-[3rem] shadow-2xl shadow-indigo-100/50 border border-slate-100 overflow-hidden mb-32">
+                    <div className="flex flex-col md:flex-row bg-slate-50/50 border-b border-slate-100">
                         {Object.keys(feeData).map(cat => (
                             <button
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
-                                className={`flex-1 py-8 px-6 font-black text-sm uppercase tracking-[0.2em] transition-all border-b-4 md:border-b-0 md:border-r last:border-r-0 ${selectedCategory === cat ? 'bg-indigo-600 text-white border-indigo-600' : 'text-slate-400 hover:bg-slate-50 border-transparent'}`}
+                                className={`flex-1 py-8 px-6 font-black text-xs uppercase tracking-[0.2em] transition-all relative group ${selectedCategory === cat ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
                             >
-                                {cat}
+                                <span className="relative z-10">{cat}</span>
+                                {selectedCategory === cat && (
+                                    <motion.div layoutId="feeTab" className="absolute bottom-0 left-0 w-full h-1 bg-indigo-600" />
+                                )}
                             </button>
                         ))}
                     </div>
 
-                    <div className="p-10 md:p-20">
+                    <div className="p-8 md:p-16 lg:p-24">
                         <AnimatePresence mode='wait'>
                             <motion.div
                                 key={selectedCategory}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
                             >
-                                <div>
-                                    <h3 className="text-4xl font-black text-slate-800 mb-8 tracking-tighter">Academic Year <span className="text-indigo-600">2024-25</span></h3>
-                                    <div className="space-y-6">
+                                <div className="space-y-10">
+                                    <div className="space-y-4">
+                                        <div className="flex items-center gap-2">
+                                            <span className="w-8 h-px bg-indigo-600 rounded-full" />
+                                            <span className="text-indigo-600 font-black text-[10px] uppercase tracking-widest">Pricing Details</span>
+                                        </div>
+                                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">Educational <br/><span className="text-indigo-600">Investment</span></h2>
+                                    </div>
+
+                                    <div className="space-y-4">
                                         {[
-                                            { label: "One-time Admission Fee", val: feeData[selectedCategory].admission, icon: <Star className="w-4 h-4 text-amber-500" /> },
-                                            { label: "Monthly Tuition Fee", val: feeData[selectedCategory].monthly, icon: <ArrowRight className="w-4 h-4 text-indigo-400" /> },
-                                            { label: "Annual Charges", val: feeData[selectedCategory].annual, icon: <ArrowRight className="w-4 h-4 text-indigo-400" /> },
-                                            { label: "Examination Fee (per term)", val: feeData[selectedCategory].exam, icon: <ArrowRight className="w-4 h-4 text-indigo-400" /> }
+                                            { label: "Admission Fee (One-time)", val: feeData[selectedCategory].admission, icon: <ReceiptText size={18}/>, color: "bg-amber-100 text-amber-600" },
+                                            { label: "Tuition Fee (Monthly)", val: feeData[selectedCategory].monthly, icon: <Clock size={18}/>, color: "bg-indigo-100 text-indigo-600" },
+                                            { label: "Annual Charges (Annual)", val: feeData[selectedCategory].annual, icon: <TrendingUp size={18}/>, color: "bg-emerald-100 text-emerald-600" },
+                                            { label: "Examination Fee (Termly)", val: feeData[selectedCategory].exam, icon: <HelpCircle size={18}/>, color: "bg-rose-100 text-rose-600" }
                                         ].map((item, i) => (
-                                            <div key={i} className="flex justify-between items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all">
+                                            <motion.div 
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: i * 0.1 }}
+                                                key={i} 
+                                                className="flex justify-between items-center p-6 bg-white rounded-3xl border border-slate-100 group hover:shadow-xl hover:shadow-indigo-50 transition-all"
+                                            >
                                                 <div className="flex items-center gap-4">
-                                                    <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                                                    <div className={`w-12 h-12 ${item.color} rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110`}>
                                                         {item.icon}
                                                     </div>
-                                                    <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{item.label}</span>
+                                                    <span className="text-slate-500 font-bold text-sm tracking-tight">{item.label}</span>
                                                 </div>
                                                 <span className="text-slate-900 font-black text-xl">{item.val}</span>
-                                            </div>
+                                            </motion.div>
                                         ))}
                                     </div>
                                 </div>
 
-                                <div className="bg-slate-900 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
-                                    <div className="relative z-10">
-                                        <Wallet className="w-16 h-16 text-indigo-400 mx-auto mb-6" />
-                                        <p className="text-indigo-200 text-xs font-black uppercase tracking-[0.3em] mb-2">Total Estimated Investment</p>
-                                        <h4 className="text-6xl font-[900] mb-8 tracking-tighter">{feeData[selectedCategory].totalAnnual}</h4>
-                                        <p className="text-slate-400 text-sm font-medium leading-relaxed mb-10">
-                                            This estimate includes tuition, annual and exam fees. 
-                                            Uniforms, books, and transport are calculated separately.
-                                        </p>
-                                        <button className="w-full py-4 bg-white text-slate-900 font-black rounded-2xl shadow-xl shadow-indigo-100 hover:bg-amber-400 transition-all font-['Nunito']">
-                                            Proceed to Payment
-                                        </button>
+                                <div className="relative group">
+                                    <div className="absolute inset-0 bg-indigo-600 rounded-[3rem] blur-3xl opacity-10 group-hover:opacity-20 transition-opacity" />
+                                    <div className="bg-slate-900 rounded-[3.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+                                        {/* Mesh Background */}
+                                        <div className="absolute inset-0 opacity-20 pointer-events-none">
+                                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[100px] -mr-32 -mt-32" />
+                                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500 rounded-full blur-[100px] -ml-32 -mb-32" />
+                                        </div>
+
+                                        <div className="relative z-10 space-y-8">
+                                            <div className="w-20 h-20 bg-white/10 rounded-3xl flex items-center justify-center mx-auto border border-white/10 shadow-inner">
+                                                <Banknote size={40} className="text-indigo-400" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <p className="text-indigo-300 text-[10px] font-black uppercase tracking-[0.3em]">Estimated Annual Projection</p>
+                                                <h4 className="text-4xl md:text-6xl font-black tracking-tight">{feeData[selectedCategory].totalAnnual}</h4>
+                                            </div>
+                                            <p className="text-slate-400 text-sm font-medium leading-relaxed px-4">
+                                                Includes tuition, annual, and exam charges. Transportation, uniform, and activity fees are calculated per requirement.
+                                            </p>
+                                            <button className="w-full py-5 bg-indigo-600 text-white font-black rounded-2xl shadow-xl shadow-indigo-500/20 hover:bg-white hover:text-slate-900 transition-all active:scale-95 flex items-center justify-center gap-3 group">
+                                                Proceed to Pay <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
                 </div>
-            </div>
 
-            {/* Payment Modes */}
-            <div className="max-w-7xl mx-auto px-4 mb-32 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {paymentModes.map((mode, i) => (
-                    <div key={i} className="p-10 rounded-[3rem] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-center text-center group hover:-translate-y-2 transition-all">
-                        <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-indigo-600 group-hover:text-white transition-all transform group-hover:rotate-12">
-                            {mode.icon}
-                        </div>
-                        <h4 className="text-xl font-black text-slate-900 mb-4">{mode.title}</h4>
-                        <p className="text-slate-500 text-sm font-medium leading-relaxed">{mode.desc}</p>
+                {/* --- PAYMENT MODES --- */}
+                <div className="space-y-12 mb-32">
+                    <div className="text-center space-y-4">
+                        <span className="px-4 py-2 bg-indigo-50 text-indigo-600 rounded-full text-[10px] font-black uppercase tracking-[0.2em]">Transaction Modes</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">Flexible Payment <span className="text-indigo-600">Methods</span></h2>
                     </div>
-                ))}
-            </div>
-
-            {/* FAQ / Policies */}
-            <div className="max-w-4xl mx-auto px-4">
-                <h3 className="text-3xl font-black text-slate-900 mb-12 text-center flex items-center justify-center gap-3">
-                    <HelpCircle className="w-8 h-8 text-indigo-600" /> Fee Related <span className="text-indigo-600">FAQ</span>
-                </h3>
-                <div className="space-y-6">
-                    {faqs.map((faq, i) => (
-                        <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-100">
-                            <h4 className="text-lg font-black text-slate-800 mb-3">{faq.q}</h4>
-                            <p className="text-slate-500 font-medium leading-relaxed">{faq.a}</p>
-                        </div>
-                    ))}
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                        {paymentModes.map((mode, i) => (
+                            <motion.div 
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                                key={i} 
+                                className="p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col items-center text-center group"
+                            >
+                                <div className="w-16 h-16 bg-slate-50 rounded-3xl flex items-center justify-center mb-8 border border-slate-50 transition-all group-hover:bg-indigo-600 group-hover:text-white group-hover:rotate-6">
+                                    {React.cloneElement(mode.icon, { className: "w-8 h-8" })}
+                                </div>
+                                <h4 className="text-lg font-black text-slate-900 mb-4">{mode.title}</h4>
+                                <p className="text-slate-500 text-sm font-medium leading-relaxed">{mode.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
-                
-                <div className="mt-20 p-12 bg-indigo-50 rounded-[3rem] border border-indigo-100 flex flex-col md:flex-row items-center gap-12 group">
-                    <div className="shrink-0 w-24 h-24 bg-white rounded-[2rem] shadow-xl flex items-center justify-center text-indigo-600">
-                        <Info className="w-10 h-10" />
+
+                {/* --- POLICIES / FAQ --- */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div className="lg:col-span-7 space-y-6">
+                        <div className="flex items-center gap-3 mb-4">
+                            <HelpCircle className="text-indigo-600" size={24}/>
+                            <h3 className="text-2xl font-black text-slate-900 tracking-tight">Fee Policies & FAQ</h3>
+                        </div>
+                        <div className="grid grid-cols-1 gap-4">
+                            {faqs.map((faq, i) => (
+                                <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <h4 className="text-slate-900 font-black text-base mb-3 leading-tight">{faq.q}</h4>
+                                    <p className="text-slate-500 font-medium text-sm leading-relaxed">{faq.a}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div>
-                        <h4 className="text-2xl font-black text-slate-800 mb-2">Late Payment Policy</h4>
-                        <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
-                            A late fine of ₹20 per day applies if the fee is not paid by the 10th of the due month. 
-                            Please contact the accounts office for any difficulties.
-                        </p>
-                        <button className="flex items-center gap-3 font-black text-indigo-600 hover:gap-5 transition-all text-sm uppercase tracking-widest">
-                            READ FULL POLICY <ArrowRight className="w-5 h-5" />
-                        </button>
+
+                    <div className="lg:col-span-5">
+                        <div className="bg-indigo-50 rounded-[3rem] p-10 md:p-14 border border-indigo-100 md:sticky md:top-32 group">
+                            <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center text-indigo-600 mb-8 transform group-hover:-rotate-6 transition-transform">
+                                <Info size={32} />
+                            </div>
+                            <h4 className="text-2xl font-black text-slate-800 mb-4">Late Payment Policy</h4>
+                            <p className="text-slate-600 font-medium leading-relaxed mb-8">
+                                A late fine of <span className="font-black text-indigo-600">₹20 per day</span> applies if the fee is not paid by the 10th of the due month.
+                                <br/><br/>
+                                Please reach out to our accounts department if you are facing any genuine difficulties or need payment extensions.
+                            </p>
+                            <button className="flex items-center gap-2 font-black text-indigo-600 text-[10px] uppercase tracking-[0.2em] group-hover:gap-4 transition-all">
+                                View Full Policy <ArrowRight size={16} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
-// Simple Globe component since lucide-react doesn't have it by default in some versions or I might have missed it
-const Globe = ({ className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>
-);
 
 export default FeeStructure;

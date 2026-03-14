@@ -100,11 +100,11 @@ const CampusFacilities = () => {
 
     return (
         <div className="min-h-screen bg-white font-['Nunito']">
-            <PageHero 
-                title="Campus"
-                italicTitle="& Facilities"
-                tag="World-Class Infrastructure"
-                subtitle="We provide a world-class environment in Ram Krishna Nagar, Patna, that inspires learning, creativity, and physical excellence."
+            <PageHero
+                title="Campus &"
+                italicTitle="Facilities"
+                tag="World-Class Design"
+                subtitle="An inspiring environment in Patna designed to foster creativity, learning, and physical excellence."
                 bgImage="/3d_school_campus_premium.png"
                 accentColor="text-amber-500"
             />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-    BookOpen, Video, FileText, 
+import {
+    BookOpen, Video, FileText,
     Monitor, Users, ArrowRight,
     Search, Download, PlayCircle,
     Star, Heart, Trophy, Brain
@@ -24,22 +24,22 @@ const ELearningPortal = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            <PageHero 
+            <PageHero
                 title="E-Learning"
                 italicTitle="Portal"
-                tag="Infinite Learning Resource"
-                subtitle="Exclusive educational content for Gyan Sagar students. Access your lessons, resources, and assessments anytime, anywhere."
+                tag="Infinite Resources"
+                subtitle="Access high-quality lessons, resources, and assessments anytime, anywhere with our exclusive student portal."
                 bgImage="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600"
                 accentColor="text-indigo-400"
             />
-            
+
             <div className="max-w-7xl mx-auto px-4 mb-20">
                 {/* Search Bar */}
                 <div className="max-w-3xl mx-auto -mt-32 relative z-[20]">
                     <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-300" />
-                    <input 
-                        type="text" 
-                        placeholder="Search for subjects, topics, or resources..." 
+                    <input
+                        type="text"
+                        placeholder="Search for subjects, topics, or resources..."
                         className="w-full h-20 bg-white rounded-3xl px-16 text-lg font-bold text-slate-700 shadow-2xl shadow-indigo-100 border border-slate-100 focus:outline-none focus:border-indigo-400 transition-all"
                     />
                     <button className="absolute right-4 top-1/2 -translate-y-1/2 px-8 py-3 bg-indigo-600 text-white font-black rounded-2xl">Find</button>
@@ -65,33 +65,33 @@ const ELearningPortal = () => {
 
             {/* Top Trending Resources */}
             <div className="max-w-7xl mx-auto px-4">
-                 <div className="flex justify-between items-end mb-12">
-                     <div>
-                         <h2 className="text-3xl font-black text-slate-900 tracking-tighter mb-2">Popular Resources</h2>
-                         <p className="text-slate-500 font-medium">Frequently accessed by students this week.</p>
-                     </div>
-                     <button className="text-indigo-600 font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">View All <ArrowRight className="w-4 h-4" /></button>
-                 </div>
-                 
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                     {topResources.map((res, i) => (
-                         <div key={i} className="bg-white rounded-[3rem] p-6 border border-slate-100 shadow-lg group">
-                             <div className="h-48 rounded-[2rem] overflow-hidden mb-6">
-                                 <img src={res.thumb} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={res.title} />
-                             </div>
-                             <h4 className="text-xl font-black text-slate-800 mb-6 px-2">{res.title}</h4>
-                             <div className="flex items-center justify-between px-2">
-                                 <div className="flex flex-col">
-                                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{res.type}</span>
-                                     <span className="text-sm font-bold text-slate-600">{res.size || res.duration || res.modules}</span>
-                                 </div>
-                                 <button className="w-12 h-12 bg-slate-50 rounded-2xl text-slate-300 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center">
-                                     <Download className="w-5 h-5" />
-                                 </button>
-                             </div>
-                         </div>
-                     ))}
-                 </div>
+                <div className="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-900 tracking-tighter mb-2">Popular Resources</h2>
+                        <p className="text-slate-500 font-medium">Frequently accessed by students this week.</p>
+                    </div>
+                    <button className="text-indigo-600 font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">View All <ArrowRight className="w-4 h-4" /></button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {topResources.map((res, i) => (
+                        <div key={i} className="bg-white rounded-[3rem] p-6 border border-slate-100 shadow-lg group">
+                            <div className="h-48 rounded-[2rem] overflow-hidden mb-6">
+                                <img src={res.thumb} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={res.title} />
+                            </div>
+                            <h4 className="text-xl font-black text-slate-800 mb-6 px-2">{res.title}</h4>
+                            <div className="flex items-center justify-between px-2">
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{res.type}</span>
+                                    <span className="text-sm font-bold text-slate-600">{res.size || res.duration || res.modules}</span>
+                                </div>
+                                <button className="w-12 h-12 bg-slate-50 rounded-2xl text-slate-300 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center">
+                                    <Download className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Portal Stats / Footer Area */}
@@ -100,7 +100,7 @@ const ELearningPortal = () => {
                     <div className="relative z-10 text-center md:text-left">
                         <h3 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter">Login to your <br /><span className="text-indigo-400 italic">Student Account</span></h3>
                         <p className="text-slate-400 text-lg font-medium max-w-md mb-10 leading-relaxed">
-                            Use your S-ID and password provided by the school office to 
+                            Use your S-ID and password provided by the school office to
                             access personalized dashboards and test results.
                         </p>
                         <button className="px-12 py-5 bg-indigo-600 text-white font-black rounded-2xl shadow-2xl hover:bg-white hover:text-slate-900 transition-all">Go to Dashboard</button>

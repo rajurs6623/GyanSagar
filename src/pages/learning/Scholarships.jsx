@@ -41,11 +41,11 @@ const Scholarships = () => {
 
     return (
         <div className="min-h-screen bg-white pb-20 font-['Nunito']">
-            <PageHero 
-                title="Scholarships"
-                italicTitle="& Awards"
-                tag="Rewarding Excellence"
-                subtitle="We believe financial constraints should never stop a brilliant mind. Our scholarship programs are designed to empower and motivate achievers."
+            <PageHero
+                title="Rewarding"
+                italicTitle="Excellence"
+                tag="Scholarship Hub"
+                subtitle="Empowering brilliant minds with the support they need to pursue their academic dreams without boundaries."
                 bgImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1600"
                 accentColor="text-indigo-400"
             />
@@ -103,7 +103,7 @@ const Scholarships = () => {
                         <Target className="w-16 h-16 text-indigo-400 mx-auto mb-10" />
                         <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Ready to <span className="text-indigo-400 underline decoration-indigo-400 decoration-8 underline-offset-8">Achieve?</span></h2>
                         <p className="text-slate-400 text-xl font-medium max-w-2xl mx-auto mb-16 leading-relaxed">
-                            Scholarship applications for the session 2024-25 are now open.
+                            Scholarship applications for the session 2025-26 are now open.
                             Download the form and submit it with your documents.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    Users, MessageSquare, ShieldCheck, Heart, 
-    Bell, Star, Search, Filter, Send, 
-    MoreVertical, UserPlus, Image as ImageIcon,
+import {
+    Users, MessageSquare, ShieldCheck, Heart,
+    Bell, Star, Search, Filter, Send,
     MoreVertical, UserPlus, Image as ImageIcon,
     Flag, Share2, CornerUpRight, Brain
 } from 'lucide-react';
@@ -62,40 +61,40 @@ const ParentsPortal = () => {
     ];
 
     const resources = [
-        { title: "Academic Calendar 2024-25", type: "PDF", size: "1.2 MB" },
+        { title: "Academic Calendar 2025-26", type: "PDF", size: "1.2 MB" },
         { title: "Uniform Policy Guide", type: "PDF", size: "850 KB" },
         { title: "Monthly Newsletter - Feb", type: "DOCX", size: "2.1 MB" }
     ];
 
     return (
         <div className="bg-slate-50 min-h-screen font-['Nunito']">
-            <PageHero 
-                title="Connected for Our"
-                italicTitle="Children's Future"
-                tag="Gyan Sagar Parents Community"
-                subtitle="A secure lounge for parents to collaborate, discuss, and stay updated with school life."
+            <PageHero
+                title="Parents"
+                italicTitle="Connect"
+                tag="Community Hub"
+                subtitle="A collaborative lounge for parents to discuss and stay updated with school events."
                 bgImage="/GyanSagar/StudentPatna.jpg"
                 accentColor="text-amber-400"
             />
 
             {/* Main Content */}
-            <div className="max-w-7xl mx-auto px-4 -mt-20 relative z-20">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    
+            <div className="max-w-7xl mx-auto px-4 -mt-10 md:-mt-20 relative z-20 pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+
                     {/* Left Sidebar: Nav & Stats */}
-                    <div className="lg:col-span-3 space-y-6">
-                        <div className="bg-white rounded-3xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100">
-                            <div className="space-y-2">
+                    <div className="lg:col-span-3 space-y-4 md:space-y-6">
+                        <div className="bg-white rounded-[2rem] md:rounded-3xl p-5 md:p-6 shadow-xl shadow-slate-200/50 border border-slate-100">
+                            <div className="space-y-1 md:space-y-2">
                                 {['Feed', 'Notices', 'Resources', 'My Profile'].map(tab => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
-                                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold transition-all ${activeTab === tab ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-slate-500 hover:bg-slate-50'}`}
+                                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold transition-all text-sm md:text-base ${activeTab === tab ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-slate-500 hover:bg-slate-50'}`}
                                     >
-                                        {tab === 'Feed' && <MessageSquare className="w-5 h-5" />}
-                                        {tab === 'Notices' && <Bell className="w-5 h-5" />}
-                                        {tab === 'Resources' && <ShieldCheck className="w-5 h-5" />}
-                                        {tab === 'My Profile' && <Users className="w-5 h-5" />}
+                                        {tab === 'Feed' && <MessageSquare className="w-4 h-4 md:w-5 md:h-5" />}
+                                        {tab === 'Notices' && <Bell className="w-4 h-4 md:w-5 md:h-5" />}
+                                        {tab === 'Resources' && <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />}
+                                        {tab === 'My Profile' && <Users className="w-4 h-4 md:w-5 md:h-5" />}
                                         {tab}
                                     </button>
                                 ))}
@@ -132,14 +131,14 @@ const ParentsPortal = () => {
                     </div>
 
                     {/* Middle Column: Feed */}
-                    <div className="lg:col-span-6 space-y-6">
+                    <div className="lg:col-span-6 space-y-4 md:space-y-6">
                         {/* Search Bar */}
                         <div className="relative">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                            <input 
+                            <Search className="absolute left-5 md:left-6 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400" />
+                            <input
                                 type="text"
-                                placeholder="Search discussions, notices, or parents..."
-                                className="w-full bg-white pl-14 pr-6 py-4 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 focus:ring-2 focus:ring-indigo-500 focus:outline-none font-bold text-slate-600"
+                                placeholder="Search discussions..."
+                                className="w-full bg-white pl-12 md:pl-14 pr-6 py-3.5 md:py-4 rounded-xl md:rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 focus:ring-2 focus:ring-indigo-500 focus:outline-none font-bold text-slate-600 text-sm md:text-base"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
@@ -152,7 +151,7 @@ const ParentsPortal = () => {
                                     <Users className="w-6 h-6 text-indigo-600" />
                                 </div>
                                 <div className="flex-grow">
-                                    <textarea 
+                                    <textarea
                                         placeholder="Start a discussion or ask a question..."
                                         className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-600 font-bold focus:ring-1 focus:ring-indigo-100 resize-none"
                                         rows="2"
@@ -177,7 +176,7 @@ const ParentsPortal = () => {
                         {/* Actual Feed / Tab Content */}
                         <AnimatePresence mode="wait">
                             {activeTab === 'Feed' && (
-                                <motion.div 
+                                <motion.div
                                     key="feed"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -185,19 +184,19 @@ const ParentsPortal = () => {
                                     className="space-y-6"
                                 >
                                     {discussions.map(post => (
-                                        <div key={post.id} className="bg-white rounded-[2rem] p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-indigo-100 transition-all">
-                                            <div className="flex justify-between items-start mb-6">
-                                                <div className="flex gap-4">
-                                                    <div className="w-12 h-12 rounded-2xl bg-slate-100 overflow-hidden shadow-inner">
+                                        <div key={post.id} className="bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-indigo-100 transition-all">
+                                            <div className="flex justify-between items-start mb-4 md:mb-6">
+                                                <div className="flex gap-3 md:gap-4">
+                                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-slate-100 overflow-hidden shadow-inner">
                                                         <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${post.author}`} alt={post.author} />
                                                     </div>
                                                     <div>
-                                                        <h4 className="font-black text-slate-800">{post.author}</h4>
-                                                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{post.role} • {post.time}</p>
+                                                        <h4 className="font-black text-slate-800 text-sm md:text-base">{post.author}</h4>
+                                                        <p className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">{post.role} • {post.time}</p>
                                                     </div>
                                                 </div>
                                                 <button className="p-2 hover:bg-slate-50 rounded-full text-slate-300">
-                                                    <MoreVertical className="w-5 h-5" />
+                                                    <MoreVertical className="w-4 h-4 md:w-5 md:h-5" />
                                                 </button>
                                             </div>
 
@@ -229,7 +228,7 @@ const ParentsPortal = () => {
                             )}
 
                             {activeTab === 'Notices' && (
-                                <motion.div 
+                                <motion.div
                                     key="notices"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -261,7 +260,7 @@ const ParentsPortal = () => {
                         {/* Parent Directory Preview */}
                         <div className="bg-white rounded-3xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
                             <h4 className="font-black text-slate-800 mb-6 flex items-center justify-between">
-                                Registered Parents 
+                                Registered Parents
                                 <UserPlus className="w-4 h-4 text-indigo-600 cursor-pointer" />
                             </h4>
                             <div className="space-y-4">

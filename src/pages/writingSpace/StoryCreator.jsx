@@ -140,8 +140,8 @@ const StoryCreator = ({ onBack }) => {
       {/* Header */}
       <header className="shrink-0 h-[70px] bg-white/80 backdrop-blur-xl border-b border-sky-200 px-6 flex items-center justify-between shadow-sm z-50">
         <div className="flex items-center gap-4">
-          <button 
-            onClick={onBack} 
+          <button
+            onClick={onBack}
             className="w-10 h-10 flex items-center justify-center bg-white hover:bg-sky-50 hover:text-sky-600 rounded-xl transition-all shadow-sm border border-slate-200 text-slate-500 hover:scale-105 active:scale-95"
           >
             <ChevronLeft size={20} />
@@ -151,11 +151,11 @@ const StoryCreator = ({ onBack }) => {
             <p className="text-[10px] font-bold text-sky-500 uppercase tracking-widest mt-1">Architecture Mode</p>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-4">
           <div className="hidden md:flex px-4 py-2 bg-sky-100/50 rounded-xl border border-sky-200/50 text-slate-500 text-xs font-bold items-center gap-3">
-             <CloudSun size={14} className="text-sky-500" />
-             Cloud Sync Active
+            <CloudSun size={14} className="text-sky-500" />
+            Cloud Sync Active
           </div>
           <button
             onClick={() => navigate("/writer-pad", { state: { storyData } })}
@@ -170,27 +170,27 @@ const StoryCreator = ({ onBack }) => {
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar - Accordion Forms */}
         <aside className="w-full md:w-[380px] shrink-0 border-r border-sky-200/60 bg-white/50 backdrop-blur-sm shadow-[4px_0_24px_rgba(14,165,233,0.05)] overflow-y-auto p-6 custom-scrollbar z-10">
-          
+
           <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg mb-6 relative overflow-hidden group hover:shadow-indigo-200/50 transition-all duration-500">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000 -mr-10 -mt-10"></div>
             <div className="relative z-10">
-               <div className="flex items-center gap-2 mb-2">
-                 <Lightbulb size={16} className="text-yellow-300" />
-                 <span className="text-[10px] font-black uppercase tracking-widest text-indigo-100">Writer's Tip</span>
-               </div>
-               <p className="text-sm font-medium leading-relaxed min-h-[60px]">{STORY_TIPS[activeTip]}</p>
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb size={16} className="text-yellow-300" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-indigo-100">Writer's Tip</span>
+              </div>
+              <p className="text-sm font-medium leading-relaxed min-h-[60px]">{STORY_TIPS[activeTip]}</p>
             </div>
           </div>
 
-          <AccordionItem 
-            title="Basics" 
-            icon={BookMarked} 
-            isActive={activeAccordion === "Basics"} 
+          <AccordionItem
+            title="Basics"
+            icon={BookMarked}
+            isActive={activeAccordion === "Basics"}
             onToggle={() => setActiveAccordion(activeAccordion === "Basics" ? "" : "Basics")}
           >
             <div className="space-y-6">
               <div className="flex justify-between items-center bg-indigo-50/50 p-4 rounded-xl border border-indigo-100/50">
-                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest leading-tight">Need a<br/>spark?</span>
+                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest leading-tight">Need a<br />spark?</span>
                 <button onClick={() => generateIdea("title")} className="text-xs font-bold text-white flex items-center gap-1.5 bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-xl transition-colors shadow-sm active:scale-95">
                   <Wand2 size={12} /> Suggest Core
                 </button>
@@ -236,10 +236,10 @@ const StoryCreator = ({ onBack }) => {
             </div>
           </AccordionItem>
 
-          <AccordionItem 
-            title="Setting" 
+          <AccordionItem
+            title="Setting"
             icon={MapPin}
-            isActive={activeAccordion === "Setting"} 
+            isActive={activeAccordion === "Setting"}
             onToggle={() => setActiveAccordion(activeAccordion === "Setting" ? "" : "Setting")}
           >
             <div className="space-y-6">
@@ -262,41 +262,41 @@ const StoryCreator = ({ onBack }) => {
             </div>
           </AccordionItem>
 
-          <AccordionItem 
-            title="Cast" 
+          <AccordionItem
+            title="Cast"
             icon={Users}
-            isActive={activeAccordion === "Cast"} 
-            onToggle={() => setActiveAccordion(activeAccordion === "Cast" ? "" : "Cast")}  
+            isActive={activeAccordion === "Cast"}
+            onToggle={() => setActiveAccordion(activeAccordion === "Cast" ? "" : "Cast")}
           >
             <div className="space-y-6">
               <div className="flex justify-between items-center bg-rose-50/50 p-4 rounded-xl border border-rose-100/50">
-                <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest leading-tight">Need a<br/>hero?</span>
+                <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest leading-tight">Need a<br />hero?</span>
                 <button onClick={() => generateIdea("character")} className="text-xs font-bold text-white flex items-center gap-1.5 bg-rose-500 hover:bg-rose-600 px-4 py-2 rounded-xl transition-colors shadow-sm active:scale-95">
                   <Wand2 size={12} /> Summon
                 </button>
               </div>
-              
+
               <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-4 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-rose-400 to-pink-500"></div>
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2 block">Recruit New Character</label>
                 <div className="flex gap-3">
-                  <input 
-                    placeholder="Name" value={newChar.name} onChange={e => setNewChar({...newChar, name: e.target.value})}
+                  <input
+                    placeholder="Name" value={newChar.name} onChange={e => setNewChar({ ...newChar, name: e.target.value })}
                     className="flex-1 bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold outline-none focus:border-rose-500 focus:bg-white transition-colors"
                   />
-                  <select 
-                    value={newChar.role} onChange={e => setNewChar({...newChar, role: e.target.value})}
+                  <select
+                    value={newChar.role} onChange={e => setNewChar({ ...newChar, role: e.target.value })}
                     className="w-28 bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold outline-none focus:border-rose-500 focus:bg-white transition-colors appearance-none text-center"
                   >
                     <option>Hero</option><option>Villain</option><option>Sidekick</option><option>Mentor</option><option>Extra</option>
                   </select>
                 </div>
-                <input 
-                  placeholder="Personality & Vibe..." value={newChar.personality} onChange={e => setNewChar({...newChar, personality: e.target.value})}
+                <input
+                  placeholder="Personality & Vibe..." value={newChar.personality} onChange={e => setNewChar({ ...newChar, personality: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold outline-none focus:border-rose-500 focus:bg-white transition-colors"
                 />
-                <button 
-                  onClick={addCharacter} disabled={!newChar.name} 
+                <button
+                  onClick={addCharacter} disabled={!newChar.name}
                   className="w-full bg-slate-900 text-white rounded-xl py-3 text-sm font-black mt-2 disabled:opacity-20 hover:bg-rose-600 transition-colors shadow-sm active:scale-95"
                 >
                   Join Cast
@@ -310,7 +310,7 @@ const StoryCreator = ({ onBack }) => {
                     <div key={char.id} className="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 font-black flex-shrink-0 group-hover:bg-rose-100 group-hover:text-rose-600 transition-colors">
-                           {char.name.charAt(0)}
+                          {char.name.charAt(0)}
                         </div>
                         <div>
                           <div className="font-bold text-slate-800 text-sm leading-none mb-1.5">{char.name} <span className="text-[9px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 ml-1 uppercase tracking-wider">{char.role}</span></div>
@@ -327,15 +327,15 @@ const StoryCreator = ({ onBack }) => {
             </div>
           </AccordionItem>
 
-          <AccordionItem 
-            title="Plot" 
+          <AccordionItem
+            title="Plot"
             icon={BookOpen}
-            isActive={activeAccordion === "Plot"} 
-            onToggle={() => setActiveAccordion(activeAccordion === "Plot" ? "" : "Plot")}  
+            isActive={activeAccordion === "Plot"}
+            onToggle={() => setActiveAccordion(activeAccordion === "Plot" ? "" : "Plot")}
           >
             <div className="space-y-6">
               <div className="flex justify-between items-center bg-violet-50/50 p-4 rounded-xl border border-violet-100/50">
-                <span className="text-[10px] font-black text-violet-400 uppercase tracking-widest leading-tight">Writer's<br/>Block?</span>
+                <span className="text-[10px] font-black text-violet-400 uppercase tracking-widest leading-tight">Writer's<br />Block?</span>
                 <button onClick={() => generateIdea("plot")} className="text-xs font-bold text-white flex items-center gap-1.5 bg-violet-500 hover:bg-violet-600 px-4 py-2 rounded-xl transition-colors shadow-sm active:scale-95">
                   <Wand2 size={12} /> Inspire Twist
                 </button>
@@ -348,7 +348,7 @@ const StoryCreator = ({ onBack }) => {
                 { field: 'ending', label: 'Resolution (Ending)', sub: 'How it ends' }
               ].map((sec, i) => (
                 <div key={sec.field} className="space-y-2 relative group pl-8">
-                  <div className="absolute left-0 top-6 w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-[10px] font-black group-hover:bg-violet-500 group-hover:text-white transition-colors">{i+1}</div>
+                  <div className="absolute left-0 top-6 w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-[10px] font-black group-hover:bg-violet-500 group-hover:text-white transition-colors">{i + 1}</div>
                   {i < 4 && <div className="absolute left-2 top-11 bottom-[-24px] w-0.5 bg-slate-100"></div>}
                   <div className="pt-5">
                     <label className="text-[11px] font-black text-slate-600 uppercase tracking-widest block leading-none">{sec.label}</label>
@@ -364,26 +364,26 @@ const StoryCreator = ({ onBack }) => {
             </div>
           </AccordionItem>
 
-          <AccordionItem 
-            title="Draft (Chapters)" 
+          <AccordionItem
+            title="Draft (Chapters)"
             icon={TypeOutline}
-            isActive={activeAccordion === "Draft (Chapters)"} 
-            onToggle={() => setActiveAccordion(activeAccordion === "Draft (Chapters)" ? "" : "Draft (Chapters)")}  
+            isActive={activeAccordion === "Draft (Chapters)"}
+            onToggle={() => setActiveAccordion(activeAccordion === "Draft (Chapters)" ? "" : "Draft (Chapters)")}
           >
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-cyan-500"></div>
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2"><Plus size={14} className="text-blue-500" /> Plot Next Chapter</label>
-                <input 
-                  placeholder="e.g. Chapter 1: The Discovery" value={newChap.title} onChange={e => setNewChap({...newChap, title: e.target.value})}
+                <input
+                  placeholder="e.g. Chapter 1: The Discovery" value={newChap.title} onChange={e => setNewChap({ ...newChap, title: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl text-sm font-bold outline-none focus:border-blue-500 focus:bg-white transition-colors"
                 />
-                <input 
-                  placeholder="Brief chapter summary..." value={newChap.description} onChange={e => setNewChap({...newChap, description: e.target.value})}
+                <input
+                  placeholder="Brief chapter summary..." value={newChap.description} onChange={e => setNewChap({ ...newChap, description: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl text-sm font-bold outline-none focus:border-blue-500 focus:bg-white transition-colors"
                 />
-                <button 
-                  onClick={addChapter} disabled={!newChap.title} 
+                <button
+                  onClick={addChapter} disabled={!newChap.title}
                   className="w-full bg-slate-900 text-white rounded-xl py-4 text-sm font-black mt-2 disabled:opacity-20 hover:bg-blue-600 transition-colors shadow-sm active:scale-95"
                 >
                   Solidify Chapter
@@ -397,7 +397,7 @@ const StoryCreator = ({ onBack }) => {
                     <div key={chap.id} className="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-black border border-blue-100 group-hover:bg-blue-500 group-hover:text-white transition-colors flex-shrink-0">
-                          {String(i+1).padStart(2,'0')}
+                          {String(i + 1).padStart(2, '0')}
                         </div>
                         <div>
                           <div className="font-bold text-slate-800 text-sm mb-1 leading-none">{chap.title}</div>
@@ -414,13 +414,13 @@ const StoryCreator = ({ onBack }) => {
             </div>
           </AccordionItem>
 
-          <AccordionItem 
-            title="Visuals" 
+          <AccordionItem
+            title="Visuals"
             icon={ImageIcon}
-            isActive={activeAccordion === "Visuals"} 
-            onToggle={() => setActiveAccordion(activeAccordion === "Visuals" ? "" : "Visuals")}  
+            isActive={activeAccordion === "Visuals"}
+            onToggle={() => setActiveAccordion(activeAccordion === "Visuals" ? "" : "Visuals")}
           >
-             <div className="space-y-3">
+            <div className="space-y-3">
               {[
                 { id: "hasImages", icon: ImageIcon, title: "Art & Photos", desc: "Embed illustrations on your pages", color: "indigo" },
                 { id: "hasStickers", icon: Smile, title: "Stickers", desc: "Playful emotes & shapes", color: "amber" },
@@ -444,16 +444,16 @@ const StoryCreator = ({ onBack }) => {
                   </div>
                 </div>
               ))}
-             </div>
+            </div>
           </AccordionItem>
 
         </aside>
 
         {/* Right Content - Live Preview Document */}
         <main className="flex-1 bg-[#f1f5f9] p-6 md:p-12 overflow-y-auto relative flex justify-center custom-scrollbar">
-          
+
           <div className="w-full max-w-[816px] relative transition-all duration-500 animate-in zoom-in-95 group">
-            
+
             {/* Page Background Column - Identical to Writer's Pad */}
             <div className="absolute inset-0 pointer-events-none flex flex-col z-0 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
               {Array.from({ length: pageCount }).map((_, i) => (
@@ -479,32 +479,32 @@ const StoryCreator = ({ onBack }) => {
             <div className="absolute left-10 top-0 bottom-0 w-px bg-rose-200/50 opacity-60 z-10 pointer-events-none"></div>
 
             {/* Content Overlay */}
-            <div 
+            <div
               ref={previewRef}
               className="relative z-20 p-16 md:p-20 pl-24 space-y-20 min-h-screen"
             >
-              
+
               {/* Cover Page Generation (Live) */}
               <div className="text-center space-y-10 pb-24 border-b-2 border-slate-100/80 border-dashed relative">
                 {/* Premium Book Badge */}
                 {(storyData.basics.category || storyData.basics.theme) && (
                   <div className="absolute -top-24 left-1/2 -translate-x-1/2 z-20">
-                     <div className="relative">
-                        <div className="absolute inset-0 bg-slate-900 blur-xl opacity-20 scale-110"></div>
-                        <div className="relative inline-flex items-center justify-center bg-slate-900 px-8 py-3 pb-4 text-[11px] font-black uppercase tracking-[0.3em] text-white shadow-xl" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%)' }}>
-                          {storyData.basics.category || "Masterpiece"} {storyData.basics.theme ? `• ${storyData.basics.theme}` : ""}
-                        </div>
-                     </div>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-slate-900 blur-xl opacity-20 scale-110"></div>
+                      <div className="relative inline-flex items-center justify-center bg-slate-900 px-8 py-3 pb-4 text-[11px] font-black uppercase tracking-[0.3em] text-white shadow-xl" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%)' }}>
+                        {storyData.basics.category || "Masterpiece"} {storyData.basics.theme ? `• ${storyData.basics.theme}` : ""}
+                      </div>
+                    </div>
                   </div>
                 )}
-                
+
                 <div className="space-y-4 pt-12">
-                   <h1 className="text-6xl md:text-7xl font-black text-slate-800 tracking-tighter leading-[1] drop-shadow-sm">
-                     {storyData.basics.title || <span className="opacity-10 text-slate-300">Untitled Story</span>}
-                   </h1>
-                   <div className="w-24 h-1.5 bg-sky-500 mx-auto rounded-full opacity-20 mt-6"></div>
+                  <h1 className="text-6xl md:text-7xl font-black text-slate-800 tracking-tighter leading-[1] drop-shadow-sm">
+                    {storyData.basics.title || <span className="opacity-10 text-slate-300">Untitled Story</span>}
+                  </h1>
+                  <div className="w-24 h-1.5 bg-sky-500 mx-auto rounded-full opacity-20 mt-6"></div>
                 </div>
-                
+
                 <h2 className="text-2xl md:text-3xl font-medium text-slate-400 italic px-12 leading-relaxed">
                   {storyData.basics.subtitle || <span className="opacity-20 italic">"The silent echo of a thousand dreams..."</span>}
                 </h2>
@@ -514,12 +514,12 @@ const StoryCreator = ({ onBack }) => {
               {(storyData.setting.location || storyData.setting.timePeriod || storyData.setting.atmosphere) && (
                 <div className="space-y-8">
                   <div className="flex items-center gap-6">
-                     <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">The Setting</span>
-                     <span className="flex-1 h-px bg-slate-100"></span>
+                    <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">The Setting</span>
+                    <span className="flex-1 h-px bg-slate-100"></span>
                   </div>
                   <div className="text-2xl text-slate-600 leading-[1.8] font-medium p-10 rounded-[2.5rem] border border-slate-100/50 bg-slate-50/30 text-center italic shadow-inner">
-                    Our tale begins in <strong className="text-slate-900 border-b-4 border-sky-200/60 pb-1">{storyData.setting.location || "a place beyond maps"}</strong>, 
-                    set during <strong className="text-slate-900 border-b-4 border-amber-200/60 pb-1">{storyData.setting.timePeriod || "an era of wonder"}</strong>. 
+                    Our tale begins in <strong className="text-slate-900 border-b-4 border-sky-200/60 pb-1">{storyData.setting.location || "a place beyond maps"}</strong>,
+                    set during <strong className="text-slate-900 border-b-4 border-amber-200/60 pb-1">{storyData.setting.timePeriod || "an era of wonder"}</strong>.
                     The air carries an unmistakably <strong className="text-slate-900 border-b-4 border-purple-200/60 pb-1">{storyData.setting.atmosphere || "vibrant"}</strong> energy.
                   </div>
                 </div>
@@ -528,9 +528,9 @@ const StoryCreator = ({ onBack }) => {
               {/* Cast Display */}
               {storyData.characters.length > 0 && (
                 <div className="space-y-10 pt-10">
-                   <div className="flex items-center gap-6">
-                     <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">Dramatis Personae</span>
-                     <span className="flex-1 h-px bg-slate-100"></span>
+                  <div className="flex items-center gap-6">
+                    <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">Dramatis Personae</span>
+                    <span className="flex-1 h-px bg-slate-100"></span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {storyData.characters.map((char) => (
@@ -559,8 +559,8 @@ const StoryCreator = ({ onBack }) => {
               {(storyData.plot.beginning || storyData.plot.conflict) && (
                 <div className="space-y-10 pt-10">
                   <div className="flex items-center gap-6">
-                     <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">The Narrative Path</span>
-                     <span className="flex-1 h-px bg-slate-100"></span>
+                    <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.4em] whitespace-nowrap">The Narrative Path</span>
+                    <span className="flex-1 h-px bg-slate-100"></span>
                   </div>
                   <div className="prose prose-2xl prose-slate max-w-none text-slate-700 leading-[2] font-serif">
                     {storyData.plot.beginning && (
@@ -579,16 +579,16 @@ const StoryCreator = ({ onBack }) => {
               {/* Chapters Display */}
               {storyData.chapters.length > 0 && (
                 <div className="space-y-12 pt-12 px-10 bg-slate-50/40 rounded-[3rem] p-16 border border-slate-100 shadow-inner">
-                   <div className="flex items-center justify-center gap-6 text-center mb-12">
-                     <span className="w-12 h-px bg-slate-200"></span>
-                     <span className="text-[11px] font-black text-slate-500 uppercase tracking-[0.5em]">Table of Contents</span>
-                     <span className="w-12 h-px bg-slate-200"></span>
+                  <div className="flex items-center justify-center gap-6 text-center mb-12">
+                    <span className="w-12 h-px bg-slate-200"></span>
+                    <span className="text-[11px] font-black text-slate-500 uppercase tracking-[0.5em]">Table of Contents</span>
+                    <span className="w-12 h-px bg-slate-200"></span>
                   </div>
                   <div className="space-y-6 max-w-xl mx-auto">
                     {storyData.chapters.map((chap, i) => (
                       <div key={chap.id} className="flex gap-6 group cursor-default">
                         <div className="text-2xl font-black text-slate-200 pt-1 w-12 text-right group-hover:text-sky-500 transition-colors">
-                          {String(i+1).padStart(2,'0')}
+                          {String(i + 1).padStart(2, '0')}
                         </div>
                         <div className="flex-1 pb-6 border-b border-slate-200/50 border-dashed group-last:border-none">
                           <h3 className="text-2xl font-black text-slate-800 tracking-tight group-hover:text-sky-600 transition-colors mb-3">{chap.title}</h3>

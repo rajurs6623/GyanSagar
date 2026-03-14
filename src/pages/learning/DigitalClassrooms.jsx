@@ -37,11 +37,11 @@ const DigitalClassrooms = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            <PageHero 
+            <PageHero
                 title="Digital"
-                italicTitle="Classrooms"
-                tag="Future-Ready Education"
-                subtitle="Bridging the gap between traditional values and modern technology. Making learning interactive, visual, and infinitely more effective."
+                italicTitle="Learning"
+                tag="Next-Gen Tech"
+                subtitle="Interactive smart classrooms and multimedia resources making education visual, engaging, and highly effective."
                 bgImage="/3d_digital_class_1773388599382.png"
                 accentColor="text-indigo-400"
             />

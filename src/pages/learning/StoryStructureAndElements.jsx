@@ -49,10 +49,10 @@ const CoCurricular = () => {
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
             <PageHero 
-                title="Co-Curricular"
-                italicTitle="& Sports"
-                tag="Beyond the Classroom"
-                subtitle="Because holistic development means discovering talent that goes far beyond academic excellence."
+                title="Beyond"
+                italicTitle="The Classroom"
+                tag="Creative Growth"
+                subtitle="Discovering hidden talents through sports, arts, and performance for well-rounded development."
                 bgImage="/3d_co_curricular_1773388614135.png"
                 accentColor="text-amber-500"
             />

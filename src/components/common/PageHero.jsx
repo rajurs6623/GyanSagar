@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const PageHero = ({ 
-    title, 
-    italicTitle, 
-    subtitle, 
-    tag, 
+const PageHero = ({
+    title,
+    italicTitle,
+    subtitle,
+    tag,
     bgImage,
     accentColor = "text-amber-500",
     tagColor = "text-amber-500",
@@ -13,7 +13,7 @@ const PageHero = ({
     tagBorder = "border-amber-500/20"
 }) => {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center pb-20 px-4 text-white text-center overflow-hidden mb-20 font-['Nunito']">
+        <section className="relative min-h-[45vh] md:min-h-[92vh] flex items-center justify-center pb-8 md:pb-12 px-4 text-white text-center overflow-hidden mb-0 md:mb-0 font-['Plus Jakarta Sans']">
             {/* Background Layer */}
             <div className="absolute inset-0 z-0">
                 <img
@@ -22,35 +22,34 @@ const PageHero = ({
                     className="w-full h-full object-cover"
                 />
                 {/* Gradient Overlays for depth and readability */}
-                <div className="absolute inset-0 bg-slate-900/60" />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900" />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/20 via-transparent to-slate-900/20" />
+                <div className="absolute inset-0 bg-slate-900/50" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60" />
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center mt-20">
+            <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center mt-8 md:mt-12">
                 {/* Animated Tag */}
                 {tag && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`inline-flex items-center gap-2 px-6 py-2 ${tagBg} border ${tagBorder} backdrop-blur-md ${tagColor} rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.3em] mb-8 shadow-2xl`}
+                        className={`inline-flex items-center gap-2 px-6 py-2 bg-slate-900/60 border border-white/10 backdrop-blur-xl text-amber-500 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.3em] mb-6 md:mb-10 shadow-2xl`}
                     >
-                        <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                         {tag}
                     </motion.div>
                 )}
 
                 {/* Main Title with mixed typography */}
                 <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-6xl md:text-8xl lg:text-[7.5rem] font-black tracking-tight mb-8 leading-[0.9]"
+                    className="text-5xl md:text-8xl lg:text-9xl font-black font-['Outfit'] tracking-tighter mb-6 md:mb-10 leading-[0.85] flex flex-wrap items-center justify-center gap-x-4 md:gap-x-10"
                 >
-                    {title} <br className="md:hidden" />
+                    <span className="text-white drop-shadow-2xl">{title}</span>
                     {italicTitle && (
-                        <span className={`font-serif italic ${accentColor} font-normal block md:inline mt-4 md:mt-0`}>
+                        <span className={`font-serif italic ${accentColor} font-normal drop-shadow-2xl`}>
                             {italicTitle}
                         </span>
                     )}
@@ -59,10 +58,10 @@ const PageHero = ({
                 {/* Subtitle / Quote */}
                 {subtitle && (
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl md:text-3xl text-white/90 font-medium italic max-w-3xl leading-relaxed mb-16 px-4"
+                        className="text-sm md:text-lg text-white/90 font-medium italic max-w-2xl leading-relaxed mb-4 md:mb-8 px-4"
                     >
                         "{subtitle}"
                     </motion.p>
@@ -77,7 +76,7 @@ const PageHero = ({
                 >
                     <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">Scroll to explore</span>
                     <div className="relative w-[1px] h-20 bg-white/10 overflow-hidden">
-                        <motion.div 
+                        <motion.div
                             animate={{ y: [0, 80] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                             className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-amber-500 to-transparent"

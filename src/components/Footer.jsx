@@ -38,7 +38,7 @@ const Footer = () => {
       links: [
         { name: "Admission Guide", path: "/admission-guide" },
         { name: "Fee Structure", path: "/fee-structure" },
-        { name: "Apply Online", path: "/admission-inquiry" },
+        { name: "Online Registration", path: "/admission-inquiry" },
         { name: "School Uniform", path: "/school-uniform" },
       ],
     },
@@ -52,7 +52,7 @@ const Footer = () => {
       ],
     },
     {
-      title: "Resoures",
+      title: "Resources",
       links: [
         { name: "Parents Portal", path: "/parents-portal" },
         { name: "E-Learning", path: "/e-learning" },
@@ -91,7 +91,7 @@ const Footer = () => {
           </div>
 
           {/* GRID OF LINKS */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10">
+          <div className="flex-1 grid grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-8 gap-y-10">
             {footerSections.map((section) => (
               <div key={section.title} className="space-y-4">
                 <h4 className="text-indigo-600 font-black text-[11px] uppercase tracking-widest">{section.title}</h4>

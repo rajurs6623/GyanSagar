@@ -90,12 +90,12 @@ const OurStory = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <div className="bg-[#F8FAFC] min-h-screen font-['Nunito']">
-            <PageHero 
-                title="A Legacy of"
-                italicTitle="Knowledge"
-                tag="Est. 1998"
-                subtitle="At Gyan Sagar Public School, we believe every child is a potential leader. Our mission is to nurture that potential through discipline, dedication, and world-class education."
+        <div className="bg-[#F8FAFC] min-h-screen font-['Plus Jakarta Sans']">
+            <PageHero
+                title="Our"
+                italicTitle="Legacy"
+                tag="Since 1998"
+                subtitle="Tracing our journey from a humble vision to a leading institution of excellence in Bihar."
                 bgImage="/GyanSagar/StudentPatna.jpg"
                 accentColor="text-indigo-400"
             />
@@ -108,7 +108,7 @@ const OurStory = () => {
                             <Quote className="w-5 h-5" />
                             Our Vision
                         </div>
-                        <h2 className="text-5xl font-black text-slate-800 mb-6 leading-tight">The Seed of <br /><span className="text-indigo-500">Excellence</span></h2>
+                        <h2 className="text-5xl font-extrabold text-slate-800 mb-6 leading-tight">The Seed of <br /><span className="text-indigo-500">Excellence</span></h2>
                         <div className="w-20 h-3 bg-gradient-to-r from-indigo-500 to-blue-400 rounded-full mb-8"></div>
                         <div className="space-y-6 text-xl text-slate-600 leading-relaxed font-light">
                             <p>
@@ -151,7 +151,7 @@ const OurStory = () => {
                                     <Trophy className="w-10 h-10 text-amber-600" />
                                 </div>
                                 <div>
-                                    <p className="font-black text-slate-800 text-4xl">5,000+</p>
+                                    <p className="font-extrabold text-slate-800 text-4xl">5,000+</p>
                                     <p className="text-slate-500 font-medium text-lg">Successful Alumni</p>
                                 </div>
                             </div>
@@ -160,11 +160,11 @@ const OurStory = () => {
 
                     <div className="lg:w-1/2 w-full">
                         <div className="inline-flex items-center gap-2 mb-4 text-rose-500 font-bold uppercase tracking-widest text-sm">
-                            <Trophy className="w-5 h-5" />
+                            <Trophy className="w-5 h-5 md:w-5 md:h-5" />
                             Academic Excellence
                         </div>
-                        <h2 className="text-5xl font-black text-slate-800 mb-6 leading-tight">Nurturing <br /><span className="text-rose-500">Brilliance</span></h2>
-                        <div className="w-24 h-3 bg-gradient-to-r from-rose-500 to-amber-400 rounded-full mb-8"></div>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 md:mb-6 leading-tight">Nurturing <br /><span className="text-rose-500">Brilliance</span></h2>
+                        <div className="w-20 md:w-24 h-2 md:h-3 bg-gradient-to-r from-rose-500 to-amber-400 rounded-full mb-6 md:mb-8"></div>
                         <div className="space-y-6 text-xl text-slate-600 leading-relaxed font-light">
                             <p>
                                 Our results speak louder than words. Year after year, Gyan Sagar Public School students have secure top ranks in board examinations and competitive exams like NTSE and Olympiads.
@@ -173,9 +173,9 @@ const OurStory = () => {
                                 Beyond grades, we pride ourselves on the discipline and character our students exhibit in society. Our alumni are currently serving as Doctors, Engineers, Leaders, and Entrepreneurs across the globe.
                             </p>
                         </div>
-                        <div className="mt-10 p-8 bg-rose-50 shadow-inner rounded-3xl border border-rose-100 relative overflow-hidden">
-                            <Star className="w-12 h-12 text-rose-500 mb-4 opacity-50 absolute top-4 right-4" />
-                            <p className="text-2xl font-bold text-slate-800 italic relative z-10">
+                        <div className="mt-8 md:mt-10 p-5 md:p-8 bg-rose-50 shadow-inner rounded-3xl border border-rose-100 relative overflow-hidden">
+                            <Star className="w-8 h-8 md:w-12 md:h-12 text-rose-500 mb-4 opacity-50 absolute top-4 right-4" />
+                            <p className="text-lg md:text-2xl font-bold text-slate-800 italic relative z-10">
                                 "Our mission is to educate the heart as much as the mind. A scholar without character is like a book without pages."
                             </p>
                         </div>
@@ -187,23 +187,23 @@ const OurStory = () => {
             <div className="bg-slate-900 py-32">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-20">
-                        <h2 className="text-white text-5xl md:text-6xl font-black mb-6 uppercase tracking-tighter">The Journey of 25 Years</h2>
+                        <h2 className="text-white text-5xl md:text-6xl font-extrabold mb-6 uppercase tracking-tighter">The Journey of 25 Years</h2>
                         <div className="w-32 h-3 bg-indigo-500 mx-auto rounded-full mb-8"></div>
                         <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto leading-relaxed">
                             Tracing our steps from a local initiative to a premier educational hub in Patna.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                         {milestones.map((milestone, index) => (
                             <div key={index} className="relative group">
-                                <div className="bg-slate-800 rounded-[2.5rem] p-10 h-full border border-slate-700 hover:border-indigo-400 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500">
-                                    <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mb-8 shadow-xl">
-                                        {milestone.icon}
+                                <div className="bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 h-full border border-slate-700 hover:border-indigo-400 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-xl">
+                                        {React.cloneElement(milestone.icon, { className: "w-6 h-6 md:w-8 md:h-8" })}
                                     </div>
-                                    <h3 className="text-5xl font-black text-slate-700 mb-4">{milestone.year}</h3>
-                                    <h4 className="text-2xl font-bold text-white mb-4">{milestone.title}</h4>
-                                    <p className="text-slate-400 text-lg leading-relaxed font-light">
+                                    <h3 className="text-4xl md:text-5xl font-extrabold text-slate-700 mb-3 md:mb-4">{milestone.year}</h3>
+                                    <h4 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{milestone.title}</h4>
+                                    <p className="text-slate-400 text-base md:text-lg leading-relaxed font-light">
                                         {milestone.description}
                                     </p>
                                 </div>
@@ -218,28 +218,28 @@ const OurStory = () => {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <span className="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4 block">Our Guiding Lights</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-6">School Leadership</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">School Leadership</h2>
                         <div className="w-24 h-2 bg-indigo-600 mx-auto rounded-full"></div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row gap-6 h-auto md:h-[450px]">
+                    <div className="flex flex-col md:flex-row gap-6">
                         {leadership.map((member, idx) => (
                             <div
                                 key={idx}
-                                className={`relative flex-1 rounded-[2rem] overflow-hidden group hover:flex-[2.5] transition-all duration-700 ease-in-out cursor-pointer bg-slate-50 border border-slate-100 shadow-sm`}
+                                className={`relative flex-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group hover:flex-[2.5] transition-all duration-700 ease-in-out cursor-pointer bg-slate-50 border border-slate-100 shadow-sm min-h-[300px] md:h-[450px]`}
                             >
                                 <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
 
-                                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                                    <div className="w-14 h-14 rounded-2xl bg-slate-800 group-hover:bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 border border-white/10">
-                                        {member.icon}
+                                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-slate-800 group-hover:bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 border border-white/10">
+                                        {React.cloneElement(member.icon, { className: "w-6 h-6 md:w-7 md:h-7" })}
                                     </div>
-                                    <h3 className="text-2xl font-black text-slate-800 group-hover:text-white transition-colors duration-500">{member.name}</h3>
-                                    <p className="text-indigo-600 group-hover:text-white/80 font-bold mb-4 transition-colors duration-500 uppercase tracking-widest text-xs">{member.role}</p>
+                                    <h3 className="text-xl md:text-2xl font-extrabold text-slate-800 group-hover:text-white transition-colors duration-500">{member.name}</h3>
+                                    <p className="text-indigo-600 group-hover:text-white/80 font-bold mb-4 transition-colors duration-500 uppercase tracking-widest text-[10px] md:text-xs">{member.role}</p>
 
                                     <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
                                         <div className="overflow-hidden">
-                                            <p className="text-white font-light text-lg leading-relaxed pt-2 border-t border-white/20">
+                                            <p className="text-white font-light text-base md:text-lg leading-relaxed pt-2 border-t border-white/20">
                                                 {member.desc}
                                             </p>
                                         </div>
@@ -256,7 +256,7 @@ const OurStory = () => {
                 <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16">
                     <div className="lg:w-1/3">
                         <span className="text-indigo-500 font-bold tracking-widest uppercase text-sm mb-4 block">Our Curriculum</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-6 leading-tight">Academic Classes</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">Academic Classes</h2>
                         <div className="w-20 h-2 bg-indigo-500 rounded-full mb-8"></div>
                         <p className="text-lg text-slate-600 font-light leading-relaxed mb-6">
                             We offer specialized education across different levels, ensuring age-appropriate learning and maximum engagement.
@@ -290,11 +290,11 @@ const OurStory = () => {
                                         <div className="pt-6 border-t border-slate-100 grid grid-cols-2 gap-6 mb-4">
                                             <div>
                                                 <p className="text-slate-400 font-medium uppercase text-xs mb-1">Facilities</p>
-                                                <p className="text-2xl font-black text-slate-800">{data.schools}</p>
+                                                <p className="text-2xl font-extrabold text-slate-800">{data.schools}</p>
                                             </div>
                                             <div>
                                                 <p className="text-slate-400 font-medium uppercase text-xs mb-1">Students Enrolled</p>
-                                                <p className="text-2xl font-black text-slate-800">{data.students}</p>
+                                                <p className="text-2xl font-extrabold text-slate-800">{data.students}</p>
                                             </div>
                                         </div>
                                         <p className="p-4 bg-indigo-50 rounded-2xl text-indigo-800 italic">{data.focus}</p>
@@ -309,13 +309,13 @@ const OurStory = () => {
             {/* Footer Call to Action */}
             <div className="bg-slate-900 py-32 text-center text-white">
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight">Be a Part of Our <br />Educational Family</h2>
+                    <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Be a Part of Our <br />Educational Family</h2>
                     <p className="text-2xl text-slate-400 mb-12 font-light">Admissions for the upcoming academic year are now open. Visit our campus to learn more.</p>
                     <div className="flex flex-wrap justify-center gap-6">
-                        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 px-12 rounded-2xl shadow-2xl transition-all text-xl">
+                        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-5 px-12 rounded-2xl shadow-2xl transition-all text-xl">
                             Apply Online
                         </button>
-                        <button className="bg-slate-800 hover:bg-slate-700 text-white font-black py-5 px-12 rounded-2xl transition-all text-xl">
+                        <button className="bg-slate-800 hover:bg-slate-700 text-white font-extrabold py-5 px-12 rounded-2xl transition-all text-xl">
                             Contact Us
                         </button>
                     </div>

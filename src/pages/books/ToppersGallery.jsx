@@ -5,10 +5,10 @@ const ToppersGallery = () => {
     return (
         <div className="bg-slate-50 min-h-screen font-['Nunito']">
             <PageHero 
-                title="Academic"
-                italicTitle="Excellence"
-                tag="Pride of Gyan Sagar"
-                subtitle="Celebrating the brilliant minds who have set new benchmarks of success at Gyan Sagar Public School."
+                title="Toppers"
+                italicTitle="Gallery"
+                tag="Academic Pride"
+                subtitle="Celebrating the brilliant minds setting new benchmarks for success at Gyan Sagar."
                 bgImage="/GyanSagar/Student.jpg"
                 accentColor="text-indigo-600"
             />

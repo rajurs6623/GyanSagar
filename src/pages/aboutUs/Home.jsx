@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   BookOpen, ArrowRight, GraduationCap, ArrowUpRight, Star,
-  Trophy, Users, Shield, Heart, Microscope, Palette, Bus, Laptop, ChevronLeft, ChevronRight, Play
+  Trophy, Users, Shield, Heart, Microscope, Palette, Bus, Laptop, ChevronLeft, ChevronRight, Play, Cake, Gift, Sparkles as SparklesIcon
 } from "lucide-react";
 import SchoolHero from "./SchoolHero";
 import OptimizedImage from "../../components/common/OptimizedImage";
+import AdmissionPopup from "../../components/common/AdmissionPopup";
 
 // ─── Academic Journey Steps ───────────────────────────────────────────────────
 const stepImages = [
@@ -71,7 +72,7 @@ const CampusCarousel = () => {
   ];
 
   return (
-    <section 
+    <section
       className="py-10 md:py-14 bg-white relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -173,7 +174,7 @@ const ToppersCarousel = ({ toppers }) => {
   }, [isPaused, toppers.length]);
 
   return (
-    <section 
+    <section
       className="py-10 bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -333,7 +334,14 @@ const Home = () => {
     { name: "Sneha Sinha", achievement: "Olympiad Winner", batch: "2024", photo: "https://i.pinimg.com/736x/9d/a0/a4/9da0a44ba9238ee07c14db531e1242db.jpg" },
   ];
 
-  // ─── Leadership ────────────────────────────────────────────────────────────
+  // ─── Birthdays Data ────────────────────────────────────────────────────────
+  const birthdays = [
+    { name: "Sneha Kumari", class: "Class VIII-B", photo: "https://i.pinimg.com/736x/9d/a0/a4/9da0a44ba9238ee07c14db531e1242db.jpg", date: "Today" },
+    { name: "Aryan Raj", class: "Class V-A", photo: "/GyanSagar/StudentPatna.jpg", date: "Today" },
+    { name: "Siddharth Verma", class: "Class X-C", photo: "https://images.unsplash.com/photo-1519085185758-1917830536cd?auto=format&fit=crop&q=80&w=400", date: "Today" },
+    { name: "Ishani Singh", class: "Class VI-A", photo: "https://i.pinimg.com/736x/fd/b1/ad/fdb1ad6b09f61bc7bfafa2c583c5f742.jpg", date: "Today" },
+  ];
+
   const faculty = [
     { name: "Ashlok Kumar", role: "Director", photo: "/GyanSagar/Shloak Sir.jpg", bg: "bg-indigo-50/50", border: "group-hover:border-indigo-400" },
     { name: "P.K. Sharma", role: "Principal", photo: "https://i.pinimg.com/736x/0c/6b/e0/0c6be09a326f3dfc51280c32893cc053.jpg", bg: "bg-blue-50/50", border: "group-hover:border-blue-400" },
@@ -341,6 +349,7 @@ const Home = () => {
 
   return (
     <div>
+      <AdmissionPopup />
       {/* ─── HERO ───────────────────────────────────────────────────────────── */}
       <SchoolHero />
 
@@ -426,6 +435,81 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ─── STUDENT BIRTHDAYS ─────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-rose-50/30 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl -mr-32 -mt-32" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/20 rounded-full blur-3xl -ml-32 -mb-32" />
+        
+        <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center mb-12 md:mb-16">
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              className="inline-flex items-center gap-2 px-6 py-2 bg-rose-100 text-rose-600 rounded-full mb-6"
+            >
+              <Cake size={20} className="animate-bounce" />
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Celebrations</span>
+            </motion.div>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4">
+              Happy <span className="text-rose-500">Birthday!</span>
+            </h2>
+            <p className="text-slate-500 font-medium text-sm md:text-lg max-w-xl mx-auto">
+              Wishing our wonderful students a day filled with joy, laughter, and success.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {birthdays.map((student, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                whileHover={{ y: -10 }}
+                className="relative group w-full h-full"
+              >
+                {/* Decorative Balloons */}
+                <motion.div 
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
+                  className="absolute -top-6 -right-4 text-3xl group-hover:scale-125 transition-transform z-20"
+                >
+                  🎈
+                </motion.div>
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                  className="absolute -top-10 -left-4 text-4xl group-hover:scale-125 transition-transform z-20"
+                >
+                  🎊
+                </motion.div>
+
+                <div className="bg-white p-6 md:p-8 rounded-[3rem] shadow-xl border border-rose-100 relative overflow-hidden flex flex-col items-center text-center group-hover:shadow-2xl transition-all h-full min-h-[420px] justify-between">
+                  <div className="absolute top-0 inset-x-0 h-2 bg-rose-500" />
+                  
+                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-rose-50 shadow-md mb-6 relative z-10 shrink-0">
+                    <OptimizedImage src={student.photo} alt={student.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width={300} />
+                  </div>
+                  
+                  <div className="relative z-10 flex flex-col items-center flex-grow">
+                    <div className="flex items-center justify-center gap-2 mb-2 px-2">
+                       <SparklesIcon size={16} className="text-amber-400 fill-amber-400 shrink-0" />
+                       <h3 className="text-xl lg:text-2xl font-black text-slate-800 leading-tight line-clamp-2">{student.name}</h3>
+                       <SparklesIcon size={16} className="text-amber-400 fill-amber-400 shrink-0" />
+                    </div>
+                    <p className="text-[10px] md:text-xs text-rose-500 font-black uppercase tracking-[0.2em] mb-4">{student.class}</p>
+                    
+                    <div className="mt-auto inline-flex items-center gap-2 px-6 py-2 bg-rose-50 text-rose-600 rounded-2xl font-black text-[10px] uppercase tracking-widest border border-rose-100">
+                      <Gift size={14} /> Celebrating Today
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── RECENT ACHIEVEMENTS ────────────────────────────────────────────── */}
       <section className="py-6 md:py-8 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 md:px-6">
@@ -498,45 +582,43 @@ const Home = () => {
             <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2">Our Leadership</h2>
             <p className="text-slate-500 font-medium text-xs md:text-base">The visionaries behind Gyan Sagar Public School</p>
           </div>
-          <div className="flex justify-center gap-6 md:gap-12 flex-wrap">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-10 px-4">
             {faculty.map((member, idx) => (
-              <div key={idx} className={`${member.bg} p-6 rounded-[2rem] shadow-sm hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center group min-w-[200px]`}>
-                <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white mb-4 ${member.border} shadow-md`}>
-                  <OptimizedImage src={member.photo} alt={member.name} className="w-full h-full object-cover" width={200} />
+              <div key={idx} className={`${member.bg} p-5 lg:p-10 rounded-[2.5rem] lg:rounded-[4rem] shadow-sm hover:shadow-2xl transition-all border border-slate-100 flex flex-row items-center group w-full lg:w-[580px] gap-6 lg:gap-10 relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                {/* Profile Image with Dynamic Zoom */}
+                <div className={`w-24 h-24 lg:w-48 lg:h-48 shrink-0 rounded-full overflow-hidden border-4 border-white mb-0 ${member.border} shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-700 bg-white`}>
+                  <OptimizedImage src={member.photo} alt={member.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" width={400} />
                 </div>
-                <h3 className="text-base md:text-xl font-black text-slate-800 mb-1 text-center">{member.name}</h3>
-                <p className="text-xs md:text-sm text-indigo-600 font-bold uppercase tracking-widest text-center">{member.role}</p>
+
+                <div className="flex flex-col items-start relative z-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-1.5 h-8 lg:h-10 bg-indigo-600 rounded-full" />
+                    <h3 className="text-xl lg:text-3xl font-black text-slate-900 leading-tight">{member.name}</h3>
+                  </div>
+                  <p className="text-[10px] lg:text-xs text-indigo-600 font-black uppercase tracking-[0.3em] mb-4">{member.role}</p>
+                  
+                  {/* Laptop-only vision statement */}
+                  <div className="hidden lg:block overflow-hidden">
+                    <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-[260px] translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      Dedicated to fostering a culture of academic rigor and moral excellence at Gyan Sagar.
+                    </p>
+                  </div>
+                  
+                  {/* Decorative Micro-animation dots */}
+                  <div className="mt-4 flex gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-200 group-hover:bg-indigo-500 transition-colors duration-300" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-100 group-hover:bg-indigo-300 transition-colors duration-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-50 group-hover:bg-indigo-200 transition-colors duration-700" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── ACADEMIC CLASSES ───────────────────────────────────────────────── */}
-      <section className="py-10 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-4">Academic Classes</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-            {academicClasses.map((wing, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="relative h-40 md:h-64 rounded-[32px] overflow-hidden group cursor-pointer shadow-lg"
-              >
-                <Link to="/primary-classes" className="w-full h-full block">
-                  <OptimizedImage src={wing.img} alt={wing.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width={400} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-4 left-0 right-0 text-center px-2">
-                    <span className="text-white font-black text-[14px] md:text-lg tracking-tight group-hover:scale-105 transition-transform inline-block">{wing.name}</span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ─── ADMISSIONS CTA ─────────────────────────────────────────────────── */}
       <section className="py-10 md:py-12 bg-[#f1f3ff] relative overflow-hidden text-center px-4 md:px-6">
@@ -546,13 +628,13 @@ const Home = () => {
         </div>
         <div className="max-w-3xl mx-auto relative z-10">
           <h2 className="text-xl md:text-4xl lg:text-5xl font-medium text-slate-800 tracking-tight mb-4 md:mb-6 text-center">
-            Admissions Open for 2024-25
+            Admissions Open for 2025-26
           </h2>
           <p className="text-xs md:text-lg text-slate-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Secure your child's future at Patna's premier educational institute. Limited seats available from NC to 12th.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/admission-guide" className="inline-block px-8 md:px-12 py-3 md:py-4 bg-indigo-600 text-white rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl shadow-indigo-100">
+            <Link to="/admission-inquiry" className="inline-block px-8 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl shadow-indigo-100">
               Apply for Admission
             </Link>
             <a

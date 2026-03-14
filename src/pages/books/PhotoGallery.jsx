@@ -81,13 +81,13 @@ const PhotoGallery = () => {
                 title="Hall of"
                 italicTitle="Winners"
                 tag="Moments of Pride"
-                subtitle="Every trophy in our cabinet tells a story of hard work, discipline, and the relentless pursuit of excellence at Gyan Sagar Public School."
+                subtitle="Every trophy in our cabinet tells a story of hard work, discipline, and the pursuit of excellence."
                 bgImage="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
                 accentColor="text-amber-400"
             />
 
             {/* Gallery Category Filter */}
-            <section className="max-w-7xl mx-auto px-4 mb-16">
+            <section className="max-w-7xl mx-auto px-4 mt-16 md:mt-24 mb-16">
                 <div className="bg-white rounded-[2.5rem] p-4 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-wrap justify-center gap-2">
                     {categories.map(cat => (
                         <button

@@ -37,113 +37,117 @@ const SchoolTransport = () => {
     return (
         <div className="bg-slate-50 min-h-screen font-['Nunito']">
             <PageHero 
-                title="School"
-                italicTitle="Transport"
-                tag="Safety First • GPS Enabled"
-                subtitle="Ensuring every student reaches home and school safely with our modern fleet, professional tracking systems, and dedicated care."
+                title="Safe &"
+                italicTitle="Secured"
+                tag="GPS Enabled"
+                subtitle="A modern fleet with real-time tracking, ensuring every student's journey is safe, timely, and comfortable."
                 bgImage="/3d_school_bus_1773384243028.png"
                 accentColor="text-indigo-400"
             />
 
             {/* Safety Features */}
-            <div className="max-w-7xl mx-auto px-4 mb-32">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto px-4 mb-12 md:mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     {[
-                        { title: "GPS Tracking", desc: "Real-time tracking available for parents via the school app.", icon: <Navigation className="w-10 h-10 text-indigo-500" /> },
-                        { title: "Female Attendants", desc: "Every bus is accompanied by a trained female attendant for safety.", icon: <ShieldCheck className="w-10 h-10 text-emerald-500" /> },
-                        { title: "CCTV Surveillance", desc: "Inner-bus cameras monitored regularly by our transport cell.", icon: <Star className="w-10 h-10 text-amber-500" /> }
+                        { title: "GPS Tracking", desc: "Real-time tracking for parents via app.", icon: <Navigation className="w-6 h-6 md:w-8 md:h-8 text-indigo-500" /> },
+                        { title: "Female Attendants", desc: "Trained attendants on every bus for safety.", icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-emerald-500" /> },
+                        { title: "CCTV Cameras", desc: "Monitored regularity by our transport cell.", icon: <Star className="w-6 h-6 md:w-8 md:h-8 text-amber-500" /> }
                     ].map((item, i) => (
-                        <div key={i} className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
-                            <div className="mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                            <h4 className="text-2xl font-black text-slate-900 mb-2">{item.title}</h4>
-                            <p className="text-slate-500 font-medium leading-relaxed italic">{item.desc}</p>
+                        <div key={i} className="p-5 md:p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all flex items-start gap-4">
+                            <div className="shrink-0">{item.icon}</div>
+                            <div>
+                                <h4 className="text-lg font-extrabold text-slate-900 mb-1">{item.title}</h4>
+                                <p className="text-slate-500 text-[11px] md:text-sm font-medium leading-tight">{item.desc}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Route Map & Selector */}
-            <div className="max-w-7xl mx-auto px-4 mb-32">
-                <div className="bg-slate-900 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden shadow-3xl">
-                    <div className="relative z-10 flex flex-col lg:flex-row gap-20">
-                        <div className="lg:w-1/3">
-                            <h2 className="text-4xl font-black mb-12 tracking-tighter">Route <span className="text-indigo-400">Directory</span></h2>
-                            <div className="space-y-4">
+            <div className="max-w-7xl mx-auto px-4 mb-12 md:mb-16">
+                <div className="bg-white rounded-3xl p-6 md:p-10 border border-slate-100 shadow-lg shadow-slate-100">
+                    <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+                        <div className="lg:w-[30%]">
+                            <h2 className="text-2xl md:text-3xl font-black mb-6 text-slate-800">Route <span className="text-indigo-600">Directory</span></h2>
+                            <div className="space-y-2">
                                 {Object.keys(transportRoutes).map(routeName => (
                                     <button
                                         key={routeName}
                                         onClick={() => setSelectedRoute(routeName)}
-                                        className={`w-full p-6 rounded-3xl font-black text-left flex items-center justify-between transition-all ${selectedRoute === routeName ? 'bg-indigo-600 text-white shadow-2xl' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                                        className={`w-full p-4 rounded-xl font-bold text-left flex items-center justify-between transition-all text-sm ${selectedRoute === routeName ? 'bg-indigo-600 text-white shadow-md' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'}`}
                                     >
                                         {routeName}
-                                        <ArrowRight className="w-5 h-5" />
+                                        <ArrowRight className={`w-4 h-4 transition-transform ${selectedRoute === routeName ? 'translate-x-1' : ''}`} />
                                     </button>
                                 ))}
                             </div>
                         </div>
 
-                        <div className="lg:w-2/3">
+                        <div className="lg:w-[70%]">
                             <AnimatePresence mode='wait'>
                                 <motion.div
                                     key={selectedRoute}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    className="bg-white/5 backdrop-blur-md rounded-[3rem] p-10 md:p-16 border border-white/10"
+                                    initial={{ opacity: 0, scale: 0.98 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.98 }}
+                                    className="bg-slate-50 rounded-2xl p-5 md:p-8 border border-slate-100 h-full"
                                 >
-                                    <div className="flex flex-wrap items-center justify-between gap-8 mb-12">
-                                        <div>
-                                            <h3 className="text-3xl font-black mb-2">{transportRoutes[selectedRoute].coverage}</h3>
-                                            <p className="text-indigo-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2"><Clock className="w-4 h-4" /> {transportRoutes[selectedRoute].timing}</p>
+                                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
+                                        <div className="flex-1">
+                                            <h3 className="text-lg md:text-xl font-black text-slate-800 leading-tight mb-2">{transportRoutes[selectedRoute].coverage}</h3>
+                                            <p className="text-indigo-600 font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
+                                                <Clock className="w-3.5 h-3.5" /> {transportRoutes[selectedRoute].timing}
+                                            </p>
                                         </div>
-                                        <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                                            <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center">
-                                                <Users className="w-6 h-6" />
+                                        <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm shrink-0">
+                                            <div className="w-9 h-9 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
+                                                <Users className="w-4 h-4" />
                                             </div>
                                             <div>
-                                                <p className="text-[10px] font-black text-slate-400 uppercase">Driver</p>
-                                                <p className="font-black text-sm">{transportRoutes[selectedRoute].driver}</p>
+                                                <p className="text-[8px] font-black text-slate-400 uppercase leading-none mb-1">Driver</p>
+                                                <p className="font-extrabold text-[11px] text-slate-700">{transportRoutes[selectedRoute].driver}</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-6">
-                                        <p className="text-slate-400 font-black text-[10px] uppercase tracking-widest mb-4">Route Stops</p>
-                                        {transportRoutes[selectedRoute].stops.map((stop, i) => (
-                                            <div key={i} className="flex items-center gap-6 group">
-                                                <div className="relative">
-                                                    <div className="w-4 h-4 bg-indigo-500 rounded-full z-10 relative"></div>
-                                                    {i !== transportRoutes[selectedRoute].stops.length - 1 && <div className="absolute top-4 left-1.5 w-1 h-12 bg-white/10"></div>}
+                                    <div>
+                                        <p className="text-slate-400 font-extrabold text-[9px] uppercase tracking-widest mb-4">Route Stops</p>
+                                        <div className="space-y-4">
+                                            {transportRoutes[selectedRoute].stops.map((stop, i) => (
+                                                <div key={i} className="flex items-center gap-4 group">
+                                                    <div className="relative">
+                                                        <div className="w-2.5 h-2.5 bg-indigo-500 rounded-full z-10 relative"></div>
+                                                        {i !== transportRoutes[selectedRoute].stops.length - 1 && <div className="absolute top-2.5 left-1.5 w-0.5 h-5 bg-indigo-100"></div>}
+                                                    </div>
+                                                    <span className="text-slate-600 font-bold text-sm md:text-base group-hover:text-indigo-600 transition-colors">{stop}</span>
                                                 </div>
-                                                <span className="text-slate-200 font-bold text-lg group-hover:text-indigo-400 transition-colors">{stop}</span>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
                     </div>
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[150px] -mr-64 -mt-64"></div>
                 </div>
             </div>
 
             {/* Helpline Section */}
-            <div className="max-w-7xl mx-auto px-4 text-center">
-                <div className="p-16 bg-rose-50 rounded-[4rem] border border-rose-100 flex flex-col md:flex-row items-center gap-16 group">
-                    <div className="shrink-0 w-24 h-24 bg-white rounded-[2rem] shadow-xl flex items-center justify-center text-rose-500 animate-pulse">
-                        <AlertCircle className="w-12 h-12" />
+            <div className="max-w-5xl mx-auto px-4 text-center pb-12">
+                <div className="p-6 md:p-8 bg-white rounded-2xl border border-slate-100 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+                    <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500">
+                        <AlertCircle className="w-6 h-6 md:w-7 md:h-7" />
                     </div>
-                    <div className="text-left">
-                        <h4 className="text-3xl font-black text-slate-900 mb-4">Emergency Transport Helpline</h4>
-                        <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
-                            For any immediate concerns regarding bus arrival, delays, or emergencies,
-                            please contact our transport desk available from 6:00 AM to 6:00 PM.
+                    <div className="text-left flex-1">
+                        <h4 className="text-lg md:text-xl font-bold text-slate-900 mb-1">Emergency Help</h4>
+                        <p className="text-slate-500 text-sm font-medium mb-4">
+                            For concerns regarding delays, contact our desk.
                         </p>
-                        <div className="flex items-center gap-4">
-                            <button className="px-8 py-4 bg-rose-500 text-white font-black rounded-2xl shadow-xl shadow-rose-200 flex items-center gap-3">
-                                <Phone className="w-5 h-5" /> +91 91225 55XXX
+                        <div className="flex flex-wrap items-center gap-4">
+                            <button className="px-5 py-2.5 bg-rose-600 text-white font-bold rounded-lg shadow-md flex items-center justify-center gap-2 text-xs">
+                                <Phone className="w-4 h-4" /> +91 79790 01951
                             </button>
-                            <button className="px-8 py-4 bg-white text-rose-500 font-black rounded-2xl border border-rose-100 flex items-center gap-3">
+                            <button className="px-5 py-2.5 bg-slate-50 text-slate-600 font-bold rounded-lg border border-slate-100 flex items-center justify-center gap-2 text-xs">
                                 Request Route Change
                             </button>
                         </div>

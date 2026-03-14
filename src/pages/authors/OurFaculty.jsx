@@ -75,12 +75,12 @@ const OurFaculty = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen font-['Nunito']">
-            <PageHero 
-                title="Faculty &"
-                italicTitle="Leadership"
-                tag="Our Pillars of Strength"
-                subtitle="Meet the dedicated professionals at Gyan Sagar Public School who are shaping the future of our students with passion, discipline and expertise."
+        <div className="min-h-screen bg-slate-50 pb-20 font-['Plus Jakarta Sans'] scroll-smooth">
+            <PageHero
+                title="Our"
+                italicTitle="Pillars"
+                tag="Expert Faculty"
+                subtitle="Passionate educators and visionaries dedicated to shaping the future with discipline and expertise."
                 bgImage="/GyanSagar/StudentPatna.jpg"
                 accentColor="text-indigo-400"
             />
@@ -102,7 +102,7 @@ const OurFaculty = () => {
                                     <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="flex-1 text-center md:text-left">
-                                    <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-2">{leader.name}</h3>
+                                    <h3 className="text-3xl md:text-5xl font-extrabold text-slate-800 mb-2">{leader.name}</h3>
                                     <p className="text-indigo-600 font-black uppercase tracking-widest text-sm mb-6 pb-2 border-b-2 border-indigo-100 inline-block">{leader.role}</p>
                                     <p className="text-slate-500 text-lg leading-relaxed mb-8">
                                         {leader.bio}
@@ -129,7 +129,7 @@ const OurFaculty = () => {
                             <div className="bg-white/10 p-4 rounded-2xl mb-4 group-hover:scale-110 group-hover:bg-indigo-600 transition-all flex justify-center text-white">
                                 {stat.icon}
                             </div>
-                            <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">{stat.value}</h4>
+                            <h4 className="text-4xl font-extrabold text-white mb-1 tracking-tighter">{stat.value}</h4>
                             <p className="text-slate-400 text-xs font-black uppercase tracking-[0.2em]">{stat.label}</p>
                         </div>
                     ))}
@@ -141,7 +141,7 @@ const OurFaculty = () => {
                 <section key={groupIdx} className="max-w-7xl mx-auto px-4 mb-24 last:mb-0">
                     <div className="flex items-center gap-6 mb-12">
                         <div className="h-px bg-slate-200 flex-1"></div>
-                        <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">{group.title}</h2>
+                        <h2 className="text-3xl font-extrabold text-slate-900 uppercase tracking-tighter italic">{group.title}</h2>
                         <div className="h-px bg-slate-200 flex-1"></div>
                     </div>
 
@@ -166,7 +166,7 @@ const OurFaculty = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <h3 className="text-2xl font-black text-slate-900 group-hover:text-indigo-600 transition-colors mb-2 leading-none">{teacher.name}</h3>
+                                    <h3 className="text-2xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2 leading-none">{teacher.name}</h3>
                                     <p className="text-indigo-600 font-black text-[10px] uppercase tracking-widest mb-4">{teacher.subject}</p>
                                     <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-50 rounded-full text-[10px] font-black text-slate-400 uppercase tracking-widest border border-slate-100">
                                         {teacher.exp} Exp
@@ -184,7 +184,7 @@ const OurFaculty = () => {
                     <div className="absolute inset-4 border border-white/20 rounded-[3rem] pointer-events-none"></div>
                     <div className="relative z-10">
                         <Sparkles className="w-16 h-16 text-amber-400 mx-auto mb-8 drop-shadow-2xl" />
-                        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter italic">Join Our <br />Academic Team?</h2>
+                        <h2 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight tracking-tighter italic">Join Our <br />Academic Team?</h2>
                         <p className="text-indigo-100 text-xl font-medium max-w-2xl mx-auto mb-12">
                             We are always looking for passionate educators who want to make a real
                             difference in the lives of young learners.

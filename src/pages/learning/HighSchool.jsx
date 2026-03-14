@@ -41,11 +41,11 @@ const HighSchool = () => {
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
             {/* Premium Hero Section */}
-            <PageHero 
-                title="High"
-                italicTitle="School"
-                tag="Classes 6th to 10th"
-                subtitle="Empowering pre-teens and teenagers with in-depth foundational knowledge, logical reasoning, and comprehensive board exam preparation."
+            <PageHero
+                title="Academic"
+                italicTitle="Rigor"
+                tag="Classes 6 to 10"
+                subtitle="Intensive mentorship and expert guidance driving board excellence and career success."
                 bgImage="/3d_high_school_1773388532851.png"
                 accentColor="text-indigo-400"
                 tagColor="text-indigo-400"
@@ -173,5 +173,6 @@ const HighSchool = () => {
         </div>
     );
 };
+
 
 export default HighSchool;

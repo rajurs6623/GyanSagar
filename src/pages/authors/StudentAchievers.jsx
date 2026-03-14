@@ -127,12 +127,12 @@ const StudentAchievers = () => {
     const [openCategory, setOpenCategory] = useState(0);
 
     return (
-        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+        <div className="min-h-screen bg-slate-50 font-['Plus Jakarta Sans'] scroll-smooth overflow-x-hidden">
             <PageHero 
                 title="Student"
-                italicTitle="Achievers"
-                tag="Pride of Gyan Sagar Public School"
-                subtitle="Celebrating the hard work, excellence, and outstanding performance of our students from NC to Class 12. We cultivate winners!"
+                italicTitle="Excellence"
+                tag="Our Pride"
+                subtitle="Celebrating the performance and achievements of our exceptional students."
                 bgImage="/GyanSagar/Student.jpg"
                 accentColor="text-amber-500"
             />
@@ -143,8 +143,8 @@ const StudentAchievers = () => {
                     {stats.map((s, i) => (
                         <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
                             <div className="flex justify-center mb-2 text-amber-300">{s.icon}</div>
-                            <p className="text-3xl md:text-4xl font-black text-amber-300">{s.val}</p>
-                            <p className="text-xs font-bold uppercase tracking-widest text-indigo-200">{s.label}</p>
+                            <p className="text-3xl md:text-4xl font-extrabold text-amber-300">{s.val}</p>
+                            <p className="text-xs font-extrabold uppercase tracking-widest text-indigo-200">{s.label}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -154,7 +154,7 @@ const StudentAchievers = () => {
             <section className="py-20 px-4 bg-slate-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-14">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-3">
+                        <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-3">
                             🏆 Board <span className="text-indigo-600">Toppers</span>
                         </h2>
                         <p className="text-slate-500 font-medium text-base max-w-xl mx-auto">Our top scorers who have made Gyan Sagar proud in board examinations.</p>
@@ -169,18 +169,18 @@ const StudentAchievers = () => {
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -8 }}
-                                className={`bg-white rounded-[3rem] border-2 ${t.border} shadow-xl overflow-hidden group`}
+                                className={`bg-white rounded-[2rem] md:rounded-[3rem] border-2 ${t.border} shadow-xl overflow-hidden group`}
                             >
-                                <div className={`h-56 overflow-hidden relative`}>
+                                <div className={`h-48 md:h-56 overflow-hidden relative`}>
                                     <div className={`absolute inset-0 bg-gradient-to-br ${t.color}`} />
                                     <img src={t.photo} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-multiply" />
-                                    <div className="absolute top-4 right-4 text-3xl">{t.badge}</div>
+                                    <div className="absolute top-3 md:top-4 right-3 md:right-4 text-2xl md:text-3xl">{t.badge}</div>
                                 </div>
-                                <div className="p-6 text-center">
-                                    <h3 className="text-xl font-black text-slate-800 mb-1">{t.name}</h3>
-                                    <p className="text-indigo-600 font-black text-xs uppercase tracking-widest mb-2">{t.achievement}</p>
-                                    <p className="text-3xl font-black text-slate-900 mb-1">{t.percentage}</p>
-                                    <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">{t.class} • {t.subject}</p>
+                                <div className="p-5 md:p-6 text-center">
+                                    <h3 className="text-lg md:text-xl font-extrabold text-slate-800 mb-1">{t.name}</h3>
+                                    <p className="text-indigo-600 font-extrabold text-[10px] md:text-xs uppercase tracking-widest mb-2">{t.achievement}</p>
+                                    <p className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-1">{t.percentage}</p>
+                                    <p className="text-slate-400 text-[10px] md:text-xs font-bold uppercase tracking-widest leading-tight">{t.class} • {t.subject}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -192,7 +192,7 @@ const StudentAchievers = () => {
             <section className="py-20 px-4 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-14">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-3">
+                        <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-3">
                             Achievements <span className="text-indigo-600">Gallery</span>
                         </h2>
                         <p className="text-slate-500 font-medium text-base max-w-xl mx-auto">We don't just study — we compete, we win, we grow.</p>
@@ -204,11 +204,13 @@ const StudentAchievers = () => {
                             <button
                                 key={i}
                                 onClick={() => setOpenCategory(i)}
-                                className={`p-6 rounded-3xl border-2 transition-all text-left group ${openCategory === i ? cat.color + ' shadow-xl scale-[1.02]' : 'bg-slate-50 border-slate-100 text-slate-400 hover:border-slate-200'}`}
+                                className={`p-4 md:p-6 rounded-[1.5rem] md:rounded-3xl border-2 transition-all text-left group ${openCategory === i ? cat.color + ' shadow-xl scale-[1.02]' : 'bg-slate-50 border-slate-100 text-slate-400 hover:border-slate-200'}`}
                             >
-                                <div className={`mb-3 ${openCategory === i ? '' : 'opacity-40'}`}>{cat.icon}</div>
-                                <p className="font-black text-sm leading-tight">{cat.label}</p>
-                                <p className="text-xs font-bold mt-1 opacity-60 uppercase tracking-widest">{cat.count}</p>
+                                <div className={`mb-2 md:mb-3 ${openCategory === i ? '' : 'opacity-40'}`}>
+                                    {React.cloneElement(cat.icon, { className: "w-6 h-6 md:w-8 md:h-8" })}
+                                </div>
+                                <p className="font-extrabold text-xs md:text-sm leading-tight">{cat.label}</p>
+                                <p className="text-[10px] md:text-xs font-extrabold mt-1 opacity-60 uppercase tracking-widest">{cat.count}</p>
                             </button>
                         ))}
                     </div>
@@ -219,22 +221,22 @@ const StudentAchievers = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -15 }}
-                            className="bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white shadow-2xl"
+                            className="bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-6 md:p-16 text-white shadow-2xl"
                         >
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className={`w-14 h-14 rounded-2xl ${achievementCategories[openCategory].color} flex items-center justify-center`}>
-                                    {achievementCategories[openCategory].icon}
+                            <div className="flex items-center gap-4 mb-6 md:mb-8">
+                                <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl ${achievementCategories[openCategory].color} flex items-center justify-center`}>
+                                    {React.cloneElement(achievementCategories[openCategory].icon, { className: "w-6 h-6 md:w-8 md:h-8" })}
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl md:text-4xl font-black">{achievementCategories[openCategory].label}</h3>
-                                    <p className="text-slate-400 font-bold text-sm">{achievementCategories[openCategory].count}</p>
+                                    <h3 className="text-xl md:text-4xl font-extrabold">{achievementCategories[openCategory].label}</h3>
+                                    <p className="text-slate-400 font-extrabold text-[10px] md:text-sm">{achievementCategories[openCategory].count}</p>
                                 </div>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                                 {achievementCategories[openCategory].wins.map((win, i) => (
-                                    <div key={i} className="flex items-start gap-4 p-5 bg-white/5 rounded-2xl border border-white/10">
-                                        <Medal className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                                        <p className="text-slate-200 font-bold text-sm leading-relaxed">{win}</p>
+                                    <div key={i} className="flex items-start gap-3 p-4 bg-white/5 rounded-xl md:rounded-2xl border border-white/10">
+                                        <Medal className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                                        <p className="text-slate-200 font-extrabold text-[11px] md:text-sm leading-relaxed">{win}</p>
                                     </div>
                                 ))}
                             </div>
@@ -247,7 +249,7 @@ const StudentAchievers = () => {
             <section className="py-20 px-4 bg-slate-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-14">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-3">
+                        <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-3">
                             School <span className="text-indigo-600">Events</span>
                         </h2>
                         <p className="text-slate-500 font-medium text-base max-w-xl mx-auto">A year full of learning, fun, and growth.</p>
@@ -265,8 +267,8 @@ const StudentAchievers = () => {
                             >
                                 <span className="text-4xl mb-5 block">{ev.emoji}</span>
                                 <div className="flex items-center justify-between mb-3">
-                                    <h3 className="text-xl font-black text-slate-800 group-hover:text-indigo-600 transition-colors">{ev.title}</h3>
-                                    <span className="text-[10px] font-black text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest whitespace-nowrap">{ev.month}</span>
+                                    <h3 className="text-xl font-extrabold text-slate-800 group-hover:text-indigo-600 transition-colors">{ev.title}</h3>
+                                    <span className="text-[10px] font-extrabold text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest whitespace-nowrap">{ev.month}</span>
                                 </div>
                                 <p className="text-slate-500 text-sm font-medium leading-relaxed">{ev.desc}</p>
                             </motion.div>
@@ -287,7 +289,7 @@ const StudentAchievers = () => {
                         Admissions open for NC to 12th. Join the Gyan Sagar family and unlock your child's true potential.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <Link to="/how-to-publish" className="px-10 py-4 bg-white text-indigo-600 rounded-2xl font-black hover:scale-105 transition-all shadow-xl flex items-center gap-2">
+                        <Link to="/admission-inquiry" className="px-10 py-4 bg-white text-indigo-600 rounded-2xl font-black hover:scale-105 transition-all shadow-xl flex items-center gap-2">
                             Apply for Admission <ArrowRight className="w-5 h-5" />
                         </Link>
                         <a

@@ -36,10 +36,10 @@ const navGroups = [
   {
     label: "Admissions",
     links: [
+      { name: "Online Registration", path: "/admission-inquiry", icon: <FaUpload /> },
       { name: "Admission Guide", path: "/admission-guide", icon: <FaUpload /> },
       { name: "Fee Structure", path: "/fee-structure", icon: <FaStore /> },
       { name: "School Uniform", path: "/school-uniform", icon: <FaStore /> },
-      { name: "Apply Online", path: "/admission-inquiry", icon: <FaUpload /> },
     ],
   },
   {

@@ -92,12 +92,12 @@ const OurMission = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen font-['Nunito']">
-            <PageHero 
-                title="Shaping the"
-                italicTitle="Leaders of Tomorrow"
-                tag="Vision for Excellence"
-                subtitle="Our mission is to provide quality education that empowers students with knowledge, character, and skills to excel in life. At Gyan Sagar Public School, we nurture every child's potential from NC to Senior Secondary."
+        <div className="bg-slate-50 min-h-screen font-['Plus Jakarta Sans']">
+            <PageHero
+                title="Vision &"
+                italicTitle="Purpose"
+                tag="Our Commitment"
+                subtitle="Empowering every student with knowledge, character, and the values to excel globally."
                 bgImage="/GyanSagar/StudentPatna.jpg"
                 accentColor="text-amber-400"
             />
@@ -110,7 +110,7 @@ const OurMission = () => {
                             <Lightbulb className="w-5 h-5" />
                             Our Pedagogy
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-6 leading-tight">Philosophy of <br /><span className="text-emerald-500">Holistic Learning</span></h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">Philosophy of <br /><span className="text-emerald-500">Holistic Learning</span></h2>
                         <div className="w-20 h-3 bg-emerald-500 rounded-full mb-8"></div>
                         <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                             <p>
@@ -139,7 +139,7 @@ const OurMission = () => {
             <div className="max-w-7xl mx-auto px-4 py-24">
                 <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
                     <div className="lg:w-1/2">
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-6">The Grand Vision</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">The Grand Vision</h2>
                         <div className="w-20 h-[10px] bg-indigo-600 rounded-full mb-8"></div>
                         <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                             <p>
@@ -148,11 +148,11 @@ const OurMission = () => {
                             <p>
                                 We envision our students becoming not just successful professionals, but compassionate individuals who contribute positively to society. Our integrated curriculum for NC to 12th ensures a steady, logical growth of knowledge and confidence.
                             </p>
-                            <div className="flex items-start gap-4 p-8 bg-indigo-50 rounded-3xl border border-indigo-100">
-                                <div className="bg-indigo-100 p-4 rounded-2xl">
-                                    <Sparkles className="w-8 h-8 text-indigo-600" />
+                            <div className="flex items-start gap-4 p-4 md:p-8 bg-indigo-50 rounded-3xl border border-indigo-100">
+                                <div className="bg-indigo-100 p-3 md:p-4 rounded-2xl flex-shrink-0">
+                                    <Sparkles className="w-5 h-5 md:w-8 md:h-8 text-indigo-600" />
                                 </div>
-                                <p className="text-indigo-900 font-medium text-lg italic">
+                                <p className="text-indigo-900 font-medium text-base md:text-lg italic">
                                     "Education is the most powerful weapon which you can use to change the world. At Gyan Sagar, we sharpen that weapon with wisdom and virtue."
                                 </p>
                             </div>
@@ -178,21 +178,21 @@ const OurMission = () => {
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <div className="text-center mb-16">
                         <p className="text-amber-400 font-bold uppercase tracking-widest text-sm mb-4">Academic Journey</p>
-                        <h2 className="text-4xl md:text-5xl font-black mb-6">From Playroom to Professionalism</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">From Playroom to Professionalism</h2>
                         <div className="w-24 h-2 bg-gradient-to-r from-amber-400 to-rose-500 mx-auto rounded-full mb-8"></div>
                         <p className="text-lg text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
                             A student's journey at Gyan Sagar is structured to provide age-appropriate challenges and growth at every step of their school life.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6">
                         {educationalStages.map((stage, idx) => (
-                            <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 group">
-                                <div className="bg-slate-800 p-4 rounded-2xl inline-block mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                                    {stage.icon}
+                            <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 p-5 md:p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 group">
+                                <div className="bg-slate-800 p-3 md:p-4 rounded-2xl inline-block mb-4 md:mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                    {React.cloneElement(stage.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">{stage.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{stage.description}</p>
+                                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-white">{stage.title}</h3>
+                                <p className="text-slate-400 text-xs md:text-sm leading-relaxed">{stage.description}</p>
                             </div>
                         ))}
                     </div>
@@ -203,16 +203,16 @@ const OurMission = () => {
             <div className="bg-indigo-900 py-20 border-y border-indigo-800">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16 text-white">
-                        <h2 className="text-4xl font-black mb-4">Our Legacy in Numbers</h2>
+                        <h2 className="text-4xl font-extrabold mb-4">Our Legacy in Numbers</h2>
                         <p className="text-indigo-200 text-lg max-w-2xl mx-auto font-light">
                             Over two decades of dedication has resulted in thousands of success stories that inspire our current students every day.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         {stats.map((stat, i) => (
-                            <div key={i} className="text-center p-8 rounded-[2rem] bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
-                                <h3 className="text-5xl md:text-6xl font-black text-amber-400 mb-3 drop-shadow-lg">{stat.value}</h3>
-                                <p className="text-indigo-100 font-medium tracking-wide uppercase text-sm">{stat.label}</p>
+                            <div key={i} className="text-center p-4 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                                <h3 className="text-3xl md:text-6xl font-extrabold text-amber-400 mb-1 md:mb-3 drop-shadow-lg">{stat.value}</h3>
+                                <p className="text-indigo-100 font-medium tracking-wide uppercase text-[10px] md:text-sm">{stat.label}</p>
                             </div>
                         ))}
                     </div>
@@ -222,27 +222,27 @@ const OurMission = () => {
             {/* Core Values Section */}
             <div className="max-w-7xl mx-auto px-4 py-24">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-800 mb-4">What Drives Us Forward</h2>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">What Drives Us Forward</h2>
                     <div className="w-24 h-2 bg-amber-500 mx-auto rounded-full mb-6"></div>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
                         At Gyan Sagar Public School, we stay true to our founding principles, ensuring every student receives an education rooted in empathy and excellence.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {coreValues.map((value, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-[2rem] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
+                            className="bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-50 rounded-bl-full -z-10 group-hover:bg-indigo-600 transition-colors duration-700"></div>
-                            <div className="w-20 h-20 rounded-3xl bg-indigo-100 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-500 group-hover:rotate-6">
+                            <div className="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-indigo-50 rounded-bl-full -z-10 group-hover:bg-indigo-600 transition-colors duration-700"></div>
+                            <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-indigo-100 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-500 group-hover:rotate-6">
                                 {React.cloneElement(value.icon, {
-                                    className: "w-10 h-10 text-indigo-600 group-hover:text-white transition-colors duration-500"
+                                    className: "w-7 md:w-10 h-7 md:h-10 text-indigo-600 group-hover:text-white transition-colors duration-500"
                                 })}
                             </div>
-                            <h3 className="text-3xl font-bold text-slate-800 mb-4">{value.title}</h3>
-                            <p className="text-slate-600 leading-relaxed text-lg font-light">
+                            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3 md:mb-4">{value.title}</h3>
+                            <p className="text-slate-600 leading-relaxed text-base md:text-lg font-light">
                                 {value.description}
                             </p>
                         </div>
@@ -255,7 +255,7 @@ const OurMission = () => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Built on <span className="text-indigo-600">Ethics & Safety</span></h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Built on <span className="text-indigo-600">Ethics & Safety</span></h2>
                         <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
                             Trust is the foundation of any educational institution. We ensure that our campus is a sanctuary where students can learn without any fear or distraction.
                         </p>
@@ -284,7 +284,7 @@ const OurMission = () => {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16 text-white">
                         <span className="text-rose-400 font-bold tracking-widest uppercase text-sm mb-4 block">The Foundation</span>
-                        <h2 className="text-4xl md:text-5xl font-black mb-6">Our School's Pillars</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Our School's Pillars</h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-orange-500 mx-auto rounded-full"></div>
                     </div>
 
@@ -296,7 +296,7 @@ const OurMission = () => {
                                     {/* Front of Card */}
                                     <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} rounded-[2rem] p-10 flex flex-col items-center justify-center text-center [backface-visibility:hidden]`}>
                                         <Sparkles className="w-16 h-16 text-white mb-6 drop-shadow-md" />
-                                        <h3 className="text-3xl font-black text-white drop-shadow-md">{pillar.title}</h3>
+                                        <h3 className="text-3xl font-extrabold text-white drop-shadow-md">{pillar.title}</h3>
                                         <p className="max-w-xs text-white/80 mt-4 text-sm font-semibold tracking-wide uppercase flex items-center gap-2">
                                             Hover to Reveal <ChevronRight className="w-4 h-4 inline" />
                                         </p>
@@ -319,7 +319,7 @@ const OurMission = () => {
             {/* Infinite Scrolling Marquee Testimonials */}
             <div className="py-24 bg-white overflow-hidden relative border-b border-slate-200">
                 <div className="max-w-7xl mx-auto px-4 text-center mb-12 relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-800">Voices of Our Community</h2>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800">Voices of Our Community</h2>
                     <p className="text-slate-500 mt-4 text-lg">What parents and alumni say about Gyan Sagar.</p>
                 </div>
 
@@ -356,9 +356,9 @@ const OurMission = () => {
                 <div className="bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 rounded-[3rem] p-16 text-center text-white shadow-2xl relative overflow-hidden group">
                     <div className="relative z-10">
                         <School className="w-20 h-20 text-amber-400 mx-auto mb-8 drop-shadow-xl" />
-                        <h2 className="text-5xl md:text-6xl font-black mb-8 drop-shadow-lg">Take the First Step</h2>
+                        <h2 className="text-5xl md:text-6xl font-extrabold mb-8 drop-shadow-lg">Take the First Step</h2>
                         <p className="text-indigo-100 text-xl max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-                            Admissions are open for the session 2024-25. Join the Gyan Sagar family and give your child the foundation they deserve.
+                            Admissions are open for the session 2025-26. Join the Gyan Sagar family and give your child the foundation they deserve.
                         </p>
                         <button className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 font-extrabold py-5 px-14 rounded-full shadow-2xl transform hover:-translate-y-2 hover:shadow-amber-500/30 transition-all duration-500 text-xl tracking-wide">
                             Register for Admission
