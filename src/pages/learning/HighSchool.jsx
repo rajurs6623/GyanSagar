@@ -136,39 +136,41 @@ const HighSchool = () => {
             </section>
 
             {/* Toppers Spotlight */}
-            <section className="bg-indigo-950 py-32 overflow-hidden relative">
-                <div className="max-w-7xl mx-auto px-4 relative z-10">
-                    <div className="flex flex-col lg:flex-row items-center gap-20">
-                        <div className="lg:w-1/2 text-white">
-                            <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter italic">Nurturing <br /><span className="text-indigo-400 italic">Excellence</span></h2>
-                            <p className="text-indigo-200 text-xl font-medium leading-relaxed mb-12">
+            <section className="max-w-7xl mx-auto px-4 py-32 relative">
+                <div className="relative border border-slate-200 bg-white/70 backdrop-blur-3xl rounded-[4rem] p-12 md:p-24 overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)]">
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-50/70 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none mix-blend-multiply"></div>
+                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-50/70 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none mix-blend-multiply"></div>
+                    
+                    <div className="relative z-10 flex flex-col lg:flex-row items-center gap-20">
+                        <div className="lg:w-1/2 text-slate-800">
+                            <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter italic">Nurturing <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500 italic">Excellence</span></h2>
+                            <p className="text-slate-600 text-xl font-medium leading-relaxed mb-12">
                                 Our students consistently secure top ranks in CBSE 10th Board Examinations.
                                 We don't just teach for grades; we teach for life.
                             </p>
                             <div className="flex gap-12">
                                 <div>
-                                    <p className="text-4xl font-black text-indigo-400 mb-1">100%</p>
+                                    <p className="text-4xl font-black text-indigo-500 mb-1">100%</p>
                                     <p className="text-xs font-black uppercase tracking-widest text-slate-400">Board Results</p>
                                 </div>
                                 <div>
-                                    <p className="text-4xl font-black text-indigo-400 mb-1">98.4%</p>
+                                    <p className="text-4xl font-black text-indigo-500 mb-1">98.4%</p>
                                     <p className="text-xs font-black uppercase tracking-widest text-slate-400">School Highest</p>
                                 </div>
                             </div>
                         </div>
                         <div className="lg:w-1/2 relative">
-                            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[4rem] rotate-3 shadow-3xl">
+                            <div className="bg-white/50 backdrop-blur-xl border border-white p-4 rounded-[4rem] rotate-3 shadow-2xl group hover:rotate-0 transition-transform duration-700">
                                 <img
                                     src="https://images.unsplash.com/photo-1544168190-79c17527004f?auto=format&fit=crop&q=80&w=600"
                                     alt="School Topper"
                                     className="w-full h-[500px] object-cover rounded-[3rem]"
                                 />
                             </div>
+                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-400/20 rounded-full blur-[60px] pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
-                {/* Background Art */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-600 rounded-full blur-[200px] opacity-20 -mr-64 -mt-64"></div>
             </section>
         </div>
     );

@@ -157,34 +157,39 @@ const PrimaryClasses = () => {
 
             {/* Fun & Games Banner */}
             <section className="max-w-7xl mx-auto px-4 py-24">
-                <div className="bg-emerald-500 rounded-[5rem] p-12 md:p-24 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -mr-32 -mt-32 pointer-events-none"></div>
-                    <div className="flex-1 text-white relative z-10">
-                        <Smile className="w-20 h-20 text-indigo-900 mb-8 animate-bounce-slow" />
-                        <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter italic">Beyond the <br /><span className="text-indigo-900">Textbooks</span></h2>
-                        <p className="text-emerald-50 text-xl font-medium max-w-xl leading-relaxed mb-12">
+                <div className="relative border border-emerald-100 bg-white/70 backdrop-blur-3xl rounded-[4rem] p-12 md:p-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden shadow-[0_20px_50px_-20px_rgba(16,185,129,0.15)] group">
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-50/70 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none mix-blend-multiply"></div>
+                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-50/70 rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none mix-blend-multiply"></div>
+                    
+                    <div className="flex-1 text-slate-800 relative z-10">
+                        <div className="w-20 h-20 bg-emerald-50 rounded-[2rem] flex items-center justify-center mb-8 border border-emerald-100 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                            <Smile className="w-10 h-10 text-emerald-500 animate-bounce-slow" />
+                        </div>
+                        <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter italic leading-tight">Beyond the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-indigo-500">Textbooks</span></h2>
+                        <p className="text-slate-600 text-xl font-medium max-w-xl leading-relaxed mb-12">
                             From theater workshops to yoga sessions, we ensure your child's first school experience
                             is filled with joy, creativity, and discovery.
                         </p>
                         <div className="flex flex-wrap gap-8">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center border border-white/20">
-                                    <Palette className="w-6 h-6" />
+                            <div className="flex items-center gap-4 bg-white/50 px-5 py-3 rounded-2xl border border-white shadow-sm">
+                                <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                                    <Palette className="w-5 h-5 text-emerald-600" />
                                 </div>
-                                <span className="font-black text-sm uppercase tracking-widest">Art Therapy</span>
+                                <span className="font-black text-sm uppercase tracking-widest text-slate-700">Art Therapy</span>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center border border-white/20">
-                                    <Music className="w-6 h-6" />
+                            <div className="flex items-center gap-4 bg-white/50 px-5 py-3 rounded-2xl border border-white shadow-sm">
+                                <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
+                                    <Music className="w-5 h-5 text-indigo-600" />
                                 </div>
-                                <span className="font-black text-sm uppercase tracking-widest">Music Lab</span>
+                                <span className="font-black text-sm uppercase tracking-widest text-slate-700">Music Lab</span>
                             </div>
                         </div>
                     </div>
-                    <div className="flex-1 w-full flex justify-center scale-90 md:scale-100">
+                    
+                    <div className="flex-1 w-full flex justify-center scale-90 md:scale-100 relative z-10">
                         <div className="relative">
-                            <div className="absolute -inset-10 bg-white rounded-full blur-[100px] opacity-20"></div>
-                            <div className="relative p-6 bg-white rounded-[4rem] shadow-3xl rotate-3">
+                            <div className="absolute -inset-10 bg-white rounded-full blur-[100px] opacity-40"></div>
+                            <div className="relative p-3 bg-white/80 backdrop-blur-md rounded-[4rem] shadow-2xl border border-white rotate-3 group-hover:rotate-0 transition-all duration-700">
                                 <img
                                     src="https://images.unsplash.com/photo-1544648397-52ee3bf8224d?auto=format&fit=crop&q=80&w=600"
                                     alt="Activity"
@@ -228,19 +233,22 @@ const PrimaryClasses = () => {
             </section>
 
             {/* Admissions Banner */}
-            <section className="max-w-5xl mx-auto px-4 pt-12">
-                <div className="bg-slate-900 rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-700 pointer-events-none opacity-20"></div>
+            <section className="max-w-6xl mx-auto px-4 pt-12">
+                <div className="relative border-t-8 border-indigo-400 bg-white shadow-[0_20px_50px_-20px_rgba(79,70,229,0.2)] rounded-[4rem] p-12 md:p-24 text-center text-slate-800 overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-50 rounded-full blur-[100px] opacity-60 -mr-20 -mt-20 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-50 rounded-full blur-[100px] opacity-60 -ml-20 -mb-20 pointer-events-none"></div>
                     <div className="relative z-10">
-                        <UserPlus className="w-20 h-20 text-indigo-400 mx-auto mb-10" />
-                        <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter italic leading-none">Your Child's Journey <br /><span className="text-indigo-400 underline decoration-indigo-400 decoration-8 underline-offset-[16px]">Starts Here</span></h2>
-                        <p className="text-slate-400 text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <div className="w-24 h-24 bg-indigo-50 rounded-[2rem] flex items-center justify-center mx-auto mb-10 shadow-lg border border-indigo-100 group-hover:scale-110 transition-transform duration-500">
+                            <UserPlus className="w-12 h-12 text-indigo-500" />
+                        </div>
+                        <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter italic leading-tight">Your Child's Journey <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">Starts Here</span></h2>
+                        <p className="text-slate-600 text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
                             Admissions for Primary Classes (NC to 5th) are open. Schedule a visit to
                             explore our kid-friendly campus today.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">
-                            <button className="px-12 py-5 bg-indigo-600 text-white font-black rounded-2xl shadow-3xl hover:bg-indigo-700 transition-all">Download Brochure</button>
-                            <button className="px-12 py-5 border-2 border-slate-700 hover:border-white text-white font-black rounded-2xl transition-all">Vist Campus</button>
+                            <button className="px-12 py-5 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-black rounded-2xl shadow-[0_20px_40px_-15px_rgba(79,70,229,0.5)] hover:-translate-y-1 transition-all text-lg border border-indigo-400">Download Brochure</button>
+                            <button className="px-12 py-5 bg-white text-indigo-600 font-black rounded-2xl shadow-xl hover:-translate-y-1 transition-all text-lg border border-indigo-100">Visit Campus</button>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ const PageHero = ({
     tagBorder = "border-amber-500/20"
 }) => {
     return (
-        <section className="relative min-h-[45vh] md:min-h-[92vh] flex items-center justify-center pb-8 md:pb-12 px-4 text-white text-center overflow-hidden mb-0 md:mb-0 font-['Plus Jakarta Sans']">
+        <section className="relative min-h-[45vh] md:min-h-[92vh] flex items-center justify-center pb-8 md:pb-12 px-4 text-white text-center overflow-hidden mb-20 md:mb-32 font-['Plus Jakarta Sans']">
             {/* Background Layer */}
             <div className="absolute inset-0 z-0">
                 <img
