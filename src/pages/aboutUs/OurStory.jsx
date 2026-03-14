@@ -10,62 +10,62 @@ const OurStory = () => {
     const milestones = [
         {
             year: "1998",
-            title: "The Foundation",
-            description: "Gyan Sagar Public School was founded in Ram Krishna Nagar, Patna, with a vision to provide quality education to the common man's children.",
+            title: "How It All Started",
+            description: "Gyan Sagar Public School was started in Ram Krishna Nagar, Patna. The dream was simple — to give every child a good education, no matter where they come from.",
             icon: <MapPin className="w-8 h-8 text-white" />
         },
         {
             year: "2005",
-            title: "Academic Milestone",
-            description: "Achieved recognition for our rigorous academic standards and expanded our campus to include dedicated primary and middle blocks.",
+            title: "Growing Schools",
+            description: "We became known for teaching very well. We also built new buildings for our younger and middle school students.",
             icon: <Library className="w-8 h-8 text-white" />
         },
         {
             year: "2012",
-            title: "Scientific Excellence",
-            description: "Inaugurated our state-of-the-art Science and Computer laboratories, marking a new era of practical learning for our 10th and +2 students.",
+            title: "Science Gets Better!",
+            description: "We opened our new Science labs and Computer rooms. Now students could learn by doing real experiments — not just reading from books!",
             icon: <Zap className="w-8 h-8 text-white" />
         },
         {
             year: "2018",
-            title: "Digital Transformation",
-            description: "Introduced interactive smart classrooms and digital learning modules to integrate modern technology into traditional teaching methods.",
+            title: "Smart Classes Begin",
+            description: "We started using smart boards and computer tools in classrooms. Learning became more fun, colorful, and easy for every student.",
             icon: <Code className="w-8 h-8 text-white" />
         },
         {
             year: "2023",
-            title: "Landmark Results",
-            description: "Celebrated 25 years of educational excellence with 100% first-division results in CBSE board examinations.",
+            title: "Amazing Results!",
+            description: "We celebrated 25 years of great education! All our 12th grade students passed with first division — every single one of them!",
             icon: <Star className="w-8 h-8 text-white" />
         },
         {
             year: "Future",
-            title: "Vision 2030",
-            description: "Aimed at becoming a global center for educational research and student-led innovation in the heart of Bihar.",
+            title: "Our Big Goal for 2030",
+            description: "We want to become a top learning center in Bihar, where students create new ideas and lead the way into the future!",
             icon: <Globe className="w-8 h-8 text-white" />
         }
     ];
 
     const educationValues = [
         {
-            title: "Holistic Growth",
-            description: "We focus not just on textbook knowledge, but on the emotional, physical, and ethical development of every student under our care."
+            title: "All-Round Growth",
+            description: "We don't just teach from books. We also care about how students feel, how fit they are, and how they treat others."
         },
         {
-            title: "Individual Attention",
-            description: "With a balanced student-teacher ratio, we ensure that no child's question goes unanswered and no potential goes unnoticed."
+            title: "Attention to Every Child",
+            description: "Our teachers have small classes so every child's questions get answered and no student is left behind."
         },
         {
-            title: "Cultural Values",
-            description: "Rooted in our rich heritage, we instill respect, integrity, and social responsibility as the core pillars of our students' character."
+            title: "Good Values & Culture",
+            description: "We teach students to respect others, be honest, and help their community. These values stay with them for life."
         }
     ];
 
     const leadership = [
-        { name: "Ashlok Kumar", role: "Director & Visionary", icon: <UserCircle className="w-8 h-8 text-white" />, color: "from-indigo-600 to-blue-500", desc: "A seasoned educator dedicated to bringing modern pedagogical standards to the students of Patna." },
-        { name: "P.K. Sharma", role: "Principal", icon: <GraduationCap className="w-8 h-8 text-white" />, color: "from-indigo-500 to-purple-500", desc: "Expert in academic administration with 20+ years of experience in fostering student success." },
-        { name: "S. Kumari", role: "Head of Academics", icon: <BookOpen className="w-8 h-8 text-white" />, color: "from-amber-400 to-orange-500", desc: "Oversees curriculum design and ensures our teaching methods stay at the forefront of educational trends." },
-        { name: "R. Singh", role: "Physical Education Head", icon: <Trophy className="w-8 h-8 text-white" />, color: "from-emerald-400 to-teal-500", desc: "Passionate about sports and fitness, driving our students to excel in national-level athletic competitions." }
+        { name: "Ashlok Kumar", role: "Director & Founder", icon: <UserCircle className="w-8 h-8 text-white" />, color: "from-indigo-600 to-blue-500", desc: "A great teacher who started this school to give every child in Patna the best education possible." },
+        { name: "P.K. Sharma", role: "Principal", icon: <GraduationCap className="w-8 h-8 text-white" />, color: "from-indigo-500 to-purple-500", desc: "Has more than 20 years of experience running the school and helping every student do well." },
+        { name: "S. Kumari", role: "Head of Academics", icon: <BookOpen className="w-8 h-8 text-white" />, color: "from-amber-400 to-orange-500", desc: "Makes sure our subjects are taught in the best way possible and that students enjoy learning." },
+        { name: "R. Singh", role: "Sports Head", icon: <Trophy className="w-8 h-8 text-white" />, color: "from-emerald-400 to-teal-500", desc: "Loves sports and helps our students become fit, strong, and win in many school-level games." }
     ];
 
     const successStats = [
@@ -81,10 +81,10 @@ const OurStory = () => {
     ];
 
     const departmentData = [
-        { state: "Science Labs", schools: "12+ Labs", students: "500+", focus: "Practical experiments and research-based projects for Senior Secondary students." },
-        { state: "Arts & Culture", schools: "5 Clubs", students: "300+", focus: "Promoting music, dance, and fine arts to nurture creative expression." },
-        { state: "Sports Academy", schools: "4 Fields", students: "450+", focus: "Professional coaching in Cricket, Football, and Basketball." },
-        { state: "IIT/Medical Prep", schools: "Special Batches", students: "200+", focus: "Integrated coaching for entrance exams within school hours." }
+        { state: "Science Labs", schools: "12+ Labs", students: "500+", focus: "Students do real science experiments to learn about Physics, Chemistry, and Biology in a fun way." },
+        { state: "Arts & Culture", schools: "5 Clubs", students: "300+", focus: "We run music, dance, and art clubs so every child can show their creative side!" },
+        { state: "Sports Academy", schools: "4 Fields", students: "450+", focus: "Students get coaching in Cricket, Football, and Basketball from trained coaches." },
+        { state: "JEE/NEET Coaching", schools: "Special Batches", students: "200+", focus: "Special classes for students who want to become doctors or engineers when they grow up." }
     ];
 
     const [activeTab, setActiveTab] = useState(0);
@@ -93,9 +93,9 @@ const OurStory = () => {
         <div className="bg-[#F8FAFC] min-h-screen font-['Plus Jakarta Sans']">
             <PageHero
                 title="Our"
-                italicTitle="Legacy"
+                italicTitle="Story"
                 tag="Since 1998"
-                subtitle="Tracing our journey from a humble vision to a leading institution of excellence in Bihar."
+                subtitle="See how we grew from a small school into one of Patna's best — and how we keep getting better every year."
                 bgImage="/GyanSagar/StudentPatna.jpg"
                 accentColor="text-indigo-400"
             />
@@ -108,17 +108,17 @@ const OurStory = () => {
                             <Quote className="w-5 h-5" />
                             Our Vision
                         </div>
-                        <h2 className="text-5xl font-extrabold text-slate-800 mb-6 leading-tight">The Seed of <br /><span className="text-indigo-500">Excellence</span></h2>
+                        <h2 className="text-5xl font-extrabold text-slate-800 mb-6 leading-tight">How It All <br /><span className="text-indigo-500">Began</span></h2>
                         <div className="w-20 h-3 bg-gradient-to-r from-indigo-500 to-blue-400 rounded-full mb-8"></div>
                         <div className="space-y-6 text-xl text-slate-600 leading-relaxed font-light">
                             <p>
-                                What started in a small building in Ram Krishna Nagar has today blossomed into one of Patna's most respected educational institutions.
+                                What started as a small school in Ram Krishna Nagar has now become one of the most trusted schools in Patna.
                             </p>
                             <p>
-                                Founded by Shri Ashlok Kumar and a group of dedicated educators, the school was born from a simple yet powerful dream: <strong>"To create a school that treats every child like its own, providing them with the tools to build their own future."</strong>
+                                Shri Ashlok Kumar and his team started this school with one big dream: <strong>"To build a school that treats every child as its own and gives them all the tools they need to build their future."</strong>
                             </p>
                             <p>
-                                Over the past 25 years, we have evolved from a primary school to a full-fledged Senior Secondary institution, but our core value remains the same—Empowering students through education.
+                                In 25 years, we grew from a primary school to a full school up to 12th grade — but our values have never changed. We still care about every student, just as we did on day one.
                             </p>
                         </div>
                     </div>
@@ -167,10 +167,10 @@ const OurStory = () => {
                         <div className="w-20 md:w-24 h-2 md:h-3 bg-gradient-to-r from-rose-500 to-amber-400 rounded-full mb-6 md:mb-8"></div>
                         <div className="space-y-6 text-xl text-slate-600 leading-relaxed font-light">
                             <p>
-                                Our results speak louder than words. Year after year, Gyan Sagar Public School students have secure top ranks in board examinations and competitive exams like NTSE and Olympiads.
+                                Every year, our students do very well in their board exams and many win prizes in big competitions like NTSE and Olympiads.
                             </p>
                             <p>
-                                Beyond grades, we pride ourselves on the discipline and character our students exhibit in society. Our alumni are currently serving as Doctors, Engineers, Leaders, and Entrepreneurs across the globe.
+                                We are very proud of our students! Our old students are now Doctors, Engineers, and Leaders working all around the world.
                             </p>
                         </div>
                         <div className="mt-8 md:mt-10 p-5 md:p-8 bg-rose-50 shadow-inner rounded-3xl border border-rose-100 relative overflow-hidden">
@@ -190,7 +190,7 @@ const OurStory = () => {
                         <h2 className="text-white text-5xl md:text-6xl font-extrabold mb-6 uppercase tracking-tighter">The Journey of 25 Years</h2>
                         <div className="w-32 h-3 bg-indigo-500 mx-auto rounded-full mb-8"></div>
                         <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto leading-relaxed">
-                            Tracing our steps from a local initiative to a premier educational hub in Patna.
+                            See how a small school in Patna grew bigger and better with every passing year.
                         </p>
                     </div>
 
@@ -259,7 +259,7 @@ const OurStory = () => {
                         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">Academic Classes</h2>
                         <div className="w-20 h-2 bg-indigo-500 rounded-full mb-8"></div>
                         <p className="text-lg text-slate-600 font-light leading-relaxed mb-6">
-                            We offer specialized education across different levels, ensuring age-appropriate learning and maximum engagement.
+                            We teach students at every level in a way that best suits their age, so they always enjoy learning!
                         </p>
                     </div>
 
@@ -310,7 +310,7 @@ const OurStory = () => {
             <div className="bg-slate-900 py-32 text-center text-white">
                 <div className="max-w-4xl mx-auto px-4">
                     <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Be a Part of Our <br />Educational Family</h2>
-                    <p className="text-2xl text-slate-400 mb-12 font-light">Admissions for the upcoming academic year are now open. Visit our campus to learn more.</p>
+                    <p className="text-2xl text-slate-400 mb-12 font-light">Admissions for 2025-26 are now open. Come visit our school and see it for yourself!</p>
                     <div className="flex flex-wrap justify-center gap-6">
                         <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-5 px-12 rounded-2xl shadow-2xl transition-all text-xl">
                             Apply Online

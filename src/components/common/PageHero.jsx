@@ -20,6 +20,8 @@ const PageHero = ({
                     src={bgImage}
                     alt={title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                 />
                 {/* Gradient Overlays for depth and readability */}
                 <div className="absolute inset-0 bg-slate-900/50" />
@@ -71,7 +73,7 @@ const PageHero = ({
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8, duration: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
                     className="flex flex-col items-center gap-4 mt-12"
                 >
                     <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">Scroll to explore</span>
@@ -85,9 +87,9 @@ const PageHero = ({
                 </motion.div>
             </div>
 
-            {/* Prestige Glows */}
-            <div className="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
-            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse delay-700 pointer-events-none"></div>
+            {/* Prestige Glows – hidden on mobile to save GPU */}
+            <div className="hidden md:block absolute top-1/4 -right-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
+            <div className="hidden md:block absolute bottom-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse delay-700 pointer-events-none"></div>
         </section>
     );
 };

@@ -6,68 +6,68 @@ const OurMission = () => {
     const coreValues = [
         {
             icon: <GraduationCap />,
-            title: "Academic Excellence",
-            description: "At Gyan Sagar Public School, we prioritize rigorous academic standards. Our curriculum for NC to 12th is designed to challenge students and prepare them for national-level excellence."
+            title: "Strong Studies",
+            description: "At Gyan Sagar Public School, we make sure every student learns very well. Our classes from NC to 12th are made to help students do their best and score great marks."
         },
         {
             icon: <Heart />,
-            title: "Character Building",
-            description: "We believe education is incomplete without strong values. We instill honesty, respect, and empathy in our students, helping them grow into responsible citizens of Bharat."
+            title: "Good Character",
+            description: "We believe school is not just about books. We teach our students to be honest, kind, and respectful — so they grow up to be good human beings."
         },
         {
             icon: <Zap />,
-            title: "Holistic Development",
-            description: "Beyond textbooks, we focus on sports, arts, and leadership. Every child at Gyan Sagar is encouraged to discover their hidden talents through diverse co-curricular activities."
+            title: "All-Round Growth",
+            description: "We don't just focus on studies. Sports, art, and fun activities are also very important to us. Every child gets a chance to find what they love doing!"
         },
         {
             icon: <Microscope />,
-            title: "Scientific Temper",
-            description: "We encourage a spirit of inquiry. Our modern science and computer labs provide the perfect environment for students to experiment, question, and innovate."
+            title: "Love for Science",
+            description: "We teach children to ask questions and find answers. Our science labs and computer rooms help students try new things and learn by doing."
         },
         {
             icon: <Users />,
-            title: "Global Citizenship",
-            description: "While rooted in Indian values, we prepare our students for a globalized world. We emphasize communication skills and cross-cultural understanding from an early age."
+            title: "Ready for the World",
+            description: "We help students learn good values from India while also getting ready for the big world. We teach them how to talk well and understand different people."
         },
         {
             icon: <Award />,
-            title: "Consistent Results",
-            description: "Our mission is reflected in our performance. Gyan Sagar consistently produces top-tier results in board examinations (10th and 10+2), setting benchmarks in Patna."
+            title: "Great Results Always",
+            description: "Our students do very well in their 10th and 12th board exams every year. Gyan Sagar is known for producing top students in Patna!"
         }
     ];
 
     const stats = [
-        { label: "Years of Excellence", value: "25+" },
-        { label: "Successful Alumni", value: "10,000+" },
-        { label: "Expert Faculty", value: "100+" },
-        { label: "Campus Area", value: "2 Acres" }
+        { label: "Years of Teaching", value: "25+" },
+        { label: "Happy Students", value: "10,000+" },
+        { label: "Great Teachers", value: "100+" },
+        { label: "School Ground", value: "2 Acres" }
     ];
 
     const educationalStages = [
         {
             icon: <Compass className="w-8 h-8 text-amber-500" />,
             title: "1. Pre-Primary (NC to KG)",
-            description: "Play-way method focusing on sensory learning, social skills, and basic numeracy/literacy in a nurturing environment."
+            description: "Children learn by playing, drawing, and talking. We help them make new friends and learn basic things in a fun and loving way."
         },
         {
             icon: <BookText className="w-8 h-8 text-rose-500" />,
             title: "2. Primary (1st to 5th)",
-            description: "Building foundational blocks in Mathematics, Science, and Languages with a focus on conceptual clarity and creativity."
+            description: "Students learn Maths, Science, and Languages step by step. We make sure every child understands things clearly and enjoys learning."
         },
         {
             icon: <Microscope className="w-8 h-8 text-indigo-500" />,
             title: "3. Middle School (6th to 8th)",
-            description: "Transitioning to more structured academic disciplines and introducing advanced laboratory work and computer science."
+            description: "Students start learning harder topics and get to do science experiments and computer work. This is where curiosity grows!"
         },
         {
             icon: <GraduationCap className="w-8 h-8 text-emerald-500" />,
             title: "4. Secondary (9th & 10th)",
-            description: "Intensive preparation for Board exams with regular testing and personalized mentorship for career guidance."
+            description: "We help students study well for their board exams. Teachers give extra attention and guide each student about what to do after school."
         },
         {
             icon: <Award className="w-8 h-8 text-teal-500" />,
             title: "5. Sr. Secondary (10+2)",
-            description: "Specialized streams (Science/Commerce/Arts) with focused preparation for competitive exams like JEE, NEET, and CLAT."
+            description: "Students can choose Science, Commerce, or Arts. We also help them prepare for big entrance exams like JEE and NEET."
         }
     ];
 
@@ -80,15 +80,15 @@ const OurMission = () => {
     ];
 
     const pillars = [
-        { title: "Smart Learning", text: "Integration of interactive digital boards and multimedia resources to make complex theories visually intuitive for all grades.", color: "from-blue-400 to-blue-600" },
-        { title: "Safe Campus", text: "CCTV-secured premises and a strict anti-bullying policy ensure a peaceful and focused learning environment for every student.", color: "from-purple-400 to-purple-600" },
-        { title: "Personalized Care", text: "With a healthy teacher-student ratio, we provide individual attention to ensure no student is left behind in their academic journey.", color: "from-orange-400 to-rose-500" }
+        { title: "Smart Learning", text: "We use digital boards and videos to make hard topics easy and fun for students of all classes.", color: "from-blue-400 to-blue-600" },
+        { title: "Safe School", text: "Our school has cameras everywhere and strict rules so every student feels safe, happy, and can focus on studying.", color: "from-purple-400 to-purple-600" },
+        { title: "Care for Every Child", text: "Our teachers have fewer students in each class so they can give time to each child and help anyone who needs extra support.", color: "from-orange-400 to-rose-500" }
     ];
 
     const ethicalFeatures = [
-        { icon: <ShieldCheck className="w-8 h-8 text-emerald-500" />, title: "Safety First", desc: "Verifiable background checks for all staff and GPS-enabled transport for total parental peace of mind." },
-        { icon: <Fingerprint className="w-8 h-8 text-amber-500" />, title: "Honesty Policy", desc: "A strict code of conduct that promotes academic integrity and discourages all forms of unfair practices." },
-        { icon: <Users className="w-8 h-8 text-indigo-500" />, title: "Parent Collaboration", desc: "Regular PTMs and a dedicated mobile app to keep parents updated on their child's daily progress and attendance." }
+        { icon: <ShieldCheck className="w-8 h-8 text-emerald-500" />, title: "Safety First", desc: "All our staff are properly checked before joining. Our school buses have GPS tracking so parents always know where their child is." },
+        { icon: <Fingerprint className="w-8 h-8 text-amber-500" />, title: "Honesty Matters", desc: "We have clear rules so students behave well and work hard honestly. Cheating is never allowed at Gyan Sagar." },
+        { icon: <Users className="w-8 h-8 text-indigo-500" />, title: "Parents Stay Updated", desc: "We hold regular Parent-Teacher meetings and use a mobile app to share news about your child's progress and attendance." }
     ];
 
     return (
@@ -108,19 +108,19 @@ const OurMission = () => {
                     <div className="md:w-1/2">
                         <div className="inline-flex items-center gap-2 mb-4 text-emerald-600 font-bold uppercase tracking-widest text-sm">
                             <Lightbulb className="w-5 h-5" />
-                            Our Pedagogy
+                            How We Teach
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">Philosophy of <br /><span className="text-emerald-500">Holistic Learning</span></h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">Our Way of <br /><span className="text-emerald-500">Teaching & Learning</span></h2>
                         <div className="w-20 h-3 bg-emerald-500 rounded-full mb-8"></div>
                         <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                             <p>
-                                We believe that true education goes beyond textbooks. At Gyan Sagar, our pedagogy is centered on 'Action-Based Learning.' We encourage students to interact with their environment, asking 'why' and 'how' rather than just 'what.'
+                                We believe that real learning happens when students do things — not just read about them. At Gyan Sagar, we ask students to ask questions like "Why?" and "How?" so they truly understand what they study.
                             </p>
                             <p>
-                                For our senior students, the focus shifts towards a balanced mix of academic rigor and competitive preparation. We provide in-house training for national-level entrance exams, ensuring our students are ready for the challenges that lie beyond school gates.
+                                For older students, we mix study with practice. We also train students inside school for big exams like JEE and NEET, so they don't have to go anywhere else.
                             </p>
                             <p>
-                                Discipline and mental health are the cornerstones of our approach. Weekly meditation sessions, regular sports activities, and one-on-one counseling help our students maintain focus and emotional balance.
+                                We care about both studying AND feeling good. Students enjoy meditation, sports, and friendly chats with teachers to stay happy and focused every day.
                             </p>
                         </div>
                     </div>
@@ -139,14 +139,14 @@ const OurMission = () => {
             <div className="max-w-7xl mx-auto px-4 py-24">
                 <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
                     <div className="lg:w-1/2">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">The Grand Vision</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">Our Big Dream</h2>
                         <div className="w-20 h-[10px] bg-indigo-600 rounded-full mb-8"></div>
                         <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                             <p>
-                                Gyan Sagar Public School was founded with a vision to bring world-class education within the reach of families in Patna. We don't just see ourselves as a school, but as a community dedicated to the intellectual and moral growth of our youth.
+                                Gyan Sagar Public School started with a dream — to give every child in Patna a chance to get the best education. We are not just a school, we are a family that cares about every student's growth.
                             </p>
                             <p>
-                                We envision our students becoming not just successful professionals, but compassionate individuals who contribute positively to society. Our integrated curriculum for NC to 12th ensures a steady, logical growth of knowledge and confidence.
+                                We want our students to become not just good at their jobs, but also kind and helpful people. Our school teaches both brain and heart — from NC all the way to 12th grade.
                             </p>
                             <div className="flex items-start gap-4 p-4 md:p-8 bg-indigo-50 rounded-3xl border border-indigo-100">
                                 <div className="bg-indigo-100 p-3 md:p-4 rounded-2xl flex-shrink-0">
@@ -178,7 +178,7 @@ const OurMission = () => {
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <div className="text-center mb-16">
                         <p className="text-amber-400 font-bold uppercase tracking-widest text-sm mb-4">Academic Journey</p>
-                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">From Playroom to Professionalism</h2>
+                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">From Play School to Big School</h2>
                         <div className="w-24 h-2 bg-gradient-to-r from-amber-400 to-rose-500 mx-auto rounded-full mb-8"></div>
                         <p className="text-lg text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
                             A student's journey at Gyan Sagar is structured to provide age-appropriate challenges and growth at every step of their school life.
@@ -203,9 +203,9 @@ const OurMission = () => {
             <div className="bg-indigo-900 py-20 border-y border-indigo-800">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16 text-white">
-                        <h2 className="text-4xl font-extrabold mb-4">Our Legacy in Numbers</h2>
+                        <h2 className="text-4xl font-extrabold mb-4">Our Numbers Tell the Story</h2>
                         <p className="text-indigo-200 text-lg max-w-2xl mx-auto font-light">
-                            Over two decades of dedication has resulted in thousands of success stories that inspire our current students every day.
+                            In over 25 years, thousands of children have grown up and done great things! They are our biggest achievement.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
@@ -222,11 +222,11 @@ const OurMission = () => {
             {/* Core Values Section */}
             <div className="max-w-7xl mx-auto px-4 py-24">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">What Drives Us Forward</h2>
-                    <div className="w-24 h-2 bg-amber-500 mx-auto rounded-full mb-6"></div>
-                    <p className="text-lg text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-                        At Gyan Sagar Public School, we stay true to our founding principles, ensuring every student receives an education rooted in empathy and excellence.
-                    </p>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">What We Have Achieved</h2>
+                        <div className="w-24 h-2 bg-amber-500 mx-auto rounded-full mb-6"></div>
+                        <p className="text-lg text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                            At Gyan Sagar Public School, we always follow our values and make sure every student gets a good education that builds both brain and character.
+                        </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -257,7 +257,7 @@ const OurMission = () => {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Built on <span className="text-indigo-600">Ethics & Safety</span></h2>
                         <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
-                            Trust is the foundation of any educational institution. We ensure that our campus is a sanctuary where students can learn without any fear or distraction.
+                            We keep our school safe and honest so every student can learn without any worry or fear.
                         </p>
                     </div>
 
@@ -320,7 +320,7 @@ const OurMission = () => {
             <div className="py-24 bg-white overflow-hidden relative border-b border-slate-200">
                 <div className="max-w-7xl mx-auto px-4 text-center mb-12 relative z-10">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800">Voices of Our Community</h2>
-                    <p className="text-slate-500 mt-4 text-lg">What parents and alumni say about Gyan Sagar.</p>
+                    <p className="mt-4 text-center text-slate-500 font-medium">What parents and our former students say about Gyan Sagar.</p>
                 </div>
 
                 <div className="flex space-x-6 w-max animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused] px-4">
@@ -358,7 +358,7 @@ const OurMission = () => {
                         <School className="w-20 h-20 text-amber-400 mx-auto mb-8 drop-shadow-xl" />
                         <h2 className="text-5xl md:text-6xl font-extrabold mb-8 drop-shadow-lg">Take the First Step</h2>
                         <p className="text-indigo-100 text-xl max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-                            Admissions are open for the session 2025-26. Join the Gyan Sagar family and give your child the foundation they deserve.
+                            Admissions are open for 2025-26. Come and join our Gyan Sagar family. Give your child a great start in life!
                         </p>
                         <button className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 font-extrabold py-5 px-14 rounded-full shadow-2xl transform hover:-translate-y-2 hover:shadow-amber-500/30 transition-all duration-500 text-xl tracking-wide">
                             Register for Admission

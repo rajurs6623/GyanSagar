@@ -80,9 +80,9 @@ const CampusCarousel = () => {
       <div className="max-w-[1400px] mx-auto px-4 md:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">Explore Our Campus</h2>
+            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">See Our School!</h2>
             <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl">
-              Take a virtual tour of Gyan Sagar Public School, Ram Krishna Nagar, Patna.
+              Take a look inside Gyan Sagar Public School, Ram Krishna Nagar, Patna.
             </p>
           </div>
           <div className="hidden md:flex gap-4">
@@ -309,12 +309,12 @@ const Home = () => {
 
   // ─── Why Choose Us ─────────────────────────────────────────────────────────
   const whyUs = [
-    { icon: <GraduationCap className="w-7 h-7" />, title: "25+ Years of Excellence", desc: "Trusted by thousands of Patna families since 1998.", color: "bg-indigo-100 text-indigo-600" },
-    { icon: <Trophy className="w-7 h-7" />, title: "100% Board Results", desc: "Consistent toppers in Bihar Board and CBSE pattern.", color: "bg-amber-100 text-amber-600" },
-    { icon: <Shield className="w-7 h-7" />, title: "Safe & Secure Campus", desc: "CCTV, GPS buses, and a fully child-safe environment.", color: "bg-emerald-100 text-emerald-600" },
-    { icon: <Laptop className="w-7 h-7" />, title: "Smart Classrooms", desc: "Technology-enabled learning for every grade.", color: "bg-blue-100 text-blue-600" },
-    { icon: <Palette className="w-7 h-7" />, title: "Digital Arts", desc: "Equipping students with modern creative skills.", color: "bg-rose-100 text-rose-600" },
-    { icon: <Bus className="w-7 h-7" />, title: "GPS School Transport", desc: "Safe, tracked buses on all major Patna routes.", color: "bg-slate-100 text-slate-600" },
+    { icon: <GraduationCap className="w-7 h-7" />, title: "25+ Years of Great Teaching", desc: "Families in Patna have trusted us since 1998.", color: "bg-indigo-100 text-indigo-600" },
+    { icon: <Trophy className="w-7 h-7" />, title: "100% Pass in Board Exams", desc: "Our students always do great in Bihar Board and board exams.", color: "bg-amber-100 text-amber-600" },
+    { icon: <Shield className="w-7 h-7" />, title: "Safe School", desc: "Cameras on campus, GPS buses — your child is always safe.", color: "bg-emerald-100 text-emerald-600" },
+    { icon: <Laptop className="w-7 h-7" />, title: "Smart Classrooms", desc: "We use smart boards and computers to make learning fun.", color: "bg-blue-100 text-blue-600" },
+    { icon: <Palette className="w-7 h-7" />, title: "Art & Creativity", desc: "We teach drawing, music, and digital art to all students.", color: "bg-rose-100 text-rose-600" },
+    { icon: <Bus className="w-7 h-7" />, title: "School Bus with GPS", desc: "Safe buses that cover all big roads in Patna.", color: "bg-slate-100 text-slate-600" },
   ];
 
   // ─── Academic Classes ──────────────────────────────────────────────────────
@@ -358,11 +358,10 @@ const Home = () => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-6">
           <div className="text-center mb-10 md:mb-14">
             <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">
-              Our Academic Journey
+              How We Teach Step by Step
             </h2>
             <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl mx-auto">
-              From Nursery to Class 12 — we nurture young minds at every stage with dedicated
-              faculty, structured curriculum, and holistic care.
+              From Nursery to Class 12 — we take care of every student, teach them step by step, and help them grow into great young people.
             </p>
           </div>
 
@@ -442,14 +441,10 @@ const Home = () => {
         
         <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-12 md:mb-16">
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center gap-2 px-6 py-2 bg-rose-100 text-rose-600 rounded-full mb-6"
-            >
+            <div className="inline-flex items-center gap-2 px-6 py-2 bg-rose-100 text-rose-600 rounded-full mb-6">
               <Cake size={20} className="animate-bounce" />
               <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">Celebrations</span>
-            </motion.div>
+            </div>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4">
               Happy <span className="text-rose-500">Birthday!</span>
             </h2>
@@ -464,25 +459,18 @@ const Home = () => {
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 whileHover={{ y: -10 }}
                 className="relative group w-full h-full"
               >
-                {/* Decorative Balloons */}
-                <motion.div 
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                  className="absolute -top-6 -right-4 text-3xl group-hover:scale-125 transition-transform z-20"
-                >
+                {/* Decorative Balloons - CSS only, no JS animation */}
+                <div className="absolute -top-6 -right-4 text-3xl group-hover:scale-125 transition-transform z-20 animate-bounce">
                   🎈
-                </motion.div>
-                <motion.div 
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
-                  className="absolute -top-10 -left-4 text-4xl group-hover:scale-125 transition-transform z-20"
-                >
+                </div>
+                <div className="absolute -top-10 -left-4 text-4xl group-hover:scale-125 transition-transform z-20" style={{animation: 'bounce 1.5s infinite 0.3s'}}>
                   🎊
-                </motion.div>
+                </div>
 
                 <div className="bg-white p-6 md:p-8 rounded-[3rem] shadow-xl border border-rose-100 relative overflow-hidden flex flex-col items-center text-center group-hover:shadow-2xl transition-all h-full min-h-[420px] justify-between">
                   <div className="absolute top-0 inset-x-0 h-2 bg-rose-500" />
@@ -555,7 +543,7 @@ const Home = () => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-6">
           <div className="text-center mb-10">
             <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2">Why Choose Gyan Sagar?</h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base">The pillars of excellence that make us Patna's premier school</p>
+            <p className="text-slate-500 font-medium text-xs md:text-base">Here's what makes us special and why so many families trust us!</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {whyUs.map((item, idx) => (
@@ -579,8 +567,8 @@ const Home = () => {
       <section className="py-10 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 md:px-6">
           <div className="text-center mb-10">
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2">Our Leadership</h2>
-            <p className="text-slate-500 font-medium text-xs md:text-base">The visionaries behind Gyan Sagar Public School</p>
+            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-2">Meet Our Leaders</h2>
+            <p className="text-slate-500 font-medium text-xs md:text-base">The people who lead and guide Gyan Sagar Public School</p>
           </div>
           <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-10 px-4">
             {faculty.map((member, idx) => (
@@ -631,7 +619,7 @@ const Home = () => {
             Admissions Open for 2025-26
           </h2>
           <p className="text-xs md:text-lg text-slate-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Secure your child's future at Patna's premier educational institute. Limited seats available from NC to 12th.
+            Give your child the best school in Patna. We have classes from NC to 12th. Seats are filling up fast — apply now!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/admission-inquiry" className="inline-block px-8 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl shadow-indigo-100">
@@ -659,9 +647,9 @@ const Home = () => {
                 <OptimizedImage src="/GyanSagar/Student.jpg" alt="Students at Gyan Sagar" className="w-full h-[400px] object-cover transform transition-transform duration-1000 group-hover:scale-105" width={800} />
               </div>
               <div className="space-y-6">
-                <h3 className="text-2xl md:text-4xl font-black text-slate-800 leading-tight">Nurturing the Leaders of Tomorrow</h3>
+                <h3 className="text-2xl md:text-4xl font-black text-slate-800 leading-tight">We Help Our Students Shine</h3>
                 <p className="text-slate-600 text-lg leading-relaxed">
-                  Gyan Sagar Public School is more than just a school. It's a sanctuary where every child's potential is recognized and polished. Our dedicated faculty and modern infrastructure work in harmony to create an environment where learning is a joy and success is a habit.
+                  Gyan Sagar Public School is more than just a school. Every child is special here. Our caring teachers and bright classrooms work together to make learning fun and help every student reach their goals.
                 </p>
                 <div className="pt-4 flex flex-wrap gap-4">
                   <div className="bg-white px-6 py-3 rounded-2xl shadow-sm border border-slate-100">
