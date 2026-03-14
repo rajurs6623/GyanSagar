@@ -220,12 +220,3 @@ const SeniorSecondary = () => {
 };
 
 export default SeniorSecondary;
-                        />
-                    </div >
-                </div >
-            </section >
-        </div >
-    );
-};
-
-export default SeniorSecondary;
