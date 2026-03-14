@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Bus, MapPin, Clock, ShieldCheck,
     Phone, Users, ArrowRight, Star,
-    AlertCircle, CheckCircle2, Navigation
+    AlertCircle, CheckCircle2, Navigation, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const SchoolTransport = () => {
     const [selectedRoute, setSelectedRoute] = useState('Route 1');
@@ -34,98 +35,15 @@ const SchoolTransport = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            {/* Premium Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center pb-20 px-4 overflow-hidden bg-slate-900 text-white">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 z-0 opacity-20">
-                    <img 
-                        src="/3d_school_bus_1773384243028.png" 
-                        alt="Route Map" 
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/80 to-slate-900"></div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
-
-                <div className="relative z-10 max-w-7xl mx-auto w-full">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="flex-1 text-center lg:text-left"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center gap-2 px-6 py-2 bg-indigo-500/10 border border-indigo-500/20 backdrop-blur-md text-indigo-400 rounded-full text-xs font-black uppercase tracking-widest mb-8 shadow-2xl"
-                            >
-                                <Navigation className="w-4 h-4" /> Safety First • GPS Enabled
-                            </motion.div>
-                            <h1 className="text-6xl md:text-[6.5rem] font-black text-white mb-8 tracking-tighter leading-none">
-                                School <br />
-                                <span className="text-indigo-400 italic">Transport</span>
-                            </h1>
-                            <p className="text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                                Ensuring every student reaches home and school safely with our modern 
-                                fleet, professional tracking systems, and dedicated care.
-                            </p>
-                            
-                            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
-                                <button className="px-10 py-5 bg-indigo-600 text-white font-black rounded-2xl shadow-2xl shadow-indigo-600/20 hover:scale-105 transition-all">
-                                    Explore Routes
-                                </button>
-                                <button className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all">
-                                    Safety Protocols
-                                </button>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            transition={{ duration: 1, type: "spring" }}
-                            className="flex-1 relative hidden lg:block"
-                        >
-                            <div className="relative z-10">
-                                <img
-                                    src="/3d_school_bus_1773384243028.png"
-                                    alt="Modern Transport"
-                                    className="w-full max-w-md mx-auto drop-shadow-[0_35px_35px_rgba(79,70,229,0.3)] animate-float"
-                                />
-                            </div>
-                            
-                            {/* Floating Stats */}
-                            <motion.div 
-                                animate={{ y: [0, -15, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-0 right-0 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <Bus className="w-8 h-8 text-indigo-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">GPS</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Tracking</p>
-                            </motion.div>
-
-                            <motion.div 
-                                animate={{ y: [0, 15, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-10 -left-5 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <ShieldCheck className="w-8 h-8 text-emerald-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">100%</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Safe Passage</p>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Bottom transition */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
-            </section>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="School"
+                italicTitle="Transport"
+                tag="Safety First • GPS Enabled"
+                subtitle="Ensuring every student reaches home and school safely with our modern fleet, professional tracking systems, and dedicated care."
+                bgImage="/3d_school_bus_1773384243028.png"
+                accentColor="text-indigo-400"
+            />
 
             {/* Safety Features */}
             <div className="max-w-7xl mx-auto px-4 mb-32">

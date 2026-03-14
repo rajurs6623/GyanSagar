@@ -5,8 +5,9 @@ import {
     Layers, Search, CheckCircle2, Star, Quote, ChevronDown,
     Zap, MousePointer2, Heart, Leaf, Microscope, Palette,
     Users, Briefcase, Languages, MapPin, History, Flag,
-    Dribbble as Ball, Computer, Library, School
+    Dribbble as Ball, Computer, Library, School, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const OurInfrastructure = () => {
     const [activeFaq, setActiveFaq] = useState(null);
@@ -70,44 +71,15 @@ const OurInfrastructure = () => {
     ];
 
     return (
-        <div className="pt-0 pb-20 bg-[#F8FAFC] min-h-screen font-sans">
-            {/* Hero Section */}
-            <div className="relative w-full bg-[#0F172A] py-32 px-4 overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/GyanSagar/StudentPatna.jpg"
-                        alt="Campus Hero"
-                        className="w-full h-full object-cover opacity-50 mix-blend-overlay"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-                    <div className="lg:w-1/2 text-white text-center lg:text-left">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 mb-6 backdrop-blur-sm">
-                            <School className="w-4 h-4 text-blue-400" />
-                            <span className="text-sm font-bold tracking-widest text-blue-300 uppercase">World Class Infrastructure</span>
-                        </div>
-                        <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                            Building a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Better Future</span> with Best Facilities
-                        </h1>
-                        <p className="text-xl text-slate-300 leading-relaxed font-light max-w-xl mx-auto lg:mx-0">
-                            At Gyan Sagar Public School, our campus is designed to inspire curiosity and facilitate growth. From modern labs to green play areas, every corner supports learning.
-                        </p>
-                    </div>
-
-                    <div className="lg:w-1/2 flex justify-center">
-                        <div className="relative group">
-                            <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full group-hover:bg-blue-500/30 transition-all duration-700"></div>
-                            <img
-                                src="/GyanSagar/LogoGyansagar.jfif"
-                                alt="School Pride"
-                                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-white/10 shadow-2xl animate-float object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="bg-[#F8FAFC] min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Building a"
+                italicTitle="Better Future"
+                tag="World Class Infrastructure"
+                subtitle="At Gyan Sagar Public School, our campus is designed to inspire curiosity and facilitate growth. From modern labs to green play areas, every corner supports learning."
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-blue-400"
+            />
 
             {/* Infrastructure Stats */}
             <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-20">

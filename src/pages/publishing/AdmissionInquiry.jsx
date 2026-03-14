@@ -5,8 +5,9 @@ import {
     BookOpen, MapPin, Send, CheckCircle2,
     Calendar, Users, Info, Sparkles,
     ShieldCheck, Heart, Star, Clock,
-    ArrowRight, Trophy, MessageSquare
+    ArrowRight, Trophy, MessageSquare, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const WHATSAPP_NUMBER = '917979001951';
 
@@ -65,88 +66,14 @@ const AdmissionInquiry = () => {
     return (
         <div className="min-h-screen bg-white pt-28 pb-20 font-['Nunito']">
 
-            {/* ─── HERO BANNER ─── */}
-            <div className="max-w-7xl mx-auto px-4 mb-16">
-                <div className="bg-slate-900 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden shadow-2xl">
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-                                className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 backdrop-blur-md rounded-full text-indigo-400 text-xs font-black uppercase tracking-widest mb-6 border border-white/10"
-                            >
-                                <Sparkles className="w-4 h-4 fill-indigo-400" /> Start the Journey
-                            </motion.div>
-                            <motion.h1
-                                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}
-                                className="text-5xl md:text-7xl font-[900] mb-6 tracking-tighter"
-                            >
-                                Admission <span className="text-indigo-400">Inquiry</span>
-                            </motion.h1>
-                            <motion.p
-                                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
-                                className="text-slate-400 text-lg font-medium leading-relaxed max-w-lg mb-10"
-                            >
-                                Fill the form below and our team will reach you within 24 hours.
-                                Or directly connect with us on WhatsApp for instant support!
-                            </motion.p>
-
-                            <div className="flex flex-wrap gap-4">
-                                <a
-                                    href={whatsappDirectUrl}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="inline-flex items-center gap-2 px-7 py-4 bg-[#25D366] text-white rounded-2xl font-black hover:bg-green-700 transition-all shadow-lg shadow-green-900/30"
-                                >
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                                    </svg>
-                                    Chat on WhatsApp
-                                </a>
-                                <a
-                                    href="tel:+917979001951"
-                                    className="inline-flex items-center gap-2 px-7 py-4 bg-white/10 border border-white/20 text-white rounded-2xl font-black hover:bg-white/20 transition-all"
-                                >
-                                    <Phone className="w-5 h-5" /> +91 7979 001 951
-                                </a>
-                            </div>
-
-                            <div className="grid grid-cols-3 gap-6 mt-10">
-                                {[
-                                    { val: "NC–12th", label: "All Classes" },
-                                    { val: "June", label: "New Session" },
-                                    { val: "24h", label: "Response" },
-                                ].map((s, i) => (
-                                    <div key={i}>
-                                        <p className="text-indigo-400 font-black text-2xl md:text-3xl">{s.val}</p>
-                                        <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">{s.label}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="relative hidden lg:block">
-                            <div className="absolute inset-0 bg-indigo-500/20 rounded-[4rem] blur-[100px]"></div>
-                            <div className="relative bg-white/5 backdrop-blur-md p-6 rounded-[4rem] border border-white/10 shadow-2xl">
-                                <img
-                                    src="/GyanSagar/StudentPatna.jpg"
-                                    alt="Student at Gyan Sagar"
-                                    className="w-full h-72 object-cover rounded-[3rem] opacity-80"
-                                />
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                                    <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-2xl">
-                                        <GraduationCap className="w-10 h-10 text-white" />
-                                    </div>
-                                    <p className="text-white font-black text-xl drop-shadow-lg">Build Your Future</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-                        <div className="absolute top-10 left-10 w-80 h-80 bg-indigo-500 rounded-full blur-[150px]"></div>
-                        <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-500 rounded-full blur-[150px]"></div>
-                    </div>
-                </div>
-            </div>
+            <PageHero 
+                title="Admission"
+                italicTitle="Inquiry"
+                tag="Start the Journey"
+                subtitle="Fill the form below and our team will reach you within 24 hours. Or directly connect with us on WhatsApp for instant support!"
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-indigo-400"
+            />
 
             {/* ─── MAIN FORM + SIDEBAR ─── */}
             <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 items-start">

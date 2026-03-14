@@ -6,6 +6,7 @@ import {
     Gamepad2, Camera, Star, Heart,
     Sun, Music, Users, Trophy, Palette
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const CampusFacilities = () => {
     const facilities = [
@@ -99,48 +100,14 @@ const CampusFacilities = () => {
 
     return (
         <div className="min-h-screen bg-white font-['Nunito']">
-            {/* ─── CAMPUS HERO ─── */}
-            <section className="relative min-h-[90vh] flex items-center justify-center pb-20 px-4 text-white text-center overflow-hidden mb-20">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/3d_school_campus_premium.png"
-                        alt="Campus Facilities Background"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/50" />
-                </div>
-
-                <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center mt-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                        className="text-amber-500 font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6"
-                    >
-                        World-Class Infrastructure
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                        className="text-6xl md:text-8xl md:text-[6rem] font-bold tracking-tight mb-8"
-                    >
-                        Campus <span className="font-serif italic text-amber-500 font-normal">& Facilities</span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                        className="text-lg md:text-2xl text-white/90 font-medium italic max-w-2xl leading-relaxed mb-16"
-                    >
-                        "We provide a world-class environment in Ram Krishna Nagar, Patna, that inspires learning, creativity, and physical excellence."
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
-                        className="flex flex-col items-center gap-3 mt-10"
-                    >
-                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Scroll to explore</span>
-                        <div className="w-[1px] h-16 bg-gradient-to-b from-amber-500 to-transparent" />
-                    </motion.div>
-                </div>
-            </section>
+            <PageHero 
+                title="Campus"
+                italicTitle="& Facilities"
+                tag="World-Class Infrastructure"
+                subtitle="We provide a world-class environment in Ram Krishna Nagar, Patna, that inspires learning, creativity, and physical excellence."
+                bgImage="/3d_school_campus_premium.png"
+                accentColor="text-amber-500"
+            />
 
             {/* Facilities Grid */}
             <section className="max-w-7xl mx-auto px-4 py-12">

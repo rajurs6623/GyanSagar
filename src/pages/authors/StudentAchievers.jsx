@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import {
     Trophy, Star, Award, GraduationCap,
     ArrowRight, Users, Heart, Zap,
-    Medal, BookOpen, Microscope, Palette, Music, MapPin, Phone
+    Medal, BookOpen, Microscope, Palette, Music, MapPin, Phone, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 // ─── School Achievers Data ──────────────────────────────────────────────────────
 const toppers = [
@@ -126,98 +127,15 @@ const StudentAchievers = () => {
     const [openCategory, setOpenCategory] = useState(0);
 
     return (
-        <div className="min-h-screen bg-slate-50 font-['Nunito']">
-            {/* Premium Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center pb-20 px-4 overflow-hidden bg-slate-900">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/GyanSagar/Student.jpg"
-                        alt="Achievers Background"
-                        className="w-full h-full object-cover opacity-20"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
-                </div>
-
-                {/* Floating Glows */}
-                <div className="absolute top-1/4 -right-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
-
-                <div className="relative z-10 max-w-7xl mx-auto w-full">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="flex-1 text-center lg:text-left"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center gap-2 px-6 py-2 bg-amber-500/10 border border-amber-500/20 backdrop-blur-md text-amber-500 rounded-full text-xs font-black uppercase tracking-widest mb-8 shadow-2xl"
-                            >
-                                <Trophy className="w-4 h-4" /> Pride of Gyan Sagar Public School
-                            </motion.div>
-                            <h1 className="text-6xl md:text-[7rem] font-black text-white mb-8 tracking-tighter leading-none">
-                                Student <br />
-                                <span className="text-amber-500 italic">Achievers</span>
-                            </h1>
-                            <p className="text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                                Celebrating the hard work, excellence, and outstanding performance of our students 
-                                from NC to Class 12. We cultivate winners!
-                            </p>
-                            
-                            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
-                                <button className="px-10 py-5 bg-amber-500 text-slate-900 font-black rounded-2xl shadow-2xl shadow-amber-500/20 hover:scale-105 transition-all">
-                                    Hall of Fame
-                                </button>
-                                <button className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all">
-                                    Our Legacy
-                                </button>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            transition={{ duration: 1, type: "spring" }}
-                            className="flex-1 relative hidden lg:block"
-                        >
-                            <div className="relative z-10">
-                                <img
-                                    src="/3d_golden_trophy_scholarship_1773392691161.png"
-                                    alt="Achievement"
-                                    className="w-full max-w-md mx-auto drop-shadow-[0_35px_35px_rgba(245,158,11,0.3)] animate-float"
-                                />
-                            </div>
-                            
-                            {/* Stats Floaties */}
-                            <motion.div 
-                                animate={{ y: [0, -15, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-0 left-0 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <Star className="w-8 h-8 text-amber-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">100%</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Pass Rate</p>
-                            </motion.div>
-
-                            <motion.div 
-                                animate={{ y: [0, 15, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-10 -right-5 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <Award className="w-8 h-8 text-indigo-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">500+</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Medals Won</p>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Bottom transition */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
-            </section>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Student"
+                italicTitle="Achievers"
+                tag="Pride of Gyan Sagar Public School"
+                subtitle="Celebrating the hard work, excellence, and outstanding performance of our students from NC to Class 12. We cultivate winners!"
+                bgImage="/GyanSagar/Student.jpg"
+                accentColor="text-amber-500"
+            />
 
             {/* ─── STATS BAR ─── */}
             <section className="bg-indigo-600 py-10 px-4">

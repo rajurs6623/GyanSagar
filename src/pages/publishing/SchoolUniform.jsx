@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
     ShieldCheck, Ruler, Scissors, Sparkles, 
     CheckCircle2, Info, Star, Clock, 
-    ArrowRight, Heart, Briefcase, UserCheck
+    ArrowRight, Heart, Briefcase, UserCheck, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const SchoolUniform = () => {
     const [selectedGender, setSelectedGender] = useState('Boys');
@@ -34,34 +35,15 @@ const SchoolUniform = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white pt-32 pb-20 font-['Nunito']">
-            {/* Uniform Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-5 py-2 bg-indigo-50 rounded-full text-indigo-600 shadow-xl shadow-indigo-100/50 border border-indigo-50 text-[10px] font-black uppercase tracking-[0.2em] mb-8"
-                >
-                    <UserCheck className="w-4 h-4 fill-indigo-600" /> Identity & Discipline
-                </motion.div>
-                <motion.h1 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-6xl md:text-8xl font-[900] text-slate-900 tracking-tighter mb-8"
-                >
-                    Uniform <span className="text-indigo-600">Code</span>
-                </motion.h1>
-                <motion.p 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-slate-500 text-xl font-medium max-w-2xl mx-auto leading-relaxed"
-                >
-                    A uniform creates a sense of belonging and equality. Our dress code identifies 
-                    a student as a member of the Gyan Sagar community.
-                </motion.p>
-            </div>
+        <div className="min-h-screen bg-white pb-20 font-['Nunito']">
+            <PageHero 
+                title="Uniform"
+                italicTitle="Code"
+                tag="Identity & Discipline"
+                subtitle="A uniform creates a sense of belonging and equality. Our dress code identifies a student as a member of the Gyan Sagar community."
+                bgImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
 
             {/* Switcher & Display */}
             <div className="max-w-7xl mx-auto px-4 mb-32">

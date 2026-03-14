@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import { 
     Trophy, Music, Palette, Users, 
     Star, Heart, Zap, Globe,
-    Compass, Camera, Gamepad2, Mic2
+    Compass, Camera, Gamepad2, Mic2, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const CoCurricular = () => {
     const activities = [
@@ -47,49 +48,14 @@ const CoCurricular = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
-            {/* ─── CO-CURRICULAR HERO ─── */}
-            <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 px-4 text-white text-center overflow-hidden mb-20">
-                <div className="absolute inset-0 z-0">
-                    <img 
-                        src="/3d_co_curricular_1773388614135.png" 
-                        alt="Co-Curricular Background" 
-                        className="w-full h-full object-cover grayscale-[10%]"
-                    />
-                    <div className="absolute inset-0 bg-black/70 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-slate-50" />
-                </div>
-
-                <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center mt-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                        className="text-amber-500 font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6"
-                    >
-                        Beyond the Classroom
-                    </motion.div>
-                    
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                        className="text-6xl md:text-8xl md:text-[6rem] font-bold tracking-tight mb-8"
-                    >
-                        Co-Curricular <span className="font-serif italic text-amber-500 font-normal">& Sports</span>
-                    </motion.h1>
-                    
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                        className="text-lg md:text-2xl text-white/90 font-medium italic max-w-2xl leading-relaxed mb-16"
-                    >
-                        "Because holistic development means discovering talent that goes far beyond academic excellence."
-                    </motion.p>
-                    
-                    <motion.div
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
-                        className="flex flex-col items-center gap-3 mt-10"
-                    >
-                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Scroll to explore</span>
-                        <div className="w-[1px] h-16 bg-gradient-to-b from-amber-500 to-transparent" />
-                    </motion.div>
-                </div>
-            </section>
+            <PageHero 
+                title="Co-Curricular"
+                italicTitle="& Sports"
+                tag="Beyond the Classroom"
+                subtitle="Because holistic development means discovering talent that goes far beyond academic excellence."
+                bgImage="/3d_co_curricular_1773388614135.png"
+                accentColor="text-amber-500"
+            />
 
             {/* Activities Grid */}
             <div className="max-w-7xl mx-auto px-4 mb-32">

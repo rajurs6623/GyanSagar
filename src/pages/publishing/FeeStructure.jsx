@@ -5,8 +5,9 @@ import {
     ArrowRight, Info, CheckCircle2, 
     Clock, HelpCircle, Download,
     Briefcase, PieChart, TrendingUp,
-    Star, Heart, Lock
+    Star, Heart, Lock, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const FeeStructure = () => {
     const [selectedCategory, setSelectedCategory] = useState('Primary');
@@ -55,52 +56,24 @@ const FeeStructure = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20 font-['Nunito']">
-            {/* Fee Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20">
-                <div className="bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center md:text-left">
-                        <div>
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-indigo-400 text-xs font-black uppercase tracking-widest mb-6 border border-white/10"
-                            >
-                                <Lock className="w-4 h-4" /> Transparent & Simple
-                            </motion.div>
-                            <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
-                                Investment in <br /><span className="text-indigo-400">Education</span>
-                            </h1>
-                            <p className="text-slate-400 text-lg font-medium mb-10 leading-relaxed max-w-lg">
-                                We maintain a transparent fee structure with no hidden costs. 
-                                Our goal is to provide world-class education that remains accessible.
-                            </p>
-                            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                                <button className="px-8 py-4 bg-indigo-600 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/20 hover:scale-105 transition-all flex items-center gap-3">
-                                    Download Fee Chart <Download className="w-5 h-5" />
-                                </button>
-                                <button className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-black rounded-2xl hover:bg-white/20 transition-all flex items-center gap-3">
-                                    Pay Online <Wallet className="w-5 h-5" />
-                                </button>
-                            </div>
-                        </div>
+        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
+            <PageHero 
+                title="Investment in"
+                italicTitle="Education"
+                tag="Transparent & Simple"
+                subtitle="We maintain a transparent fee structure with no hidden costs. Our goal is to provide world-class education that remains accessible."
+                bgImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
 
-                        <div className="hidden lg:block">
-                            <div className="grid grid-cols-2 gap-6 relative">
-                                <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-[100px]"></div>
-                                <div className="bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-md text-left transform -rotate-3">
-                                    <PieChart className="w-10 h-10 text-indigo-400 mb-6" />
-                                    <h4 className="text-xl font-black mb-2">Quarterly Payment</h4>
-                                    <p className="text-slate-400 text-xs font-bold leading-relaxed">Save 2% on tuition fees by paying quarterly upfront.</p>
-                                </div>
-                                <div className="bg-indigo-600 p-8 rounded-[3rem] text-left transform translate-y-12 rotate-3 shadow-2xl">
-                                    <ShieldCheck className="w-10 h-10 text-white mb-6" />
-                                    <h4 className="text-xl font-black mb-2">Zero Hidden Fix</h4>
-                                    <p className="text-indigo-100 text-xs font-bold leading-relaxed">Everything is shared in the annual prospectus at the start.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="max-w-7xl mx-auto px-4 mb-20 -mt-32 relative z-20">
+                <div className="bg-white/10 backdrop-blur-xl p-8 rounded-[3rem] border border-white/20 shadow-3xl flex flex-wrap justify-center gap-6">
+                    <button className="px-8 py-4 bg-indigo-600 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/20 hover:scale-105 transition-all flex items-center gap-3">
+                        Download Fee Chart <Download className="w-5 h-5" />
+                    </button>
+                    <button className="px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 text-white font-black rounded-2xl hover:bg-white/30 transition-all flex items-center gap-3">
+                        Pay Online <Wallet className="w-5 h-5" />
+                    </button>
                 </div>
             </div>
 

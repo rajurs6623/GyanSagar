@@ -4,8 +4,9 @@ import {
     BookOpen, Video, FileText, 
     Monitor, Users, ArrowRight,
     Search, Download, PlayCircle,
-    Star, Heart, Trophy
+    Star, Heart, Trophy, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const ELearningPortal = () => {
     const categories = [
@@ -22,26 +23,19 @@ const ELearningPortal = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20 font-['Nunito']">
-            {/* E-Portal Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-6 py-2 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12"
-                >
-                    <Monitor className="w-4 h-4" /> Infinite Learning Resource
-                </motion.div>
-                <h1 className="text-6xl md:text-9xl font-black text-slate-900 mb-8 tracking-tighter">
-                    E-Learning <br /><span className="text-indigo-600 italic">Portal</span>
-                </h1>
-                <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-                    Exclusive educational content for Gyan Sagar students. Access your lessons, 
-                    resources, and assessments anytime, anywhere.
-                </p>
-                
+        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
+            <PageHero 
+                title="E-Learning"
+                italicTitle="Portal"
+                tag="Infinite Learning Resource"
+                subtitle="Exclusive educational content for Gyan Sagar students. Access your lessons, resources, and assessments anytime, anywhere."
+                bgImage="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
+            
+            <div className="max-w-7xl mx-auto px-4 mb-20">
                 {/* Search Bar */}
-                <div className="max-w-2xl mx-auto mt-16 relative">
+                <div className="max-w-3xl mx-auto -mt-32 relative z-[20]">
                     <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-300" />
                     <input 
                         type="text" 

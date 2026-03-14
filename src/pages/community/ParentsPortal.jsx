@@ -4,8 +4,10 @@ import {
     Users, MessageSquare, ShieldCheck, Heart, 
     Bell, Star, Search, Filter, Send, 
     MoreVertical, UserPlus, Image as ImageIcon,
-    Flag, Share2, CornerUpRight
+    MoreVertical, UserPlus, Image as ImageIcon,
+    Flag, Share2, CornerUpRight, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const ParentsPortal = () => {
     const [activeTab, setActiveTab] = useState('Feed');
@@ -66,41 +68,15 @@ const ParentsPortal = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-20 pb-20 font-['Nunito']">
-            {/* Header / Hero */}
-            <div className="bg-indigo-600 pt-16 pb-32 px-4 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-                </div>
-                
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-indigo-100 text-sm font-bold mb-6 border border-white/20"
-                    >
-                        <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                        Gyan Sagar Parents Community
-                    </motion.div>
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
-                    >
-                        Connected for Our <br /><span className="text-amber-400">Children's Future</span>
-                    </motion.h1>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-indigo-100 text-lg md:text-xl max-w-2xl mx-auto font-medium"
-                    >
-                        A secure lounge for parents to collaborate, discuss, and stay updated with school life.
-                    </motion.p>
-                </div>
-            </div>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Connected for Our"
+                italicTitle="Children's Future"
+                tag="Gyan Sagar Parents Community"
+                subtitle="A secure lounge for parents to collaborate, discuss, and stay updated with school life."
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-amber-400"
+            />
 
             {/* Main Content */}
             <div className="max-w-7xl mx-auto px-4 -mt-20 relative z-20">

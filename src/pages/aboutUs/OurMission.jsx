@@ -1,5 +1,6 @@
 import React from 'react';
-import { BookOpen, Sparkles, PenTool, Globe, Target, Heart, Layers, Users, Zap, Award, BookText, Lightbulb, Compass, MonitorPlay, ShoppingBag, Star as StarIcon, Quote, ChevronRight, ShieldCheck, Coins, Fingerprint, Microscope, GraduationCap, School } from 'lucide-react';
+import { BookOpen, Sparkles, PenTool, Globe, Target, Heart, Layers, Users, Zap, Award, BookText, Lightbulb, Compass, MonitorPlay, ShoppingBag, Star as StarIcon, Quote, ChevronRight, ShieldCheck, Coins, Fingerprint, Microscope, GraduationCap, School, Brain } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const OurMission = () => {
     const coreValues = [
@@ -91,45 +92,15 @@ const OurMission = () => {
     ];
 
     return (
-        <div className="pt-0 pb-20 bg-slate-50 min-h-screen font-sans">
-
-            {/* Hero Banner Section */}
-            <div className="relative w-full min-h-[92vh] flex items-center bg-indigo-950 py-20 px-4 overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/GyanSagar/StudentPatna.jpg"
-                        alt="School Mission Banner"
-                        className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 via-indigo-950/90 to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div className="md:w-1/2 text-white">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-800/50 backdrop-blur-sm border border-indigo-400/30 mb-6 shadow-[0_0_15px_rgba(129,140,248,0.3)]">
-                            <Target className="w-5 h-5 text-indigo-300" />
-                            <span className="text-sm font-semibold tracking-wider text-indigo-200 uppercase">Vision for Excellence</span>
-                        </div>
-                        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-xl">
-                            Shaping the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Leaders of Tomorrow</span>
-                        </h1>
-                        <p className="text-xl text-indigo-100 leading-relaxed max-w-xl font-light">
-                            Our mission is to provide quality education that empowers students with knowledge, character, and skills to excel in life. At Gyan Sagar Public School, we nurture every child's potential from NC to Senior Secondary.
-                        </p>
-                    </div>
-
-                    <div className="md:w-1/2 flex justify-center transform hover:scale-105 transition-transform duration-700">
-                        <div className="relative p-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 shadow-2xl">
-                            <div className="absolute inset-0 bg-indigo-500 rounded-full blur opacity-20 animate-pulse"></div>
-                            <img
-                                src="/GyanSagar/LogoGyansagar.jfif"
-                                alt="Gyan Sagar Logo"
-                                className="relative rounded-full w-64 h-[260px] md:w-80 md:h-[324px] object-cover drop-shadow-2xl"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Shaping the"
+                italicTitle="Leaders of Tomorrow"
+                tag="Vision for Excellence"
+                subtitle="Our mission is to provide quality education that empowers students with knowledge, character, and skills to excel in life. At Gyan Sagar Public School, we nurture every child's potential from NC to Senior Secondary."
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-amber-400"
+            />
 
             {/* Educational Philosophy Section */}
             <div className="bg-white py-24 border-y border-slate-200">

@@ -4,8 +4,9 @@ import {
     Calendar, MapPin, Users, Camera, Info, 
     ArrowRight, Music, Palette, Trophy, 
     BookOpen, Microscope, GraduationCap,
-    Heart, Play, Share2
+    Heart, Play, Share2, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const Events = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -64,37 +65,15 @@ const Events = () => {
         : activities.filter(a => a.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-white font-['Nunito'] pt-32 pb-20">
-            {/* Header / Intro */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-600 text-xs font-black uppercase tracking-widest mb-6"
-                >
-                    <GraduationCap className="w-4 h-4" /> Living the Legacy
-                </motion.div>
-                <motion.h1 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-8xl font-[900] text-slate-900 tracking-tighter mb-8"
-                >
-                    Campus <span className="text-indigo-600">Life</span> & Aura
-                </motion.h1>
-                <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="text-slate-500 text-xl font-medium max-w-3xl mx-auto leading-relaxed"
-                >
-                    Education at Gyan Sagar goes beyond boundaries. Explore a vibrant world of activities, 
-                    sports, and culture that shapes well-rounded personalities.
-                </motion.p>
-            </div>
+        <div className="bg-white min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Campus"
+                italicTitle="Life & Aura"
+                tag="Living the Legacy"
+                subtitle="Education at Gyan Sagar goes beyond boundaries. Explore a vibrant world of activities, sports, and culture that shapes well-rounded personalities."
+                bgImage="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=1200"
+                accentColor="text-indigo-600"
+            />
 
             {/* Stats Dashboard */}
             <div className="max-w-7xl mx-auto px-4 mb-32">

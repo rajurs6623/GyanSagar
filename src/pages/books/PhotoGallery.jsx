@@ -4,8 +4,9 @@ import {
     Trophy, Award, Medal, Star, 
     X, Search, Camera, PlayCircle, 
     ChevronRight, Sparkles, Heart, Globe,
-    Music, Palette, Microscope, GraduationCap
+    Music, Palette, Microscope, GraduationCap, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const PhotoGallery = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -75,45 +76,15 @@ const PhotoGallery = () => {
         : achievements.filter(item => item.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20 font-['Nunito']">
-            {/* Gallery Hero */}
-            <section className="max-w-7xl mx-auto px-4 mb-20">
-                <div className="relative rounded-[3rem] overflow-hidden bg-indigo-900 p-12 md:p-24 text-center text-white shadow-3xl">
-                    <div className="absolute inset-0 opacity-20">
-                        <img 
-                            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" 
-                            alt="Achievements" 
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="relative z-10 flex flex-col items-center">
-                        <motion.div 
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full text-indigo-400 border border-white/10 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
-                        >
-                            <Sparkles className="w-4 h-4 fill-indigo-400" /> Moments of Pride
-                        </motion.div>
-                        <motion.h1 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-6xl md:text-9xl font-black mb-8 tracking-tighter"
-                        >
-                            Hall of <br /><span className="text-amber-400 italic">Winners</span>
-                        </motion.h1>
-                        <motion.p 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-slate-300 text-xl font-medium max-w-2xl leading-relaxed"
-                        >
-                            Every trophy in our cabinet tells a story of hard work, discipline, 
-                            and the relentless pursuit of excellence at Gyan Sagar Public School.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="Hall of"
+                italicTitle="Winners"
+                tag="Moments of Pride"
+                subtitle="Every trophy in our cabinet tells a story of hard work, discipline, and the relentless pursuit of excellence at Gyan Sagar Public School."
+                bgImage="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
+                accentColor="text-amber-400"
+            />
 
             {/* Gallery Category Filter */}
             <section className="max-w-7xl mx-auto px-4 mb-16">

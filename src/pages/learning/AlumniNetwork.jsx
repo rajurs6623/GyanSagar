@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import {
     Users, Globe, Heart, Star,
     ArrowRight, MessageCircle, Trophy,
-    ShieldCheck, GraduationCap, MapPin
+    ShieldCheck, GraduationCap, MapPin, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const AlumniNetwork = () => {
     const successStories = [
@@ -32,35 +33,29 @@ const AlumniNetwork = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20 font-['Nunito']">
-            {/* Alumni Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-6 py-2 bg-white rounded-full text-indigo-600 shadow-xl border border-indigo-50 text-[10px] font-black uppercase tracking-[0.2em] mb-12"
-                >
-                    <Users className="w-4 h-4" /> Global Network
-                </motion.div>
-                <h1 className="text-6xl md:text-9xl font-black text-slate-900 mb-8 tracking-tighter">
-                    School <br /><span className="text-indigo-600 italic">Alumni</span>
-                </h1>
-                <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-                    Our legacy lives on through our students. With over 5,000 alumni
-                    placed globally, the Gyan Sagar spirit spans across continents.
-                </p>
-                <div className="mt-16 flex flex-wrap justify-center gap-12">
-                    <div className="text-center">
-                        <p className="text-4xl font-black text-slate-900 mb-1">5000+</p>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Past Students</p>
+        <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito']">
+            <PageHero 
+                title="School"
+                italicTitle="Alumni"
+                tag="Global Network"
+                subtitle="Our legacy lives on through our students. With over 5,000 alumni placed globally, the Gyan Sagar spirit spans across continents."
+                bgImage="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
+
+            <div className="max-w-7xl mx-auto px-4 mb-32 -mt-16">
+                <div className="bg-white rounded-[4rem] p-12 border border-slate-100 shadow-3xl flex flex-wrap justify-center gap-12 relative z-20">
+                    <div className="text-center px-8 border-r border-slate-100 last:border-0">
+                        <p className="text-5xl font-black text-slate-900 mb-1 leading-none">5000+</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Past Students</p>
                     </div>
-                    <div className="text-center">
-                        <p className="text-4xl font-black text-slate-900 mb-1">20+</p>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Countries</p>
+                    <div className="text-center px-8 border-r border-slate-100 last:border-0">
+                        <p className="text-5xl font-black text-slate-900 mb-1 leading-none">20+</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Countries</p>
                     </div>
-                    <div className="text-center">
-                        <p className="text-4xl font-black text-slate-900 mb-1">100+</p>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Top Universities</p>
+                    <div className="text-center px-8 border-r border-slate-100 last:border-0">
+                        <p className="text-5xl font-black text-slate-900 mb-1 leading-none">100+</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Top Universities</p>
                     </div>
                 </div>
             </div>

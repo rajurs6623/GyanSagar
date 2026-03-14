@@ -6,8 +6,9 @@ import {
     FileText, CheckCircle2, ArrowRight, ShieldCheck,
     MessageCircle, Calendar, MapPin, Star,
     Heart, Sparkles, Trophy, Globe, Phone,
-    Clock, Users, ChevronDown, ChevronUp, Zap
+    Clock, Users, ChevronDown, ChevronUp, Zap, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const WHATSAPP_NUMBER = '917979001951'; // 91 = India country code
 
@@ -88,35 +89,20 @@ const AdmissionGuide = () => {
     return (
         <div className="min-h-screen bg-white pt-28 pb-20 font-['Nunito']">
 
-            {/* ─── HERO ─── */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-600 text-xs font-black uppercase tracking-widest mb-6"
-                >
-                    <GraduationCap className="w-4 h-4" /> Admission Session 2024-25
-                </motion.div>
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-8xl font-[900] text-slate-900 tracking-tighter mb-8"
-                >
-                    Admission <span className="text-indigo-600">Guide</span>
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                    className="text-slate-500 text-xl font-medium max-w-3xl mx-auto leading-relaxed mb-10"
-                >
-                    Join the legacy of Gyan Sagar Public School. We follow a transparent and parent-friendly
-                    process to ensure a smooth transition for your child from NC to 12th Standard.
-                </motion.p>
+            <PageHero
+                title="Admission"
+                italicTitle="Guide"
+                tag="Admission Session 2024-25"
+                subtitle="Join the legacy of Gyan Sagar Public School. We follow a transparent and parent-friendly process to ensure a smooth transition for your child from NC to 12th Standard."
+                bgImage="https://images.unsplash.com/photo-1523050335102-c3251c17b384?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
 
+            <div className="max-w-7xl mx-auto px-4 mb-20 -mt-32 relative z-20">
                 {/* Quick Action Buttons */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                    className="flex flex-wrap items-center justify-center gap-4"
-                >
+                <div className="flex flex-wrap items-center justify-center gap-4 bg-white/10 backdrop-blur-xl p-8 rounded-[3rem] border border-white/20 shadow-3xl">
                     <Link
-                        to="/publish"
+                        to="/admission-inquiry"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black shadow-2xl shadow-indigo-100 hover:bg-slate-900 transition-all group"
                     >
                         Apply Online Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -138,7 +124,7 @@ const AdmissionGuide = () => {
                     >
                         <Phone className="w-5 h-5 text-indigo-600" /> +91 7979 001 951
                     </a>
-                </motion.div>
+                </div>
             </div>
 
             {/* ─── QUICK STATS BAR ─── */}

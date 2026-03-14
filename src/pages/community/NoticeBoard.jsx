@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Bell, Calendar, Clock, ArrowRight,
     Megaphone, FileText, Star, Zap,
-    ShieldCheck, Heart, User, Sparkles
+    ShieldCheck, Heart, User, Sparkles, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const NoticeBoard = () => {
     const [activeTab, setActiveTab] = useState('All');
@@ -49,45 +50,15 @@ const NoticeBoard = () => {
     const filteredNotices = activeTab === 'All' ? notices : notices.filter(n => n.category === activeTab);
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20 font-['Nunito']">
-            {/* Notice Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20">
-                <div className="bg-slate-900 rounded-[3rem] p-12 md:p-24 text-white relative overflow-hidden shadow-2xl">
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 rounded-full text-indigo-400 text-xs font-black uppercase tracking-widest mb-6 border border-white/10"
-                            >
-                                <Megaphone className="w-4 h-4" /> Official Announcements
-                            </motion.div>
-                            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter">
-                                School <br /><span className="text-indigo-400">Notice Board</span>
-                            </h1>
-                            <p className="text-slate-400 text-xl font-medium leading-relaxed max-w-lg">
-                                Stay updated with the latest news, event changes, and 
-                                official circulars from Gyan Sagar Public School.
-                            </p>
-                        </div>
-                        <div className="hidden lg:block relative">
-                            <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-[120px]"></div>
-                            <div className="relative grid grid-cols-2 gap-6">
-                                <div className="bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-md rotate-2">
-                                    <Calendar className="w-10 h-10 text-indigo-400 mb-6" />
-                                    <h4 className="text-xl font-black mb-2">March 2024</h4>
-                                    <p className="text-slate-400 text-xs">Updated 4 times today.</p>
-                                </div>
-                                <div className="bg-indigo-600 p-8 rounded-[3rem] -rotate-3 translate-y-12 shadow-2xl">
-                                    <Bell className="w-10 h-10 text-white mb-6 animate-swing" />
-                                    <h4 className="text-xl font-black mb-2">Notifications</h4>
-                                    <p className="text-indigo-100 text-xs">Enable app push for alerts.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="bg-slate-50 min-h-screen font-['Nunito']">
+            <PageHero 
+                title="School"
+                italicTitle="Notice Board"
+                tag="Official Announcements"
+                subtitle="Stay updated with the latest news, event changes, and official circulars from Gyan Sagar Public School."
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-indigo-400"
+            />
 
             {/* Filters */}
             <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-wrap gap-4 justify-center">

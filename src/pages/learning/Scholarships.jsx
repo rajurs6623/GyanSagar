@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import {
     Trophy, Star, Heart, GraduationCap,
     CheckCircle2, ArrowRight, Zap, Globe,
-    Target, Lightbulb, Users, Award
+    Target, Lightbulb, Users, Award, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const Scholarships = () => {
     const rewards = [
@@ -39,25 +40,15 @@ const Scholarships = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white pt-32 pb-20 font-['Nunito']">
-            {/* Scholarship Hero */}
-            <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
-                <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="inline-flex items-center gap-2 px-6 py-2 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-emerald-100 shadow-sm"
-                >
-                    <Trophy className="w-4 h-4" /> Rewarding Excellence
-                </motion.div>
-                <h1 className="text-6xl md:text-9xl font-black text-slate-900 mb-8 tracking-tighter">
-                    Scholarships <br /><span className="text-indigo-600 italic">& Awards</span>
-                </h1>
-                <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
-                    We believe financial constraints should never stop a brilliant mind.
-                    Our scholarship programs are designed to empower and motivate achievers.
-                </p>
-                <button className="px-12 py-5 bg-indigo-600 text-white font-black rounded-2xl shadow-2xl hover:bg-slate-900 transition-all">Check Eligibility</button>
-            </div>
+        <div className="min-h-screen bg-white pb-20 font-['Nunito']">
+            <PageHero 
+                title="Scholarships"
+                italicTitle="& Awards"
+                tag="Rewarding Excellence"
+                subtitle="We believe financial constraints should never stop a brilliant mind. Our scholarship programs are designed to empower and motivate achievers."
+                bgImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1600"
+                accentColor="text-indigo-400"
+            />
 
             {/* Reward Cards */}
             <div className="max-w-7xl mx-auto px-4 mb-32 grid grid-cols-1 md:grid-cols-2 gap-8">

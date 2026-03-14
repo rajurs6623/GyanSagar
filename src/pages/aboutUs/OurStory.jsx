@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import {
     History, Lightbulb, Users, Trophy, ChevronRight, GraduationCap,
     Star, Heart, PenTool, Quote, Globe, Zap, MapPin,
-    Code, Palette, MessageSquare, Library, BookOpen, Truck, UserCircle
+    Code, Palette, MessageSquare, Library, BookOpen, Truck, UserCircle, Brain
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const OurStory = () => {
     const milestones = [
@@ -89,32 +90,15 @@ const OurStory = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <div className="pt-0 pb-20 bg-[#F8FAFC] min-h-screen font-['Nunito']">
-
-            {/* Hero Banner Section */}
-            <div className="relative w-full bg-[#0F172A] py-36 px-4 overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/GyanSagar/StudentPatna.jpg"
-                        alt="Our Story Banner"
-                        className="w-full h-full object-cover opacity-60 mix-blend-screen"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/80 to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 max-w-5xl mx-auto text-center text-white">
-                    <div className="inline-flex items-center gap-2 mb-8 border border-indigo-500/30 bg-indigo-500/10 px-6 py-2 rounded-full backdrop-blur-md">
-                        <GraduationCap className="w-5 h-5 text-indigo-400" />
-                        <p className="text-indigo-400 font-bold tracking-widest uppercase text-sm">Est. 1998</p>
-                    </div>
-                    <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight drop-shadow-2xl">
-                        A Legacy of <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-indigo-400 to-indigo-500">Knowledge</span>
-                    </h1>
-                    <p className="text-xl md:text-3xl text-slate-300 leading-relaxed font-light max-w-4xl mx-auto">
-                        At Gyan Sagar Public School, we believe every child is a potential leader. Our mission is to nurture that potential through discipline, dedication, and world-class education.
-                    </p>
-                </div>
-            </div>
+        <div className="bg-[#F8FAFC] min-h-screen font-['Nunito']">
+            <PageHero 
+                title="A Legacy of"
+                italicTitle="Knowledge"
+                tag="Est. 1998"
+                subtitle="At Gyan Sagar Public School, we believe every child is a potential leader. Our mission is to nurture that potential through discipline, dedication, and world-class education."
+                bgImage="/GyanSagar/StudentPatna.jpg"
+                accentColor="text-indigo-400"
+            />
 
             {/* The Founding Vision */}
             <div className="max-w-7xl mx-auto px-4 py-28">

@@ -6,6 +6,7 @@ import {
     Smile, Sun, Cloud, ChevronRight,
     Gamepad2, Microscope, UserPlus, Zap
 } from 'lucide-react';
+import PageHero from '../../components/common/PageHero';
 
 const PrimaryClasses = () => {
     const wings = [
@@ -55,96 +56,14 @@ const PrimaryClasses = () => {
     return (
         <div className="min-h-screen bg-slate-50 pb-20 font-['Nunito'] overflow-hidden">
             {/* Premium Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center pb-20 px-4 overflow-hidden bg-slate-900 text-white">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/3d_junior_wing_1773388498083.png"
-                        alt="Junior Wing Background"
-                        className="w-full h-full object-cover opacity-20"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
-                </div>
-
-                {/* Playful Glows */}
-                <div className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
-
-                <div className="relative z-10 max-w-7xl mx-auto w-full">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="flex-1 text-center lg:text-left"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center gap-2 px-6 py-2 bg-amber-500/10 border border-amber-500/20 backdrop-blur-md text-amber-500 rounded-full text-xs font-black uppercase tracking-widest mb-8 shadow-2xl"
-                            >
-                                <Sparkles className="w-4 h-4" /> Foundation Years
-                            </motion.div>
-                            <h1 className="text-6xl md:text-[7rem] font-black text-white mb-8 tracking-tighter leading-none">
-                                Primary <br />
-                                <span className="text-amber-500 italic">Classes</span>
-                            </h1>
-                            <p className="text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                                Nurturing curiosity, building character, and developing a lifelong 
-                                love for learning from Nursery to 5th grade.
-                            </p>
-                            
-                            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
-                                <button className="px-10 py-5 bg-amber-500 text-slate-900 font-black rounded-2xl shadow-2xl shadow-amber-500/20 hover:scale-105 transition-all">
-                                    Explore Wings
-                                </button>
-                                <button className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all">
-                                    Curriculum
-                                </button>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            transition={{ duration: 1, type: "spring" }}
-                            className="flex-1 relative hidden lg:block"
-                        >
-                            <div className="relative z-10">
-                                <img
-                                    src="/3d_junior_wing_1773388498083.png"
-                                    alt="Academic Excellence"
-                                    className="w-full max-w-lg mx-auto drop-shadow-[0_35px_35px_rgba(245,158,11,0.3)] animate-float"
-                                />
-                            </div>
-                            
-                            {/* Decorative Cards */}
-                            <motion.div 
-                                animate={{ y: [0, -20, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-0 right-0 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <Smile className="w-8 h-8 text-amber-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">Joyful</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Environment</p>
-                            </motion.div>
-
-                            <motion.div 
-                                animate={{ y: [0, 20, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-10 -left-10 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-20"
-                            >
-                                <Pencil className="w-8 h-8 text-indigo-400 mb-2" />
-                                <p className="text-white font-black text-2xl tracking-tighter">1st</p>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Step to Success</p>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Bottom Gradient Fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
-            </section>
+            <PageHero 
+                title="Primary"
+                italicTitle="Classes"
+                tag="Foundation Years"
+                subtitle="Nurturing curiosity, building character, and developing a lifelong love for learning from Nursery to 5th grade."
+                bgImage="/3d_junior_wing_1773388498083.png"
+                accentColor="text-amber-500"
+            />
 
             {/* Curriculum Wings - Interactive Split */}
             <section className="max-w-7xl mx-auto px-4 py-24">
