@@ -138,6 +138,69 @@ const ActivityCarousel = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+const ActivityCard = ({ item, onSelect }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Use a relevant thumbnail based on activity or a generic one
+  const thumbnail = item.thumbnail || "https://images.unsplash.com/photo-152305085306e-8865aed27522?auto=format&fit=crop&q=80&w=600";
+
+  return (
+    <motion.div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -10 }}
+      className="relative w-72 md:w-80 lg:w-[320px] shrink-0 aspect-[4/5] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-md hover:shadow-2xl transition-all snap-start bg-slate-900"
+    >
+      <div className="absolute inset-0">
+        {isHovered ? (
+          <video 
+            src={item.video} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            muted
+            loop
+            autoPlay
+            playsInline
+          />
+        ) : (
+          <OptimizedImage 
+            src={thumbnail} 
+            alt={item.title} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" 
+            width={400} 
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
+      </div>
+      
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+        <div 
+          onClick={() => onSelect(item.video)}
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/40 group-hover:scale-110 transition-all duration-300 flex items-center justify-center border border-white/40 text-white shadow-xl cursor-pointer pointer-events-auto"
+        >
+          <Play size={24} className="translate-x-0.5 md:w-8 md:h-8" fill="currentColor" />
+        </div>
+      </div>
+
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 px-4 py-1.5 bg-white/20 backdrop-blur-md text-white rounded-full font-black text-[10px] md:text-xs tracking-widest uppercase border border-white/30 z-20">
+        {item.tag}
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 z-20 pointer-events-none">
+        <span className="text-3xl md:text-4xl mb-4 block drop-shadow-lg">{item.emoji}</span>
+        <h3 className="text-xl md:text-2xl font-black text-white mb-2 leading-tight">{item.title}</h3>
+        <p className="text-white/80 text-xs md:text-sm font-medium leading-relaxed opacity-90 line-clamp-2">
+          {item.desc}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+const ActivityCarousel = () => {
+  const scrollRef = useRef(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
+
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
@@ -150,7 +213,7 @@ const ActivityCarousel = () => {
   };
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || window.innerWidth < 768) return; // Disable auto-scroll on small screens to save CPU
     const autoScroll = () => {
       if (scrollRef.current) {
         const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
@@ -164,25 +227,25 @@ const ActivityCarousel = () => {
         }
       }
     };
-    const interval = setInterval(autoScroll, 4000);
+    const interval = setInterval(autoScroll, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
   const activities = [
-    { emoji: "🙏", title: "School Prayer", desc: "Daily morning assembly and spiritual शुरूवात.", video: "/gg/Prayer.mp4", tag: "Daily" },
-    { emoji: "🎨", title: "Holi Celebration", desc: "Vibrant colors and joy during our school Holi event.", video: "/gg/Holi 2026.mp4", tag: "Festival" },
-    { emoji: "🇮🇳", title: "Independence Day", desc: "Celebrating national pride with students and faculty.", video: "/gg/indipendentday.mp4", tag: "National" },
-    { emoji: "🏏", title: "Cricket Match", desc: "Inter-school cricket championship highlights.", video: "/gg/cricket.mp4", tag: "Sports" },
-    { emoji: "🙏", title: "Saraswati Puja", desc: "Seeking blessings of knowledge and wisdom.", video: "/gg/sarswatipuja.mp4", tag: "Cultural" },
-    { emoji: "🛡️", title: "Nagrik Surakha", desc: "Safety awareness and security training program.", video: "/gg/Nagrik Surkha.mp4", tag: "Training" },
-    { emoji: "🎮", title: "Gaming Activity", desc: "Interactive gaming and skill development session.", video: "/gg/gaming.mp4", tag: "Fun" },
-    { emoji: "🏆", title: "Award Ceremony", desc: "Celebrating academic and extracurricular excellence.", video: "/gg/Medial.mp4", tag: "Awards" },
-    { emoji: "📝", title: "Examination", desc: "Students during their annual board preparation.", video: "/gg/examination.mp4", tag: "Academic" },
-    { emoji: "🏆", title: "Competitions", desc: "Engagement in various school-wide competitions.", video: "/gg/Comption.mp4", tag: "Events" },
-    { emoji: "📖", title: "Skill Training", desc: "Dedicated sessions for student skill enhancement.", video: "/gg/Traing.mp4", tag: "Learning" },
-    { emoji: "✨", title: "Special Prayer", desc: "Special assembly session for our students.", video: "/gg/prayer2.mp4", tag: "Daily" },
-    { emoji: "🎖️", title: "Medal Honors", desc: "Recognizing outstanding student contributions.", video: "/gg/Medal contribution.mp4", tag: "Awards" },
-    { emoji: "🌟", title: "Campus Life", desc: "Daily glimpses of student activities on campus.", video: "/gg/Activities.mp4", tag: "Life" },
+    { emoji: "🙏", title: "School Prayer", desc: "Daily morning assembly and spiritual शुरूवात.", video: "/gg/Prayer.mp4", tag: "Daily", thumbnail: "https://images.unsplash.com/photo-1544437055-1398daeece30?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🎨", title: "Holi Celebration", desc: "Vibrant colors and joy during our school Holi event.", video: "/gg/Holi 2026.mp4", tag: "Festival", thumbnail: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🇮🇳", title: "Independence Day", desc: "Celebrating national pride with students and faculty.", video: "/gg/indipendentday.mp4", tag: "National", thumbnail: "https://images.unsplash.com/photo-1532375811400-24b55fa9fd96?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🏏", title: "Cricket Match", desc: "Inter-school cricket championship highlights.", video: "/gg/cricket.mp4", tag: "Sports", thumbnail: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🙏", title: "Saraswati Puja", desc: "Seeking blessings of knowledge and wisdom.", video: "/gg/sarswatipuja.mp4", tag: "Cultural", thumbnail: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🛡️", title: "Nagrik Surakha", desc: "Safety awareness and security training program.", video: "/gg/Nagrik Surkha.mp4", tag: "Training", thumbnail: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🎮", title: "Gaming Activity", desc: "Interactive gaming and skill development session.", video: "/gg/gaming.mp4", tag: "Fun", thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🏆", title: "Award Ceremony", desc: "Celebrating academic and extracurricular excellence.", video: "/gg/Medial.mp4", tag: "Awards", thumbnail: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "📝", title: "Examination", desc: "Students during their annual board preparation.", video: "/gg/examination.mp4", tag: "Academic", thumbnail: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🏆", title: "Competitions", desc: "Engagement in various school-wide competitions.", video: "/gg/Comption.mp4", tag: "Events", thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "📖", title: "Skill Training", desc: "Dedicated sessions for student skill enhancement.", video: "/gg/Traing.mp4", tag: "Learning", thumbnail: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "✨", title: "Special Prayer", desc: "Special assembly session for our students.", video: "/gg/prayer2.mp4", tag: "Daily", thumbnail: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🎖️", title: "Medal Honors", desc: "Recognizing outstanding student contributions.", video: "/gg/Medal contribution.mp4", tag: "Awards", thumbnail: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=600" },
+    { emoji: "🌟", title: "Campus Life", desc: "Daily glimpses of student activities on campus.", video: "/gg/Activities.mp4", tag: "Life", thumbnail: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&q=80&w=600" },
   ];
 
   return (
@@ -194,9 +257,9 @@ const ActivityCarousel = () => {
       <div className="max-w-[1400px] mx-auto px-4 md:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">Our Activities!</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-800 tracking-tight mb-3">Our Activities!</h2>
             <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl">
-              Take a look at the various activities and events happening at Gyan Sagar Public School.
+              Experience the vibrant school life at Gyan Sagar through our latest event highlights.
             </p>
           </div>
           <div className="hidden md:flex gap-4">
@@ -215,67 +278,43 @@ const ActivityCarousel = () => {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {activities.map((item, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -10 }}
-              className="relative w-72 md:w-80 lg:w-[320px] shrink-0 aspect-[4/5] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-md hover:shadow-2xl transition-all snap-start bg-slate-200"
-            >
-              <div className="absolute inset-0">
-                <video 
-                  src={item.video} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  muted
-                  loop
-                  onMouseEnter={(e) => e.target.play()}
-                  onMouseLeave={(e) => {
-                    e.target.pause();
-                    e.target.currentTime = 0;
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
-              </div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none">
-                <div 
-                  onClick={() => setSelectedVideo(item.video)}
-                  className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/40 group-hover:scale-110 transition-all duration-300 flex items-center justify-center border border-white/40 text-white shadow-xl pointer-events-auto cursor-pointer"
-                >
-                  <Play size={24} className="translate-x-0.5 md:w-8 md:h-8" fill="currentColor" />
-                </div>
-              </div>
-              <div className="absolute top-4 right-4 md:top-6 md:right-6 px-4 py-1.5 bg-white/20 backdrop-blur-md text-white rounded-full font-black text-[10px] md:text-xs tracking-widest uppercase border border-white/30 z-20">
-                {item.tag}
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 z-20">
-                <span className="text-3xl md:text-4xl mb-4 block drop-shadow-lg">{item.emoji}</span>
-                <h3 className="text-xl md:text-2xl font-black text-white mb-2 leading-tight">{item.title}</h3>
-                <p className="text-white/80 text-xs md:text-sm font-medium leading-relaxed opacity-90 line-clamp-2">
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
+            <ActivityCard key={idx} item={item} onSelect={setSelectedVideo} />
           ))}
         </div>
       </div>
 
-      {/* Video Modal */}
-      {selectedVideo && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/95 backdrop-blur-md" onClick={() => setSelectedVideo(null)}>
-          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <button 
-              onClick={() => setSelectedVideo(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/95 backdrop-blur-md" 
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10" 
+              onClick={e => e.stopPropagation()}
             >
-              <X size={24} />
-            </button>
-            <video 
-              src={selectedVideo} 
-              className="w-full h-full" 
-              controls 
-              autoPlay 
-            />
-          </div>
-        </div>
-      )}
+              <button 
+                onClick={() => setSelectedVideo(null)}
+                className="absolute top-4 right-4 md:top-8 md:right-8 z-10 w-12 h-12 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all backdrop-blur-md border border-white/10"
+              >
+                <X size={24} />
+              </button>
+              <video 
+                src={selectedVideo} 
+                className="w-full h-full" 
+                controls 
+                autoPlay 
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

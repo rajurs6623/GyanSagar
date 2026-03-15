@@ -137,7 +137,7 @@ export default function SchoolHero({ onApplyClick }) {
             initial={{ x: -300, opacity: 0 }}
             animate={{
               x: ["110vw", "-30vw"],
-              opacity: [0, 0.6, 0.6, 0],
+              opacity: [0, 0.4, 0.4, 0],
               y: [0, 10, -10, 0],
             }}
             transition={{
@@ -157,7 +157,7 @@ export default function SchoolHero({ onApplyClick }) {
         ))}
 
         {/* REALISTIC MOTION BIRDS */}
-        {[...Array(7)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={`bird-${i}`}
             initial={{ x: "115vw", y: "25vh" }}
@@ -198,7 +198,6 @@ export default function SchoolHero({ onApplyClick }) {
           <motion.div
             key={i}
             className={`absolute ${asset.size}`}
-            style={{ top: asset.top, left: asset.left }}
             initial={{
               opacity: 0,
               scale: 0.5,
@@ -215,9 +214,14 @@ export default function SchoolHero({ onApplyClick }) {
             }}
             transition={{
               delay: asset.delay,
-              duration: 6 + Math.random() * 3,
+              duration: 8 + Math.random() * 4,
               repeat: Infinity,
               ease: "easeInOut",
+            }}
+            style={{ 
+              top: asset.top, 
+              left: asset.left,
+              willChange: "transform, opacity" 
             }}
           >
             <img
@@ -281,10 +285,11 @@ export default function SchoolHero({ onApplyClick }) {
                     className="absolute w-[300px] h-[300px] md:w-[1500px] md:h-[1500px] opacity-[0.15]"
                     style={{
                       background:
-                        "repeating-conic-gradient(from 0deg, transparent 0deg 20deg, #4f46e5 22deg 26deg)",
+                        "repeating-conic-gradient(from 0deg, transparent 0deg 30deg, #4f46e5 32deg 36deg)",
                       maskImage: "radial-gradient(circle, black 35%, transparent 75%)",
                       WebkitMaskImage:
                         "radial-gradient(circle, black 35%, transparent 75%)",
+                      willChange: "transform",
                     }}
                   />
                 </div>
