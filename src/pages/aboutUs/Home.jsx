@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   BookOpen, ArrowRight, GraduationCap, ArrowUpRight, Star,
-  Trophy, Users, Shield, Heart, Microscope, Palette, Bus, Laptop, ChevronLeft, ChevronRight, Play, Cake, Gift, Sparkles as SparklesIcon
+  Trophy, Users, Shield, Heart, Microscope, Palette, Bus, Laptop, ChevronLeft, ChevronRight, Play, Cake, Gift, Sparkles as SparklesIcon, X
 } from "lucide-react";
 import SchoolHero from "./SchoolHero";
 import OptimizedImage from "../../components/common/OptimizedImage";
@@ -129,6 +129,153 @@ const CampusCarousel = () => {
           ))}
         </div>
       </div>
+    </section>
+  );
+};
+
+const ActivityCarousel = () => {
+  const scrollRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.8;
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+    const autoScroll = () => {
+      if (scrollRef.current) {
+        const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 5) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRef.current.scrollTo({
+            left: scrollLeft + 320,
+            behavior: "smooth"
+          });
+        }
+      }
+    };
+    const interval = setInterval(autoScroll, 4000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const activities = [
+    { emoji: "🙏", title: "School Prayer", desc: "Daily morning assembly and spiritual शुरूवात.", video: "/gg/Prayer.mp4", tag: "Daily" },
+    { emoji: "🎨", title: "Holi Celebration", desc: "Vibrant colors and joy during our school Holi event.", video: "/gg/Holi 2026.mp4", tag: "Festival" },
+    { emoji: "🇮🇳", title: "Independence Day", desc: "Celebrating national pride with students and faculty.", video: "/gg/indipendentday.mp4", tag: "National" },
+    { emoji: "🏏", title: "Cricket Match", desc: "Inter-school cricket championship highlights.", video: "/gg/cricket.mp4", tag: "Sports" },
+    { emoji: "🙏", title: "Saraswati Puja", desc: "Seeking blessings of knowledge and wisdom.", video: "/gg/sarswatipuja.mp4", tag: "Cultural" },
+    { emoji: "🛡️", title: "Nagrik Surakha", desc: "Safety awareness and security training program.", video: "/gg/Nagrik Surkha.mp4", tag: "Training" },
+    { emoji: "🎮", title: "Gaming Activity", desc: "Interactive gaming and skill development session.", video: "/gg/gaming.mp4", tag: "Fun" },
+    { emoji: "🏆", title: "Award Ceremony", desc: "Celebrating academic and extracurricular excellence.", video: "/gg/Medial.mp4", tag: "Awards" },
+    { emoji: "📝", title: "Examination", desc: "Students during their annual board preparation.", video: "/gg/examination.mp4", tag: "Academic" },
+    { emoji: "🏆", title: "Competitions", desc: "Engagement in various school-wide competitions.", video: "/gg/Comption.mp4", tag: "Events" },
+    { emoji: "📖", title: "Skill Training", desc: "Dedicated sessions for student skill enhancement.", video: "/gg/Traing.mp4", tag: "Learning" },
+    { emoji: "✨", title: "Special Prayer", desc: "Special assembly session for our students.", video: "/gg/prayer2.mp4", tag: "Daily" },
+    { emoji: "🎖️", title: "Medal Honors", desc: "Recognizing outstanding student contributions.", video: "/gg/Medal contribution.mp4", tag: "Awards" },
+    { emoji: "🌟", title: "Campus Life", desc: "Daily glimpses of student activities on campus.", video: "/gg/Activities.mp4", tag: "Life" },
+  ];
+
+  return (
+    <section
+      className="py-10 md:py-14 bg-slate-50 relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="text-xl md:text-3xl font-medium text-slate-800 tracking-tight mb-3">Our Activities!</h2>
+            <p className="text-slate-500 font-medium text-xs md:text-base max-w-2xl">
+              Take a look at the various activities and events happening at Gyan Sagar Public School.
+            </p>
+          </div>
+          <div className="hidden md:flex gap-4">
+            <button onClick={() => scroll('left')} className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors">
+              <ChevronLeft size={24} />
+            </button>
+            <button onClick={() => scroll('right')} className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors">
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+
+        <div
+          ref={scrollRef}
+          className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {activities.map((item, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -10 }}
+              className="relative w-72 md:w-80 lg:w-[320px] shrink-0 aspect-[4/5] rounded-2xl md:rounded-[32px] overflow-hidden group shadow-md hover:shadow-2xl transition-all snap-start bg-slate-200"
+            >
+              <div className="absolute inset-0">
+                <video 
+                  src={item.video} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  muted
+                  loop
+                  onMouseEnter={(e) => e.target.play()}
+                  onMouseLeave={(e) => {
+                    e.target.pause();
+                    e.target.currentTime = 0;
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
+              </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none">
+                <div 
+                  onClick={() => setSelectedVideo(item.video)}
+                  className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/40 group-hover:scale-110 transition-all duration-300 flex items-center justify-center border border-white/40 text-white shadow-xl pointer-events-auto cursor-pointer"
+                >
+                  <Play size={24} className="translate-x-0.5 md:w-8 md:h-8" fill="currentColor" />
+                </div>
+              </div>
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 px-4 py-1.5 bg-white/20 backdrop-blur-md text-white rounded-full font-black text-[10px] md:text-xs tracking-widest uppercase border border-white/30 z-20">
+                {item.tag}
+              </div>
+              <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 z-20">
+                <span className="text-3xl md:text-4xl mb-4 block drop-shadow-lg">{item.emoji}</span>
+                <h3 className="text-xl md:text-2xl font-black text-white mb-2 leading-tight">{item.title}</h3>
+                <p className="text-white/80 text-xs md:text-sm font-medium leading-relaxed opacity-90 line-clamp-2">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/95 backdrop-blur-md" onClick={() => setSelectedVideo(null)}>
+          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+            <button 
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <video 
+              src={selectedVideo} 
+              className="w-full h-full" 
+              controls 
+              autoPlay 
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -391,8 +538,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ─── CAMPUS HIGHLIGHTS CAROUSEL ───────────────────────────────────────── */}
       <CampusCarousel />
+
+      {/* ─── ACTIVITY CAROUSEL ─────────────────────────────────────────────── */}
+      <ActivityCarousel />
 
       {/* ─── CAMPUS FACILITIES ──────────────────────────────────────────────── */}
       <section className="py-8 md:py-10 bg-white overflow-hidden">
