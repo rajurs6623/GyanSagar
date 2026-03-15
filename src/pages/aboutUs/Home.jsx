@@ -344,7 +344,7 @@ const Home = () => {
 
   const faculty = [
     { name: "Ashlok Kumar", role: "Director", photo: "/GyanSagar/Shloak Sir.jpg", bg: "bg-indigo-50/50", border: "group-hover:border-indigo-400" },
-    { name: "P.K. Sharma", role: "Principal", photo: "https://i.pinimg.com/736x/0c/6b/e0/0c6be09a326f3dfc51280c32893cc053.jpg", bg: "bg-blue-50/50", border: "group-hover:border-blue-400" },
+    { name: "Puja Singh", role: "Principal", photo: "/GyanSagar/Principal.jpeg", bg: "bg-blue-50/50", border: "group-hover:border-blue-400" },
   ];
 
   return (

@@ -63,7 +63,7 @@ const OurStory = () => {
 
     const leadership = [
         { name: "Ashlok Kumar", role: "Director & Founder", icon: <UserCircle className="w-8 h-8 text-white" />, color: "from-indigo-600 to-blue-500", desc: "A great teacher who started this school to give every child in Patna the best education possible." },
-        { name: "P.K. Sharma", role: "Principal", icon: <GraduationCap className="w-8 h-8 text-white" />, color: "from-indigo-500 to-purple-500", desc: "Has more than 20 years of experience running the school and helping every student do well." },
+        { name: "Puja Singh", role: "Principal", icon: <GraduationCap className="w-8 h-8 text-white" />, color: "from-indigo-500 to-purple-500", desc: "Has more than 20 years of experience running the school and helping every student do well." },
         { name: "S. Kumari", role: "Head of Academics", icon: <BookOpen className="w-8 h-8 text-white" />, color: "from-amber-400 to-orange-500", desc: "Makes sure our subjects are taught in the best way possible and that students enjoy learning." },
         { name: "R. Singh", role: "Sports Head", icon: <Trophy className="w-8 h-8 text-white" />, color: "from-emerald-400 to-teal-500", desc: "Loves sports and helps our students become fit, strong, and win in many school-level games." }
     ];

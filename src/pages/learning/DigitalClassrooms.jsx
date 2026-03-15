@@ -11,28 +11,34 @@ const DigitalClassrooms = () => {
     const features = [
         {
             title: "Interactive Smart Boards",
-            desc: "75-inch touch-sensitive boards with 4K resolution in every classroom for visual learning.",
+            desc: "75-inch touch-sensitive boards with 4K resolution and anti-glare screens in every classroom.",
             icon: <Monitor className="w-10 h-10 text-indigo-500" />,
-            status: "Implemented"
+            status: "Fully Integrated"
         },
         {
             title: "School Management App",
-            desc: "Dedicated app for parents to track attendance, fees, and homework in real-time.",
+            desc: "Dedicated app for parents to track attendance, fee receipts, and homework in real-time.",
             icon: <Laptop className="w-10 h-10 text-emerald-500" />,
-            status: "Live"
+            status: "Live on PlayStore"
         },
         {
-            title: "High-Speed Wi-Fi",
-            desc: "Campus-wide fiber optic connectivity for seamless access to digital resources.",
+            title: "Fiber-Optic Internet",
+            desc: "High-speed 1Gbps dedicated line ensuring seamless digital resource access campus-wide.",
             icon: <Globe className="w-10 h-10 text-amber-500" />,
-            status: "Active"
+            status: "24/7 Active"
         },
         {
             title: "E-Library Portal",
-            desc: "24/7 access to over 5,000+ e-books and educational videos through our portal.",
+            desc: "Access to 5,000+ digital books and curated educational videos for exam preparation.",
             icon: <Server className="w-10 h-10 text-rose-500" />,
-            status: "Expanding"
+            status: "Always Open"
         }
+    ];
+
+    const appGuide = [
+        { step: "Download", desc: "Install 'Gyan Sagar Parent App' from Play Store or App Store." },
+        { step: "Login", desc: "Use your registered mobile number to get the OTP." },
+        { step: "Track", desc: "Monitor academic progress, attendance, and pay fees in seconds." }
     ];
 
     return (
@@ -136,24 +142,64 @@ const DigitalClassrooms = () => {
                 </div>
             </section>
 
-            {/* App Promotion */}
-            <div className="max-w-7xl mx-auto px-4 text-center">
-                <div className="p-12 md:p-24 bg-indigo-50 rounded-[4rem] border border-indigo-100">
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-800 mb-8 tracking-tighter">Download the <span className="text-indigo-600">Gyan Sagar Parent App</span></h2>
-                    <p className="text-slate-500 text-lg font-medium mb-12 max-w-xl mx-auto">
-                        Track your child's progress, pay fees, and receive important notices
-                        right on your smartphone.
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-6">
-                        <button className="px-10 py-4 bg-slate-900 text-white font-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" className="h-6" alt="Play Store" /> Google Play
-                        </button>
-                        <button className="px-10 py-4 bg-slate-900 text-white font-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
-                            App Store
-                        </button>
+            {/* App Promotion & Guide */}
+            <div className="max-w-7xl mx-auto px-4 pb-24">
+                <div className="bg-indigo-600 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden group">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="relative z-10">
+                            <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter italic">Parent App <br /><span className="text-indigo-200">User Guide</span></h2>
+                            <div className="space-y-8">
+                                {appGuide.map((item, i) => (
+                                    <div key={i} className="flex gap-6 group/item">
+                                        <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center font-black text-xl border border-white/20 group-hover/item:bg-white group-hover/item:text-indigo-600 transition-all">
+                                            {i + 1}
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-black mb-1">{item.step}</h4>
+                                            <p className="text-indigo-100 font-medium">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="flex flex-wrap gap-6 mt-12">
+                                <button className="px-8 py-3.5 bg-white text-indigo-600 font-extrabold rounded-2xl shadow-xl hover:scale-105 transition-all flex items-center gap-3">
+                                    <Monitor className="w-5 h-5" /> Download App
+                                </button>
+                            </div>
+                        </div>
+                        <div className="relative">
+                            <div className="bg-white/10 backdrop-blur-xl p-8 rounded-[3rem] border border-white/20 rotate-6 group-hover:rotate-0 transition-transform duration-700">
+                                <div className="aspect-[9/16] bg-slate-900 rounded-[2rem] overflow-hidden border-8 border-slate-800 shadow-2xl">
+                                    <div className="p-6">
+                                        <div className="w-12 h-12 bg-indigo-500 rounded-full mb-8"></div>
+                                        <div className="space-y-4">
+                                            <div className="h-4 bg-white/20 rounded-full w-3/4"></div>
+                                            <div className="h-4 bg-white/20 rounded-full w-1/2"></div>
+                                            <div className="h-32 bg-white/10 rounded-3xl mt-8"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Cyber Safety */}
+            <section className="max-w-7xl mx-auto px-4 pb-20">
+                <div className="bg-rose-50 rounded-[4rem] p-12 md:p-20 border border-rose-100 flex flex-col md:flex-row items-center gap-16">
+                    <div className="w-24 h-24 bg-white rounded-3xl shadow-xl flex items-center justify-center shrink-0">
+                        <ShieldCheck className="w-12 h-12 text-rose-500" />
+                    </div>
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-800 mb-4">A Safe Digital <span className="text-rose-500">Environment</span></h2>
+                        <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                            We prioritize student safety. Our Wi-Fi is equipped with enterprise-grade firewalls and filters to ensure students only access educational and age-appropriate content. Regular "Digital Hygiene" workshops are conducted for all grades.
+                        </p>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

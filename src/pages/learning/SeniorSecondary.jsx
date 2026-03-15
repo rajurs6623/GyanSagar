@@ -53,6 +53,13 @@ const SeniorSecondary = () => {
         { label: "Modern Labs", val: "10+", icon: <Microscope className="w-5 h-5" /> }
     ];
 
+    const placements = [
+        { college: "IIT Delhi", student: "Aryan Raj", stream: "B.Tech" },
+        { college: "SRCC Delhi", student: "Sneha Singh", stream: "B.Com (Hons)" },
+        { college: "AIIMS Patna", student: "Pritam Jha", stream: "MBBS" },
+        { college: "TISS Mumbai", student: "Ishani Rai", stream: "BA Soc Sci" }
+    ];
+
     const currentWing = academicWings.find(w => w.id === selectedWing);
 
     return (
@@ -154,7 +161,7 @@ const SeniorSecondary = () => {
             </div>
 
             {/* Preparation Section */}
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4 py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 text-white">
                     <div className="bg-indigo-950 rounded-[3rem] p-12 relative overflow-hidden group">
                         <div className="relative z-10">
@@ -163,6 +170,10 @@ const SeniorSecondary = () => {
                             <p className="text-indigo-300 text-lg mb-8 max-w-md">
                                 Specialized batches for IIT-JEE, NEET, and CLAT within school hours to reduce travel time and pressure.
                             </p>
+                            <div className="flex flex-wrap gap-4 mb-8">
+                                <span className="px-4 py-1.5 bg-indigo-500/20 rounded-lg text-xs font-bold border border-indigo-500/30">WEEKLY MOCKS</span>
+                                <span className="px-4 py-1.5 bg-indigo-500/20 rounded-lg text-xs font-bold border border-indigo-500/30">TOPPER SESSIONS</span>
+                            </div>
                             <button className="flex items-center gap-3 font-extrabold text-indigo-400 hover:gap-5 transition-all text-sm uppercase tracking-widest">
                                 EXPLORE COACHING MODULES <ArrowRight className="w-5 h-5" />
                             </button>
@@ -177,6 +188,10 @@ const SeniorSecondary = () => {
                             <p className="text-emerald-300 text-lg mb-8 max-w-md">
                                 Personalized career guidance and mental health support for students facing board exam stress.
                             </p>
+                            <div className="flex flex-wrap gap-4 mb-8">
+                                <span className="px-4 py-1.5 bg-emerald-500/20 rounded-lg text-xs font-bold border border-emerald-500/30">PSYCHOMETRIC TESTS</span>
+                                <span className="px-4 py-1.5 bg-emerald-500/20 rounded-lg text-xs font-bold border border-emerald-500/30">ONE-ON-ONE MENTORING</span>
+                            </div>
                             <button className="flex items-center gap-3 font-black text-emerald-400 hover:gap-5 transition-all text-sm uppercase tracking-widest">
                                 BOOK A SESSION <ArrowRight className="w-5 h-5" />
                             </button>
@@ -185,6 +200,39 @@ const SeniorSecondary = () => {
                     </div>
                 </div>
             </div>
+
+            {/* University Placements */}
+            <section className="max-w-7xl mx-auto px-4 pb-20">
+                <div className="bg-slate-900 rounded-[4rem] p-12 md:p-20 text-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+                    <div className="relative z-10 flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                        <div>
+                            <h2 className="text-4xl md:text-5xl font-black mb-4">University <span className="text-blue-400">Placements</span></h2>
+                            <p className="text-slate-400 text-lg font-medium">Proud of our alumni making their mark in top institutions across India.</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="p-4 bg-white/5 rounded-2xl border border-white/10 text-center min-w-[120px]">
+                                <p className="text-2xl font-black text-blue-400">120+</p>
+                                <p className="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Last 3 Years</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {placements.map((p, idx) => (
+                            <div key={idx} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all group">
+                                <h4 className="text-xl font-black text-white mb-1">{p.college}</h4>
+                                <p className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-4">{p.stream}</p>
+                                <div className="h-px bg-white/10 mb-4"></div>
+                                <p className="text-slate-400 text-xs flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                    {p.student}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             {/* Research & Publications */}
             <section className="max-w-7xl mx-auto px-4 py-24 mb-20 border-t border-slate-200">

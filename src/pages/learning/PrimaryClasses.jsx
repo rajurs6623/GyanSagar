@@ -26,29 +26,44 @@ const PrimaryClasses = () => {
 
     const curriculumPillars = [
         {
-            title: "Conceptual Clarity",
-            desc: "We prioritize understanding over rote learning. Every topic is taught through practical examples.",
-            icon: <Zap className="w-10 h-10 text-amber-500" />,
+            title: "Play-Way Learning",
+            desc: "For NC to KG, we use toys, games, and stories to teach complex concepts in a simple way.",
+            icon: <Gamepad2 className="w-10 h-10 text-amber-500" />,
             color: "bg-amber-50"
         },
         {
-            title: "Character Building",
-            desc: "Regular value education classes to instill integrity, respect, and social responsibility.",
+            title: "Value Education",
+            desc: "Instilling empathy, respect, and discipline through daily moral science stories and activities.",
             icon: <Heart className="w-10 h-10 text-rose-500" />,
             color: "bg-rose-50"
         },
         {
-            title: "Digital Integration",
-            desc: "Interactive smart boards in every classroom for visual and engaging learning experiences.",
-            icon: <Gamepad2 className="w-10 h-10 text-indigo-500" />,
+            title: "Smart Learning",
+            desc: "Visual aids and interactive boards make subjects like Science and EVS come alive.",
+            icon: <Zap className="w-10 h-10 text-indigo-500" />,
             color: "bg-indigo-50"
         },
         {
-            title: "Skill Based",
-            desc: "Workshops on public speaking, art, and music to nurture hobbies alongside academics.",
+            title: "Artistic Growth",
+            desc: "Dedicated time for music, dance, and drawing every week to ensure creative expression.",
             icon: <Palette className="w-10 h-10 text-emerald-500" />,
             color: "bg-emerald-50"
         }
+    ];
+
+    const weeklyActivities = [
+        { day: "Monday", activity: "Storytelling & Phonics", icon: "📚" },
+        { day: "Tuesday", activity: "Clay Modeling & Art", icon: "🎨" },
+        { day: "Wednesday", activity: "Yoga & Physical Play", icon: "🧘" },
+        { day: "Thursday", activity: "Singing & Musical Rhymes", icon: "🎵" },
+        { day: "Friday", activity: "Nature Walk & Gardening", icon: "🌿" },
+        { day: "Saturday", activity: "Fun Friday Activities", icon: "⭐" }
+    ];
+
+    const primaryClubs = [
+        { name: "Eco-Warriors", desc: "Learning to care for plants and surroundings.", color: "bg-green-100 text-green-700" },
+        { name: "Young Orators", desc: "Building confidence in speaking and poem recitation.", color: "bg-blue-100 text-blue-700" },
+        { name: "Math Wizards", desc: "Fun mental math games and number puzzles.", color: "bg-purple-100 text-purple-700" }
     ];
 
     const [activeWing, setActiveWing] = useState(0);
@@ -139,19 +154,44 @@ const PrimaryClasses = () => {
 
             {/* Key Focus Areas */}
             <section className="max-w-7xl mx-auto px-4 py-24 border-t border-slate-100">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Key Focus Areas</h2>
-                    <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">Providing a holistic foundation that balances academics, physical health, and moral values for primary students.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {['Language & Literacy', 'Numeracy & Logic', 'Environmental Awareness', 'Physical Education', 'Arts & Crafts', 'Moral Science'].map((item, idx) => (
-                        <div key={idx} className="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex items-center gap-6 hover:shadow-xl transition-all cursor-default group">
-                            <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                <span className="font-black text-xl">0{idx + 1}</span>
-                            </div>
-                            <h4 className="text-xl font-black text-slate-800">{item}</h4>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 className="text-4xl font-black text-slate-900 mb-8">Weekly Activity <span className="text-amber-500">Calendar</span></h2>
+                        <div className="space-y-4">
+                            {weeklyActivities.map((item, idx) => (
+                                <div key={idx} className="flex items-center justify-between p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                                    <div className="flex items-center gap-6">
+                                        <span className="text-3xl">{item.icon}</span>
+                                        <div>
+                                            <h4 className="font-black text-slate-800">{item.day}</h4>
+                                            <p className="text-slate-500 text-sm font-medium">{item.activity}</p>
+                                        </div>
+                                    </div>
+                                    <div className="w-2 h-2 rounded-full bg-amber-400"></div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                    <div>
+                        <h2 className="text-4xl font-black text-slate-900 mb-8">Primary Wing <span className="text-indigo-600">Clubs</span></h2>
+                        <div className="grid gap-6">
+                            {primaryClubs.map((club, idx) => (
+                                <div key={idx} className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:border-indigo-200 transition-all shadow-sm">
+                                    <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${club.color} mb-4 inline-block`}>
+                                        {club.name}
+                                    </span>
+                                    <p className="text-slate-600 font-medium">{club.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mt-12 p-8 bg-indigo-600 rounded-[2.5rem] text-white overflow-hidden relative group">
+                            <div className="relative z-10">
+                                <h4 className="text-2xl font-black mb-2">Did You Know?</h4>
+                                <p className="text-indigo-100 text-sm font-medium">We celebrate a "Toy Day" every month where kids learn sharing through play!</p>
+                            </div>
+                            <Sparkles className="absolute top-4 right-4 text-indigo-400 w-12 h-12 rotate-12 group-hover:scale-125 transition-transform" />
+                        </div>
+                    </div>
                 </div>
             </section>
 

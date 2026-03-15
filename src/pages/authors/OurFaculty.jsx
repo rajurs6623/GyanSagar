@@ -19,9 +19,9 @@ const OurFaculty = () => {
             color: "indigo"
         },
         {
-            name: "P.K. Sharma",
+            name: "Puja Singh",
             role: "Principal",
-            image: "https://images.unsplash.com/photo-1544168190-79c17527004f?auto=format&fit=crop&q=80&w=400",
+            image: "/GyanSagar/Principal.jpeg",
             bio: "Expert in academic administration and student psychology, ensuring a balanced growth environment for all students.",
             expertise: ["Curriculum Design", "Student Mentorship", "Admin"],
             color: "amber"

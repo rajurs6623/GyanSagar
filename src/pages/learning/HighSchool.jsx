@@ -4,7 +4,8 @@ import {
     Book, Users, Star, Trophy, ArrowRight,
     Palette, Music, ShieldCheck, Heart,
     Zap, Sparkles, Coffee, Globe, Compass,
-    Camera, CheckCircle2, GraduationCap, Microscope
+    Camera, CheckCircle2, GraduationCap, Microscope,
+    Target, Cpu
 } from 'lucide-react';
 import PageHero from '../../components/common/PageHero';
 
@@ -33,7 +34,24 @@ const HighSchool = () => {
             desc: "Experience-based learning in our state-of-the-art laboratories for Science and IT.",
             features: ["Physics Lab", "Chemistry Lab", "Biology Lab", "Computer Science Hub"],
             highlights: ["Safe Environment", "Modern Apparatus", "Expert Supervision", "Hands-on Projects"]
+        },
+        {
+            id: 'Extras',
+            title: "Co-Curricular",
+            icon: <Palette className="w-8 h-8" />,
+            color: "bg-amber-600",
+            lightColor: "bg-amber-50",
+            textColor: "text-amber-600",
+            desc: "Balanced development through sports, arts, and leadership programs.",
+            features: ["Inter-school Sports", "Drama & Theatre", "Debate Club", "Music & Dance"],
+            highlights: ["Annual Sports Meet", "Cultural Fest", "Community Service", "House Competitions"]
         }
+    ];
+
+    const prepSteps = [
+        { title: "Syllabus Planning", desc: "Timely completion of CBSE syllabus by October to allow 4 months of revision." },
+        { title: "Mock Series", desc: "Regular mock tests modeled on previous 10 years board paper patterns." },
+        { title: "Personal Doubt Solving", desc: "One-on-one sessions for students to clarify difficult concepts with experts." }
     ];
 
     const currentSection = sections.find(s => s.id === activeSection);
@@ -111,25 +129,54 @@ const HighSchool = () => {
                 </AnimatePresence>
             </div>
 
+            {/* Preparation Roadmap */}
+            <section className="max-w-7xl mx-auto px-4 mb-32">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Board Exam <span className="text-indigo-600">Roadmap</span></h2>
+                    <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">How we prepare our 10th graders for their first national milestone.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {prepSteps.map((step, i) => (
+                        <div key={i} className="relative p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all">
+                            <span className="absolute top-8 left-8 text-6xl font-black text-slate-100 -z-0">0{i+1}</span>
+                            <div className="relative z-10">
+                                <h4 className="text-2xl font-black text-slate-800 mb-4">{step.title}</h4>
+                                <p className="text-slate-500 font-medium leading-relaxed">{step.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
             {/* Future Readiness */}
             <section className="max-w-7xl mx-auto px-4 mb-32">
-                <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-[4rem] p-12 md:p-24 border border-indigo-100 flex flex-col items-center text-center">
-                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8">Ready for the <span className="text-indigo-600 italic">Future</span></h2>
-                    <p className="text-slate-600 text-xl font-medium max-w-3xl mb-16 leading-relaxed">
+                <div className="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-[4rem] p-12 md:p-24 border border-indigo-100 flex flex-col items-center text-center text-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+                    <h2 className="text-4xl md:text-6xl font-black mb-8 relative z-10">Ready for the <span className="text-indigo-400 italic">Future</span></h2>
+                    <p className="text-indigo-100/70 text-xl font-medium max-w-3xl mb-16 leading-relaxed relative z-10">
                         High School is critical for board prep. We provide foundational coaching for competitive exams along with robust CBSE curriculum mapping to ensure our students excel everywhere.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 text-left hover:shadow-xl transition-all">
-                            <h4 className="text-2xl font-black text-slate-800 mb-4">NTSE & Olympiads</h4>
-                            <p className="text-slate-500 font-medium">Specialized training modules starting from class 8th to build competitive spirit.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full relative z-10">
+                        <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 text-left hover:bg-white/10 transition-all group">
+                            <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
+                                <Zap className="w-6 h-6" />
+                            </div>
+                            <h4 className="text-2xl font-black mb-4">NTSE & Olympiads</h4>
+                            <p className="text-indigo-100/60 font-medium">Specialized training modules starting from class 8th to build competitive spirit.</p>
                         </div>
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 text-left hover:shadow-xl transition-all">
-                            <h4 className="text-2xl font-black text-slate-800 mb-4">Career Counseling</h4>
-                            <p className="text-slate-500 font-medium">Psychometric tests and expert guidance for class 10 students for stream selection.</p>
+                        <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 text-left hover:bg-white/10 transition-all group">
+                            <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
+                                <Target className="w-6 h-6" />
+                            </div>
+                            <h4 className="text-2xl font-black mb-4">Career Counseling</h4>
+                            <p className="text-indigo-100/60 font-medium">Psychometric tests and expert guidance for class 10 students for stream selection.</p>
                         </div>
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 text-left hover:shadow-xl transition-all">
-                            <h4 className="text-2xl font-black text-slate-800 mb-4">Skill Workshops</h4>
-                            <p className="text-slate-500 font-medium">Coding, robotics, and communication skills integrated into the normal routine.</p>
+                        <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 text-left hover:bg-white/10 transition-all group">
+                            <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
+                                <Cpu className="w-6 h-6" />
+                            </div>
+                            <h4 className="text-2xl font-black mb-4">Skill Workshops</h4>
+                            <p className="text-indigo-100/60 font-medium">Coding, robotics, and communication skills integrated into the normal routine.</p>
                         </div>
                     </div>
                 </div>
