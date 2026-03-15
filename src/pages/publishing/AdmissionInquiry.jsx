@@ -96,8 +96,8 @@ const AdmissionInquiry = () => {
                                         <ClipboardList size={22} />
                                     </div>
                                     <div>
-                                        <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">Student Registration</h2>
-                                        <p className="text-slate-500 text-sm font-medium">Please provide the student and guardian details below.</p>
+                                        <h2 className="text-2xl md:text-3xl font-black text-indigo-600 tracking-tight uppercase">GS Registration</h2>
+                                        <p className="text-slate-500 text-sm font-medium">Academic Year 2025-26 • Online Portal</p>
                                     </div>
                                 </div>
 
@@ -106,7 +106,7 @@ const AdmissionInquiry = () => {
                                     {/* --- Section: Student Information --- */}
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
-                                            <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">01. Student Information</span>
+                                            <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">01. Candidate Details</span>
                                         </div>
                                         
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

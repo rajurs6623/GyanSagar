@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap } from "lucide-react";
 
-export default function SchoolHero() {
+export default function SchoolHero({ onApplyClick }) {
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   const quotations = useMemo(
@@ -328,12 +328,12 @@ export default function SchoolHero() {
           transition={{ duration: 1, delay: 0.4 }}
           className="flex flex-row items-center justify-center gap-3 md:gap-6"
         >
-          <Link
-            to="/admission-inquiry"
+          <button
+            onClick={onApplyClick}
             className="px-6 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-[1.25rem] font-black text-[10px] md:text-[14px] shadow-2xl shadow-indigo-200/60 hover:bg-indigo-700 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
           >
-            Apply for Admission <ArrowRight className="w-3 md:w-4 h-3 md:h-4" />
-          </Link>
+            GS Registration <ArrowRight className="w-3 md:w-4 h-3 md:h-4" />
+          </button>
           <Link
             to="/campus-facilities"
             className="px-6 md:px-12 py-3.5 md:py-4.5 bg-white text-indigo-600 border border-indigo-100 rounded-[1.25rem] font-black text-[10px] md:text-[14px] shadow-lg hover:bg-slate-50 hover:-translate-y-1 active:scale-95 transition-all whitespace-nowrap"

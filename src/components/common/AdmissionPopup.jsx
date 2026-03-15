@@ -4,7 +4,7 @@ import { X, CheckCircle2 } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '917979001951';
 
-const AdmissionPopup = () => {
+const AdmissionPopup = ({ manualShow, setManualShow }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +25,12 @@ const AdmissionPopup = () => {
     ];
 
     useEffect(() => {
+        if (manualShow) {
+            setIsVisible(true);
+        }
+    }, [manualShow]);
+
+    useEffect(() => {
         const handleScroll = () => {
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
             const hasSeenPopup = sessionStorage.getItem('gs_admission_popup_seen');
@@ -40,6 +46,7 @@ const AdmissionPopup = () => {
 
     const handleClose = () => {
         setIsVisible(false);
+        if (setManualShow) setManualShow(false);
         sessionStorage.setItem('gs_admission_popup_seen', 'true');
     };
 
@@ -48,7 +55,7 @@ const AdmissionPopup = () => {
         setIsLoading(true);
         
         const waMsg = encodeURIComponent(
-            `*New Admission Inquiry – Gyan Sagar Public School*\n\n` +
+            `*New Admission Inquiry – GS Registration*\n\n` +
             `👦 Student: ${formData.studentName}\n` +
             `📧 Email: ${formData.email || 'Not provided'}\n` +
             `👤 Gender: ${formData.gender}\n` +
@@ -64,6 +71,7 @@ const AdmissionPopup = () => {
             sessionStorage.setItem('gs_admission_popup_seen', 'true');
             setTimeout(() => {
                 setIsVisible(false);
+                if (setManualShow) setManualShow(false);
             }, 3000);
         }, 1200);
     };
@@ -72,7 +80,7 @@ const AdmissionPopup = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const inputStyle = "w-full border border-gray-400 rounded-md px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-green-700 transition-all placeholder:text-gray-400 placeholder:font-normal";
+    const inputStyle = "w-full border border-slate-300 rounded-xl px-5 py-3.5 text-sm font-bold text-slate-700 outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 transition-all placeholder:text-slate-400 placeholder:font-medium bg-slate-50/50";
 
     return (
         <AnimatePresence>
@@ -84,7 +92,7 @@ const AdmissionPopup = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={handleClose}
-                        className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"
+                        className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
                     />
 
                     {/* Popup Card */}
@@ -92,25 +100,25 @@ const AdmissionPopup = () => {
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-lg bg-white shadow-2xl overflow-hidden flex flex-col pt-4 pb-8"
+                        className="relative w-full max-w-lg bg-white shadow-2xl rounded-[2.5rem] overflow-hidden flex flex-col pt-6 pb-10"
                     >
                         {/* Header Image/Text Section */}
                         <div className="px-6 md:px-10">
                              <div className="flex justify-end mb-2">
-                                <button onClick={handleClose} className="text-green-800 hover:text-green-600 transition-colors">
-                                    <X size={28} />
+                                <button onClick={handleClose} className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-indigo-600 hover:text-white transition-all">
+                                    <X size={20} />
                                 </button>
                             </div>
                             
-                            <div className="text-center mb-6">
-                                <h3 className="text-xl md:text-2xl font-serif font-bold text-green-800 tracking-[0.15em] mb-6">ENROLL NOW</h3>
+                            <div className="text-center mb-8">
+                                <h3 className="text-xl md:text-2xl font-black text-indigo-600 tracking-[0.2em] mb-8 uppercase">GS Registration</h3>
                                 
-                                <div className="flex items-center justify-center gap-4 text-left">
-                                    <img src="/icon.png" alt="Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+                                <div className="flex items-center justify-center gap-5 text-left bg-slate-50 p-4 rounded-3xl border border-slate-100">
+                                    <img src="/icon.png" alt="Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md" />
                                     <div>
-                                        <h4 className="text-lg md:text-xl font-bold text-green-800 leading-tight">GYAN SAGAR PUBLIC SCHOOL</h4>
-                                        <p className="text-[10px] md:text-xs font-bold text-gray-800 mt-1 leading-tight">
-                                            Affiliated to CBSE, New Delhi
+                                        <h4 className="text-lg md:text-xl font-black text-slate-800 leading-tight">GYAN SAGAR</h4>
+                                        <p className="text-[10px] md:text-xs font-black text-indigo-600 mt-1 leading-tight uppercase tracking-widest">
+                                            Public School • CBSE
                                         </p>
                                     </div>
                                 </div>

@@ -368,6 +368,7 @@ const ToppersCarousel = ({ toppers }) => {
 };
 
 const Home = () => {
+  const [showAdmissionPopup, setShowAdmissionPopup] = useState(false);
   // ─── Academic Journey (NC → +2) ────────────────────────────────────────────
   const steps = [
     {
@@ -496,9 +497,9 @@ const Home = () => {
 
   return (
     <div>
-      <AdmissionPopup />
+      <AdmissionPopup manualShow={showAdmissionPopup} setManualShow={setShowAdmissionPopup} />
       {/* ─── HERO ───────────────────────────────────────────────────────────── */}
-      <SchoolHero />
+      <SchoolHero onApplyClick={() => setShowAdmissionPopup(true)} />
 
       {/* ─── ACADEMIC JOURNEY (NC → +2) ─────────────────────────────────────── */}
       <section className="py-10 md:py-14 bg-white">
@@ -771,9 +772,12 @@ const Home = () => {
             Give your child the best school in Patna. We have classes from NC to 12th. Seats are filling up fast — apply now!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/admission-inquiry" className="inline-block px-8 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl shadow-indigo-100">
+            <button 
+              onClick={() => setShowAdmissionPopup(true)}
+              className="inline-block px-8 md:px-12 py-3.5 md:py-4.5 bg-indigo-600 text-white rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-slate-900 transition-all shadow-xl shadow-indigo-100"
+            >
               Apply for Admission
-            </Link>
+            </button>
             <a
               href="https://wa.me/917979001951?text=Hello%21%20I%20want%20to%20inquire%20about%20admission%20at%20Gyan%20Sagar%20Public%20School."
               target="_blank"
